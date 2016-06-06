@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpckan\n"
+"POT-Creation-Date: 2016-06-06 17:18+0200\n"
+"PO-Revision-Date: 2016-06-06 17:18+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: i18n\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: page-laws.php:62
+msgid "Title"
+msgstr ""
+
+#: page-laws.php:63
+msgid "Document type"
+msgstr ""
+
+#: page-laws.php:64
+msgid "Document number"
+msgstr ""
+
+#: page-laws.php:65
+msgid "Promulgation date"
+msgstr ""
+
+#: page-laws.php:66
+msgid "Download"
+msgstr ""
+
+#: page-laws.php:127 page-laws.php:129
+msgid "SEARCH"
+msgstr ""
+
+#: page-laws.php:127
+msgid "Laws in"
+msgstr ""
+
+#: page-laws.php:129
+msgid "in Laws"
+msgstr ""
+
+#: page-laws.php:133
+msgid "Search all Laws"
+msgstr ""
+
+#: page-laws.php:135
+msgid "Clear filter"
+msgstr ""
+
+#: page-laws.php:142
+msgid "LAW COMPENDIUM"
+msgstr ""
+
+#: page-laws.php:151
+msgid "TYPE OF LAWS"
+msgstr ""
+
+#: page-laws.php:155
+msgid "Anukret/Sub-Decree"
+msgstr ""
+
+#: page-laws.php:156
+msgid "Chbab/Law/Kram"
+msgstr ""
+
+#: page-laws.php:157
+msgid "Constitution of Cambodia"
+msgstr ""
+
+#: page-laws.php:158
+msgid "International Treaties/Agreements"
+msgstr ""
+
+#: page-laws.php:159
+msgid "Kech Sonya/Contract/Agreement"
+msgstr ""
+
+#: page-laws.php:160
+msgid "Kolkar Nenom/Guidelines"
+msgstr ""
+
+#: page-laws.php:161
+msgid "Kolnyobay/Policy"
+msgstr ""
+
+#: page-laws.php:162
+msgid "Likhet/Letter"
+msgstr ""
+
+#: page-laws.php:163
+msgid "Prakas/Joint-Prakas/Proclamation"
+msgstr ""
+
+#: page-laws.php:164
+msgid "Preah Reach Kram/Royal Kram"
+msgstr ""
+
+#: page-laws.php:165
+msgid "Sarachor/Circular"
+msgstr ""
+
+#: page-laws.php:166
+msgid "Sechkdei Chhun Damneoung/Notice/Announcement"
+msgstr ""
+
+#: page-laws.php:167
+msgid "Sechkdei Nenum/Instruction"
+msgstr ""
+
+#: page-laws.php:168
+msgid "Sechkdei Preang Chbab/Draft Laws & Regulations"
+msgstr ""
+
+#: page-laws.php:169
+msgid "Sechkdei Samrech/Decision"
+msgstr ""
+
+#: page-laws.php:170
+msgid "Others"
+msgstr ""
