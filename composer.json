@@ -1,0 +1,17 @@
+{
+    "name": "odm/wp-odm_law_pages",
+    "description": "Internal ODM Wordpress plugin for exposing a page template for law pages",
+    "require": {
+        "datatables/datatables": "^1.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    },
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Alex Corbi",
+            "email": "a.corbi@gmail.com"
+        }
+    ]
+}
