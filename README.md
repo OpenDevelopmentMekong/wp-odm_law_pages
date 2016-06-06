@@ -1,2 +1,3 @@
 # wp-odm_law_pages
-Wordpress plugin for exposing custom content type for law pages
+
+Internal ODM Wordpress plugin for exposing a page template for law pages
