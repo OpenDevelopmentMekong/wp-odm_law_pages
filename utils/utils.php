@@ -220,3 +220,12 @@ else {
     return $number;
 }
 }
+
+if (!function_exists('IsNullOrEmptyString')) {
+    function IsNullOrEmptyString($question)
+    {
+        return !isset($question) || @trim($question) === '';
+    }
+}
+
+?>

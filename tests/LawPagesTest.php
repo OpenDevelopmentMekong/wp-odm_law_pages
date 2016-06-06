@@ -22,3 +22,5 @@ class LawPagesTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($results);
     }
 }
+
+?>
