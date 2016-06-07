@@ -72,6 +72,7 @@ if (!class_exists('OpenDev_Law_Pages')) {
       );
 
       add_action('init', array($this, 'register_styles'));
+      add_action('admin_notices', array($this, 'check_requirements'));
 
       // Add your templates to this array.
       $this->templates = array('templates/page-laws.php' => 'Law pages');
@@ -81,6 +82,12 @@ if (!class_exists('OpenDev_Law_Pages')) {
     {
       wp_register_style('style',  plugin_dir_url( __FILE__ ).'css/law-pages.css');
       wp_enqueue_style('style');
+    }
+
+    function check_requirements(){
+      if (!check_requirements_profile_pages()):
+        echo '<div class="error"><p>ODM Laws pages: WPCKAN plugin is missing, deactivated or missconfigured. Please check.</p></div>';
+      endif;
     }
 
     public static function activate()

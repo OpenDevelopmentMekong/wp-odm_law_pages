@@ -45,3 +45,7 @@ function buildStyledTopTopicListForLaws($lang)
     }
     echo '</ul>';
 }
+
+function check_requirements_law_pages(){
+  return function_exists('wpckan_get_ckan_domain') && function_exists('wpckan_validate_settings_read') && wpckan_validate_settings_read();
+}
