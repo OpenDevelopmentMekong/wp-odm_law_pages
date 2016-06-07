@@ -13,6 +13,8 @@
 // Require dependencies isntalled via composer
 require_once plugin_dir_path( __FILE__ ).'vendor/autoload.php';
 
+require_once plugin_dir_path( __FILE__ ).'utils/utils.php';
+
 if (!class_exists('OpenDev_Law_Pages')) {
 
   class OpenDev_Law_Pages
@@ -85,7 +87,7 @@ if (!class_exists('OpenDev_Law_Pages')) {
     }
 
     function check_requirements(){
-      if (!check_requirements_profile_pages()):
+      if (!check_requirements_law_pages()):
         echo '<div class="error"><p>ODM Laws pages: WPCKAN plugin is missing, deactivated or missconfigured. Please check.</p></div>';
       endif;
     }
