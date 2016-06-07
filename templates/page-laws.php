@@ -22,25 +22,14 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
     }
     $laws = array();
     if (!IsNullOrEmptyString($filter_odm_taxonomy)) {
-        $laws = get_law_datasets($CKAN_DOMAIN, 'taxonomy', $filter_odm_taxonomy);
+        $laws = get_law_datasets(wpckan_get_ckan_domain(), 'taxonomy', $filter_odm_taxonomy);
     } elseif (!IsNullOrEmptyString($filter_odm_document_type)) {
-        $laws = get_law_datasets($CKAN_DOMAIN, 'odm_document_type', $filter_odm_document_type);
+        $laws = get_law_datasets(wpckan_get_ckan_domain(), 'odm_document_type', $filter_odm_document_type);
     } else {
-        $laws = get_law_datasets($CKAN_DOMAIN, null, null);
+        $laws = get_law_datasets(wpckan_get_ckan_domain(), null, null);
     }
 
-    $lang = 'en';
     $headline = $filter_odm_taxonomy;
-
-    if (function_exists('qtranxf_getLanguage')) {
-        $lang = qtranxf_getLanguage();
-    }
-
-    // NOTE: This is a hack to harmonize language code between WP and CKAN.
-    // Current country code for CAmbodia is set to KH on WP, after that is moved to KM, this needs to be replaced.
-    if ($lang == 'kh') {
-        $lang = 'km';
-    }
 
   ?>
 
@@ -53,7 +42,7 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
 		</header>
 		<div class="container">
 			<div class="nine columns">
-        <?php get_template_part('loop'); ?>
+        <?php the_content(); ?>
         <table id="law_datasets" class="data-table">
           <thead>
             <tr>
@@ -71,7 +60,7 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
 }?>
               <tr>
                 <td class="entry_title">
-                  <a href="<?php echo $CKAN_DOMAIN.'/dataset/'.$law_record['id'];?>"><?php echo getMultilingualValueOrFallback($law_record['title_translated'], $lang);?></a>
+                  <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$law_record['id'];?>"><?php echo getMultilingualValueOrFallback($law_record['title_translated'], get_current_language());?></a>
                 </td>
                 <td>
                   <?php
@@ -84,13 +73,13 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
                 <td>
                   <?php
                   if (isset($law_record['odm_document_number'])) {
-                      echo $law_record['odm_document_number'][$lang];
+                      echo $law_record['odm_document_number'][get_current_language()];
                   }?>
                 </td>
                 <td>
                   <?php
                   if (isset($law_record['odm_promulgation_date'])) {
-                      if (function_exists('qtranxf_getLanguage') && ((qtranxf_getLanguage() == 'kh') || (qtranxf_getLanguage == 'km'))) {
+                      if (function_exists('qtranxf_getLanguage') && ((qtranxf_getLanguage() == 'kh') || (qtranxf_getLanguage() == 'km'))) {
                           echo convert_date_to_kh_date(date('d.m.Y', strtotime($law_record['odm_promulgation_date'])));
                       } else {
                           echo $law_record['odm_promulgation_date'];
@@ -106,6 +95,7 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
     ?>">
                           <span class="icon-arrow-down"></span>EN</a></span>
                       <?php
+
 } ?>
                     <?php endforeach; ?>
                     <?php foreach ($law_record['resources'] as $resource) :?>
@@ -115,6 +105,7 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
     ?>">
                           <span class="icon-arrow-down"></span>KM</a></span>
                       <?php
+
 } ?>
                     <?php endforeach; ?>
                 </td>
@@ -134,12 +125,14 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
     ?> <?php _e($headline, 'opendev');
     ?></h2>
             <?php
+
 } else {
     ?>
 	               <h2><?php _e('SEARCH', 'opendev');
     ?></h2> <?php _e('in Laws', 'opendev');
     ?>
            <?php
+
 } ?>
 					</div>
 					<div class="sidebar_box_content">
@@ -155,7 +148,7 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
 						<h2><?php _e('LAW COMPENDIUM', 'opendev');?></h2>
 					</div>
 					<div class="sidebar_box_content">
-            <?php echo buildStyledTopTopicListForLaws($lang); ?>
+            <?php echo buildStyledTopTopicListForLaws(get_current_language()); ?>
 					</div>
 				</div>
 
