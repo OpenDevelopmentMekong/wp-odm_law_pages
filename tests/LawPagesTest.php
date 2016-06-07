@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)) . '/inc/datastore-api.php';
+require_once dirname(dirname(__FILE__)) . '/utils/utils.php';
 
 class LawPagesTest extends PHPUnit_Framework_TestCase
 {
