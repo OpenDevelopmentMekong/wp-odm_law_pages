@@ -1,6 +1,6 @@
 {
-    "name": "odm/wp-odm_dataset_pages",
-    "description": "Internal ODM Wordpress plugin for exposing a page template for law pages",
+    "name": "odm/wp-odm_tabular_pages",
+    "description": "Internal ODM Wordpress plugin for exposing a page template for tabular pages",
     "require": {
         "datatables/datatables": "^1.10"
     },

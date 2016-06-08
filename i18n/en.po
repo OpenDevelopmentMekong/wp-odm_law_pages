@@ -20,114 +20,114 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#: page-laws.php:62
+#: tabular-pages-template.php:62
 msgid "Title"
 msgstr ""
 
-#: page-laws.php:63
+#: tabular-pages-template.php:63
 msgid "Document type"
 msgstr ""
 
-#: page-laws.php:64
+#: tabular-pages-template.php:64
 msgid "Document number"
 msgstr ""
 
-#: page-laws.php:65
+#: tabular-pages-template.php:65
 msgid "Promulgation date"
 msgstr ""
 
-#: page-laws.php:66
+#: tabular-pages-template.php:66
 msgid "Download"
 msgstr ""
 
-#: page-laws.php:127 page-laws.php:129
+#: tabular-pages-template.php:127 tabular-pages-template.php:129
 msgid "SEARCH"
 msgstr ""
 
-#: page-laws.php:127
+#: tabular-pages-template.php:127
 msgid "Laws in"
 msgstr ""
 
-#: page-laws.php:129
+#: tabular-pages-template.php:129
 msgid "in Laws"
 msgstr ""
 
-#: page-laws.php:133
+#: tabular-pages-template.php:133
 msgid "Search all Laws"
 msgstr ""
 
-#: page-laws.php:135
+#: tabular-pages-template.php:135
 msgid "Clear filter"
 msgstr ""
 
-#: page-laws.php:142
+#: tabular-pages-template.php:142
 msgid "LAW COMPENDIUM"
 msgstr ""
 
-#: page-laws.php:151
+#: tabular-pages-template.php:151
 msgid "TYPE OF LAWS"
 msgstr ""
 
-#: page-laws.php:155
+#: tabular-pages-template.php:155
 msgid "Anukret/Sub-Decree"
 msgstr ""
 
-#: page-laws.php:156
+#: tabular-pages-template.php:156
 msgid "Chbab/Law/Kram"
 msgstr ""
 
-#: page-laws.php:157
+#: tabular-pages-template.php:157
 msgid "Constitution of Cambodia"
 msgstr ""
 
-#: page-laws.php:158
+#: tabular-pages-template.php:158
 msgid "International Treaties/Agreements"
 msgstr ""
 
-#: page-laws.php:159
+#: tabular-pages-template.php:159
 msgid "Kech Sonya/Contract/Agreement"
 msgstr ""
 
-#: page-laws.php:160
+#: tabular-pages-template.php:160
 msgid "Kolkar Nenom/Guidelines"
 msgstr ""
 
-#: page-laws.php:161
+#: tabular-pages-template.php:161
 msgid "Kolnyobay/Policy"
 msgstr ""
 
-#: page-laws.php:162
+#: tabular-pages-template.php:162
 msgid "Likhet/Letter"
 msgstr ""
 
-#: page-laws.php:163
+#: tabular-pages-template.php:163
 msgid "Prakas/Joint-Prakas/Proclamation"
 msgstr ""
 
-#: page-laws.php:164
+#: tabular-pages-template.php:164
 msgid "Preah Reach Kram/Royal Kram"
 msgstr ""
 
-#: page-laws.php:165
+#: tabular-pages-template.php:165
 msgid "Sarachor/Circular"
 msgstr ""
 
-#: page-laws.php:166
+#: tabular-pages-template.php:166
 msgid "Sechkdei Chhun Damneoung/Notice/Announcement"
 msgstr ""
 
-#: page-laws.php:167
+#: tabular-pages-template.php:167
 msgid "Sechkdei Nenum/Instruction"
 msgstr ""
 
-#: page-laws.php:168
+#: tabular-pages-template.php:168
 msgid "Sechkdei Preang Chbab/Draft Laws & Regulations"
 msgstr ""
 
-#: page-laws.php:169
+#: tabular-pages-template.php:169
 msgid "Sechkdei Samrech/Decision"
 msgstr ""
 
-#: page-laws.php:170
+#: tabular-pages-template.php:170
 msgid "Others"
 msgstr ""
