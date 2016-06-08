@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Law pages
+Template Name: ODM Law pages
 */
 
 require_once 'page-laws-config.php';
@@ -36,12 +36,12 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
   <section id="content" class="single-post">
     <div class="container">
       <div class="row">
-        <header class="single-post-header">
-    			<div class="twelve columns">
+  			<div class="twelve columns">
+          <header class="single-post-header">
             <h1 class=""><a href="<?php get_page_link(); ?>"><?php the_title(); ?></a></h1>
             <h2 class=""><?php _e($headline, 'opendev'); ?></h2>
-    			</div>
-    		</header>
+    		  </header>
+  			</div>
       </div>
 
       <div class="row">
@@ -94,23 +94,23 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
                   <td class="download_buttons">
                       <?php foreach ($law_record['resources'] as $resource) :?>
                         <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en') {
-      ?>
+    ?>
                           <span><a href="<?php echo $resource['url'];
-      ?>">
+    ?>">
                             <span class="icon-arrow-down"></span>EN</a></span>
                         <?php
 
-  } ?>
+} ?>
                       <?php endforeach; ?>
                       <?php foreach ($law_record['resources'] as $resource) :?>
                         <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'km') {
-      ?>
+    ?>
                           <span><a href="<?php echo $resource['url'];
-      ?>">
+    ?>">
                             <span class="icon-arrow-down"></span>KM</a></span>
                         <?php
 
-  } ?>
+} ?>
                       <?php endforeach; ?>
                   </td>
                 </tr>
@@ -123,21 +123,21 @@ require_once dirname(dirname(__FILE__)).'/utils/utils.php';
           <div class="sidebar_box">
   					<div class="sidebar_header">
               <?php if ($headline) {
-      ?>
+    ?>
                 <h2><?php _e('SEARCH', 'opendev');
-      ?> <?php _e('Laws in', 'opendev');
-      ?> <?php _e($headline, 'opendev');
-      ?></h2>
+    ?> <?php _e('Laws in', 'opendev');
+    ?> <?php _e($headline, 'opendev');
+    ?></h2>
               <?php
 
-  } else {
-      ?>
+} else {
+    ?>
   	               <h2><?php _e('SEARCH', 'opendev');
-      ?></h2> <?php _e('in Laws', 'opendev');
-      ?>
+    ?></h2> <?php _e('in Laws', 'opendev');
+    ?>
              <?php
 
-  } ?>
+} ?>
   					</div>
   					<div class="sidebar_box_content">
   						<input type="text" id="search_all" placeholder=<?php _e('Search all Laws', 'opendev');?>>
