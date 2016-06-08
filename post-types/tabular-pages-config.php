@@ -1,5 +1,8 @@
 <?php
 
+$DATASET_TYPE = 'laws_record';
+$DATASET_TYPE_NAME = 'Laws';
+
 $LAWS_DOCUMENT_TYPE = array(
   'anukretsub-decree' => 'Anukret/Sub-Decree',
   'chbablawkram' => 'Chbab/Law/Kram',

@@ -112,6 +112,7 @@
   border: none;
   font-size: 13px;
   border: 0;
+  width: 100%;
 }
 .dataTables_length {
     margin-top: 12px;
@@ -219,11 +220,6 @@ td.entry_title a{
 .download_buttons{
   min-width: 100px;
 }
-.download-law{
-  width: 40px;
-  float: left;
-  padding: 2px;
-}
 
 .download_buttons span {
     display: inline-block;
@@ -278,17 +274,17 @@ td.entry_title a{
     padding-top: 15px;
 }
 /*temporary hiding references*/
-#profiles td ul{
+#tabular td ul{
   display: none;
 }
-#profiles tbody{
+#tabular tbody{
   width:100%;
 }
-#profiles td .td-value ul{
+#tabular td .td-value ul{
   display: inline-block;
   margin-bottom: 0
 }
-#profiles td .td-value ul li{
+#tabular td .td-value ul li{
   min-width: 200px;
 }
 .disclaimer {
@@ -299,7 +295,7 @@ td.entry_title a{
   margin-bottom: 6px;
 }
 
-.page-template-page-profiles .single-post .row{
+.page-template-page-tabular .single-post .row{
   margin-top: 0;
 }
 #filter_by_classification{
