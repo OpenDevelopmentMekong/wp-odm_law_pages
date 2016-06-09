@@ -133,7 +133,7 @@
   					<div class="sidebar_box_content">
   						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular'). " " . $DATASET_TYPE_NAME; ?>>
               <?php if (!IsNullOrEmptyString($filter_odm_document_type) || !IsNullOrEmptyString($filter_odm_taxonomy)): ?>
-                <a href="/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
+                <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
               <?php endif; ?>
   					</div>
 				  </div>
