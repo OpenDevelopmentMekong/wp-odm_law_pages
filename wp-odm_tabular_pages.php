@@ -10,9 +10,6 @@
  * License: GPLv3.
  */
 
-// Require dependencies isntalled via composer
-require_once plugin_dir_path(__FILE__).'vendor/autoload.php';
-
 // Require utils
 require_once plugin_dir_path(__FILE__).'utils/utils.php';
 
