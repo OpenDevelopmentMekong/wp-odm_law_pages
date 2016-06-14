@@ -7,9 +7,6 @@ sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update -q
 sudo apt-get install -q -y ansible
 
-echo "Install php dependencies"
-composer install
-
 echo "Downloading and unzipping odm_automation"
 wget https://github.com/OpenDevelopmentMekong/odm-automation/archive/master.zip -O /tmp/odm_automation.zip
 unzip /tmp/odm_automation.zip -d /tmp/
