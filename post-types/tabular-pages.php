@@ -29,7 +29,7 @@ if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
             $labels = array(
             'name' => __('Tabular Page', 'post type general name', 'tabular'),
             'singular_name' => __('Tabular Page', 'post type singular name', 'tabular'),
-            'menu_name' => __('Tabular Pages', 'admin menu', 'tabular'),
+            'menu_name' => __('Tabular Pages', 'admin menu for tabular pages', 'tabular'),
             'name_admin_bar' => __('Tabular Pages', 'add new on admin bar', 'tabular'),
             'add_new' => __('Add new', 'tabular page', 'tabular'),
             'add_new_item' => __('Add new tabular page', 'tabular'),
@@ -55,7 +55,7 @@ if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
             'has_archive' => true,
             'hierarchical' => true,
             //'taxonomies'         => array('category', 'language', 'post_tag'),
-            'menu_position' => 4,
+            //'menu_position' => 4,
             'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail'),
             );
 
