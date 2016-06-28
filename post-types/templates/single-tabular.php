@@ -12,9 +12,9 @@
         $filter_odm_taxonomy = htmlspecialchars($_GET['odm_taxonomy']);
     }
     $datasets = array();
-    if (!IsNullOrEmptyString($filter_odm_taxonomy)) {
+    if (!empty($filter_odm_taxonomy)) {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'taxonomy', $filter_odm_taxonomy);
-    } elseif (!IsNullOrEmptyString($filter_odm_document_type)) {
+    } elseif (!empty($filter_odm_document_type)) {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'odm_document_type', $filter_odm_document_type);
     } else {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, null, null);
@@ -50,7 +50,7 @@
             </thead>
             <tbody>
               <?php foreach ($datasets as $dataset): ?>
-                <?php if (IsNullOrEmptyString($dataset['odm_document_type'])):
+                <?php if (empty($dataset['odm_document_type'])):
                         continue;
                       endif; ?>
                 <tr>
@@ -132,7 +132,7 @@
   					</div>
   					<div class="sidebar_box_content">
   						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular'). " " . $DATASET_TYPE_NAME; ?>>
-              <?php if (!IsNullOrEmptyString($filter_odm_document_type) || !IsNullOrEmptyString($filter_odm_taxonomy)): ?>
+              <?php if (!empty($filter_odm_document_type) || !empty($filter_odm_taxonomy)): ?>
                 <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
               <?php endif; ?>
   					</div>
