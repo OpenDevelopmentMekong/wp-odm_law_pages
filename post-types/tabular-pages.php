@@ -44,19 +44,20 @@ if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
             );
 
             $args = array(
-            'labels' => $labels,
-            'public' => true,
-            'publicly_queryable' => true,
-            'show_ui' => true,
-            'show_in_menu' => true,
-            //'query_var'          => true,
-            //'rewrite'            => array( 'slug' => 'tabular' ),
-            'capability_type' => 'page',
-            'has_archive' => true,
-            'hierarchical' => true,
-            //'taxonomies'         => array('category', 'language', 'post_tag'),
-            'menu_position' => 4,
-            'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail'),
+              'labels'             => $labels,
+              'public'             => true,
+              'publicly_queryable' => true,
+              'show_ui'            => true,
+              'show_in_menu'       => true,
+  			      'menu_icon'          => '',
+              'query_var'          => true,
+              'rewrite'            => array( 'slug' => 'tabular-pages' ),
+              'capability_type'    => 'page',
+              'has_archive'        => true,
+              'hierarchical'       => true,
+              'menu_position'      => 5,
+              //'taxonomies'         => array('category', 'language', 'post_tag'),
+              'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail')
             );
 
             register_post_type('tabular', $args);
