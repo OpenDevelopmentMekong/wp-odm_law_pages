@@ -12,9 +12,9 @@
         $filter_odm_taxonomy = htmlspecialchars($_GET['odm_taxonomy']);
     }
     $datasets = array();
-    if (!IsNullOrEmptyString($filter_odm_taxonomy)) {
+    if (!empty($filter_odm_taxonomy)) {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'taxonomy', $filter_odm_taxonomy);
-    } elseif (!IsNullOrEmptyString($filter_odm_document_type)) {
+    } elseif (!empty($filter_odm_document_type)) {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'odm_document_type', $filter_odm_document_type);
     } else {
         $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, null, null);
@@ -50,12 +50,12 @@
             </thead>
             <tbody>
               <?php foreach ($datasets as $dataset): ?>
-                <?php if (IsNullOrEmptyString($dataset['odm_document_type'])):
+                <?php if (empty($dataset['odm_document_type'])):
                         continue;
                       endif; ?>
                 <tr>
                   <td class="entry_title">
-                    <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$dataset['id'];?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], get_current_language());?></a>
+                    <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$dataset['id'];?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], opendev_language_manager()->get_current_language());?></a>
                   </td>
                   <td>
                     <?php
@@ -68,13 +68,13 @@
                   <td>
                     <?php
                     if (isset($dataset['odm_document_number'])) {
-                        echo $dataset['odm_document_number'][get_current_language()];
+                        echo $dataset['odm_document_number'][opendev_language_manager()->get_current_language()];
                     }?>
                   </td>
                   <td>
                     <?php
                     if (isset($dataset['odm_promulgation_date'])) {
-                        if (get_current_language() == 'km') {
+                        if (opendev_language_manager()->get_current_language() == 'km') {
                             echo convert_date_to_kh_date(date('d.m.Y', strtotime($dataset['odm_promulgation_date'])));
                         } else {
                             echo $dataset['odm_promulgation_date'];
@@ -132,7 +132,7 @@
   					</div>
   					<div class="sidebar_box_content">
   						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular'). " " . $DATASET_TYPE_NAME; ?>>
-              <?php if (!IsNullOrEmptyString($filter_odm_document_type) || !IsNullOrEmptyString($filter_odm_taxonomy)): ?>
+              <?php if (!empty($filter_odm_document_type) || !empty($filter_odm_taxonomy)): ?>
                 <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
               <?php endif; ?>
   					</div>
@@ -143,7 +143,7 @@
   						<h2><?php _e('Filter by taxonomy', 'tabular');?></h2>
   					</div>
   					<div class="sidebar_box_content">
-              <?php echo buildStyledTopTopicList(get_current_language()); ?>
+              <?php echo buildStyledTopTopicList(opendev_language_manager()->get_current_language()); ?>
   					</div>
   				</div>
 
