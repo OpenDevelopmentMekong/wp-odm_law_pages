@@ -55,7 +55,7 @@
                       endif; ?>
                 <tr>
                   <td class="entry_title">
-                    <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$dataset['id'];?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], opendev_language_manager()->get_current_language());?></a>
+                    <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$dataset['id'];?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language());?></a>
                   </td>
                   <td>
                     <?php
@@ -68,13 +68,13 @@
                   <td>
                     <?php
                     if (isset($dataset['odm_document_number'])) {
-                        echo $dataset['odm_document_number'][opendev_language_manager()->get_current_language()];
+                        echo $dataset['odm_document_number'][odm_language_manager()->get_current_language()];
                     }?>
                   </td>
                   <td>
                     <?php
                     if (isset($dataset['odm_promulgation_date'])) {
-                        if (opendev_language_manager()->get_current_language() == 'km') {
+                        if (odm_language_manager()->get_current_language() == 'km') {
                             echo convert_date_to_kh_date(date('d.m.Y', strtotime($dataset['odm_promulgation_date'])));
                         } else {
                             echo $dataset['odm_promulgation_date'];
@@ -143,7 +143,7 @@
   						<h2><?php _e('Filter by taxonomy', 'tabular');?></h2>
   					</div>
   					<div class="sidebar_box_content">
-              <?php echo buildStyledTopTopicList(opendev_language_manager()->get_current_language()); ?>
+              <?php echo buildStyledTopTopicList(odm_language_manager()->get_current_language()); ?>
   					</div>
   				</div>
 

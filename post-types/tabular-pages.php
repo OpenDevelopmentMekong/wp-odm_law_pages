@@ -2,9 +2,9 @@
 
 require_once 'tabular-pages-config.php';
 
-if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
+if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
-    class OpenDev_Tabular_Pages_Post_Type
+    class Odm_Tabular_Pages_Post_Type
     {
         public function __construct()
         {
