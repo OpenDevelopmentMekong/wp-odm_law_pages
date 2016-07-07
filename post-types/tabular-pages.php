@@ -2,9 +2,9 @@
 
 require_once 'tabular-pages-config.php';
 
-if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
+if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
-    class OpenDev_Tabular_Pages_Post_Type
+    class Odm_Tabular_Pages_Post_Type
     {
         public function __construct()
         {
@@ -27,7 +27,7 @@ if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
         public function register_post_type()
         {
             $labels = array(
-            'name' => __('Tabular Page', 'post type general name', 'tabular'),
+            'name' => __('Tabular Pages', 'post type general name', 'tabular'),
             'singular_name' => __('Tabular Page', 'post type singular name', 'tabular'),
             'menu_name' => __('Tabular Pages', 'admin menu for tabular pages', 'tabular'),
             'name_admin_bar' => __('Tabular Pages', 'add new on admin bar', 'tabular'),
@@ -51,7 +51,7 @@ if (!class_exists('OpenDev_Tabular_Pages_Post_Type')) {
               'show_in_menu'       => true,
   			      'menu_icon'          => '',
               'query_var'          => true,
-              'rewrite'            => array( 'slug' => 'tabular-pages' ),
+              'rewrite'            => array( 'slug' => 'tabular' ),
               'capability_type'    => 'page',
               'has_archive'        => true,
               'hierarchical'       => true,
