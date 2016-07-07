@@ -27,7 +27,7 @@
   <section id="content" class="single-post">
     <div class="container">
       <div class="row">
-  			<div class="twelve columns">
+  			<div class="sixteen columns">
           <header class="single-post-header">
             <h1 class=""><a href="<?php get_page_link(); ?>"><?php the_title(); ?></a></h1>
             <h2 class=""><?php _e($headline, 'tabular'); ?></h2>
@@ -36,7 +36,7 @@
       </div>
 
       <div class="row">
-			  <div class="nine columns">
+			  <div class="ten columns">
           <?php the_content(); ?>
           <table id="datasets_table" class="data-table">
             <thead>
@@ -110,7 +110,7 @@
     			</table>
 			  </div>
 
-        <div class="three columns">
+        <div class="four columns offset-by-two">
           <div class="sidebar_box">
   					<div class="sidebar_header">
               <?php if ($headline) {
