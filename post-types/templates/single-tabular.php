@@ -13,11 +13,22 @@
     }
     $datasets = array();
     if (!empty($filter_odm_taxonomy)) {
-        $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'taxonomy', $filter_odm_taxonomy);
+        $attrs = array(
+          'type' => $DATASET_TYPE,
+          'filter_fields' => '{"extras_taxonomy":"'.$filter_odm_taxonomy.'"}',
+        );
+        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
     } elseif (!empty($filter_odm_document_type)) {
-        $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, 'odm_document_type', $filter_odm_document_type);
+        $attrs = array(
+          'type' => $DATASET_TYPE,
+          'filter_fields' => '{"extras_odm_document_type":"'.$filter_odm_document_type.'"}',
+        );
+        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
     } else {
-        $datasets = tabular_pages_get_datasets(wpckan_get_ckan_domain(), $DATASET_TYPE, null, null);
+        $attrs = array(
+          'type' => $DATASET_TYPE
+        );
+        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
     }
 
     $headline = $filter_odm_taxonomy;
@@ -27,7 +38,7 @@
   <section id="content" class="single-post">
     <div class="container">
       <div class="row">
-  			<div class="twelve columns">
+  			<div class="sixteen columns">
           <header class="single-post-header">
             <h1 class=""><a href="<?php get_page_link(); ?>"><?php the_title(); ?></a></h1>
             <h2 class=""><?php _e($headline, 'tabular'); ?></h2>
@@ -36,7 +47,7 @@
       </div>
 
       <div class="row">
-			  <div class="nine columns">
+			  <div class="eleven columns">
           <?php the_content(); ?>
           <table id="datasets_table" class="data-table">
             <thead>
@@ -49,13 +60,13 @@
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($datasets as $dataset): ?>
+              <?php foreach ($datasets['results'] as $dataset): ?>
                 <?php if (empty($dataset['odm_document_type'])):
                         continue;
                       endif; ?>
                 <tr>
                   <td class="entry_title">
-                    <a href="<?php echo wpckan_get_ckan_domain().'/dataset/'.$dataset['id'];?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language());?></a>
+                    <a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language(),$dataset['title']);?></a>
                   </td>
                   <td>
                     <?php
@@ -110,13 +121,13 @@
     			</table>
 			  </div>
 
-        <div class="three columns">
+        <div class="four columns offset-by-one columns">
           <div class="sidebar_box">
   					<div class="sidebar_header">
               <?php if ($headline) {
     ?>
                 <h2><?php _e('SEARCH', 'tabular');
-    ?> <?php $DATASET_TYPE_NAME . " " . _e('in', 'tabular');
+    ?> <?php $DATASET_TYPE_NAME.' '._e('in', 'tabular');
     ?> <?php _e($headline, 'tabular');
     ?></h2>
               <?php
@@ -124,14 +135,14 @@
 } else {
     ?>
   	               <h2><?php _e('SEARCH', 'tabular');
-    ?></h2> <?php _e('in', 'tabular') . " " . $DATASET_TYPE_NAME;
+    ?></h2> <?php _e('in', 'tabular').' '.$DATASET_TYPE_NAME;
     ?>
              <?php
 
 } ?>
   					</div>
   					<div class="sidebar_box_content">
-  						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular'). " " . $DATASET_TYPE_NAME; ?>>
+  						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular').' '.$DATASET_TYPE_NAME; ?>>
               <?php if (!empty($filter_odm_document_type) || !empty($filter_odm_taxonomy)): ?>
                 <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
               <?php endif; ?>
@@ -153,8 +164,8 @@
   					</div>
   					<div class="sidebar_box_content">
               <ul>
-                <?php foreach($LAWS_DOCUMENT_TYPE as $key => $value): ?>
-                  <li><a href="?odm_document_type=<?php echo $key ?>;"><?php echo($value);?></a></li>
+                <?php foreach ($LAWS_DOCUMENT_TYPE as $key => $value): ?>
+                  <li><a href="?odm_document_type=<?php echo $key ?>;"><?php echo $value;?></a></li>
                 <?php endforeach; ?>
               </ul>
   					</div>
