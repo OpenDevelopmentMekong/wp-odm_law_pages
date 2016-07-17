@@ -34,145 +34,142 @@
     $headline = $filter_odm_taxonomy;
 
   ?>
+  <section class="container">
+		<header class="row">
+			<div class="sixteen columns">
+        <a href="<?php get_page_link(); ?>"><h1><?php the_title(); ?></h1></a>
+        <h2><?php _e($headline, 'tabular'); ?></h2>
+			</div>
+		</header>
+	</section>
 
-  <section id="content" class="single-post">
-    <div class="container">
-      <div class="row">
-  			<div class="sixteen columns">
-          <header class="single-post-header">
-            <h1 class=""><a href="<?php get_page_link(); ?>"><?php the_title(); ?></a></h1>
-            <h2 class=""><?php _e($headline, 'tabular'); ?></h2>
-    		  </header>
-  			</div>
-      </div>
-
-      <div class="row">
-			  <div class="eleven columns">
-          <?php the_content(); ?>
-          <table id="datasets_table" class="data-table">
-            <thead>
+  <section class="container">
+    <div class="row">
+		  <div class="eleven columns">
+        <?php the_content(); ?>
+        <table id="datasets_table" class="data-table">
+          <thead>
+            <tr>
+              <th><?php _e('Title', 'tabular');?></th>
+              <th><?php _e('Document type', 'tabular');?></th>
+              <th><?php _e('Document number', 'tabular');?></th>
+              <th><?php _e('Promulgation date', 'tabular');?></th>
+              <th><?php _e('Download', 'tabular');?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($datasets['results'] as $dataset): ?>
+              <?php if (empty($dataset['odm_document_type'])):
+                      continue;
+                    endif; ?>
               <tr>
-                <th><?php _e('Title', 'tabular');?></th>
-                <th><?php _e('Document type', 'tabular');?></th>
-                <th><?php _e('Document number', 'tabular');?></th>
-                <th><?php _e('Promulgation date', 'tabular');?></th>
-                <th><?php _e('Download', 'tabular');?></th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($datasets['results'] as $dataset): ?>
-                <?php if (empty($dataset['odm_document_type'])):
-                        continue;
-                      endif; ?>
-                <tr>
-                  <td class="entry_title">
-                    <a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language(),$dataset['title']);?></a>
-                  </td>
-                  <td>
-                    <?php
-                      if (isset($dataset['odm_document_type'])) {
-                          $doc_type = $dataset['odm_document_type'];
-                          echo _e($LAWS_DOCUMENT_TYPE[$doc_type], 'tabular');
-                      }
-                    ?>
-                  </td>
-                  <td>
-                    <?php
-                    if (isset($dataset['odm_document_number'])) {
-                        echo $dataset['odm_document_number'][odm_language_manager()->get_current_language()];
-                    }?>
-                  </td>
-                  <td>
-                    <?php
-                    if (isset($dataset['odm_promulgation_date'])) {
-                        if (odm_language_manager()->get_current_language() == 'km') {
-                            echo convert_date_to_kh_date(date('d.m.Y', strtotime($dataset['odm_promulgation_date'])));
-                        } else {
-                            echo $dataset['odm_promulgation_date'];
-                        }
+                <td class="entry_title">
+                  <a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language(),$dataset['title']);?></a>
+                </td>
+                <td>
+                  <?php
+                    if (isset($dataset['odm_document_type'])) {
+                        $doc_type = $dataset['odm_document_type'];
+                        echo _e($LAWS_DOCUMENT_TYPE[$doc_type], 'tabular');
                     }
-                    ?>
-                  </td>
-                  <td class="download_buttons">
-                      <?php foreach ($dataset['resources'] as $resource) :?>
-                        <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en') {
-    ?>
-                          <span><a href="<?php echo $resource['url'];
-    ?>">
-                            <span class="icon-arrow-down"></span>EN</a></span>
-                        <?php
+                  ?>
+                </td>
+                <td>
+                  <?php
+                  if (isset($dataset['odm_document_number'])) {
+                      echo $dataset['odm_document_number'][odm_language_manager()->get_current_language()];
+                  }?>
+                </td>
+                <td>
+                  <?php
+                  if (isset($dataset['odm_promulgation_date'])) {
+                      if (odm_language_manager()->get_current_language() == 'km') {
+                          echo convert_date_to_kh_date(date('d.m.Y', strtotime($dataset['odm_promulgation_date'])));
+                      } else {
+                          echo $dataset['odm_promulgation_date'];
+                      }
+                  }
+                  ?>
+                </td>
+                <td class="download_buttons">
+                    <?php foreach ($dataset['resources'] as $resource) :?>
+                      <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en') {
+  ?>
+                        <span><a href="<?php echo $resource['url'];
+  ?>">
+                          <span class="icon-arrow-down"></span>EN</a></span>
+                      <?php
 
 } ?>
-                      <?php endforeach; ?>
-                      <?php foreach ($dataset['resources'] as $resource) :?>
-                        <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'km') {
-    ?>
-                          <span><a href="<?php echo $resource['url'];
-    ?>">
-                            <span class="icon-arrow-down"></span>KM</a></span>
-                        <?php
+                    <?php endforeach; ?>
+                    <?php foreach ($dataset['resources'] as $resource) :?>
+                      <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'km') {
+  ?>
+                        <span><a href="<?php echo $resource['url'];
+  ?>">
+                          <span class="icon-arrow-down"></span>KM</a></span>
+                      <?php
 
 } ?>
-                      <?php endforeach; ?>
-                  </td>
-                </tr>
-      				<?php endforeach; ?>
-    				</tbody>
-    			</table>
-			  </div>
+                    <?php endforeach; ?>
+                </td>
+              </tr>
+    				<?php endforeach; ?>
+  				</tbody>
+  			</table>
+		  </div>
 
-        <div class="four columns offset-by-one columns">
-          <div class="sidebar_box">
-  					<div class="sidebar_header">
-              <?php if ($headline) {
-    ?>
-                <h2><?php _e('SEARCH', 'tabular');
-    ?> <?php $DATASET_TYPE_NAME.' '._e('in', 'tabular');
-    ?> <?php _e($headline, 'tabular');
-    ?></h2>
-              <?php
+      <div class="four columns offset-by-one columns">
+        <div class="sidebar_box">
+					<div class="sidebar_header">
+            <?php if ($headline) {
+  ?>
+              <h2><?php _e('SEARCH', 'tabular');
+  ?> <?php $DATASET_TYPE_NAME.' '._e('in', 'tabular');
+  ?> <?php _e($headline, 'tabular');
+  ?></h2>
+            <?php
 
 } else {
-    ?>
-  	               <h2><?php _e('SEARCH', 'tabular');
-    ?></h2> <?php _e('in', 'tabular').' '.$DATASET_TYPE_NAME;
-    ?>
-             <?php
+  ?>
+	               <h2><?php _e('SEARCH', 'tabular');
+  ?></h2> <?php _e('in', 'tabular').' '.$DATASET_TYPE_NAME;
+  ?>
+           <?php
 
 } ?>
-  					</div>
-  					<div class="sidebar_box_content">
-  						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular').' '.$DATASET_TYPE_NAME; ?>>
-              <?php if (!empty($filter_odm_document_type) || !empty($filter_odm_taxonomy)): ?>
-                <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
-              <?php endif; ?>
-  					</div>
-				  </div>
-
-          <div class="sidebar_box">
-  					<div class="sidebar_header">
-  						<h2><?php _e('Filter by taxonomy', 'tabular');?></h2>
-  					</div>
-  					<div class="sidebar_box_content">
-              <?php echo buildStyledTopTopicList(odm_language_manager()->get_current_language()); ?>
-  					</div>
-  				</div>
-
-          <div class="sidebar_box">
-  					<div class="sidebar_header">
-  						<h2><?php _e('Filter by type', 'tabular');?></h2>
-  					</div>
-  					<div class="sidebar_box_content">
-              <ul>
-                <?php foreach ($LAWS_DOCUMENT_TYPE as $key => $value): ?>
-                  <li><a href="?odm_document_type=<?php echo $key ?>;"><?php echo $value;?></a></li>
-                <?php endforeach; ?>
-              </ul>
-  					</div>
-  				</div>
+					</div>
+					<div class="sidebar_box_content">
+						<input type="text" id="search_all" placeholder=<?php _e('Search all', 'tabular').' '.$DATASET_TYPE_NAME; ?>>
+            <?php if (!empty($filter_odm_document_type) || !empty($filter_odm_taxonomy)): ?>
+              <a href="/tabular/<?php echo strtolower($DATASET_TYPE_NAME); ?>"><?php _e('Clear filter', 'tabular') ?>
+            <?php endif; ?>
+					</div>
 			  </div>
-      </div>
-		</div>
+
+        <div class="sidebar_box">
+					<div class="sidebar_header">
+						<h2><?php _e('Filter by taxonomy', 'tabular');?></h2>
+					</div>
+					<div class="sidebar_box_content">
+            <?php echo buildStyledTopTopicList(odm_language_manager()->get_current_language()); ?>
+					</div>
+				</div>
+
+        <div class="sidebar_box">
+					<div class="sidebar_header">
+						<h2><?php _e('Filter by type', 'tabular');?></h2>
+					</div>
+					<div class="sidebar_box_content">
+            <ul>
+              <?php foreach ($LAWS_DOCUMENT_TYPE as $key => $value): ?>
+                <li><a href="?odm_document_type=<?php echo $key ?>;"><?php echo $value;?></a></li>
+              <?php endforeach; ?>
+            </ul>
+					</div>
+				</div>
+		  </div>
+    </div>
 	</section>
 <?php endif; ?>
 
