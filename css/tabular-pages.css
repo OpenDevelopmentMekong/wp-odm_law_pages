@@ -52,14 +52,6 @@
 .sidebar_box_content ul li a{
   color: #4683D2;
 }
-#search_all{
-  width:90%;
-  margin: 0px auto;
-}
-/*.top{
-  padding-bottom: 10px;
-  font-size: 10px ;
-}*/
 .top {
     display: block;
     height: auto;
@@ -216,59 +208,6 @@ td.entry_title{
 td.entry_title a{
   color: #292D56;
 }
-
-.download_buttons{
-  min-width: 100px;
-}
-
-.download_buttons span {
-    display: inline-block;
-}
-
-.download_buttons span.icon-arrow-down{
-  position: relative;
-  top:2px;
-}
-.download_buttons div.format_button{
-  display: inline-block;
-   position: relative;
-}
-.download_buttons span a, .download_buttons div.format_button a.format{
-  color: white;
-  text-decoration: none;
-  padding: 3px 6px;
-  border: 1px solid rgb(75,75,75);
-  background: rgb(75,75,75);
-  border-radius: 6px;
-  font-size:10px;
-  float: left;
-  margin: 0px 4px 4px 0px;
-}
-.download_buttons span a:hover, .download_buttons div.format_button a.format:hover{
-  background: #f4f4f4;
-  color: #333;
-  border: 1px solid rgb(75,75,75);
-  padding: 3px 6px;
-}
-.show_list_format{
-  display: none;
-  padding: 2px 15px;
-  width: 150px;
-  margin-top: 3px;
-  border: 1px solid #ccc;
-  background-color: #f4f4f4;
-  overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  z-index: 2002;
-  position: absolute;
-  margin-top: 2.5em;
-  -moz-column-gap: 8px;
-}
-.download_buttons div.format_button:last-child > .show_list_format,
-.download_buttons div.format_button:nth-last-child(2) > .show_list_format{
-  right: 0px;
-}
 .dataTables_wrapper .dataTables_scroll {
     display: block;
     padding-top: 15px;
@@ -297,67 +236,4 @@ td.entry_title a{
 
 .page-template-page-tabular .single-post .row{
   margin-top: 0;
-}
-#filter_by_classification{
-  width: 70%;
-  position: relative;
-  z-index: 8000;
-  margin-bottom: -2em;
-}
-#filter_by_classification .filter_by{
-  display: inline-block;
-  margin-right: 1em;
-}
-#filter_by_classification .label {
-  display: inline;
-}
-#filter_by_classification select {
-  display: inline;
-  margin: 0;
-  padding: 2px 2px;
-}
-.fixed_top_bar{
-  display: none;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  background: #fff;
-  z-index: 9999;
-  margin-left: 20px;
-}
-.fixed_top_bar div{
-  display: inline;
-}
-.fixed_top_bar #filter_by_classification{
-  top: 11px;
-  display: inline-block;
-  /*padding-top: .6em;*/
-}
-.fixed_top_bar .dataTables_filter{
-  margin-top: 12px;
-  margin-right: 10px;
-  display: inline-block;;
-  float: right;
-}
-.fixed_top_bar .dataTables_filter input{
-    margin-left: 5px;
-}
-.total_listed {
-  margin-bottom: 1em;
-  font-size: 13px;
-  background: #eee;
-  border: 1px solid #ddd;
-  padding: 5px 0;
-}
-.total_listed ul{
-  margin: 0
-}
-.total_listed li{
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.total_listed li{
-  margin-right: 1em
 }
