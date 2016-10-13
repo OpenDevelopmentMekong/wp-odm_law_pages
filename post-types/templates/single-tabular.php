@@ -43,7 +43,7 @@
 
   <section class="container">
     <div class="row">
-		  <div class="eleven columns">
+		  <div class="twelve columns">
         <?php the_content(); ?>
         <table id="datasets_table" class="data-table">
           <thead>
@@ -110,7 +110,7 @@
   			</table>
 		  </div>
 
-      <div class="four columns offset-by-one columns">
+      <div class="four columns">
         <div class="sidebar_box">
 					<div class="sidebar_header">
             <?php
@@ -181,12 +181,18 @@ jQuery(document).ready(function($) {
   var oTable = $("#datasets_table").dataTable({
     scrollX: false,
     responsive: true,
+		"bAutoWidth": false,
     dom: '<"top"<"info"i><"pagination"p><"length"l>>rt',
-    processing: true,
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
     order: [[ 0, 'asc' ]],
-    displayLength: 25
+    displayLength: 50,
+    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "18%" }, { "sWidth": "15%" }, { "sWidth": "15%" }, { "sWidth": "17%" }]
   });
+
+setTimeout(function ()
+{
+oTable.fnAdjustColumnSizing();
+}, 10 );
 
   $("#search_all").keyup(function () {
     console.log("filtering page " + this.value);

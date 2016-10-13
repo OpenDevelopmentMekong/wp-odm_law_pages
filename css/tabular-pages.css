@@ -160,6 +160,10 @@ table.dataTable thead th, table.dataTable tfoot th{
   font-size: 13px!important;
   font-weight: normal!important;
 }
+table.data-table thead tr{
+    border-top: 1px solid #999;
+}
+
 table.data-table tr{
   background: none;
   border:0;
@@ -208,14 +212,10 @@ td.entry_title{
 td.entry_title a{
   color: #292D56;
 }
-
-.download_buttons{
-}
-
+ 
 .download_buttons span {
   display: inline-block;
 }
-
 .download_buttons span.icon-arrow-down{
   position: relative;
   top:2px;
