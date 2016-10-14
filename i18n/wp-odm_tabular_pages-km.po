@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpckan\n"
+"POT-Creation-Date: 2016-10-14 15:34+0700\n"
+"PO-Revision-Date: 2016-10-14 15:42+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: i18n\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: post-types/tabular-pages-config.php:7
+msgid "Constitution"
+msgstr "រដ្ឋ​ធម្មនុញ្"
+
+#: post-types/tabular-pages-config.php:8
+msgid "International treaty"
+msgstr "សិន្ធិ​សញ្ញា​អន្តរ​ជាតិ"
+
+#: post-types/tabular-pages-config.php:9
+msgid "Law"
+msgstr "ច្បាប់​"
+
+#: post-types/tabular-pages-config.php:10
+msgid "Draft law"
+msgstr "សេចក្តីព្រាងច្បាប់​"
+
+#: post-types/tabular-pages-config.php:11
+msgid "Royal decree"
+msgstr "ព្រះរាជ​ក្រឹត្យ"
+
+#: post-types/tabular-pages-config.php:12
+msgid "Sub-decree"
+msgstr "អនុ​ក្រឹត្យ"
+
+#: post-types/tabular-pages-config.php:13
+msgid "Proclamation"
+msgstr "ប្រកាស"
+
+#: post-types/tabular-pages-config.php:14
+msgid "Decision"
+msgstr "សេចក្តី​សំរេច"
+
+#: post-types/tabular-pages-config.php:15
+msgid "Instruction"
+msgstr "សេចក្តីណែនាំ"
+
+#: post-types/tabular-pages-config.php:16
+msgid "Circular"
+msgstr "សារាចរ "
+
+#: post-types/tabular-pages-config.php:17
+msgid "Notification"
+msgstr "សេចក្តីជូនដំណឹង"
+
+#: post-types/tabular-pages-config.php:18
+msgid "Guideline"
+msgstr "គោលការណ៍​ណែនាំ"
+
+#: post-types/tabular-pages-config.php:19
+msgid "Contract"
+msgstr "កិច្ចព្រមព្រៀង"
+
+#: post-types/tabular-pages-config.php:20
+msgid "Letter"
+msgstr "លិខិត"
+
+#: post-types/tabular-pages-config.php:21
+msgid "Policy"
+msgstr "គោលនយោបាយ"
+
+#: post-types/tabular-pages.php:30 post-types/tabular-pages.php:32
+#: post-types/tabular-pages.php:33
+msgid "Tabular Pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:31
+msgid "Tabular Page"
+msgstr ""
+
+#: post-types/tabular-pages.php:34
+msgid "Add new"
+msgstr ""
+
+#: post-types/tabular-pages.php:35
+msgid "Add new tabular page"
+msgstr ""
+
+#: post-types/tabular-pages.php:36
+msgid "New tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:37
+msgid "Edit tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:38
+msgid "View tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:39
+msgid "All tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:40
+msgid "Search tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:41
+msgid "Parent tabular pages:"
+msgstr ""
+
+#: post-types/tabular-pages.php:42
+msgid "No tabular page found."
+msgstr ""
+
+#: post-types/tabular-pages.php:43
+msgid "No tabular page found in trash."
+msgstr ""
+
+#: post-types/templates/single-tabular.php:53
+msgid "Title"
+msgstr "ចំណងជើង"
+
+#: post-types/templates/single-tabular.php:54
+msgid "Document type"
+msgstr "ប្រភេទឯកសារ"
+
+#: post-types/templates/single-tabular.php:55
+msgid "Document number"
+msgstr "លេខ​ឯកសារ"
+
+#: post-types/templates/single-tabular.php:56
+msgid "Promulgation date"
+msgstr "ថ្ងៃប្រកាសអោយប្រើ"
+
+#: post-types/templates/single-tabular.php:57
+msgid "Download"
+msgstr "ទាញយក"
+
+#: post-types/templates/single-tabular.php:122
+#: post-types/templates/single-tabular.php:127
+#: post-types/templates/single-tabular.php:132
+msgid "Search"
+msgstr "ស្វែងរក"
+
+#: post-types/templates/single-tabular.php:123
+msgid "in"
+msgstr "ក្នុង"
+
+#: post-types/templates/single-tabular.php:138
+msgid "Thematic areas"
+msgstr "ប្រធានបទ"
+
+#: post-types/templates/single-tabular.php:149
+msgid "Type of documents"
+msgstr "ប្រភេទឯកសារ"
+
+#~ msgid "Clear filter"
+#~ msgstr "លុបការ"
+
+#~ msgid "Search all"
+#~ msgstr "ស្វែងរកទាំងអស់"
+
+#~ msgid "Themetic areas"
+#~ msgstr "ប្រធានបទ"
