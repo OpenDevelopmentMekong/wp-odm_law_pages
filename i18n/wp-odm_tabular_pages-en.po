@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wpckan\n"
-"POT-Creation-Date: 2016-10-14 13:41+0700\n"
-"PO-Revision-Date: 2016-10-14 14:00+0700\n"
+"POT-Creation-Date: 2016-10-17 10:57+0700\n"
+"PO-Revision-Date: 2016-10-17 10:57+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -19,6 +19,66 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: post-types/tabular-pages-config.php:7
+msgid "Constitution"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:8
+msgid "International treaty"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:9
+msgid "Law"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:10
+msgid "Draft law"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:11
+msgid "Royal decree"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:12
+msgid "Sub-decree"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:13
+msgid "Proclamation"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:14
+msgid "Decision"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:15
+msgid "Instruction"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:16
+msgid "Circular"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:17
+msgid "Notification"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:18
+msgid "Guideline"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:19
+msgid "Contract"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:20
+msgid "Letter"
+msgstr ""
+
+#: post-types/tabular-pages-config.php:21
+msgid "Policy"
+msgstr ""
 
 #: post-types/tabular-pages.php:30 post-types/tabular-pages.php:32
 #: post-types/tabular-pages.php:33
@@ -69,48 +129,40 @@ msgstr ""
 msgid "No tabular page found in trash."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:51
+#: post-types/templates/single-tabular.php:53
 msgid "Title"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:52
+#: post-types/templates/single-tabular.php:54
 msgid "Document type"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:53
+#: post-types/templates/single-tabular.php:55
 msgid "Document number"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:54
+#: post-types/templates/single-tabular.php:56
 msgid "Promulgation date"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:55
+#: post-types/templates/single-tabular.php:57
 msgid "Download"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:120
-#: post-types/templates/single-tabular.php:125
+#: post-types/templates/single-tabular.php:122
+#: post-types/templates/single-tabular.php:127
+#: post-types/templates/single-tabular.php:132
 msgid "Search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:121
-#: post-types/templates/single-tabular.php:126
+#: post-types/templates/single-tabular.php:123
 msgid "in"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:131
-msgid "Search all"
+#: post-types/templates/single-tabular.php:138
+msgid "Thematic areas"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:133
-msgid "Clear filter"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:140
-msgid "Themetic areas"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:151
+#: post-types/templates/single-tabular.php:149
 msgid "Type of documents"
 msgstr ""
