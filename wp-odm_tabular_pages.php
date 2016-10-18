@@ -40,6 +40,7 @@ if (!class_exists('Odm_Tabular_Pages_Plugin')) {
         private function __construct()
         {
             add_action('init', array($this, 'register_styles'));
+            add_action('init', array($this, 'load_text_domain'));
             add_action('admin_notices', array($this, 'check_requirements'));
         }
 
@@ -55,6 +56,11 @@ if (!class_exists('Odm_Tabular_Pages_Plugin')) {
             endif;
         }
 
+				public function load_text_domain()
+				{
+					load_plugin_textdomain( 'wp-odm_tabular_pages', false,  dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
+
+				}
         public static function activate()
         {
             // Do nothing

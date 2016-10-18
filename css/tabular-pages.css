@@ -13,45 +13,10 @@
   font-weight: normal;
   font-size: 12px;
 }
-.sidebar_header{
-  line-height: 20px;
-  background: #292d56;
-  color: white;
-  padding: 7px;
-  font-style: italic;
-}
+#sidebar .taxonomy_widget_ul li {
+  padding: 3px 0 !important;
+} 
 
-.sidebar_header .big{
-  font-weight: bolder;
-  font-style: normal;
-}
-.sidebar_box{
-      margin-bottom: 30px;
-      border: 1px solid #DDD;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar_box_content{
-  font-size: 90%;
-  padding: 10px 10px;
-}
-.sidebar_box_content ul{
-  margin-left: 0 !important;
-  margin-bottom: 0;
-}
-.sidebar_box_content ul li{
-  list-style: none !important;
-  word-wrap: break-word;
-  border-bottom: 1px dotted #CCC;
-  padding: 5px 0px;
-  margin-bottom: 0;
-}
-.sidebar_box_content ul li:last-child{
-  border-bottom: 0;
-}
-.sidebar_box_content ul li a{
-  color: #4683D2;
-}
 .top {
     display: block;
     height: auto;
@@ -160,6 +125,10 @@ table.dataTable thead th, table.dataTable tfoot th{
   font-size: 13px!important;
   font-weight: normal!important;
 }
+table.data-table thead tr{
+    border-top: 1px solid #999;
+}
+
 table.data-table tr{
   background: none;
   border:0;
@@ -209,13 +178,9 @@ td.entry_title a{
   color: #292D56;
 }
 
-.download_buttons{
-}
-
 .download_buttons span {
   display: inline-block;
 }
-
 .download_buttons span.icon-arrow-down{
   position: relative;
   top:2px;

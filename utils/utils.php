@@ -12,7 +12,7 @@ function buildStyledTopTopicList($lang)
     // get Top Topic Names
     foreach ($json_a as $key => $value) {
         foreach ($json_a[$key]['children'] as $child) {
-            echo '<li><a href="?odm_taxonomy='.$child['titles']['en'].'">'.$child['titles'][$lang].'</a></li>';
+            echo '<li><span class="nochildimage nochildimage-'.odm_country_manager()->get_current_country().'"><a href="?odm_taxonomy='.$child['titles']['en'].'">'.$child['titles'][$lang].'</a></li></span>';
         }
     }
     echo '</ul>';
