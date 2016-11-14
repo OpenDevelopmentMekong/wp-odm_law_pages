@@ -14,43 +14,36 @@
 	  $param_language = isset($_GET['language']) ? $_GET['language'] : null;
 	  $active_filters = !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
-    $filter_odm_document_type = null;
-    if (isset($_GET['odm_document_type'])) {
-        $filter_odm_document_type = htmlspecialchars($_GET['odm_document_type']);
-    }
-    $filter_odm_taxonomy = null;
-    if (isset($_GET['odm_taxonomy'])) {
-        $filter_odm_taxonomy = htmlspecialchars($_GET['odm_taxonomy']);
-    }
+		$countries = odm_country_manager()->get_country_codes();
+
     $datasets = array();
-		$headline = "";
-    if (!empty($filter_odm_taxonomy)) {
-        $attrs = array(
-          'type' => $dataset_type,
-          'filter_fields' => '{"extras_taxonomy":"'.$filter_odm_taxonomy.'"}',
-        );
-        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-				$headline = $filter_odm_taxonomy;
-    } elseif (!empty($filter_odm_document_type)) {
-        $attrs = array(
-          'type' => $dataset_type,
-          'filter_fields' => '{"extras_odm_document_type":"'.$filter_odm_document_type.'"}',
-        );
-        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-				$headline = $filter_odm_document_type;
-    } else {
-        $attrs = array(
-          'type' => $dataset_type
-        );
-        $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-    }
+		$filter_fields = array();
+    $attrs = array(
+      'type' => $dataset_type
+    );
+		if ($active_filters):
+	    if (!empty($param_country) && $param_country != 'mekong' && $param_country != 'All') {
+	      array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
+	    }
+			if (!empty($param_query)) {
+	      array_push($filter_fields,'"title":"'.$param_query.'"}');
+	    }
+			if (!empty($param_taxonomy) && $param_taxonomy != 'All') {
+	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
+	    }
+			if (!empty($param_language)  && $param_language != 'All') {
+	      array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
+	    }
+			$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
+		endif;
+
+    $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
 
    ?>
   <section class="container">
 		<header class="row">
 			<div class="sixteen columns">
         <a href="<?php get_page_link(); ?>"><h1><?php the_title(); ?></h1></a>
-        <h2><?php _e($headline, 'wp-odm_tabular_pages'); ?></h2>
 			</div>
 		</header>
 	</section>
@@ -137,26 +130,6 @@
         </div>
 
       </form>
-
-      <?php
-        if (!$active_filters):
-          $shortcode = '[wpckan_number_of_query_datasets limit="1"';
-          if (isset($param_country)):
-            $shortcode .= ' filter_fields=\'{"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] . '"}\'';
-          endif;
-          ?>
-          <div class="sixteen columns">
-            <div class="data-number-results-small">
-              <p>
-                <p class="label"><label><?php _e('Current statistics: ','odm'); ?></label></p>
-                <?php echo do_shortcode($shortcode . ' type="dataset" suffix=" Datasets"]'); ?>
-                <?php echo do_shortcode($shortcode . ' type="library_record" suffix=" Library records"]'); ?>
-                <?php echo do_shortcode($shortcode . ' type="laws_record" suffix=" Laws"]'); ?>
-              </p>
-            </div>
-          </div>
-          <?php
-        endif; ?>
 
     </div>
   </div>
