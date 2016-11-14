@@ -27,20 +27,20 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         public function register_post_type()
         {
             $labels = array(
-            'name' => __('Tabular Pages', 'post type general name', 'tabular'),
-            'singular_name' => __('Tabular Page', 'post type singular name', 'tabular'),
-            'menu_name' => __('Tabular Pages', 'admin menu for tabular pages', 'tabular'),
-            'name_admin_bar' => __('Tabular Pages', 'add new on admin bar', 'tabular'),
-            'add_new' => __('Add new', 'tabular page', 'tabular'),
-            'add_new_item' => __('Add new tabular page', 'tabular'),
-            'new_item' => __('New tabular pages', 'tabular'),
-            'edit_item' => __('Edit tabular pages', 'tabular'),
-            'view_item' => __('View tabular pages', 'tabular'),
-            'all_items' => __('All tabular pages', 'tabular'),
-            'search_items' => __('Search tabular pages', 'tabular'),
-            'parent_item_colon' => __('Parent tabular pages:', 'tabular'),
-            'not_found' => __('No tabular page found.', 'tabular'),
-            'not_found_in_trash' => __('No tabular page found in trash.', 'tabular'),
+            'name' => __('Tabular Pages', 'post type general name', 'wp-odm_tabular_pages'),
+            'singular_name' => __('Tabular Page', 'post type singular name', 'wp-odm_tabular_pages'),
+            'menu_name' => __('Tabular Pages', 'admin menu for tabular pages', 'wp-odm_tabular_pages'),
+            'name_admin_bar' => __('Tabular Pages', 'add new on admin bar', 'wp-odm_tabular_pages'),
+            'add_new' => __('Add new', 'tabular page', 'wp-odm_tabular_pages'),
+            'add_new_item' => __('Add new tabular page', 'wp-odm_tabular_pages'),
+            'new_item' => __('New tabular pages', 'wp-odm_tabular_pages'),
+            'edit_item' => __('Edit tabular pages', 'wp-odm_tabular_pages'),
+            'view_item' => __('View tabular pages', 'wp-odm_tabular_pages'),
+            'all_items' => __('All tabular pages', 'wp-odm_tabular_pages'),
+            'search_items' => __('Search tabular pages', 'wp-odm_tabular_pages'),
+            'parent_item_colon' => __('Parent tabular pages:', 'wp-odm_tabular_pages'),
+            'not_found' => __('No tabular page found.', 'wp-odm_tabular_pages'),
+            'not_found_in_trash' => __('No tabular page found in trash.', 'wp-odm_tabular_pages'),
             );
 
             $args = array(
