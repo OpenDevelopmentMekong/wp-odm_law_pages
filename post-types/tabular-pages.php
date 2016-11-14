@@ -1,7 +1,5 @@
 <?php
 
-require_once 'tabular-pages-config.php';
-
 if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
     class Odm_Tabular_Pages_Post_Type
@@ -10,6 +8,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         {
           add_action('init', array($this, 'register_post_type'));
           add_action('save_post', array($this, 'save_post_data'));
+          add_action('add_meta_boxes', array($this, 'add_meta_box'));
           add_filter('single_template', array($this, 'get_tabular_pages_template'));
         }
 
@@ -63,6 +62,36 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             register_post_type('tabular', $args);
         }
 
+				public function add_meta_box()
+        {
+          // Profile settings
+          add_meta_box(
+           'tabular_options',
+           __('Option for tabular pages', 'wp-odm_tabular_pages'),
+           array($this, 'tabular_options_box'),
+           'tabular',
+           'advanced',
+           'high'
+          );
+				}
+
+				public function tabular_options_box($post = false)
+	      {
+	          $dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
+						$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);?>
+	          <div id="tabular_options_box">
+	           <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
+	           <select id="_attributes_dataset_type" name="_attributes_dataset_type">
+	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
+	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
+	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
+	            </select>
+						 <h4><?php _e('Specify label for dataset type', 'wp-odm_tabular_pages');?></h4>
+ 	           <input type="text" id="_attributes_dataset_type_label" name="_attributes_dataset_type_label" value="<?php echo $dataset_type_label; ?>"></input>
+	          </div>
+	      <?php
+	      }
+
         public function save_post_data($post_id)
         {
             global $post;
@@ -78,6 +107,14 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
                 if (false !== wp_is_post_revision($post_id)) {
                     return;
+                }
+
+								if (isset($_POST['_attributes_dataset_type'])) {
+                    update_post_meta($post_id, '_attributes_dataset_type', $_POST['_attributes_dataset_type']);
+                }
+
+                if (isset($_POST['_attributes_dataset_type_label'])) {
+                    update_post_meta($post_id, '_attributes_dataset_type_label', $_POST['_attributes_dataset_type_label']);
                 }
 
                 if (!current_user_can('edit_post')) {
