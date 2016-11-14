@@ -59,7 +59,6 @@ if (!class_exists('Odm_Tabular_Pages_Plugin')) {
 				public function load_text_domain()
 				{
 					load_plugin_textdomain( 'wp-odm_tabular_pages', false,  dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
-
 				}
         public static function activate()
         {
