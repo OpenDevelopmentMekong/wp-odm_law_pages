@@ -17,7 +17,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         {
             global $post;
 
-            if ($post->post_type == 'wp-odm_tabular_pages') {
+            if ($post->post_type == 'tabular') {
                 $single_template = plugin_dir_path(__FILE__).'templates/single-tabular.php';
             }
 
@@ -51,7 +51,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
               'show_in_menu'       => true,
   			      'menu_icon'          => '',
               'query_var'          => true,
-              'rewrite'            => array( 'slug' => 'wp-odm_tabular_pages' ),
+              'rewrite'            => array( 'slug' => 'tabular' ),
               'capability_type'    => 'page',
               'has_archive'        => true,
               'hierarchical'       => true,
@@ -60,13 +60,13 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
               'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail')
             );
 
-            register_post_type('wp-odm_tabular_pages', $args);
+            register_post_type('tabular', $args);
         }
 
         public function save_post_data($post_id)
         {
             global $post;
-            if (isset($post->ID) && get_post_type($post->ID) == 'wp-odm_tabular_pages') {
+            if (isset($post->ID) && get_post_type($post->ID) == 'tabular') {
 
                 if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
                     return;
