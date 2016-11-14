@@ -3,6 +3,10 @@
 <?php	if (have_posts()) : ?>
 
   <?php
+		global $post;
+		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
+		$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);
+
     $filter_odm_document_type = null;
     if (isset($_GET['odm_document_type'])) {
         $filter_odm_document_type = htmlspecialchars($_GET['odm_document_type']);
@@ -12,23 +16,24 @@
         $filter_odm_taxonomy = htmlspecialchars($_GET['odm_taxonomy']);
     }
     $datasets = array();
+		$headline = "";
     if (!empty($filter_odm_taxonomy)) {
         $attrs = array(
-          'type' => $DATASET_TYPE,
+          'type' => $dataset_type,
           'filter_fields' => '{"extras_taxonomy":"'.$filter_odm_taxonomy.'"}',
         );
         $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
 				$headline = $filter_odm_taxonomy;
     } elseif (!empty($filter_odm_document_type)) {
         $attrs = array(
-          'type' => $DATASET_TYPE,
+          'type' => $dataset_type,
           'filter_fields' => '{"extras_odm_document_type":"'.$filter_odm_document_type.'"}',
         );
         $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-				$headline = $LAWS_DOCUMENT_TYPE[$filter_odm_document_type];
+				$headline = $filter_odm_document_type;
     } else {
         $attrs = array(
-          'type' => $DATASET_TYPE
+          'type' => $dataset_type
         );
         $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
     }
@@ -71,7 +76,7 @@
                   <?php
                     if (isset($dataset['odm_document_type'])):
                       $doc_type = $dataset['odm_document_type'];
-                      echo _e($LAWS_DOCUMENT_TYPE[$doc_type], 'wp-odm_tabular_pages');
+                      echo _e($doc_type, 'wp-odm_tabular_pages');
                     endif; ?>
                 </td>
                 <td>
@@ -120,16 +125,16 @@
 										<?php
 				            if ($headline): ?>
 				                <?php _e('Search', 'wp-odm_tabular_pages'); ?>
-				                <?php $DATASET_TYPE_NAME.' '._e('in', 'wp-odm_tabular_pages');?>
+				                <?php $dataset_type_label.' '._e('in', 'wp-odm_tabular_pages');?>
 				                <?php _e($headline, 'wp-odm_tabular_pages');?>
 				            <?php
-				            elseif ($DATASET_TYPE_NAME): ?>
+				            elseif ($dataset_type_label): ?>
 				                <?php _e('Search', 'wp-odm_tabular_pages'); the_title();?>
 									  <?php
 				            endif; ?>
 									</h2>
 									<div>
-										<input type="text" id="search_all" placeholder=<?php _e('Search', 'wp-odm_tabular_pages').' '.$DATASET_TYPE; ?>>
+										<input type="text" id="search_all" placeholder=<?php _e('Search', 'wp-odm_tabular_pages').' '.$dataset_type; ?>>
 									</div>
 							</li>
 
@@ -140,19 +145,6 @@
 									<div>
 										<ul class="odm_taxonomy_widget_ul taxonomy_widget_ul">
 											<?php echo buildStyledTopTopicList(odm_language_manager()->get_current_language()); ?>
-										</ul>
-									</div>
-							</li>
-
-							<li class="widget widget_odm_taxonomy_widget">
-									<h2 class="widget-title">
-										<?php _e('Type of documents', 'wp-odm_tabular_pages');?>
-									</h2>
-									<div>
-										<ul class="odm_taxonomy_widget_ul taxonomy_widget_ul">
-											<?php foreach ($LAWS_DOCUMENT_TYPE as $key => $value): ?>
-				                <li class="taxonomy_li"><span class="nochildimage nochildimage-<?php echo odm_country_manager()->get_current_country();?>"><a href="?odm_document_type=<?php echo $key ?>"><?php _e($value, "wp-odm_tabular_pages")?></a></span></li>
-				              <?php endforeach; ?>
 										</ul>
 									</div>
 							</li>
