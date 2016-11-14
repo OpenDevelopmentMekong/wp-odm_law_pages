@@ -2,10 +2,17 @@
 
 <?php	if (have_posts()) : ?>
 
+
   <?php
 		global $post;
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
 		$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);
+
+		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
+	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
+	  $param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
+	  $param_language = isset($_GET['language']) ? $_GET['language'] : null;
+	  $active_filters = !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
     $filter_odm_document_type = null;
     if (isset($_GET['odm_document_type'])) {
@@ -48,9 +55,115 @@
 		</header>
 	</section>
 
+	<div class="container">
+    <div class="row">
+
+      <form class="advanced-nav-filters sixteen columns panel">
+
+        <div class="five columns">
+          <div class="adv-nav-input">
+            <p class="label"><label for="s"><?php _e('Text search', 'odm'); ?></label></p>
+            <input type="text" id="query" name="query" placeholder="<?php _e('Type your search here', 'odm'); ?>" value="<?php echo $param_query; ?>" />
+          </div>
+        </div>
+
+        <?php
+          $languages = odm_language_manager()->get_supported_languages();
+        ?>
+        <div class="three columns">
+          <div class="adv-nav-input">
+            <p class="label"><label for="language"><?php _e('Language', 'odm'); ?></label></p>
+            <select id="language" name="language" data-placeholder="<?php _e('Select language', 'odm'); ?>">
+              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <?php
+                foreach($languages as $key => $value): ?>
+                <option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
+              <?php
+                endforeach; ?>
+            </select>
+          </div>
+        </div>
+
+        <?php
+          $countries = odm_country_manager()->get_country_codes();
+        ?>
+        <div class="three columns">
+          <div class="adv-nav-input">
+            <p class="label"><label for="country"><?php _e('Country', 'odm'); ?></label></p>
+            <select id="country" name="country" data-placeholder="<?php _e('Select country', 'odm'); ?>">
+              <?php
+                if (odm_country_manager()->get_current_country() == 'mekong'): ?>
+                  <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <?php
+                endif; ?>
+              <?php
+                foreach($countries as $key => $value):
+                  if ($key != 'mekong'): ?>
+                    <option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
+                <?php
+                  endif; ?>
+                  <?php
+                endforeach; ?>
+            </select>
+          </div>
+        </div>
+
+        <?php
+          $taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
+        ?>
+        <div class="three columns">
+          <div class="adv-nav-input">
+            <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'odm'); ?></label></p>
+            <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
+              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <?php
+                foreach($taxonomy_list as $value): ?>
+                <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
+              <?php
+                endforeach; ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="two columns">
+          <input class="button" type="submit" value="<?php _e('Search Filter', 'odm'); ?>"/>
+          <?php
+            if ($active_filters):
+              ?>
+              <a href="?clear"><?php _e('Clear','odm') ?></a>
+          <?php
+            endif;
+           ?>
+        </div>
+
+      </form>
+
+      <?php
+        if (!$active_filters):
+          $shortcode = '[wpckan_number_of_query_datasets limit="1"';
+          if (isset($param_country)):
+            $shortcode .= ' filter_fields=\'{"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] . '"}\'';
+          endif;
+          ?>
+          <div class="sixteen columns">
+            <div class="data-number-results-small">
+              <p>
+                <p class="label"><label><?php _e('Current statistics: ','odm'); ?></label></p>
+                <?php echo do_shortcode($shortcode . ' type="dataset" suffix=" Datasets"]'); ?>
+                <?php echo do_shortcode($shortcode . ' type="library_record" suffix=" Library records"]'); ?>
+                <?php echo do_shortcode($shortcode . ' type="laws_record" suffix=" Laws"]'); ?>
+              </p>
+            </div>
+          </div>
+          <?php
+        endif; ?>
+
+    </div>
+  </div>
+
   <section class="container">
     <div class="row">
-		  <div class="eleven columns">
+		  <div class="sixteen columns">
         <?php the_content(); ?>
         <table id="datasets_table" class="data-table">
           <thead>
@@ -116,40 +229,6 @@
   				</tbody>
   			</table>
 		  </div>
-
-      <div class="four columns offset-by-one">
-				<aside id="sidebar">
-            <ul class="widgets">
-							<li class="widget widget_odm_taxonomy_widget">
-									<h2 class="widget-title">
-										<?php
-				            if ($headline): ?>
-				                <?php _e('Search', 'wp-odm_tabular_pages'); ?>
-				                <?php $dataset_type_label.' '._e('in', 'wp-odm_tabular_pages');?>
-				                <?php _e($headline, 'wp-odm_tabular_pages');?>
-				            <?php
-				            elseif ($dataset_type_label): ?>
-				                <?php _e('Search', 'wp-odm_tabular_pages'); the_title();?>
-									  <?php
-				            endif; ?>
-									</h2>
-									<div>
-										<input type="text" id="search_all" placeholder=<?php _e('Search', 'wp-odm_tabular_pages').' '.$dataset_type; ?>>
-									</div>
-							</li>
-
-							<li class="widget widget_odm_taxonomy_widget">
-									<h2 class="widget-title">
-										<?php _e('Thematic areas', 'wp-odm_tabular_pages');?>
-									</h2>
-									<div>
-										<ul class="odm_taxonomy_widget_ul taxonomy_widget_ul">
-											<?php echo buildStyledTopTopicList(odm_language_manager()->get_current_language()); ?>
-										</ul>
-									</div>
-							</li>
-						</ul>
-		  </div>
     </div>
 	</section>
 <?php endif; ?>
@@ -206,7 +285,7 @@ setTimeout(function ()
 oTable.fnAdjustColumnSizing();
 }, 10 );
 
-  $("#search_all").keyup(function () {
+  $("#query").keyup(function () {
     console.log("filtering page " + this.value);
     oTable.fnFilterAll(this.value);
  });
