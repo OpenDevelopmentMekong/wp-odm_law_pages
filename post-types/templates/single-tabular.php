@@ -31,16 +31,16 @@
       'type' => $dataset_type
     );
 		if ($active_filters):
-	    if (!empty($param_country) && $param_country != 'mekong' && $param_country != 'All') {
+	    if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 	      array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 	    }
 			if (!empty($param_query)) {
 	      array_push($filter_fields,'"title":"'.$param_query.'"}');
 	    }
-			if (!empty($param_taxonomy) && $param_taxonomy != 'All') {
+			if (!empty($param_taxonomy) && $param_taxonomy !== "all") {
 	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
 	    }
-			if (!empty($param_language)  && $param_language != 'All') {
+			if (!empty($param_language)  && $param_language !== "all") {
 	      array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 	    }
 			$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
@@ -87,7 +87,7 @@
           <div class="adv-nav-input">
             <p class="label"><label for="language"><?php _e('Language', 'odm'); ?></label></p>
             <select id="language" name="language" data-placeholder="<?php _e('Select language', 'odm'); ?>">
-              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 foreach($languages as $key => $value): ?>
                 <option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
@@ -106,7 +106,7 @@
             <select id="country" name="country" data-placeholder="<?php _e('Select country', 'odm'); ?>">
               <?php
                 if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-                  <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+                  <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 endif; ?>
               <?php
@@ -128,7 +128,7 @@
           <div class="adv-nav-input">
             <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'odm'); ?></label></p>
             <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
-              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 foreach($taxonomy_list as $value): ?>
                 <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
@@ -171,24 +171,26 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($datasets['results'] as $dataset): ?>
+            <?php
+							if (in_array('results',array_keys($datasets))):
+								foreach ($datasets['results'] as $dataset): ?>
 							<tr>
 							<?php
-								foreach ($column_list_array as $key => $value):
-									echo "<td>";
-									if (isset($dataset[$key])):
-										$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
-										if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
-											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
-											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
-									<?php
-										elseif (!is_array($single_value)):
-											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
-                      echo $mapped_value;
-										endif;
-                  endif;
-									echo "</td>";
-								endforeach;
+									foreach ($column_list_array as $key => $value):
+										echo "<td>";
+										if (isset($dataset[$key])):
+											$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
+											if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
+												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
+												<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
+										<?php
+											elseif (!is_array($single_value)):
+												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+	                      echo $mapped_value;
+											endif;
+	                  endif;
+										echo "</td>";
+									endforeach;
 							 ?>
                 <td class="download_buttons">
                     <?php foreach ($dataset['resources'] as $resource) :?>
@@ -206,7 +208,9 @@
                     <?php endforeach; ?>
                 </td>
               </tr>
-    				<?php endforeach; ?>
+    				<?php
+							endforeach;
+						endif;?>
   				</tbody>
   			</table>
 		  </div>
