@@ -9,17 +9,10 @@
 
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
 		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
+		$values_mapping = get_post_meta($post->ID, '_attributes_values_mapping', true);
 
-
-		$column_list_no_line_break = explode("\r\n", $column_list);
-    $column_list_array = array();
-    foreach ($column_list_no_line_break as $value) {
-        $array_value = explode('=>', trim($value));
-				if (!isset($array_value[0]) || !isset($array_value[1])):
-					$valid_config = false;
-				endif;
-        $column_list_array[trim($array_value[0])] = trim($array_value[1]);
-    }
+    $column_list_array = parse_mapping_pairs($column_list);
+    $values_mapping_array = parse_mapping_pairs($values_mapping);
 
 		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
@@ -74,7 +67,6 @@
 	<?php
 	endif;
 	?>
-
 
 	<div class="container">
     <div class="row">
@@ -186,11 +178,13 @@
 									echo "<td>";
 									if (isset($dataset[$key])):
 										$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
-										if (in_array($key,$link_to_detail_columns_array)): ?>
-											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $single_value;?></a>
+										if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
+											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
+											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
 									<?php
 										elseif (!is_array($single_value)):
-                      echo $single_value;
+											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+                      echo $mapped_value;
 										endif;
                   endif;
 									echo "</td>";
