@@ -11,25 +11,8 @@
 		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
 		$values_mapping = get_post_meta($post->ID, '_attributes_values_mapping', true);
 
-		$column_list_no_line_break = explode("\r\n", $column_list);
-    $column_list_array = array();
-    foreach ($column_list_no_line_break as $value) {
-        $array_value = explode('=>', trim($value));
-				if (!isset($array_value[0]) || !isset($array_value[1])):
-					$valid_config = false;
-				endif;
-        $column_list_array[trim($array_value[0])] = trim($array_value[1]);
-    }
-
-		$values_mapping_no_line_break = explode("\r\n", $values_mapping);
-    $values_mapping_array = array();
-    foreach ($values_mapping_no_line_break as $value) {
-        $array_value = explode('=>', trim($value));
-				if (!isset($array_value[0]) || !isset($array_value[1])):
-					$valid_config = false;
-				endif;
-        $values_mapping_array[trim($array_value[0])] = trim($array_value[1]);
-    }
+    $column_list_array = parse_mapping_pairs($column_list);
+    $values_mapping_array = parse_mapping_pairs($values_mapping);
 
 		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
