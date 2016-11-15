@@ -2,7 +2,9 @@
 
 function buildStyledTopTopicList($lang)
 {
-    $navigation_vocab = @file_get_contents(get_stylesheet_directory().'/odm-taxonomy/top_topics/top_topics_multilingual.json');
+		$path_to_taxonomy = plugin_dir_path(dirname(__FILE__)).'odm-taxonomy/top_topics/top_topics_multilingual.json';
+
+    $navigation_vocab = @file_get_contents($path_to_taxonomy);
     if ($navigation_vocab === false) {
         echo '<ul></ul>';
     }
