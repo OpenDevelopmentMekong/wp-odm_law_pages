@@ -171,24 +171,26 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($datasets['results'] as $dataset): ?>
+            <?php
+							if (in_array('results',$dataset)):
+								foreach ($datasets['results'] as $dataset): ?>
 							<tr>
 							<?php
-								foreach ($column_list_array as $key => $value):
-									echo "<td>";
-									if (isset($dataset[$key])):
-										$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
-										if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
-											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
-											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
-									<?php
-										elseif (!is_array($single_value)):
-											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
-                      echo $mapped_value;
-										endif;
-                  endif;
-									echo "</td>";
-								endforeach;
+									foreach ($column_list_array as $key => $value):
+										echo "<td>";
+										if (isset($dataset[$key])):
+											$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
+											if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
+												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
+												<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
+										<?php
+											elseif (!is_array($single_value)):
+												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+	                      echo $mapped_value;
+											endif;
+	                  endif;
+										echo "</td>";
+									endforeach;
 							 ?>
                 <td class="download_buttons">
                     <?php foreach ($dataset['resources'] as $resource) :?>
@@ -206,7 +208,9 @@
                     <?php endforeach; ?>
                 </td>
               </tr>
-    				<?php endforeach; ?>
+    				<?php
+							endforeach;
+						endif;?>
   				</tbody>
   			</table>
 		  </div>
