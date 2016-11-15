@@ -78,26 +78,23 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 				public function tabular_options_box($post = false)
 	      {
 	          $dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
-						$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);
-						$column_list = get_post_meta($post->ID, '_attributes_column_list', true); 
+						$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
 						$link_to_detail_column = get_post_meta($post->ID,'_attributes_link_to_detail_column', true); ?>
 	          <div id="tabular_options_box">
-	           <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
-	           <select id="_attributes_dataset_type" name="_attributes_dataset_type">
+	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
+	            <select id="_attributes_dataset_type" name="_attributes_dataset_type">
 	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
 	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
 	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
 	            </select>
-							
-						 <h4><?php _e('Specify label for dataset type', 'wp-odm_tabular_pages');?></h4>
- 	           <input class="full-width" type="text" id="_attributes_dataset_type_label" name="_attributes_dataset_type_label" value="<?php echo $dataset_type_label; ?>"></input>
-						 
-						 <h4><?php _e('Specify list of columns to present on the table (comma-separated)', 'wp-odm_tabular_pages');?></h4>
- 	           <input class="full-width" type="text" id="_attributes_column_list" name="_attributes_column_list" value="<?php echo $column_list; ?>"></input>
 
-						 <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
-						 <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />
-			       <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
+						  <h4><?php _e('Specify list of columns to present on the table (comma-separated)', 'wp-odm_tabular_pages');?></h4>
+ 	            <input class="full-width" type="text" id="_attributes_column_list" name="_attributes_column_list" value="<?php echo $column_list; ?>"></input>
+              <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
+
+						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
+						  <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />
+			        <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
 	          </div>
 	      <?php
 	      }
@@ -121,10 +118,6 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
 								if (isset($_POST['_attributes_dataset_type'])) {
                     update_post_meta($post_id, '_attributes_dataset_type', $_POST['_attributes_dataset_type']);
-                }
-
-                if (isset($_POST['_attributes_dataset_type_label'])) {
-                    update_post_meta($post_id, '_attributes_dataset_type_label', $_POST['_attributes_dataset_type_label']);
                 }
 
 								if (isset($_POST['_attributes_column_list'])) {
