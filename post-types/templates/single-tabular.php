@@ -31,7 +31,7 @@
       'type' => $dataset_type
     );
 		if ($active_filters):
-	    if (!empty($param_country) && $param_country != 'mekong' && $param_country != 'All') {
+	    if (!empty($param_country) && $param_country != 'mekong' && $param_country != __('All','wp-odm_tabular_pages')) {
 	      array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 	    }
 			if (!empty($param_query)) {
@@ -40,7 +40,7 @@
 			if (!empty($param_taxonomy) && $param_taxonomy != __('All','wp-odm_tabular_pages')) {
 	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
 	    }
-			if (!empty($param_language)  && $param_language != 'All') {
+			if (!empty($param_language)  && $param_language != __('All','wp-odm_tabular_pages')) {
 	      array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 	    }
 			$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
