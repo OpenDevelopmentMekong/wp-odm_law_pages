@@ -6,7 +6,6 @@
   <?php
 		global $post;
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
-		$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);
 		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
 		$column_list_array = explode(",",$column_list);
 		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
