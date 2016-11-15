@@ -19,10 +19,4 @@ class TabularPagesTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(true);
     }
 
-    public function testGetMultilingualValueOrFallback()
-    {
-      $multilingual = array("en" => "hello","de" => "hallo", "es" => "hola");
-      $value = getMultilingualValueOrFallback($multilingual,"es","fallback");
-      $this->assertEquals($value,"hola");
-    }
 }
