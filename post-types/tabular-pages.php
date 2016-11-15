@@ -88,9 +88,9 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
 	            </select>
 
-						  <h4><?php _e('Specify list of columns to present on the table (comma-separated)', 'wp-odm_tabular_pages');?></h4>
- 	            <input class="full-width" type="text" id="_attributes_column_list" name="_attributes_column_list" value="<?php echo $column_list; ?>"></input>
-              <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
+              <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
+							<textarea name="_attributes_column_list" style="width:100%;height: 200px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
+							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
 						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
 						  <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />

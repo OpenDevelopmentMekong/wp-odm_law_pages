@@ -5,9 +5,22 @@
 
   <?php
 		global $post;
+		$valid_config = true;
+
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
 		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
-		$column_list_array = explode(",",$column_list);
+
+
+		$column_list_no_line_break = explode("\r\n", $column_list);
+    $column_list_array = array();
+    foreach ($column_list_no_line_break as $value) {
+        $array_value = explode('=>', trim($value));
+				if (!isset($array_value[0]) || !isset($array_value[1])):
+					$valid_config = false;
+				endif;
+        $column_list_array[trim($array_value[0])] = trim($array_value[1]);
+    }
+
 		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
 
@@ -50,6 +63,18 @@
 			</div>
 		</header>
 	</section>
+
+	<?php
+	if (!$valid_config): ?>
+	<section class="container">
+		<div class="row">
+			<h3 class="error"><?php _e('Error in configuration, please check.','wp-odm_tabular_pages'); ?></h3>
+		</div>
+	</section>
+	<?php
+	endif;
+	?>
+
 
 	<div class="container">
     <div class="row">
@@ -145,8 +170,8 @@
           <thead>
             <tr>
 							<?php
-								foreach ($column_list_array as $column): ?>
-									<th><?php _e($column, 'wp-odm_tabular_pages'); ?></th>
+								foreach ($column_list_array as $key => $value): ?>
+									<th><?php _e($value, 'wp-odm_tabular_pages'); ?></th>
 							<?php
 								endforeach;
 							 ?>
@@ -157,15 +182,15 @@
             <?php foreach ($datasets['results'] as $dataset): ?>
 							<tr>
 							<?php
-								foreach ($column_list_array as $column):
+								foreach ($column_list_array as $key => $value):
 									echo "<td>";
-									if (isset($dataset[$column])):
-										$value = getMultilingualValueOrFallback($dataset[$column], odm_language_manager()->get_current_language(),$dataset[$column]);
-										if (in_array($column,$link_to_detail_columns_array)): ?>
-											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $value;?></a>
+									if (isset($dataset[$key])):
+										$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
+										if (in_array($key,$link_to_detail_columns_array)): ?>
+											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $single_value;?></a>
 									<?php
-										elseif (!is_array($value)):
-                      echo $value;
+										elseif (!is_array($single_value)):
+                      echo $single_value;
 										endif;
                   endif;
 									echo "</td>";
