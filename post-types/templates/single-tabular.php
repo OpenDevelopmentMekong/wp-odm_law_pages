@@ -37,7 +37,7 @@
 			if (!empty($param_query)) {
 	      array_push($filter_fields,'"title":"'.$param_query.'"}');
 	    }
-			if (!empty($param_taxonomy) && $param_taxonomy != 'All') {
+			if (!empty($param_taxonomy) && $param_taxonomy != __('All','wp-odm_tabular_pages')) {
 	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
 	    }
 			if (!empty($param_language)  && $param_language != 'All') {
