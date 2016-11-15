@@ -172,7 +172,7 @@
           </thead>
           <tbody>
             <?php
-							if (in_array('results',$datasets)):
+							if (in_array('results',array_keys($datasets))):
 								foreach ($datasets['results'] as $dataset): ?>
 							<tr>
 							<?php
