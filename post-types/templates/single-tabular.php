@@ -7,6 +7,10 @@
 		global $post;
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
 		$dataset_type_label = get_post_meta($post->ID, '_attributes_dataset_type_label', true);
+		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
+		$column_list_array = explode(",",$column_list);
+		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
+		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
 
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
@@ -141,47 +145,33 @@
         <table id="datasets_table" class="data-table">
           <thead>
             <tr>
-              <th><?php _e('Title', 'wp-odm_tabular_pages');?></th>
-              <th><?php _e('Document type', 'wp-odm_tabular_pages');?></th>
-              <th><?php _e('Document number', 'wp-odm_tabular_pages');?></th>
-              <th><?php _e('Promulgation date', 'wp-odm_tabular_pages');?></th>
+							<?php
+								foreach ($column_list_array as $column): ?>
+									<th><?php _e($column, 'wp-odm_tabular_pages'); ?></th>
+							<?php
+								endforeach;
+							 ?>
               <th><?php _e('Download', 'wp-odm_tabular_pages');?></th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($datasets['results'] as $dataset): ?>
-              <?php
-              if (empty($dataset['odm_document_type'])):
-                continue;
-              endif; ?>
-              <tr>
-                <td class="entry_title">
-                  <a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo getMultilingualValueOrFallback($dataset['title_translated'], odm_language_manager()->get_current_language(),$dataset['title']);?></a>
-                </td>
-                <td>
-                  <?php
-                    if (isset($dataset['odm_document_type'])):
-                      $doc_type = $dataset['odm_document_type'];
-                      echo _e($doc_type, 'wp-odm_tabular_pages');
-                    endif; ?>
-                </td>
-                <td>
-                  <?php
-                  if (isset($dataset['odm_document_number'])):
-                    echo $dataset['odm_document_number'][odm_language_manager()->get_current_language()];
-                  endif; ?>
-                </td>
-                <td>
-                  <?php
-                  if (isset($dataset['odm_promulgation_date'])):
-                    if (odm_language_manager()->get_current_language() == 'km'):
-                        echo convert_date_to_kh_date(date('d.m.Y', strtotime($dataset['odm_promulgation_date'])));
-                    else:
-                        echo $dataset['odm_promulgation_date'];
-                    endif;
+							<tr>
+							<?php
+								foreach ($column_list_array as $column):
+									echo "<td>";
+									if (isset($dataset[$column])):
+										$value = getMultilingualValueOrFallback($dataset[$column], odm_language_manager()->get_current_language(),$dataset[$column]);
+										if (in_array($column,$link_to_detail_columns_array)): ?>
+											<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $value;?></a>
+									<?php
+										elseif (!is_array($value)):
+                      echo $value;
+										endif;
                   endif;
-                  ?>
-                </td>
+									echo "</td>";
+								endforeach;
+							 ?>
                 <td class="download_buttons">
                     <?php foreach ($dataset['resources'] as $resource) :?>
                       <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en'): ?>
