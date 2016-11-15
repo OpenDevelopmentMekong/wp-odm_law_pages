@@ -31,16 +31,16 @@
       'type' => $dataset_type
     );
 		if ($active_filters):
-	    if (!empty($param_country) && $param_country != 'mekong' && $param_country != __('All','wp-odm_tabular_pages')) {
+	    if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 	      array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 	    }
 			if (!empty($param_query)) {
 	      array_push($filter_fields,'"title":"'.$param_query.'"}');
 	    }
-			if (!empty($param_taxonomy) && $param_taxonomy != __('All','wp-odm_tabular_pages')) {
+			if (!empty($param_taxonomy) && $param_taxonomy !== "all") {
 	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
 	    }
-			if (!empty($param_language)  && $param_language != __('All','wp-odm_tabular_pages')) {
+			if (!empty($param_language)  && $param_language !== "all") {
 	      array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 	    }
 			$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
@@ -87,7 +87,7 @@
           <div class="adv-nav-input">
             <p class="label"><label for="language"><?php _e('Language', 'odm'); ?></label></p>
             <select id="language" name="language" data-placeholder="<?php _e('Select language', 'odm'); ?>">
-              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 foreach($languages as $key => $value): ?>
                 <option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
@@ -106,7 +106,7 @@
             <select id="country" name="country" data-placeholder="<?php _e('Select country', 'odm'); ?>">
               <?php
                 if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-                  <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+                  <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 endif; ?>
               <?php
@@ -128,7 +128,7 @@
           <div class="adv-nav-input">
             <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'odm'); ?></label></p>
             <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
-              <option value="<?php _e('All','odm') ?>" selected><?php _e('All','odm') ?></option>
+              <option value="all" selected><?php _e('All','odm') ?></option>
               <?php
                 foreach($taxonomy_list as $value): ?>
                 <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
