@@ -79,7 +79,9 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	      {
 	          $dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
 						$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
-						$link_to_detail_column = get_post_meta($post->ID,'_attributes_link_to_detail_column', true); ?>
+						$link_to_detail_column = get_post_meta($post->ID,'_attributes_link_to_detail_column', true);
+						$values_mapping = get_post_meta($post->ID,'_attributes_values_mapping', true);
+						?>
 	          <div id="tabular_options_box">
 	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
 	            <select id="_attributes_dataset_type" name="_attributes_dataset_type">
@@ -91,6 +93,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
               <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
 							<textarea name="_attributes_column_list" style="width:100%;height: 200px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
 							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
+
+							<h4><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h4>
+							<textarea name="_attributes_values_mapping" style="width:100%;height: 200px;" placeholder="anukretsub-decree  =>  Anukret Sub-decree"><?php echo $values_mapping;  ?></textarea>
+							<p class="description"><?php _e('Please specify the ids plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
 						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
 						  <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />
@@ -126,6 +132,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
 								if (isset($_POST['_attributes_link_to_detail_column'])) {
                     update_post_meta($post_id, '_attributes_link_to_detail_column', $_POST['_attributes_link_to_detail_column']);
+                }
+
+								if (isset($_POST['_attributes_values_mapping'])) {
+                    update_post_meta($post_id, '_attributes_values_mapping', $_POST['_attributes_values_mapping']);
                 }
 
                 if (!current_user_can('edit_post')) {
