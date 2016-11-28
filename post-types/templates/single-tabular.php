@@ -30,10 +30,10 @@
     $attrs = array(
       'type' => $dataset_type
     );
+		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
+			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
+		}
 		if ($active_filters):
-	    if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
-	      array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
-	    }
 			if (!empty($param_query)) {
 	      array_push($filter_fields,'"title":"'.$param_query.'"}');
 	    }
