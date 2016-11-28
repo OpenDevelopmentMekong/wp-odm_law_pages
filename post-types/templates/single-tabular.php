@@ -43,8 +43,8 @@
 			if (!empty($param_language)  && $param_language !== "all") {
 	      array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 	    }
-			$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
 		endif;
+		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
 
     $datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
 
