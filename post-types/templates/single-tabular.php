@@ -193,6 +193,7 @@
 									endforeach;
 							 ?>
                 <td class="download_buttons">
+                  <?php if (is_array($dataset) && in_array('resources', $dataset)) :?>
                     <?php foreach ($dataset['resources'] as $resource) :?>
                       <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en'): ?>
                         <span>
@@ -206,6 +207,7 @@
                           <i class="fa fa-download"></i> KM</a></span>
                       <?php endif; ?>
                     <?php endforeach; ?>
+                  <?php endif; ?>
                 </td>
               </tr>
     				<?php
