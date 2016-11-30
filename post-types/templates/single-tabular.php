@@ -154,6 +154,20 @@
     </div>
   </div>
 
+  <?php
+    if (!$active_filters && function_exists('wpdash_get_ckan_stats_dataviz_by_taxonomy')): ?>
+      <div class="container">
+        <div class="row">
+          <div class="four columns">
+            <?php wpdash_get_ckan_stats_dataviz_by_language(array('type' => 'laws_record')); ?>
+          </div>
+          <div class="twelve columns">
+            <?php wpdash_get_ckan_stats_dataviz_by_taxonomy(array('type' => 'laws_record')); ?>
+          </div>
+      </div>
+  <?php
+    endif; ?>
+
   <section class="container">
     <div class="row">
 		  <div class="sixteen columns">
