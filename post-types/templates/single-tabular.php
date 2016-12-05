@@ -210,18 +210,13 @@
 									endforeach;
 							 ?>
                 <td class="download_buttons">
-                  <?php if (is_array($dataset) && in_array('resources', $dataset)) :?>
+                  <?php if (isset($dataset['resources'])) :?>
                     <?php foreach ($dataset['resources'] as $resource) :?>
-                      <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'en'): ?>
+                      <?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
                         <span>
                           <a href="<?php echo $resource['url'];?>">
-                          <i class="fa fa-download"></i> EN</a></span>
-                      <?php endif; ?>
-                    <?php endforeach; ?>
-                    <?php foreach ($dataset['resources'] as $resource) :?>
-                      <?php if (isset($resource['odm_language']) && count($resource['odm_language']) > 0 && $resource['odm_language'][0] == 'km'): ?>
-                        <span><a href="<?php echo $resource['url'];?>">
-                          <i class="fa fa-download"></i> KM</a></span>
+                          <i class="fa fa-download"></i> <?php echo strtoupper(implode(", ",$resource['odm_language'])); ?></a>
+												</span>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
