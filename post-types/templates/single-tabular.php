@@ -215,7 +215,7 @@
                       <?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
                         <span>
                           <a href="<?php echo $resource['url'];?>">
-                          <i class="fa fa-download"></i><?php echo implode(",",$resource['odm_language']); ?></a></span>
+                          <i class="fa fa-download"></i> <?php echo strtoupper(implode(", ",$resource['odm_language'])); ?></a></span>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
