@@ -240,10 +240,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script type="text/javascript">
-  $('select').select2();
-</script>
-
-<script type="text/javascript">
 
 jQuery(document).ready(function($) {
 
@@ -297,6 +293,8 @@ oTable.fnAdjustColumnSizing();
     console.log("filtering page " + this.value);
     oTable.fnFilterAll(this.value);
  });
+
+ $('select').select2();
 
 });
 
