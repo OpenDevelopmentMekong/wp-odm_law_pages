@@ -294,6 +294,7 @@ oTable.fnAdjustColumnSizing();
     oTable.fnFilterAll(this.value);
  });
 
+ console.log("select items", $('select'));
  $('select').select2();
 
 });
