@@ -204,6 +204,10 @@
 											elseif (!is_array($single_value)):
 												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
 	                      echo $mapped_value;
+                      elseif (is_array($single_value) && isset($single_value["en"])):
+                        $single_value = $single_value["en"];
+												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+	                      echo $mapped_value;
 											endif;
 	                  endif;
 										echo "</td>";
