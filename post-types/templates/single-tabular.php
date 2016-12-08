@@ -197,19 +197,17 @@
 										echo "<td>";
 										if (isset($dataset[$key])):
 											$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
-											if (!is_array($single_value) && in_array($key,$link_to_detail_columns_array)):
-												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;?>
-												<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
-										<?php
-											elseif (!is_array($single_value)):
-												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
-	                      echo $mapped_value;
-                      elseif (is_array($single_value) && isset($single_value["en"])):
+											if (is_array($single_value) && isset($single_value["en"])):
                         $single_value = $single_value["en"];
-												$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
-	                      echo $mapped_value;
 											endif;
-	                  endif;
+                    	$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+                      if (in_array($key,$link_to_detail_columns_array)): ?>
+												<a href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
+                      <?php
+                      else:
+                        echo $mapped_value;
+	                    endif;
+                    endif;
 										echo "</td>";
 									endforeach;
 							 ?>
