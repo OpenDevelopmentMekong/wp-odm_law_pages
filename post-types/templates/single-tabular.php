@@ -71,85 +71,90 @@
 	<div class="container">
     <div class="row">
 
-      <form class="advanced-nav-filters sixteen columns panel">
+      <form class="advanced-nav-filters">
 
-				<?php $num_columns = ($param_country === 'mekong') ? "five" : "six"; ?>
-        <div class="<?php echo $num_columns; ?> columns">
-          <div class="adv-nav-input">
-            <p class="label"><label for="s"><?php _e('Text search', 'odm'); ?></label></p>
-            <input type="text" id="query" name="query" placeholder="<?php _e('Type your search here', 'odm'); ?>" value="<?php echo $param_query; ?>" />
+        <div class="four columns panel">
+          <div class="sixteen columns">
+            <div class="adv-nav-input">
+              <p class="label"><label for="s"><?php _e('Text search', 'odm'); ?></label></p>
+              <input type="text" id="query" name="query" placeholder="<?php _e('Type your search here', 'odm'); ?>" value="<?php echo $param_query; ?>" />
+            </div>
           </div>
         </div>
 
-        <?php
-          $languages = odm_language_manager()->get_supported_languages();
-        ?>
-        <div class="three columns">
-          <div class="adv-nav-input">
-            <p class="label"><label for="language"><?php _e('Language', 'odm'); ?></label></p>
-            <select id="language" name="language" data-placeholder="<?php _e('Select language', 'odm'); ?>">
-              <option value="all" selected><?php _e('All','odm') ?></option>
-              <?php
-                foreach($languages as $key => $value): ?>
-                <option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
-              <?php
-                endforeach; ?>
-            </select>
-          </div>
-        </div>
-
-        <?php
-          $countries = odm_country_manager()->get_country_codes();
-        ?>
-				<?php if ($param_country === 'mekong'): ?>
-	        <div class="three columns">
-	          <div class="adv-nav-input">
-	            <p class="label"><label for="country"><?php _e('Country', 'odm'); ?></label></p>
-	            <select id="country" name="country" data-placeholder="<?php _e('Select country', 'odm'); ?>">
-	              <?php
-	                if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-	                  <option value="all" selected><?php _e('All','odm') ?></option>
-	              <?php
-	                endif; ?>
-	              <?php
-	                foreach($countries as $key => $value):
-	                  if ($key != 'mekong'): ?>
-	                    <option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
-	                <?php
-	                  endif; ?>
-	                  <?php
-	                endforeach; ?>
-	            </select>
-	          </div>
-	        </div>
-				<?php endif; ?>
-
-        <?php
-          $taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
-        ?>
-        <div class="three columns">
-          <div class="adv-nav-input">
-            <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'odm'); ?></label></p>
-            <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
-              <option value="all" selected><?php _e('All','odm') ?></option>
-              <?php
-                foreach($taxonomy_list as $value): ?>
-                <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
-              <?php
-                endforeach; ?>
-            </select>
-          </div>
-        </div>
-
-        <div class="two columns">
-          <input class="button" type="submit" value="<?php _e('Search Filter', 'odm'); ?>"/>
+        <div class="twelve columns panel">
           <?php
-            if ($active_filters):
-              ?>
-              <a href="?clear"><?php _e('Clear','odm') ?></a>
+            $languages = odm_language_manager()->get_supported_languages();
+            $num_columns = ($param_country === 'mekong') ? "four" : "three";
+          ?>
+          <div class="<?php echo $num_columns?> columns">
+            <div class="adv-nav-input">
+              <p class="label"><label for="language"><?php _e('Language', 'odm'); ?></label></p>
+              <select id="language" name="language" data-placeholder="<?php _e('Select language', 'odm'); ?>">
+                <option value="all" selected><?php _e('All','odm') ?></option>
+                <?php
+                  foreach($languages as $key => $value): ?>
+                  <option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
+                <?php
+                  endforeach; ?>
+              </select>
+            </div>
+          </div>
+
           <?php
-            endif;
-           ?>
+            $countries = odm_country_manager()->get_country_codes();
+          ?>
+  				<?php if ($param_country === 'mekong'): ?>
+  	        <div class="four columns">
+  	          <div class="adv-nav-input">
+  	            <p class="label"><label for="country"><?php _e('Country', 'odm'); ?></label></p>
+  	            <select id="country" name="country" data-placeholder="<?php _e('Select country', 'odm'); ?>">
+  	              <?php
+  	                if (odm_country_manager()->get_current_country() == 'mekong'): ?>
+  	                  <option value="all" selected><?php _e('All','odm') ?></option>
+  	              <?php
+  	                endif; ?>
+  	              <?php
+  	                foreach($countries as $key => $value):
+  	                  if ($key != 'mekong'): ?>
+  	                    <option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
+  	                <?php
+  	                  endif; ?>
+  	                  <?php
+  	                endforeach; ?>
+  	            </select>
+  	          </div>
+  	        </div>
+  				<?php endif; ?>
+
+          <?php
+            $taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
+            $num_columns = ($param_country === 'mekong') ? "four" : "three";
+          ?>
+          <div class="<?php echo $num_columns?> columns">
+            <div class="adv-nav-input">
+              <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'odm'); ?></label></p>
+              <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
+                <option value="all" selected><?php _e('All','odm') ?></option>
+                <?php
+                  foreach($taxonomy_list as $value): ?>
+                  <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
+                <?php
+                  endforeach; ?>
+              </select>
+            </div>
+          </div>
+
+          <div class="four columns">
+            <input class="button" type="submit" value="<?php _e('Search Filter', 'odm'); ?>"/>
+            <?php
+              if ($active_filters):
+                ?>
+                <a href="?clear"><?php _e('Clear','odm') ?></a>
+            <?php
+              endif;
+             ?>
+          </div>
         </div>
 
       </form>
