@@ -222,6 +222,6 @@ td.entry_title a{
   margin-top: 0;
 }
 
-.advanced-nav-filters select{
+.advanced-nav-filters select .select2{
   width: 100%;
 }
