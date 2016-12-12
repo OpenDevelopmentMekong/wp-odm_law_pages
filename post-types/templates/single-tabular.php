@@ -85,7 +85,7 @@
         <div class="twelve columns panel">
           <?php
             $languages = odm_language_manager()->get_supported_languages();
-            $num_columns = ($param_country === 'mekong') ? "four" : "three";
+            $num_columns = ($param_country === 'mekong') ? "four" : "six";
           ?>
           <div class="<?php echo $num_columns?> columns">
             <div class="adv-nav-input">
@@ -129,7 +129,7 @@
 
           <?php
             $taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
-            $num_columns = ($param_country === 'mekong') ? "four" : "three";
+            $num_columns = ($param_country === 'mekong') ? "four" : "six";
           ?>
           <div class="<?php echo $num_columns?> columns">
             <div class="adv-nav-input">
