@@ -2,7 +2,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: ODM WP Tabular pages\n"
+"Project-Id-Version: wp-odm_tabular_pages\n"
 "POT-Creation-Date: 2016-12-08 11:22+0100\n"
 "PO-Revision-Date: 2016-12-08 11:22+0100\n"
 "Last-Translator: \n"
