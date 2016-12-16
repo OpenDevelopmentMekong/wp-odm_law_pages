@@ -84,7 +84,7 @@
 
         <div class="twelve columns panel">
           <?php
-            $languages = odm_language_manager()->get_supported_languages();
+            $languages = odm_language_manager()->get_supported_languages_by_site();
             $num_columns = ($param_country === 'mekong') ? "four" : "six";
           ?>
           <div class="<?php echo $num_columns?> columns">
