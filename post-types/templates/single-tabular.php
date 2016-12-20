@@ -8,15 +8,15 @@
 		$valid_config = true;
 
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
-		$column_list = (odm_language_manager()->get_the_language_by_site() != "English") ? get_post_meta($post->ID, '_attributes_column_list_localization', true) : get_post_meta($post->ID, '_attributes_column_list', true);
-		$values_mapping = (odm_language_manager()->get_the_language_by_site() != "English") ? get_post_meta($post->ID, '_attributes_values_mapping_localization', true) : get_post_meta($post->ID, '_attributes_values_mapping', true);
+		$column_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_column_list_localization', true) : get_post_meta($post->ID, '_attributes_column_list', true);
+		$values_mapping = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_values_mapping_localization', true) : get_post_meta($post->ID, '_attributes_values_mapping', true);
     $column_list_array = parse_mapping_pairs($column_list);
     $values_mapping_array = parse_mapping_pairs($values_mapping);
 
-		$link_to_detail_columns = (odm_language_manager()->get_the_language_by_site() != "English") ? get_post_meta($post->ID, '_attributes_link_to_detail_column_localization', true) : get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
+		$link_to_detail_columns = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_link_to_detail_column_localization', true) : get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
 
-    $group_data_by_column_index = (odm_language_manager()->get_the_language_by_site() != "English") ? get_post_meta($post->ID,'_attributes_group_data_by_column_index_localization', true) : get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
+    $group_data_by_column_index = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID,'_attributes_group_data_by_column_index_localization', true) : get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
 
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
