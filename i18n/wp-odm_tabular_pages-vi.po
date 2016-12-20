@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-08 11:22+0100\n"
-"PO-Revision-Date: 2016-12-08 11:22+0100\n"
+"POT-Creation-Date: 2016-12-20 11:05+0100\n"
+"PO-Revision-Date: 2016-12-20 11:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-development-mekong/"
 "odm-wp-laws-pages/language/vi/)\n"
@@ -21,6 +21,893 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: i18n/additional-localization.php:2
+msgid "Action Plan"
+msgstr ""
+
+#: i18n/additional-localization.php:3
+msgid "Amendments"
+msgstr ""
+
+#: i18n/additional-localization.php:4
+msgid "ASEAN Agreements"
+msgstr ""
+
+#: i18n/additional-localization.php:5
+msgid "Bilateral Agreements"
+msgstr ""
+
+#: i18n/additional-localization.php:6
+msgid "Bilateral Treaty"
+msgstr ""
+
+#: i18n/additional-localization.php:7
+msgid "By-Laws"
+msgstr ""
+
+#: i18n/additional-localization.php:8
+msgid "Circular"
+msgstr ""
+
+#: i18n/additional-localization.php:9
+msgid "Code"
+msgstr ""
+
+#: i18n/additional-localization.php:10
+msgid "Constitution"
+msgstr ""
+
+#: i18n/additional-localization.php:11
+msgid "Contracts"
+msgstr ""
+
+#: i18n/additional-localization.php:12
+msgid "Agreements"
+msgstr ""
+
+#: i18n/additional-localization.php:13
+msgid "Customary law"
+msgstr ""
+
+#: i18n/additional-localization.php:14
+msgid "Decision"
+msgstr ""
+
+#: i18n/additional-localization.php:15
+msgid "Decree"
+msgstr ""
+
+#: i18n/additional-localization.php:16
+msgid "Directive"
+msgstr ""
+
+#: i18n/additional-localization.php:17 i18n/additional-localization.php:130
+msgid "Draft"
+msgstr ""
+
+#: i18n/additional-localization.php:18
+msgid "Guideline"
+msgstr ""
+
+#: i18n/additional-localization.php:19
+msgid "Instruction"
+msgstr ""
+
+#: i18n/additional-localization.php:20
+msgid "International Treaty"
+msgstr ""
+
+#: i18n/additional-localization.php:21
+msgid "Joint circular"
+msgstr ""
+
+#: i18n/additional-localization.php:22
+msgid "Law"
+msgstr ""
+
+#: i18n/additional-localization.php:23
+msgid "Letter"
+msgstr ""
+
+#: i18n/additional-localization.php:24
+msgid "Notification"
+msgstr ""
+
+#: i18n/additional-localization.php:25
+msgid "Order"
+msgstr ""
+
+#: i18n/additional-localization.php:26
+msgid "Ordinance"
+msgstr ""
+
+#: i18n/additional-localization.php:27
+msgid "other"
+msgstr ""
+
+#: i18n/additional-localization.php:28
+msgid "Policy"
+msgstr ""
+
+#: i18n/additional-localization.php:29
+msgid "Proclamation"
+msgstr ""
+
+#: i18n/additional-localization.php:30
+msgid "Regional Agreements"
+msgstr ""
+
+#: i18n/additional-localization.php:31
+msgid "Regulation"
+msgstr ""
+
+#: i18n/additional-localization.php:32
+msgid "Resolution"
+msgstr ""
+
+#: i18n/additional-localization.php:33
+msgid "Royal decree"
+msgstr ""
+
+#: i18n/additional-localization.php:34
+msgid "Rule"
+msgstr ""
+
+#: i18n/additional-localization.php:35
+msgid "Strategic Plan"
+msgstr ""
+
+#: i18n/additional-localization.php:36
+msgid "Strategy"
+msgstr ""
+
+#: i18n/additional-localization.php:37
+msgid "Sub-decree"
+msgstr ""
+
+#: i18n/additional-localization.php:38
+msgid "Trade Agreements"
+msgstr ""
+
+#: i18n/additional-localization.php:39
+msgid "Triangualar Agreement"
+msgstr ""
+
+#: i18n/additional-localization.php:40
+msgid "UN Charters"
+msgstr ""
+
+#: i18n/additional-localization.php:42
+msgid "Prime Minister"
+msgstr ""
+
+#: i18n/additional-localization.php:43
+msgid "Minister in charge of the Office of the Council of Ministers"
+msgstr ""
+
+#: i18n/additional-localization.php:44
+msgid "Minister of Interior"
+msgstr ""
+
+#: i18n/additional-localization.php:45
+msgid "Minister of Land Management Urban Planning and Construction"
+msgstr ""
+
+#: i18n/additional-localization.php:46
+msgid "Minister of Economy and Finance"
+msgstr ""
+
+#: i18n/additional-localization.php:47 i18n/additional-localization.php:54
+msgid "Minister of Environment"
+msgstr ""
+
+#: i18n/additional-localization.php:48
+msgid "Minister of Agriculture Forestry and Fisheries"
+msgstr ""
+
+#: i18n/additional-localization.php:49
+msgid "Minister of Civil Service"
+msgstr ""
+
+#: i18n/additional-localization.php:50
+msgid "Minister of Cult and Religion"
+msgstr ""
+
+#: i18n/additional-localization.php:51
+msgid "Minister of Culture and Fine Arts"
+msgstr ""
+
+#: i18n/additional-localization.php:52 i18n/additional-localization.php:100
+msgid "Ministry of Commerce"
+msgstr ""
+
+#: i18n/additional-localization.php:53
+msgid "Minister of Education Youth and Sport"
+msgstr ""
+
+#: i18n/additional-localization.php:55
+msgid "Minister of Foreign Affairs and International Cooperation"
+msgstr ""
+
+#: i18n/additional-localization.php:56
+msgid "Minister of Health"
+msgstr ""
+
+#: i18n/additional-localization.php:57
+msgid "Minister of Industry and Handicrafts"
+msgstr ""
+
+#: i18n/additional-localization.php:58
+msgid "Minister of Information"
+msgstr ""
+
+#: i18n/additional-localization.php:59
+msgid "Minister of Justice"
+msgstr ""
+
+#: i18n/additional-localization.php:60
+msgid "Minister of Labour and Vocational Training"
+msgstr ""
+
+#: i18n/additional-localization.php:61 i18n/additional-localization.php:103
+msgid "Ministry of Land Management, Urban Planning and Construction"
+msgstr ""
+
+#: i18n/additional-localization.php:62
+msgid "Minister of Mines and Energy"
+msgstr ""
+
+#: i18n/additional-localization.php:63
+msgid "Minister of National Defense"
+msgstr ""
+
+#: i18n/additional-localization.php:64
+msgid "Minister of Parliamentary Affairs"
+msgstr ""
+
+#: i18n/additional-localization.php:65
+msgid "Minister of Planning"
+msgstr ""
+
+#: i18n/additional-localization.php:66
+msgid "Minister of Posts and Telecommunication"
+msgstr ""
+
+#: i18n/additional-localization.php:67
+msgid "Minister of Public Works and Transport"
+msgstr ""
+
+#: i18n/additional-localization.php:68
+msgid "Minister of Social Affairs Veterans and Youth Rehabilitation"
+msgstr ""
+
+#: i18n/additional-localization.php:69
+msgid "Minister of Tourism"
+msgstr ""
+
+#: i18n/additional-localization.php:70
+msgid "Minister of Water Resources and Meteorology"
+msgstr ""
+
+#: i18n/additional-localization.php:71
+msgid "Minister of Women’s Affairs"
+msgstr ""
+
+#: i18n/additional-localization.php:72
+msgid "Secretary of State of Civil Aviation"
+msgstr ""
+
+#: i18n/additional-localization.php:73
+msgid "Secretary of State"
+msgstr ""
+
+#: i18n/additional-localization.php:74
+msgid "Provincial Governor/Council"
+msgstr ""
+
+#: i18n/additional-localization.php:75
+msgid "City Governor/Council"
+msgstr ""
+
+#: i18n/additional-localization.php:76
+msgid "District Governor/Council"
+msgstr ""
+
+#: i18n/additional-localization.php:77
+msgid "Commune Governor/Council"
+msgstr ""
+
+#: i18n/additional-localization.php:78
+msgid ""
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the "
+"Economic Land Concessions (ELCs)"
+msgstr ""
+
+#: i18n/additional-localization.php:79 i18n/additional-localization.php:122
+msgid "Royal Government of Cambodia"
+msgstr ""
+
+#: i18n/additional-localization.php:80
+msgid "Secretary General"
+msgstr ""
+
+#: i18n/additional-localization.php:81
+msgid "General Inspector"
+msgstr ""
+
+#: i18n/additional-localization.php:82
+msgid "Forestry Administration"
+msgstr ""
+
+#: i18n/additional-localization.php:83
+msgid "Council for Development"
+msgstr ""
+
+#: i18n/additional-localization.php:84 i18n/additional-localization.php:123
+msgid "Electricity Authority of Cambodia"
+msgstr ""
+
+#: i18n/additional-localization.php:85
+msgid "Cabinet"
+msgstr ""
+
+#: i18n/additional-localization.php:86
+msgid "National Authority for Land Dispute Resolution"
+msgstr ""
+
+#: i18n/additional-localization.php:87 i18n/additional-localization.php:97
+msgid "Council of Ministers"
+msgstr ""
+
+#: i18n/additional-localization.php:88
+msgid "Company Director"
+msgstr ""
+
+#: i18n/additional-localization.php:89
+msgid "Apsara Authority"
+msgstr ""
+
+#: i18n/additional-localization.php:90
+msgid "Phnom Penh Capital Hall"
+msgstr ""
+
+#: i18n/additional-localization.php:92
+msgid "City Council"
+msgstr ""
+
+#: i18n/additional-localization.php:93
+msgid "Commune Council"
+msgstr ""
+
+#: i18n/additional-localization.php:94
+msgid "Congress between National Assembly and Senate"
+msgstr ""
+
+#: i18n/additional-localization.php:95
+msgid "Constituent Assembly"
+msgstr ""
+
+#: i18n/additional-localization.php:96
+msgid "Constitutional Council"
+msgstr ""
+
+#: i18n/additional-localization.php:98
+msgid "District Council"
+msgstr ""
+
+#: i18n/additional-localization.php:99
+msgid "King, of the Kingdom of Cambodia"
+msgstr ""
+
+#: i18n/additional-localization.php:101
+msgid "Ministry of Agriculture Forestry and Fisheries"
+msgstr ""
+
+#: i18n/additional-localization.php:102
+msgid "Ministry of Industries, Mines and Energy"
+msgstr ""
+
+#: i18n/additional-localization.php:104
+msgid "Ministry of Post & Telecommunication"
+msgstr ""
+
+#: i18n/additional-localization.php:105
+msgid "Ministry of Public Works & Transport"
+msgstr ""
+
+#: i18n/additional-localization.php:106
+msgid "Ministry of Parliamentary Affairs & Inspection"
+msgstr ""
+
+#: i18n/additional-localization.php:107
+msgid "Ministry of Religions & Cults "
+msgstr ""
+
+#: i18n/additional-localization.php:108
+msgid ""
+"Ministry of Social Affairs, Labour, Vocational Training & Youth "
+"Rehabilitation"
+msgstr ""
+
+#: i18n/additional-localization.php:109
+msgid "Ministry of Tourism"
+msgstr ""
+
+#: i18n/additional-localization.php:110
+msgid "Ministry of Water Resources and Meterology"
+msgstr ""
+
+#: i18n/additional-localization.php:111
+msgid "Ministry of Woman's Affairs"
+msgstr ""
+
+#: i18n/additional-localization.php:112
+msgid "National Assembly"
+msgstr ""
+
+#: i18n/additional-localization.php:113
+msgid "Office of the Council of Ministers"
+msgstr ""
+
+#: i18n/additional-localization.php:114
+msgid "Office of the Prime Minister"
+msgstr ""
+
+#: i18n/additional-localization.php:115
+msgid "Parliament"
+msgstr ""
+
+#: i18n/additional-localization.php:116
+msgid "Provincial Council"
+msgstr ""
+
+#: i18n/additional-localization.php:117
+msgid "Provincial Department of Ministry"
+msgstr ""
+
+#: i18n/additional-localization.php:118
+msgid "Royal Palace"
+msgstr ""
+
+#: i18n/additional-localization.php:119
+msgid "Senate"
+msgstr ""
+
+#: i18n/additional-localization.php:120
+msgid "Village administration"
+msgstr ""
+
+#: i18n/additional-localization.php:121
+msgid "Phnom Penh Captial Hall"
+msgstr ""
+
+#: i18n/additional-localization.php:125
+msgid "Under negotitation"
+msgstr ""
+
+#: i18n/additional-localization.php:126
+msgid "Framework agreement signed"
+msgstr ""
+
+#: i18n/additional-localization.php:127
+msgid "Negotiations launched"
+msgstr ""
+
+#: i18n/additional-localization.php:128
+msgid "Signed but not yet in effect/validated"
+msgstr ""
+
+#: i18n/additional-localization.php:129
+msgid "Signed and in effect"
+msgstr ""
+
+#: i18n/additional-localization.php:131
+msgid "Adopted / validated / in effect"
+msgstr ""
+
+#: i18n/additional-localization.php:132
+msgid "Cancelled"
+msgstr ""
+
+#: i18n/additional-localization.php:133
+msgid "Expired"
+msgstr ""
+
+#: i18n/additional-localization.php:134
+msgid "Bill approved"
+msgstr ""
+
+#: i18n/additional-localization.php:135
+msgid "Bill discussed in Pyidaungsu Hluttaw"
+msgstr ""
+
+#: i18n/additional-localization.php:136
+msgid "Bill send to the President for signature"
+msgstr ""
+
+#: i18n/additional-localization.php:137
+msgid "Repealed"
+msgstr ""
+
+#: i18n/additional-localization.php:139
+msgid "Advocacy and promotional materials"
+msgstr ""
+
+#: i18n/additional-localization.php:140
+msgid "Analysis, discussion papers, and blogs"
+msgstr ""
+
+#: i18n/additional-localization.php:141
+msgid "Books and book chapters"
+msgstr ""
+
+#: i18n/additional-localization.php:142
+msgid "Case studies"
+msgstr ""
+
+#: i18n/additional-localization.php:143
+msgid "Issue and policy briefs"
+msgstr ""
+
+#: i18n/additional-localization.php:144
+msgid "Profiles - People"
+msgstr ""
+
+#: i18n/additional-localization.php:145
+msgid "Profiles - Organizations and projects"
+msgstr ""
+
+#: i18n/additional-localization.php:146
+msgid "Profiles - Geographical areas and sites"
+msgstr ""
+
+#: i18n/additional-localization.php:147
+msgid "Conference/workshop proceedings and presentations"
+msgstr ""
+
+#: i18n/additional-localization.php:148
+msgid ""
+"Reports, journal articles, and research papers (including theses and "
+"dissertations)"
+msgstr ""
+
+#: i18n/additional-localization.php:149
+msgid "Company profiles"
+msgstr ""
+
+#: i18n/additional-localization.php:150
+msgid "Archived web content"
+msgstr ""
+
+#: i18n/additional-localization.php:152
+msgid "Banteay Meanchey"
+msgstr ""
+
+#: i18n/additional-localization.php:153
+msgid "Battambang"
+msgstr ""
+
+#: i18n/additional-localization.php:154
+msgid "Kampong Cham"
+msgstr ""
+
+#: i18n/additional-localization.php:155
+msgid "Kampong Chhnang"
+msgstr ""
+
+#: i18n/additional-localization.php:156
+msgid "Kampong Speu"
+msgstr ""
+
+#: i18n/additional-localization.php:157
+msgid "Kampong Thom"
+msgstr ""
+
+#: i18n/additional-localization.php:158
+msgid "Kampot"
+msgstr ""
+
+#: i18n/additional-localization.php:159
+msgid "Kandal"
+msgstr ""
+
+#: i18n/additional-localization.php:160
+msgid "Kep"
+msgstr ""
+
+#: i18n/additional-localization.php:161
+msgid "Koh Kong"
+msgstr ""
+
+#: i18n/additional-localization.php:162
+msgid "Kratie"
+msgstr ""
+
+#: i18n/additional-localization.php:163
+msgid "Mondulkiri"
+msgstr ""
+
+#: i18n/additional-localization.php:164
+msgid "Oddar Meanchey"
+msgstr ""
+
+#: i18n/additional-localization.php:165
+msgid "Pailin"
+msgstr ""
+
+#: i18n/additional-localization.php:166
+msgid "Phnom Penh"
+msgstr ""
+
+#: i18n/additional-localization.php:167
+msgid "Preah Sihanouk"
+msgstr ""
+
+#: i18n/additional-localization.php:168
+msgid "Preah Vihear"
+msgstr ""
+
+#: i18n/additional-localization.php:169
+msgid "Prey Veng"
+msgstr ""
+
+#: i18n/additional-localization.php:170
+msgid "Pursat"
+msgstr ""
+
+#: i18n/additional-localization.php:171
+msgid "Ratanakiri"
+msgstr ""
+
+#: i18n/additional-localization.php:172
+msgid "Siem Reap"
+msgstr ""
+
+#: i18n/additional-localization.php:173
+msgid "Stung Treng"
+msgstr ""
+
+#: i18n/additional-localization.php:174
+msgid "Svay Rieng"
+msgstr ""
+
+#: i18n/additional-localization.php:175
+msgid "Takeo"
+msgstr ""
+
+#: i18n/additional-localization.php:176
+msgid "Tboung Khmum"
+msgstr ""
+
+#: i18n/additional-localization.php:178
+msgid "Title"
+msgstr ""
+
+#: i18n/additional-localization.php:179
+msgid "Description"
+msgstr ""
+
+#: i18n/additional-localization.php:180 i18n/additional-localization.php:203
+msgid "License"
+msgstr ""
+
+#: i18n/additional-localization.php:181
+msgid "Copyright"
+msgstr ""
+
+#: i18n/additional-localization.php:182
+msgid "Access and use constraints"
+msgstr ""
+
+#: i18n/additional-localization.php:183
+msgid "Organization"
+msgstr ""
+
+#: i18n/additional-localization.php:184
+msgid "Version"
+msgstr ""
+
+#: i18n/additional-localization.php:185
+msgid "Contact"
+msgstr ""
+
+#: i18n/additional-localization.php:186
+msgid "Topics"
+msgstr ""
+
+#: i18n/additional-localization.php:187
+#: post-types/templates/single-tabular.php:92
+msgid "Language"
+msgstr ""
+
+#: i18n/additional-localization.php:188
+msgid "Date created"
+msgstr ""
+
+#: i18n/additional-localization.php:189
+msgid "Date uploaded"
+msgstr ""
+
+#: i18n/additional-localization.php:190
+msgid "Date modified"
+msgstr ""
+
+#: i18n/additional-localization.php:191
+msgid "Temporal range"
+msgstr ""
+
+#: i18n/additional-localization.php:192
+msgid "Geographic area (spatial range)"
+msgstr ""
+
+#: i18n/additional-localization.php:193
+msgid "Accuracy"
+msgstr ""
+
+#: i18n/additional-localization.php:194
+msgid "Logical consistency"
+msgstr ""
+
+#: i18n/additional-localization.php:195
+msgid "Completeness"
+msgstr ""
+
+#: i18n/additional-localization.php:196
+msgid "Process(es)"
+msgstr ""
+
+#: i18n/additional-localization.php:197
+msgid "Source(s)"
+msgstr ""
+
+#: i18n/additional-localization.php:198
+msgid "Metadata reference information"
+msgstr ""
+
+#: i18n/additional-localization.php:199
+msgid "Attributes"
+msgstr ""
+
+#: i18n/additional-localization.php:200 i18n/additional-localization.php:215
+msgid "Document type"
+msgstr ""
+
+#: i18n/additional-localization.php:201
+msgid "Short title (alternative/varying form of title)"
+msgstr ""
+
+#: i18n/additional-localization.php:202
+msgid "Version / Edition"
+msgstr ""
+
+#: i18n/additional-localization.php:204
+msgid "Author (individual)"
+msgstr ""
+
+#: i18n/additional-localization.php:205
+msgid "Author (corporate)"
+msgstr ""
+
+#: i18n/additional-localization.php:206
+msgid "Co-author (individual)"
+msgstr ""
+
+#: i18n/additional-localization.php:207
+msgid "Co-author (corporate)"
+msgstr ""
+
+#: i18n/additional-localization.php:208
+msgid "ISBN number"
+msgstr ""
+
+#: i18n/additional-localization.php:209
+msgid "ISSN number"
+msgstr ""
+
+#: i18n/additional-localization.php:210
+msgid "Publication place"
+msgstr ""
+
+#: i18n/additional-localization.php:211
+msgid "Publisher"
+msgstr ""
+
+#: i18n/additional-localization.php:212
+msgid "Publication date"
+msgstr ""
+
+#: i18n/additional-localization.php:213
+msgid "Pagination"
+msgstr ""
+
+#: i18n/additional-localization.php:214
+msgid "General note"
+msgstr ""
+
+#: i18n/additional-localization.php:216
+msgid "Document reference #"
+msgstr ""
+
+#: i18n/additional-localization.php:217
+msgid "Alternative/short title"
+msgstr ""
+
+#: i18n/additional-localization.php:218
+msgid "Primary policy reference point"
+msgstr ""
+
+#: i18n/additional-localization.php:219
+msgid "Status"
+msgstr ""
+
+#: i18n/additional-localization.php:220
+msgid "Version date (of draft)"
+msgstr ""
+
+#: i18n/additional-localization.php:221
+msgid "Adoption date/Promulgation date/Signing date"
+msgstr ""
+
+#: i18n/additional-localization.php:222
+msgid "Effective date"
+msgstr ""
+
+#: i18n/additional-localization.php:223
+msgid "Application date"
+msgstr ""
+
+#: i18n/additional-localization.php:224
+msgid "Previous legal document"
+msgstr ""
+
+#: i18n/additional-localization.php:225
+msgid "Change notes"
+msgstr ""
+
+#: i18n/additional-localization.php:226
+msgid "Relationship to other legal docs"
+msgstr ""
+
+#: i18n/additional-localization.php:227
+msgid "Associated document"
+msgstr ""
+
+#: i18n/additional-localization.php:228
+msgid "Publication reference"
+msgstr ""
+
+#: i18n/additional-localization.php:229
+msgid "Links to source"
+msgstr ""
+
+#: i18n/additional-localization.php:230
+msgid "Drafting agency"
+msgstr ""
+
+#: i18n/additional-localization.php:231
+msgid "Technical assistance for drafting"
+msgstr ""
+
+#: i18n/additional-localization.php:232
+msgid "Agency providing technical assistance"
+msgstr ""
+
+#: i18n/additional-localization.php:233
+msgid "Technical assistance funding agency"
+msgstr ""
+
+#: i18n/additional-localization.php:234
+msgid "Issuing agency/parties"
+msgstr ""
+
+#: i18n/additional-localization.php:235
+msgid "Implementing agencies"
+msgstr ""
+
+#: i18n/additional-localization.php:236
+msgid "Notes"
+msgstr ""
 
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
 #: post-types/tabular-pages.php:32
@@ -121,48 +1008,44 @@ msgstr ""
 msgid "Type your search here"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:89
-msgid "Language"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:90
+#: post-types/templates/single-tabular.php:93
 msgid "Select language"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:91
-#: post-types/templates/single-tabular.php:111
-#: post-types/templates/single-tabular.php:134
+#: post-types/templates/single-tabular.php:94
+#: post-types/templates/single-tabular.php:114
+#: post-types/templates/single-tabular.php:138
 msgid "All"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:107
+#: post-types/templates/single-tabular.php:110
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:108
+#: post-types/templates/single-tabular.php:111
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:132
+#: post-types/templates/single-tabular.php:136
 msgid "Taxonomy"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:133
+#: post-types/templates/single-tabular.php:137
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:145
+#: post-types/templates/single-tabular.php:149
 msgid "Search Filter"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:149
+#: post-types/templates/single-tabular.php:153
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:187
+#: post-types/templates/single-tabular.php:178
 msgid "Download"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:208
+#: post-types/templates/single-tabular.php:199
 msgid "Not found"
 msgstr ""
