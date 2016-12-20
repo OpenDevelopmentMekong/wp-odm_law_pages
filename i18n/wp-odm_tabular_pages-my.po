@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-20 11:05+0100\n"
-"PO-Revision-Date: 2016-12-20 11:05+0100\n"
+"POT-Creation-Date: 2016-12-20 12:05+0100\n"
+"PO-Revision-Date: 2016-12-20 12:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/my/)\n"
@@ -909,6 +909,11 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
+#: i18n/additional-localization.php:238
+#: post-types/templates/single-tabular.php:199
+msgid "Not found"
+msgstr ""
+
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
 #: post-types/tabular-pages.php:32
 msgid "Tabular Pages"
@@ -1044,8 +1049,4 @@ msgstr ""
 
 #: post-types/templates/single-tabular.php:178
 msgid "Download"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:199
-msgid "Not found"
 msgstr ""

@@ -1,25 +1,26 @@
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
-"POT-Creation-Date: 2016-12-20 11:05+0100\n"
-"PO-Revision-Date: 2016-12-20 10:06+0000\n"
+"POT-Creation-Date: 2016-12-20 12:05+0100\n"
+"PO-Revision-Date: 2016-12-20 12:05+0100\n"
 "Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
-"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/km/)\n"
+"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-"
+"wp-laws-pages/language/km/)\n"
+"Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: i18n\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -319,8 +320,8 @@ msgstr ""
 
 #: i18n/additional-localization.php:78
 msgid ""
-"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the"
-" Economic Land Concessions (ELCs)"
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the "
+"Economic Land Concessions (ELCs)"
 msgstr ""
 
 #: i18n/additional-localization.php:79 i18n/additional-localization.php:122
@@ -908,6 +909,11 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
+#: i18n/additional-localization.php:238
+#: post-types/templates/single-tabular.php:199
+msgid "Not found"
+msgstr ""
+
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
 #: post-types/tabular-pages.php:32
 msgid "Tabular Pages"
@@ -991,8 +997,8 @@ msgstr ""
 #: post-types/tabular-pages.php:103
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
-"detail page. Format: Comma-separated values. <br/>eg. "
-"name,company,developer,block"
+"detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
+"block"
 msgstr ""
 
 #: post-types/templates/single-tabular.php:64
@@ -1044,7 +1050,3 @@ msgstr ""
 #: post-types/templates/single-tabular.php:178
 msgid "Download"
 msgstr "ទាញយក"
-
-#: post-types/templates/single-tabular.php:199
-msgid "Not found"
-msgstr ""
