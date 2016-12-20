@@ -73,6 +73,15 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
            'advanced',
            'high'
           );
+          // Profile settings
+          add_meta_box(
+           'tabular_filters',
+           __('Filters for tabular pages', 'wp-odm_tabular_pages'),
+           array($this, 'tabular_filters_box'),
+           'tabular',
+           'advanced',
+           'high'
+          );
 				}
 
 				public function tabular_options_box($post = false)
@@ -146,6 +155,19 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	      <?php
 	      }
 
+        public function tabular_filters_box($post = false)
+	      {
+          $filters_list = get_post_meta($post->ID, '_attributes_filters_list', true); ?>
+
+          <div id="tabular_filters_box">
+            <h4><?php _e('List of additional filters associated with data tables', 'wp-odm_tabular_pages'); ?></h4>
+            <textarea id="_attributes_filters_list" name="_attributes_filters_list" style="width:100%;height: 200px;" placeholder="odm_document_type  =>  09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_list;  ?></textarea>
+            <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
+          </div>
+
+        <?php
+        }
+
         public function save_post_data($post_id)
         {
             global $post;
@@ -197,6 +219,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
                 if (isset($_POST['_attributes_values_mapping_localization'])) {
                     update_post_meta($post_id, '_attributes_values_mapping_localization', $_POST['_attributes_values_mapping_localization']);
+                }
+
+                if (isset($_POST['_attributes_filters_list'])) {
+                    update_post_meta($post_id, '_attributes_filters_list', $_POST['_attributes_filters_list']);
                 }
 
                 if (!current_user_can('edit_post')) {
