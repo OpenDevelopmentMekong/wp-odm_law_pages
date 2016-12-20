@@ -81,6 +81,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 						$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
 						$link_to_detail_column = get_post_meta($post->ID,'_attributes_link_to_detail_column', true);
 						$values_mapping = get_post_meta($post->ID,'_attributes_values_mapping', true);
+            $group_data_by_column_index = get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
 						?>
 	          <div id="tabular_options_box">
 	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
@@ -101,6 +102,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
 						  <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />
 			        <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
+
+              <h4><?php _e('Group Data in Column', 'wp-odm_tabular_pages');?></h4>
+						  <input class="full-width" type="text" id="_attributes_group_data_by_column_index" name="_attributes_group_data_by_column_index" placeholder="1" value="<?php echo $group_data_by_column_index; ?>" />
+			        <p class="description"><?php _e('Eg. To group records by a certain column. please specify the index, not the name.', 'wp-odm_tabular_pages'); ?></p>
 	          </div>
 	      <?php
 	      }
@@ -128,6 +133,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
 								if (isset($_POST['_attributes_column_list'])) {
                     update_post_meta($post_id, '_attributes_column_list', $_POST['_attributes_column_list']);
+                }
+
+                if (isset($_POST['_attributes_group_data_by_column_index'])) {
+                    update_post_meta($post_id, '_attributes_group_data_by_column_index', $_POST['_attributes_group_data_by_column_index']);
                 }
 
 								if (isset($_POST['_attributes_link_to_detail_column'])) {

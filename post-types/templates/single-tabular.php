@@ -17,6 +17,8 @@
 		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
 
+    $group_data_by_column_index = get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
+
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 	  $param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
@@ -165,7 +167,7 @@
   <section class="container">
     <div class="row">
 		  <div class="sixteen columns">
-        <?php the_content(); ?>
+        <?php the_content();?>
         <table id="datasets_table" class="data-table">
           <thead>
             <tr>
@@ -249,10 +251,10 @@ jQuery(document).ready(function($) {
 		"bAutoWidth": false,
     dom: '<"top"<"info"i><"pagination"p><"length"l>>rt',
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-    order: [[ 0, 'asc' ]],
+    order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?  $group_data_by_column_index : 0 ?>, 'asc' ]],
     displayLength: 50,
-    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }]
-		<?php if (odm_language_manager()->get_current_language() == 'km') { ?>
+    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }],
+		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
 		,"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
 						'<option value="10">10</option>'+
@@ -271,21 +273,37 @@ jQuery(document).ready(function($) {
 					"sPrevious": "មុន",
 					"sNext": "បន្ទាប់"
 				}
-		}
-	 	<?php } ?>
+		},
+	 	<?php endif; ?>
+    <?php if (isset($group_data_by_column_index) && $group_data_by_column_index != ''): ?>
+    "drawCallback": function ( settings ) {
+        var api = this.api();
+        var rows = api.rows( {page:'current'} ).nodes();
+        var last=null;
+
+        api.column(<?php echo $group_data_by_column_index ?>, {page:'current'} ).data().each( function ( group, i ) {
+            if ( last !== group ) {
+                $(rows).eq( i ).before(
+                    '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                );
+
+                last = group;
+            }
+        } );
+    }
+    <?php endif; ?>
   });
 
-setTimeout(function ()
-{
-oTable.fnAdjustColumnSizing();
-}, 10 );
+  setTimeout(function () {
+    oTable.fnAdjustColumnSizing();
+  }, 10 );
 
   $("#query").keyup(function () {
     console.log("filtering page " + this.value);
     oTable.fnFilterAll(this.value);
- });
+  });
 
- $('select').select2();
+  $('select').select2();
 
 });
 
