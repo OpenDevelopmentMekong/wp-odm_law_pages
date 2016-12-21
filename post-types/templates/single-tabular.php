@@ -8,15 +8,14 @@
 		$valid_config = true;
 
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true);
-		$column_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_column_list_localization', true) : get_post_meta($post->ID, '_attributes_column_list', true);
-		$values_mapping = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_values_mapping_localization', true) : get_post_meta($post->ID, '_attributes_values_mapping', true);
+		$column_list = get_post_meta($post->ID, '_attributes_column_list', true);
+		$values_mapping = get_post_meta($post->ID, '_attributes_values_mapping', true);
+
     $column_list_array = parse_mapping_pairs($column_list);
     $values_mapping_array = parse_mapping_pairs($values_mapping);
 
-		$link_to_detail_columns = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_link_to_detail_column_localization', true) : get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
+		$link_to_detail_columns = get_post_meta($post->ID, '_attributes_link_to_detail_column', true);
 		$link_to_detail_columns_array = explode(",",$link_to_detail_columns);
-
-    $group_data_by_column_index = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID,'_attributes_group_data_by_column_index_localization', true) : get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
 
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
@@ -138,8 +137,10 @@
               <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
                 <option value="all" selected><?php _e('All','odm') ?></option>
                 <?php
-                  foreach($taxonomy_list as $value): ?>
-                  <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
+                  foreach($taxonomy_list as $value):
+                    $val = apply_filters('translate_term', $value, odm_language_manager()->get_current_language());
+                ?>
+                  <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $val; ?></option>
                 <?php
                   endforeach; ?>
               </select>
@@ -163,10 +164,24 @@
     </div>
   </div>
 
+  <?php
+    if (!$active_filters && function_exists('wpdash_get_ckan_stats_dataviz_by_taxonomy')): ?>
+      <div class="container">
+        <div class="row">
+          <div class="four columns">
+            <?php wpdash_get_ckan_stats_dataviz_by_language(array('type' => 'laws_record')); ?>
+          </div>
+          <div class="twelve columns">
+            <?php wpdash_get_ckan_stats_dataviz_by_taxonomy(array('type' => 'laws_record')); ?>
+          </div>
+      </div>
+  <?php
+    endif; ?>
+
   <section class="container">
     <div class="row">
 		  <div class="sixteen columns">
-        <?php the_content();?>
+        <?php the_content(); ?>
         <table id="datasets_table" class="data-table">
           <thead>
             <tr>
@@ -194,10 +209,10 @@
 											endif;
                     	$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
                       if (in_array($key,$link_to_detail_columns_array)): ?>
-												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
+												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo $mapped_value;?></a>
                       <?php
                       else:
-                        echo $mapped_value == '' ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+                        echo $mapped_value == '' ? __('Not found', 'wp-odm_tabular_pages') : $mapped_value;
 	                    endif;
                     endif;
 										echo "</td>";
@@ -250,10 +265,10 @@ jQuery(document).ready(function($) {
 		"bAutoWidth": false,
     dom: '<"top"<"info"i><"pagination"p><"length"l>>rt',
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-    order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?  $group_data_by_column_index : 0 ?>, 'asc' ]],
+    order: [[ 0, 'asc' ]],
     displayLength: 50,
-    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }],
-		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
+    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }]
+		<?php if (odm_language_manager()->get_current_language() == 'km') { ?>
 		,"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
 						'<option value="10">10</option>'+
@@ -272,37 +287,21 @@ jQuery(document).ready(function($) {
 					"sPrevious": "មុន",
 					"sNext": "បន្ទាប់"
 				}
-		},
-	 	<?php endif; ?>
-    <?php if (isset($group_data_by_column_index) && $group_data_by_column_index != ''): ?>
-    "drawCallback": function ( settings ) {
-        var api = this.api();
-        var rows = api.rows( {page:'current'} ).nodes();
-        var last=null;
-
-        api.column(<?php echo $group_data_by_column_index ?>, {page:'current'} ).data().each( function ( group, i ) {
-            if ( last !== group ) {
-                $(rows).eq( i ).before(
-                    '<tr class="group"><td colspan="5">'+group+'</td></tr>'
-                );
-
-                last = group;
-            }
-        } );
-    }
-    <?php endif; ?>
+		}
+	 	<?php } ?>
   });
 
-  setTimeout(function () {
-    oTable.fnAdjustColumnSizing();
-  }, 10 );
+setTimeout(function ()
+{
+oTable.fnAdjustColumnSizing();
+}, 10 );
 
   $("#query").keyup(function () {
     console.log("filtering page " + this.value);
     oTable.fnFilterAll(this.value);
-  });
+ });
 
-  $('select').select2();
+ $('select').select2();
 
 });
 
