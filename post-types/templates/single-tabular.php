@@ -20,6 +20,8 @@
 
     $filters_list = get_post_meta($post->ID, '_attributes_filters_list', true);
     $filters_list_array = parse_mapping_pairs($filters_list);
+    $filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
+    $filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
 
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
@@ -49,7 +51,14 @@
 	    }
 		endif;
 
-    foreach ($filters_list_array as $key => $resource_id):
+    foreach ($filters_list_array as $key => $type):
+      $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
+      if (isset($selected_param)  && $selected_param !== "all") {
+	      array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
+	    }
+    endforeach;
+
+    foreach ($filters_datatables_list_array as $key => $resource_id):
       $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
       if (isset($selected_param)  && $selected_param !== "all") {
 	      array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
@@ -169,12 +178,35 @@
           </div>
 
           <?php
-            foreach ($filters_list_array as $key => $resource_id):
+          foreach ($filters_list_array as $key => $type):
+            $mapped_key = in_array($key,array_keys($values_mapping_array)) ?  $values_mapping_array[$key] : $key;
+            $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
+            $selected_param_array = explode(",",$selected_param);
+            $num_columns = integer_to_text(round(16 / (count($filters_datatables_list_array) + count($filters_list_array)))); ?>
+
+            <div class="<?php echo $num_columns?> columns">
+              <div class="adv-nav-input">
+                <p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+                <?php
+                  if ($type == "date"): ?>
+                    <input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $selected_param; ?>" class="datepicker"></input>
+                <?php
+                  else: ?>
+                    <input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $selected_param; ?>"></input>
+                <?php
+                  endif; ?>
+              </div>
+            </div>
+        <?php
+          endforeach; ?>
+
+          <?php
+            foreach ($filters_datatables_list_array as $key => $resource_id):
               $mapped_key = in_array($key,array_keys($values_mapping_array)) ?  $values_mapping_array[$key] : $key;
               $options = wpckan_get_datastore_resource(wpckan_get_ckan_domain(),$resource_id);
               $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
               $selected_param_array = explode(",",$selected_param);
-              $num_columns = integer_to_text(16 / count($filters_list_array));
+              $num_columns = integer_to_text(round(16 / (count($filters_datatables_list_array) + count($filters_list_array))));
               if (!empty($options)): ?>
 
               <div class="<?php echo $num_columns?> columns">
@@ -341,6 +373,7 @@ jQuery(document).ready(function($) {
   });
 
   $('select').select2();
+  $('.datepicker').datepicker();
 
 });
 
