@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
 "POT-Creation-Date: 2016-12-20 13:29+0100\n"
-"PO-Revision-Date: 2016-12-20 13:29+0100\n"
+"PO-Revision-Date: 2016-12-21 15:12+0700\n"
 "Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
 "Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/km/)\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -68,7 +68,7 @@ msgstr "កិច្ចព្រមព្រៀង"
 
 #: i18n/additional-localization.php:13
 msgid "Customary law"
-msgstr ""
+msgstr "ច្បាប់ទំនៀមទម្លាប់"
 
 #: i18n/additional-localization.php:14
 msgid "Decision"
@@ -80,7 +80,7 @@ msgstr "ក្រឹត្យ"
 
 #: i18n/additional-localization.php:16
 msgid "Directive"
-msgstr ""
+msgstr "បទបញ្ជា"
 
 #: i18n/additional-localization.php:17 i18n/additional-localization.php:130
 msgid "Draft"
@@ -100,7 +100,7 @@ msgstr "សិន្ធិ​សញ្ញា​អន្តរ​ជាតិ"
 
 #: i18n/additional-localization.php:21
 msgid "Joint circular"
-msgstr ""
+msgstr "សរាចររួម"
 
 #: i18n/additional-localization.php:22
 msgid "Law"
@@ -152,7 +152,7 @@ msgstr "ព្រះរាជក្រឹត្យ"
 
 #: i18n/additional-localization.php:34
 msgid "Rule"
-msgstr "បទបញ្ជា"
+msgstr "វិធាន"
 
 #: i18n/additional-localization.php:35
 msgid "Strategic Plan"
@@ -208,115 +208,115 @@ msgstr "រដ្ឋមន្រ្តីក្រសួងកសិកម្ម
 
 #: i18n/additional-localization.php:49
 msgid "Minister of Civil Service"
-msgstr ""
+msgstr "ក្រសួងមុខងារសាធារណៈ"
 
 #: i18n/additional-localization.php:50
 msgid "Minister of Cult and Religion"
-msgstr ""
+msgstr "ក្រសួងធម្មការ និងសាសនា"
 
 #: i18n/additional-localization.php:51
 msgid "Minister of Culture and Fine Arts"
-msgstr ""
+msgstr "ក្រសួងវប្បធម៌ និងវិចិត្រសិល្បៈ"
 
 #: i18n/additional-localization.php:52 i18n/additional-localization.php:100
 msgid "Ministry of Commerce"
-msgstr ""
+msgstr "ក្រសួងពាណិជ្ជកម្ម"
 
 #: i18n/additional-localization.php:53
 msgid "Minister of Education Youth and Sport"
-msgstr ""
+msgstr "ក្រសួងអប់រំ យុវជន និង កីឡា"
 
 #: i18n/additional-localization.php:55
 msgid "Minister of Foreign Affairs and International Cooperation"
-msgstr ""
+msgstr "ក្រសួងការបរទេស និងសហប្រតិបត្តិការអន្តរជាតិ"
 
 #: i18n/additional-localization.php:56
 msgid "Minister of Health"
-msgstr ""
+msgstr "ក្រសួងសុខាភិបាល"
 
 #: i18n/additional-localization.php:57
 msgid "Minister of Industry and Handicrafts"
-msgstr ""
+msgstr "ក្រសួងឧស្សាហកម្មនិងសិប្បកម្ម"
 
 #: i18n/additional-localization.php:58
 msgid "Minister of Information"
-msgstr ""
+msgstr "ក្រសួងព័ត៌មាន"
 
 #: i18n/additional-localization.php:59
 msgid "Minister of Justice"
-msgstr ""
+msgstr "ក្រសួងយុត្តិធម៌"
 
 #: i18n/additional-localization.php:60
 msgid "Minister of Labour and Vocational Training"
-msgstr ""
+msgstr "ក្រសួងការងារ និងបណ្តុះបណ្តាលវិជ្ជាជីវៈ"
 
 #: i18n/additional-localization.php:61 i18n/additional-localization.php:103
 msgid "Ministry of Land Management, Urban Planning and Construction"
-msgstr ""
+msgstr "ក្រសួង​រៀបចំ​ដែនដី នគរូប​នីយកម្ម និង​សំណង់"
 
 #: i18n/additional-localization.php:62
 msgid "Minister of Mines and Energy"
-msgstr ""
+msgstr "ក្រសួងឧស្សាហកម្ម រ៉ែ និងថាមពល"
 
 #: i18n/additional-localization.php:63
 msgid "Minister of National Defense"
-msgstr ""
+msgstr "ក្រសួងការពារជាតិ"
 
 #: i18n/additional-localization.php:64
 msgid "Minister of Parliamentary Affairs"
-msgstr ""
+msgstr "ក្រសួងកិច្ចការសភា"
 
 #: i18n/additional-localization.php:65
 msgid "Minister of Planning"
-msgstr ""
+msgstr "ក្រសួងផែនការ"
 
 #: i18n/additional-localization.php:66
 msgid "Minister of Posts and Telecommunication"
-msgstr ""
+msgstr "ក្រសួងប្រៃសណីយ៍ និងទូរគមនាគមន៍"
 
 #: i18n/additional-localization.php:67
 msgid "Minister of Public Works and Transport"
-msgstr ""
+msgstr "ក្រសួងសាធារណការ និងដឹកជញ្ជូន"
 
 #: i18n/additional-localization.php:68
 msgid "Minister of Social Affairs Veterans and Youth Rehabilitation"
-msgstr ""
+msgstr " ក្រសួង​សង្គមកិច្ច អតីត​យុទ្ធជន និង​យុវនីតិ​សម្បទា"
 
 #: i18n/additional-localization.php:69
 msgid "Minister of Tourism"
-msgstr ""
+msgstr "ក្រសួងទេសចរណ៍"
 
 #: i18n/additional-localization.php:70
 msgid "Minister of Water Resources and Meteorology"
-msgstr ""
+msgstr "ក្រសួងធនធានទឹក និងឧតុនិយម"
 
 #: i18n/additional-localization.php:71
 msgid "Minister of Women’s Affairs"
-msgstr ""
+msgstr "ក្រសួងកិច្ចការនារី"
 
 #: i18n/additional-localization.php:72
 msgid "Secretary of State of Civil Aviation"
-msgstr ""
+msgstr "រដ្ឋលេខាធិការដ្ឋានអាកាសចរស៊ីវិល"
 
 #: i18n/additional-localization.php:73
 msgid "Secretary of State"
-msgstr ""
+msgstr "(រដ្ឋលេខាធិការ"
 
 #: i18n/additional-localization.php:74
 msgid "Provincial Governor/Council"
-msgstr ""
+msgstr "អភិបាល/ក្រុមប្រឹក្សាខេត្ត"
 
 #: i18n/additional-localization.php:75
 msgid "City Governor/Council"
-msgstr ""
+msgstr "អភិបាល/ក្រុមប្រឹក្សារាជធានី"
 
 #: i18n/additional-localization.php:76
 msgid "District Governor/Council"
-msgstr ""
+msgstr "អភិបាល/ក្រុមប្រឹក្សាស្រុក"
 
 #: i18n/additional-localization.php:77
 msgid "Commune Governor/Council"
-msgstr ""
+msgstr "អភិបាល/ក្រុមប្រឹក្សាឃុំសង្កាត់"
 
 #: i18n/additional-localization.php:78
 msgid ""
@@ -326,59 +326,59 @@ msgstr ""
 
 #: i18n/additional-localization.php:79 i18n/additional-localization.php:122
 msgid "Royal Government of Cambodia"
-msgstr ""
+msgstr "រាជរដ្ឋាភិបាលនៃព្រះរាជាណាចក្រកម្ពុជា"
 
 #: i18n/additional-localization.php:80
 msgid "Secretary General"
-msgstr ""
+msgstr "អគ្គលេខាធិការ"
 
 #: i18n/additional-localization.php:81
 msgid "General Inspector"
-msgstr ""
+msgstr "អធិការទូទៅ"
 
 #: i18n/additional-localization.php:82
 msgid "Forestry Administration"
-msgstr ""
+msgstr "រដ្ឋបាលព្រៃឈើ"
 
 #: i18n/additional-localization.php:83
 msgid "Council for Development"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សាអភិវឌ្ឍន៍"
 
 #: i18n/additional-localization.php:84 i18n/additional-localization.php:123
 msgid "Electricity Authority of Cambodia"
-msgstr ""
+msgstr "អាជ្ញាធរអគ្គិសនីកម្ពុជា"
 
 #: i18n/additional-localization.php:85
 msgid "Cabinet"
-msgstr ""
+msgstr "គណៈរដ្ឋមន្រ្តី"
 
 #: i18n/additional-localization.php:86
 msgid "National Authority for Land Dispute Resolution"
-msgstr ""
+msgstr "អាជ្ញាធរជាតិដោះស្រាយទំនាស់ដីធ្លី"
 
 #: i18n/additional-localization.php:87 i18n/additional-localization.php:97
 msgid "Council of Ministers"
-msgstr ""
+msgstr "ទីស្តីការគណៈរដ្ឋមន្រ្តី"
 
 #: i18n/additional-localization.php:88
 msgid "Company Director"
-msgstr ""
+msgstr "នាយកក្រុមហ៊ុន"
 
 #: i18n/additional-localization.php:89
 msgid "Apsara Authority"
-msgstr ""
+msgstr "អាជ្ញាធរអប្សរា"
 
 #: i18n/additional-localization.php:90
 msgid "Phnom Penh Capital Hall"
-msgstr ""
+msgstr "សាលារាជធានីភ្នំពេញ"
 
 #: i18n/additional-localization.php:92
 msgid "City Council"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សារាជធានី"
 
 #: i18n/additional-localization.php:93
 msgid "Commune Council"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សាឃុំសង្កាត់"
 
 #: i18n/additional-localization.php:94
 msgid "Congress between National Assembly and Senate"
@@ -386,19 +386,19 @@ msgstr ""
 
 #: i18n/additional-localization.php:95
 msgid "Constituent Assembly"
-msgstr ""
+msgstr "សភាធម្មនុញ្ញ"
 
 #: i18n/additional-localization.php:96
 msgid "Constitutional Council"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សាធម្មនុញ្ញ"
 
 #: i18n/additional-localization.php:98
 msgid "District Council"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សាស្រុក"
 
 #: i18n/additional-localization.php:99
 msgid "King, of the Kingdom of Cambodia"
-msgstr ""
+msgstr "ព្រះមហាក្សត្រនៃព្រះរាជាណាចក្រកម្ពុជា"
 
 #: i18n/additional-localization.php:101
 msgid "Ministry of Agriculture Forestry and Fisheries"
@@ -574,7 +574,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:149
 msgid "Company profiles"
-msgstr ""
+msgstr "ព័ត៌មានក្រុមហ៊ុន"
 
 #: i18n/additional-localization.php:150
 msgid "Archived web content"
@@ -682,56 +682,56 @@ msgstr "ត្បូងឃ្មុំ"
 
 #: i18n/additional-localization.php:178
 msgid "Title"
-msgstr ""
+msgstr "ចំណងជើង"
 
 #: i18n/additional-localization.php:179
 msgid "Description"
-msgstr ""
+msgstr "ពណ៌នា"
 
 #: i18n/additional-localization.php:180 i18n/additional-localization.php:203
 msgid "License"
-msgstr ""
+msgstr "អាជ្ញាប័ណ្ណ"
 
 #: i18n/additional-localization.php:181
 msgid "Copyright"
-msgstr ""
+msgstr "រក្សាសិទ្ធិ"
 
 #: i18n/additional-localization.php:182
 msgid "Access and use constraints"
-msgstr ""
+msgstr "លក្ខខណ្ឌនៃការប្រើប្រាស់"
 
 #: i18n/additional-localization.php:183
 msgid "Organization"
-msgstr ""
+msgstr "អង្គភាព"
 
 #: i18n/additional-localization.php:184
 msgid "Version"
-msgstr ""
+msgstr "កំណែ"
 
 #: i18n/additional-localization.php:185
 msgid "Contact"
-msgstr ""
+msgstr "ទាក់ទង​"
 
 #: i18n/additional-localization.php:186
 msgid "Topics"
-msgstr ""
+msgstr "ប្រធានបទ"
 
 #: i18n/additional-localization.php:187
 #: post-types/templates/single-tabular.php:94
 msgid "Language"
-msgstr ""
+msgstr "ភាសា"
 
 #: i18n/additional-localization.php:188
 msgid "Date created"
-msgstr ""
+msgstr "កាលបរិច្ឆេទបង្កើត"
 
 #: i18n/additional-localization.php:189
 msgid "Date uploaded"
-msgstr ""
+msgstr "កាលបរិច្ឆេទផ្ទុកឡើង"
 
 #: i18n/additional-localization.php:190
 msgid "Date modified"
-msgstr ""
+msgstr "កាលបរិច្ឆេទកែប្រែ"
 
 #: i18n/additional-localization.php:191
 msgid "Temporal range"
@@ -771,7 +771,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:200 i18n/additional-localization.php:215
 msgid "Document type"
-msgstr ""
+msgstr "ប្រភេទនៃឯកសារ"
 
 #: i18n/additional-localization.php:201
 msgid "Short title (alternative/varying form of title)"
@@ -783,19 +783,19 @@ msgstr ""
 
 #: i18n/additional-localization.php:204
 msgid "Author (individual)"
-msgstr ""
+msgstr "អ្នកនិពន្ធ (បុគ្គល)"
 
 #: i18n/additional-localization.php:205
 msgid "Author (corporate)"
-msgstr ""
+msgstr "អ្នកនិពន្ធ (ជាស្ថាប័ន)"
 
 #: i18n/additional-localization.php:206
 msgid "Co-author (individual)"
-msgstr ""
+msgstr "សហអ្នកនិពន្ធ (បុគ្គល)"
 
 #: i18n/additional-localization.php:207
 msgid "Co-author (corporate)"
-msgstr ""
+msgstr "សហអ្នកនិពន្ធ (ជាស្ថាប័ន)"
 
 #: i18n/additional-localization.php:208
 msgid "ISBN number"
@@ -811,7 +811,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:211
 msgid "Publisher"
-msgstr ""
+msgstr "បោះពុម្ពផ្សាយ"
 
 #: i18n/additional-localization.php:212
 msgid "Publication date"
@@ -912,7 +912,7 @@ msgstr ""
 #: i18n/additional-localization.php:238
 #: post-types/templates/single-tabular.php:201
 msgid "Not found"
-msgstr ""
+msgstr "ព័ត៌មានពុំអាចរកបាន"
 
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
 #: post-types/tabular-pages.php:32
@@ -1017,15 +1017,15 @@ msgstr ""
 
 #: post-types/templates/single-tabular.php:81
 msgid "Text search"
-msgstr ""
+msgstr "ពាក្យស្វែងរក"
 
 #: post-types/templates/single-tabular.php:82
 msgid "Type your search here"
-msgstr ""
+msgstr "បញ្ចូលពាក្យស្វែងរកទីនេះ"
 
 #: post-types/templates/single-tabular.php:95
 msgid "Select language"
-msgstr ""
+msgstr "ជ្រើសរើសភាសា"
 
 #: post-types/templates/single-tabular.php:96
 #: post-types/templates/single-tabular.php:116
@@ -1035,27 +1035,27 @@ msgstr "ទាំងអស់"
 
 #: post-types/templates/single-tabular.php:112
 msgid "Country"
-msgstr ""
+msgstr "ប្រទេស"
 
 #: post-types/templates/single-tabular.php:113
 msgid "Select country"
-msgstr ""
+msgstr "ជ្រើសរើសប្រទេស"
 
 #: post-types/templates/single-tabular.php:138
 msgid "Taxonomy"
-msgstr ""
+msgstr "ប្រធានបទ"
 
 #: post-types/templates/single-tabular.php:139
 msgid "Select term"
-msgstr ""
+msgstr "ជ្រើសរើសពាក្យ"
 
 #: post-types/templates/single-tabular.php:151
 msgid "Search Filter"
-msgstr ""
+msgstr "ស្វែងរកការជ្រើសរើស"
 
 #: post-types/templates/single-tabular.php:155
 msgid "Clear"
-msgstr ""
+msgstr "សំអាតការជ្រើសរើស"
 
 #: post-types/templates/single-tabular.php:180
 msgid "Download"
