@@ -236,5 +236,6 @@ echo _('Implementing agencies');
 echo _('Notes');
 
 echo _('Not found');
+echo _('License unspecified');
 
 ?>
