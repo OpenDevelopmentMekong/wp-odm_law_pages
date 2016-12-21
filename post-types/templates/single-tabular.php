@@ -138,8 +138,10 @@
               <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odm'); ?>">
                 <option value="all" selected><?php _e('All','odm') ?></option>
                 <?php
-                  foreach($taxonomy_list as $value): ?>
-                  <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $value; ?></option>
+                  foreach($taxonomy_list as $value):
+                    $val = apply_filters('translate_term', $value, odm_language_manager()->get_current_language());
+                  ?>
+                  <option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $val; ?></option>
                 <?php
                   endforeach; ?>
               </select>
