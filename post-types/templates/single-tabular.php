@@ -218,7 +218,7 @@
                     <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
                     <?php
                       foreach($options as $option): ?>
-                      <option value="<?php echo $option['id']; ?>" <?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php echo $option['name']; ?></option>
+                      <option value="<?php echo $option['id']; ?>" <?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
                     <?php
                       endforeach; ?>
                   </select>
