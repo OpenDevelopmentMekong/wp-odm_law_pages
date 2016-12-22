@@ -152,6 +152,24 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
               <?php } ?>
 
             </div>
+            <script type="text/javascript">
+        		 jQuery(document).ready(function($) {
+        			var $container = $('#multiple-site');
+        			var $languageSelection = $('input[type="radio"]');
+        			var $forms = $('.language_settings');
+        			var showForms = function() {
+        				  $forms.hide();
+        					var selected = $('input[type="radio"][name=language_site]').filter(':checked').val();
+        					$('.language-' + selected).show();
+        			}
+        			$languageSelection.on('change', function() {
+        					$('.' + this.className).prop('checked', this.checked);
+        			 	showForms();
+        			});
+
+        			showForms();
+             });
+            </script>
 	      <?php
 	      }
 
