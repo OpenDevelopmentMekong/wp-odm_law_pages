@@ -326,7 +326,7 @@ jQuery(document).ready(function($) {
     displayLength: 50,
     "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }],
 		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
-		,"oLanguage": {
+		"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
 						'<option value="10">10</option>'+
 						'<option value="25">25</option>'+
