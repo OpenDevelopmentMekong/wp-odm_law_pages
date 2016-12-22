@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-20 11:05+0100\n"
-"PO-Revision-Date: 2016-12-20 11:05+0100\n"
+"POT-Creation-Date: 2016-12-20 13:29+0100\n"
+"PO-Revision-Date: 2016-12-20 13:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-development-mekong/"
 "odm-wp-laws-pages/language/vi/)\n"
@@ -717,7 +717,7 @@ msgid "Topics"
 msgstr ""
 
 #: i18n/additional-localization.php:187
-#: post-types/templates/single-tabular.php:92
+#: post-types/templates/single-tabular.php:94
 msgid "Language"
 msgstr ""
 
@@ -909,6 +909,11 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
+#: i18n/additional-localization.php:238
+#: post-types/templates/single-tabular.php:201
+msgid "Not found"
+msgstr ""
+
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
 #: post-types/tabular-pages.php:32
 msgid "Tabular Pages"
@@ -962,90 +967,96 @@ msgstr ""
 msgid "Option for tabular pages"
 msgstr ""
 
-#: post-types/tabular-pages.php:86
+#: post-types/tabular-pages.php:87
 msgid "Choose dataset type"
 msgstr ""
 
-#: post-types/tabular-pages.php:93
+#: post-types/tabular-pages.php:94
 msgid "The attributes of the Dataset that would like to display"
 msgstr ""
 
-#: post-types/tabular-pages.php:95
+#: post-types/tabular-pages.php:96
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
 "breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:97
+#: post-types/tabular-pages.php:98
 msgid "Id to Label mapping for values"
 msgstr ""
 
-#: post-types/tabular-pages.php:99
+#: post-types/tabular-pages.php:100
 msgid ""
 "Please specify the ids plus their labels, separated by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:101
+#: post-types/tabular-pages.php:102
 msgid "Column ids linking to detail page"
 msgstr ""
 
-#: post-types/tabular-pages.php:103
+#: post-types/tabular-pages.php:104
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
 "detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
 "block"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:64
+#: post-types/tabular-pages.php:106
+msgid "Group Data in Column"
+msgstr ""
+
+#: post-types/tabular-pages.php:108
+msgid ""
+"Eg. To group records by a certain column. please specify the index, not the "
+"name."
+msgstr ""
+
+#: post-types/templates/single-tabular.php:66
 msgid "Error in configuration, please check."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:79
+#: post-types/templates/single-tabular.php:81
 msgid "Text search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:80
+#: post-types/templates/single-tabular.php:82
 msgid "Type your search here"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:93
+#: post-types/templates/single-tabular.php:95
 msgid "Select language"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:94
-#: post-types/templates/single-tabular.php:114
-#: post-types/templates/single-tabular.php:138
+#: post-types/templates/single-tabular.php:96
+#: post-types/templates/single-tabular.php:116
+#: post-types/templates/single-tabular.php:140
 msgid "All"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:110
+#: post-types/templates/single-tabular.php:112
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:111
+#: post-types/templates/single-tabular.php:113
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:136
+#: post-types/templates/single-tabular.php:138
 msgid "Taxonomy"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:137
+#: post-types/templates/single-tabular.php:139
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:149
+#: post-types/templates/single-tabular.php:151
 msgid "Search Filter"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:153
+#: post-types/templates/single-tabular.php:155
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:178
+#: post-types/templates/single-tabular.php:180
 msgid "Download"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:199
-msgid "Not found"
 msgstr ""
