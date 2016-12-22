@@ -97,11 +97,11 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             $group_data_by_column_index_localization = get_post_meta($post->ID,'_attributes_group_data_by_column_index_localization', true);
 						?>
             <div id="multiple-site">
-              <input type="radio" id="en" class="en" name="p_language_site" value="en" checked />
+              <input type="radio" id="en" class="en" name="language_site" value="en" checked />
               <label for="en"><?php _e('ENGLISH', 'wp-odm_tabular_pages');
                   ?></label> &nbsp;
               <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
-                <input type="radio" id="localization" class="localization" name="p_language_site" value="localization" />
+                <input type="radio" id="localization" class="localization" name="language_site" value="localization" />
                 <label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
               <?php endif; ?>
             </div>
