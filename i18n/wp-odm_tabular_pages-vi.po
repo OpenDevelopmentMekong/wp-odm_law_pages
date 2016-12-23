@@ -1016,7 +1016,7 @@ msgid "Error in configuration, please check."
 msgstr ""
 
 #: post-types/templates/single-tabular.php:81
-msgid "Text search"
+msgid "Quick filter"
 msgstr ""
 
 #: post-types/templates/single-tabular.php:82
