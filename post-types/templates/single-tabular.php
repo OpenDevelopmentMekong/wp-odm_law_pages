@@ -315,8 +315,15 @@
                     <?php foreach ($dataset['resources'] as $resource) :?>
                       <?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
                         <span>
-                          <a href="<?php echo $resource['url'];?>">
-                          <i class="fa fa-download"></i> <?php echo strtoupper(implode(", ",$resource['odm_language'])); ?></a>
+                          <?php
+                            if (is_array($resource['odm_language'])):
+                              foreach ($resource['odm_language'] as $language) :?>
+                                <a href="<?php echo $resource['url'];?>">
+                                <i class="fa fa-download"></i> <?php echo odm_language_manager()->get_the_language_by_language_code($language); ?></a>
+                              <?php
+                              endforeach;
+                            endif;
+                            ?>
 												</span>
                       <?php endif; ?>
                     <?php endforeach; ?>
