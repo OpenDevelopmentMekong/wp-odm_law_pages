@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-23 17:29+0100\n"
-"PO-Revision-Date: 2016-12-23 17:29+0100\n"
+"POT-Creation-Date: 2016-12-23 17:34+0100\n"
+"PO-Revision-Date: 2016-12-23 17:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/my/)\n"
@@ -826,111 +826,119 @@ msgid "General note"
 msgstr ""
 
 #: i18n/additional-localization.php:216
-msgid "Document reference #"
+msgid "Document number"
 msgstr ""
 
 #: i18n/additional-localization.php:217
-msgid "Alternative/short title"
+msgid "Document reference #"
 msgstr ""
 
 #: i18n/additional-localization.php:218
-msgid "Primary policy reference point"
+msgid "Alternative/short title"
 msgstr ""
 
 #: i18n/additional-localization.php:219
-msgid "Status"
+msgid "Primary policy reference point"
 msgstr ""
 
 #: i18n/additional-localization.php:220
-msgid "Version date (of draft)"
+msgid "Status"
 msgstr ""
 
 #: i18n/additional-localization.php:221
-msgid "Adoption date/Promulgation date/Signing date"
+msgid "Version date (of draft)"
 msgstr ""
 
 #: i18n/additional-localization.php:222
-msgid "Effective date"
+msgid "Adoption date/Promulgation date/Signing date"
 msgstr ""
 
 #: i18n/additional-localization.php:223
-msgid "Application date"
+msgid "Promulgation date"
 msgstr ""
 
 #: i18n/additional-localization.php:224
-msgid "Previous legal document"
+msgid "Effective date"
 msgstr ""
 
 #: i18n/additional-localization.php:225
-msgid "Change notes"
+msgid "Application date"
 msgstr ""
 
 #: i18n/additional-localization.php:226
-msgid "Relationship to other legal docs"
+msgid "Previous legal document"
 msgstr ""
 
 #: i18n/additional-localization.php:227
-msgid "Associated document"
+msgid "Change notes"
 msgstr ""
 
 #: i18n/additional-localization.php:228
-msgid "Publication reference"
+msgid "Relationship to other legal docs"
 msgstr ""
 
 #: i18n/additional-localization.php:229
-msgid "Links to source"
+msgid "Associated document"
 msgstr ""
 
 #: i18n/additional-localization.php:230
-msgid "Drafting agency"
+msgid "Publication reference"
 msgstr ""
 
 #: i18n/additional-localization.php:231
-msgid "Technical assistance for drafting"
+msgid "Links to source"
 msgstr ""
 
 #: i18n/additional-localization.php:232
-msgid "Agency providing technical assistance"
+msgid "Drafting agency"
 msgstr ""
 
 #: i18n/additional-localization.php:233
-msgid "Technical assistance funding agency"
+msgid "Technical assistance for drafting"
 msgstr ""
 
 #: i18n/additional-localization.php:234
-msgid "Issuing agency/parties"
+msgid "Agency providing technical assistance"
 msgstr ""
 
 #: i18n/additional-localization.php:235
-msgid "Implementing agencies"
+msgid "Technical assistance funding agency"
 msgstr ""
 
 #: i18n/additional-localization.php:236
-msgid "Notes"
+msgid "Issuing agency/parties"
+msgstr ""
+
+#: i18n/additional-localization.php:237
+msgid "Implementing agencies"
 msgstr ""
 
 #: i18n/additional-localization.php:238
+msgid "Notes"
+msgstr ""
+
+#: i18n/additional-localization.php:240
 #: post-types/templates/single-tabular.php:307
 msgid "Not found"
 msgstr ""
 
-#: i18n/additional-localization.php:239
+#: i18n/additional-localization.php:241
 msgid "Khmer"
 msgstr ""
 
-#: i18n/additional-localization.php:240
+#: i18n/additional-localization.php:242
 msgid "English"
 msgstr ""
 
-#: i18n/additional-localization.php:241
+#: i18n/additional-localization.php:243
 msgid "Burmese"
 msgstr ""
 
-#: i18n/additional-localization.php:242
+#: i18n/additional-localization.php:244
 msgid "Vietnamese"
 msgstr ""
 
-#: i18n/additional-localization.php:243
+#: i18n/additional-localization.php:245
 msgid "Lao"
 msgstr ""
 
