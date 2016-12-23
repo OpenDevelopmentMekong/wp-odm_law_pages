@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-20 13:29+0100\n"
-"PO-Revision-Date: 2016-12-20 13:29+0100\n"
+"POT-Creation-Date: 2016-12-23 17:29+0100\n"
+"PO-Revision-Date: 2016-12-23 17:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/my/)\n"
@@ -717,7 +717,7 @@ msgid "Topics"
 msgstr ""
 
 #: i18n/additional-localization.php:187
-#: post-types/templates/single-tabular.php:94
+#: post-types/templates/single-tabular.php:164
 msgid "Language"
 msgstr ""
 
@@ -910,8 +910,28 @@ msgid "Notes"
 msgstr ""
 
 #: i18n/additional-localization.php:238
-#: post-types/templates/single-tabular.php:201
+#: post-types/templates/single-tabular.php:307
 msgid "Not found"
+msgstr ""
+
+#: i18n/additional-localization.php:239
+msgid "Khmer"
+msgstr ""
+
+#: i18n/additional-localization.php:240
+msgid "English"
+msgstr ""
+
+#: i18n/additional-localization.php:241
+msgid "Burmese"
+msgstr ""
+
+#: i18n/additional-localization.php:242
+msgid "Vietnamese"
+msgstr ""
+
+#: i18n/additional-localization.php:243
+msgid "Lao"
 msgstr ""
 
 #: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
@@ -967,96 +987,133 @@ msgstr ""
 msgid "Option for tabular pages"
 msgstr ""
 
-#: post-types/tabular-pages.php:87
+#: post-types/tabular-pages.php:79
+msgid "Filters for tabular pages"
+msgstr ""
+
+#: post-types/tabular-pages.php:101
+msgid "ENGLISH"
+msgstr ""
+
+#: post-types/tabular-pages.php:109
 msgid "Choose dataset type"
 msgstr ""
 
-#: post-types/tabular-pages.php:94
+#: post-types/tabular-pages.php:117 post-types/tabular-pages.php:136
 msgid "The attributes of the Dataset that would like to display"
 msgstr ""
 
-#: post-types/tabular-pages.php:96
+#: post-types/tabular-pages.php:119 post-types/tabular-pages.php:138
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
 "breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:98
+#: post-types/tabular-pages.php:121 post-types/tabular-pages.php:140
 msgid "Id to Label mapping for values"
 msgstr ""
 
-#: post-types/tabular-pages.php:100
+#: post-types/tabular-pages.php:123 post-types/tabular-pages.php:142
 msgid ""
 "Please specify the ids plus their labels, separated by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:102
+#: post-types/tabular-pages.php:125 post-types/tabular-pages.php:144
 msgid "Column ids linking to detail page"
 msgstr ""
 
-#: post-types/tabular-pages.php:104
+#: post-types/tabular-pages.php:127 post-types/tabular-pages.php:146
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
 "detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
 "block"
 msgstr ""
 
-#: post-types/tabular-pages.php:106
+#: post-types/tabular-pages.php:129 post-types/tabular-pages.php:148
 msgid "Group Data in Column"
 msgstr ""
 
-#: post-types/tabular-pages.php:108
+#: post-types/tabular-pages.php:131 post-types/tabular-pages.php:150
 msgid ""
 "Eg. To group records by a certain column. please specify the index, not the "
 "name."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:66
+#: post-types/tabular-pages.php:187
+msgid "List of default filters"
+msgstr ""
+
+#: post-types/tabular-pages.php:191
+msgid "Please specify which of the default filters are displayed"
+msgstr ""
+
+#: post-types/tabular-pages.php:193
+msgid "List of additional filters with types"
+msgstr ""
+
+#: post-types/tabular-pages.php:195
+msgid ""
+"Please specify the field names and the corresponding field type, separated "
+"by => and line breaks"
+msgstr ""
+
+#: post-types/tabular-pages.php:197
+msgid "List of additional filters associated with data tables"
+msgstr ""
+
+#: post-types/tabular-pages.php:199
+msgid ""
+"Please specify the field names and the corresponding resource ids, separated "
+"by => and line breaks"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:102
 msgid "Error in configuration, please check."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:81
+#: post-types/templates/single-tabular.php:120
 msgid "Quick filter"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:82
+#: post-types/templates/single-tabular.php:121
 msgid "Type your search here"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:95
-msgid "Select language"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:96
-#: post-types/templates/single-tabular.php:116
-#: post-types/templates/single-tabular.php:140
-msgid "All"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:112
+#: post-types/templates/single-tabular.php:137
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:113
+#: post-types/templates/single-tabular.php:138
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:138
+#: post-types/templates/single-tabular.php:141
+#: post-types/templates/single-tabular.php:166
+#: post-types/templates/single-tabular.php:186
+#: post-types/templates/single-tabular.php:235
+msgid "All"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:165
+msgid "Select language"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:184
 msgid "Taxonomy"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:139
+#: post-types/templates/single-tabular.php:185
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:151
+#: post-types/templates/single-tabular.php:253
 msgid "Search Filter"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:155
+#: post-types/templates/single-tabular.php:257
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:180
+#: post-types/templates/single-tabular.php:286
 msgid "Download"
 msgstr ""

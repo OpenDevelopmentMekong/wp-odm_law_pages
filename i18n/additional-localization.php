@@ -236,5 +236,10 @@ echo _('Implementing agencies');
 echo _('Notes');
 
 echo _('Not found');
+echo _('Khmer');
+echo _('English');
+echo _('Burmese');
+echo _('Vietnamese');
+echo _('Lao');
 
 ?>
