@@ -23,6 +23,23 @@
     $filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
     $filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
 
+    $country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
+    $language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
+    $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
+
+    $num_filters = count($filters_datatables_list_array) + count($filters_list_array) + 1;
+    if ($country_filter_enabled): $num_filters++; endif;
+    if ($language_filter_enabled): $num_filters++; endif;
+    if ($taxonomy_filter_enabled): $num_filters++; endif;
+    $filters_specified = $num_filters > 1;
+
+    $max_columns = 16;
+    $num_filters = ($num_filters > 4) ? round($num_filters/2) : $num_filters;
+    $num_columns = 16;
+    if ($filters_specified):
+      $num_columns = integer_to_text(round($max_columns / $num_filters));
+    endif;
+
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 	  $param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
@@ -94,19 +111,53 @@
 
       <form class="advanced-nav-filters">
 
-        <div class="four columns panel">
+        <?php
+          $num_columns_text_search = ($filters_specified) ? "four" : "sixteen"
+          ?>
+        <div class="<?php echo $num_columns_text_search; ?> columns panel">
           <div class="sixteen columns">
             <div class="adv-nav-input">
-              <p class="label"><label for="s"><?php _e('Text search', 'wp-odm_tabular_pages'); ?></label></p>
+              <p class="label"><label for="s"><?php _e('Quick filter', 'wp-odm_tabular_pages'); ?></label></p>
               <input type="text" id="query" name="query" placeholder="<?php _e('Type your search here', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
             </div>
           </div>
         </div>
 
+        <?php
+          if ($filters_specified):
+         ?>
         <div class="twelve columns panel">
+
+          <?php
+            $countries = odm_country_manager()->get_country_codes();
+            if ($country_filter_enabled):
+          ?>
+	        <div class="<?php echo $num_columns?> columns">
+	          <div class="adv-nav-input">
+	            <p class="label"><label for="country"><?php _e('Country', 'wp-odm_tabular_pages'); ?></label></p>
+	            <select id="country" name="country" data-placeholder="<?php _e('Select country', 'wp-odm_tabular_pages'); ?>">
+	              <?php
+	                if (odm_country_manager()->get_current_country() == 'mekong'): ?>
+	                  <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+	              <?php
+	                endif; ?>
+	              <?php
+	                foreach($countries as $key => $value):
+	                  if ($key != 'mekong'): ?>
+	                    <option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
+	                <?php
+	                  endif; ?>
+	                  <?php
+	                endforeach; ?>
+	            </select>
+	          </div>
+	        </div>
+          <?php
+            endif; ?>
+
           <?php
             $languages = odm_language_manager()->get_supported_languages_by_site();
-            $num_columns = ($param_country === 'mekong') ? "four" : "six";
+            if ($language_filter_enabled):
           ?>
           <div class="<?php echo $num_columns?> columns">
             <div class="adv-nav-input">
@@ -121,36 +172,12 @@
               </select>
             </div>
           </div>
-
           <?php
-            $countries = odm_country_manager()->get_country_codes();
-          ?>
-  				<?php if ($param_country === 'mekong'): ?>
-  	        <div class="four columns">
-  	          <div class="adv-nav-input">
-  	            <p class="label"><label for="country"><?php _e('Country', 'wp-odm_tabular_pages'); ?></label></p>
-  	            <select id="country" name="country" data-placeholder="<?php _e('Select country', 'wp-odm_tabular_pages'); ?>">
-  	              <?php
-  	                if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-  	                  <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-  	              <?php
-  	                endif; ?>
-  	              <?php
-  	                foreach($countries as $key => $value):
-  	                  if ($key != 'mekong'): ?>
-  	                    <option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
-  	                <?php
-  	                  endif; ?>
-  	                  <?php
-  	                endforeach; ?>
-  	            </select>
-  	          </div>
-  	        </div>
-  				<?php endif; ?>
+            endif; ?>
 
           <?php
             $taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
-            $num_columns = ($param_country === 'mekong') ? "four" : "six";
+            if ($taxonomy_filter_enabled):
           ?>
           <div class="<?php echo $num_columns?> columns">
             <div class="adv-nav-input">
@@ -167,24 +194,14 @@
               </select>
             </div>
           </div>
-
-          <div class="four columns">
-            <input class="button" type="submit" value="<?php _e('Search Filter', 'wp-odm_tabular_pages'); ?>"/>
-            <?php
-              if ($active_filters):
-                ?>
-                <a href="?clear"><?php _e('Clear','wp-odm_tabular_pages') ?></a>
-            <?php
-              endif;
-             ?>
-          </div>
+          <?php
+            endif; ?>
 
           <?php
           foreach ($filters_list_array as $key => $type):
             $mapped_key = in_array($key,array_keys($values_mapping_array)) ?  $values_mapping_array[$key] : $key;
             $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
-            $selected_param_array = explode(",",$selected_param);
-            $num_columns = integer_to_text(round(16 / (count($filters_datatables_list_array) + count($filters_list_array)))); ?>
+            $selected_param_array = explode(",",$selected_param); ?>
 
             <div class="<?php echo $num_columns?> columns">
               <div class="adv-nav-input">
@@ -208,7 +225,7 @@
               $options = wpckan_get_datastore_resource(wpckan_get_ckan_domain(),$resource_id);
               $selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
               $selected_param_array = explode(",",$selected_param);
-              $num_columns = integer_to_text(round(16 / (count($filters_datatables_list_array) + count($filters_list_array))));
+
               if (!empty($options)): ?>
 
               <div class="<?php echo $num_columns?> columns">
@@ -227,8 +244,26 @@
 
           <?php
               endif;
-            endforeach; ?>
+            endforeach;
+
+            $num_columns_button = integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1)));
+            ?>
+
+            <div class="<?php echo $num_columns_button ?> columns">
+              <input class="button" type="submit" value="<?php _e('Search Filter', 'wp-odm_tabular_pages'); ?>"/>
+              <?php
+                if ($active_filters):
+                  ?>
+                  <a href="?clear"><?php _e('Clear','wp-odm_tabular_pages') ?></a>
+              <?php
+                endif;
+               ?>
+            </div>
+
         </div>
+        <?php
+          endif;
+         ?>
 
       </form>
 
