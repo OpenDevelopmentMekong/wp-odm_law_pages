@@ -319,7 +319,7 @@
                             if (is_array($resource['odm_language'])):
                               foreach ($resource['odm_language'] as $language) :?>
                                 <a href="<?php echo $resource['url'];?>">
-                                <i class="fa fa-download"></i> <?php echo odm_language_manager()->get_the_language_by_language_code($language); ?></a>
+                                <i class="fa fa-download"></i> <?php _e(odm_language_manager()->get_the_language_by_language_code($language),'wp-odm_tabular_pages'); ?></a>
                               <?php
                               endforeach;
                             endif;
