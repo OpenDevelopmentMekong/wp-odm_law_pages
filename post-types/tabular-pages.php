@@ -176,9 +176,19 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         public function tabular_filters_box($post = false)
 	      {
           $filters_list = get_post_meta($post->ID, '_attributes_filters_list', true);
-          $filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true); ?>
+          $filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
+
+          $country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
+          $language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
+          $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false; ?>
 
           <div id="tabular_filters_box">
+
+            <h4><?php _e('List of default filters', 'wp-odm_tabular_pages'); ?></h4>
+            <input type="checkbox" id="_attributes_country_filter_enabled" name="_attributes_country_filter_enabled"  value="true" <?php if ($country_filter_enabled): echo 'checked="yes"'; endif;?>/> Country (odm_spatial_range) <br />
+            <input type="checkbox" id="_attributes_language_filter_enabled" name="_attributes_language_filter_enabled"  value="true" <?php if ($language_filter_enabled): echo 'checked="yes"'; endif;?>/> Language (odm_language)<br />
+            <input type="checkbox" id="_attributes_taxonomy_filter_enabled" name="_attributes_taxonomy_filter_enabled" value="true" <?php if ($taxonomy_filter_enabled): echo 'checked="yes"'; endif;?>/> Taxonomy (taxonomy)<br/>
+            <p class="description"><?php _e('Please specify which of the default filters are displayed', 'wp-odm_tabular_pages'); ?></p>
 
             <h4><?php _e('List of additional filters with types', 'wp-odm_tabular_pages'); ?></h4>
             <textarea id="_attributes_filters_list" name="_attributes_filters_list" style="width:100%;height: 200px;" placeholder="odm_promulgation_date  => date"><?php echo $filters_list; ?></textarea>
@@ -252,6 +262,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 if (isset($_POST['_attributes_filters_datatables_list'])) {
                     update_post_meta($post_id, '_attributes_filters_datatables_list', $_POST['_attributes_filters_datatables_list']);
                 }
+
+                update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);
+                update_post_meta($post_id, '_attributes_language_filter_enabled', $_POST['_attributes_language_filter_enabled']);
+                update_post_meta($post_id, '_attributes_taxonomy_filter_enabled', $_POST['_attributes_taxonomy_filter_enabled']);
 
                 if (!current_user_can('edit_post')) {
                     return;

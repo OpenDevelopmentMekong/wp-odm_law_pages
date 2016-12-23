@@ -213,12 +213,14 @@ echo _('Publication date');
 echo _('Pagination');
 echo _('General note');
 echo _('Document type');
+echo _('Document number');
 echo _('Document reference #');
 echo _('Alternative/short title');
 echo _('Primary policy reference point');
 echo _('Status');
 echo _('Version date (of draft)');
 echo _('Adoption date/Promulgation date/Signing date');
+echo _('Promulgation date');
 echo _('Effective date');
 echo _('Application date');
 echo _('Previous legal document');
@@ -236,5 +238,10 @@ echo _('Implementing agencies');
 echo _('Notes');
 
 echo _('Not found');
+echo _('Khmer');
+echo _('English');
+echo _('Burmese');
+echo _('Vietnamese');
+echo _('Lao');
 
 ?>
