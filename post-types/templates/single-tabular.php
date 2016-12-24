@@ -366,7 +366,7 @@ jQuery(document).ready(function($) {
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
     order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?  $group_data_by_column_index : 0 ?>, 'asc' ]],
     displayLength: 50,
-    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "14%" }, { "sWidth": "17%" }],
+    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "12%" }, { "sWidth": "17%" }],
 		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
 		"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
