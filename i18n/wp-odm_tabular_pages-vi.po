@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2016-12-23 17:34+0100\n"
-"PO-Revision-Date: 2016-12-23 17:34+0100\n"
+"POT-Creation-Date: 2016-12-29 16:39+0100\n"
+"PO-Revision-Date: 2016-12-29 16:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese (http://www.transifex.com/open-development-mekong/"
 "odm-wp-laws-pages/language/vi/)\n"
@@ -717,7 +717,7 @@ msgid "Topics"
 msgstr ""
 
 #: i18n/additional-localization.php:187
-#: post-types/templates/single-tabular.php:164
+#: post-types/templates/single-tabular.php:159
 msgid "Language"
 msgstr ""
 
@@ -918,7 +918,7 @@ msgid "Notes"
 msgstr ""
 
 #: i18n/additional-localization.php:240
-#: post-types/templates/single-tabular.php:307
+#: post-types/templates/single-tabular.php:299
 msgid "Not found"
 msgstr ""
 
@@ -1079,49 +1079,49 @@ msgstr ""
 msgid "Error in configuration, please check."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:120
-msgid "Quick filter"
-msgstr ""
-
 #: post-types/templates/single-tabular.php:121
-msgid "Type your search here"
+msgid "Text search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:137
+#: post-types/templates/single-tabular.php:122
+msgid "Search for title or other attributes"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:132
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:138
+#: post-types/templates/single-tabular.php:133
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:141
-#: post-types/templates/single-tabular.php:166
-#: post-types/templates/single-tabular.php:186
-#: post-types/templates/single-tabular.php:235
+#: post-types/templates/single-tabular.php:136
+#: post-types/templates/single-tabular.php:161
+#: post-types/templates/single-tabular.php:181
+#: post-types/templates/single-tabular.php:230
 msgid "All"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:165
+#: post-types/templates/single-tabular.php:160
 msgid "Select language"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:184
+#: post-types/templates/single-tabular.php:179
 msgid "Taxonomy"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:185
+#: post-types/templates/single-tabular.php:180
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:253
-msgid "Search Filter"
+#: post-types/templates/single-tabular.php:248
+msgid "Search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:257
+#: post-types/templates/single-tabular.php:252
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:286
+#: post-types/templates/single-tabular.php:278
 msgid "Download"
 msgstr ""

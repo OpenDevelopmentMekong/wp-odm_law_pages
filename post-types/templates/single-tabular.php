@@ -118,7 +118,7 @@
             ?>
           <div class="<?php echo $num_columns_text_search; ?> columns">
             <div class="adv-nav-input">
-              <p class="label"><label for="s"><?php _e('Textual filter', 'wp-odm_tabular_pages'); ?></label></p>
+              <p class="label"><label for="s"><?php _e('Text search', 'wp-odm_tabular_pages'); ?></label></p>
               <input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
             </div>
           </div>
