@@ -33,9 +33,9 @@
     if ($taxonomy_filter_enabled): $num_filters++; endif;
     $filters_specified = $num_filters > 1;
 
-    $max_columns = 16;
-    $num_filters = ($num_filters > 4) ? round($num_filters/2) : $num_filters;
-    $num_columns = 16;
+    $max_columns = 12;
+    $num_filters = ($num_filters > 3) ? round($num_filters/2) : $num_filters;
+    $num_columns = 12;
     if ($filters_specified):
       $num_columns = integer_to_text(round($max_columns / $num_filters));
     endif;
@@ -44,7 +44,7 @@
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 	  $param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
 	  $param_language = isset($_GET['language']) ? $_GET['language'] : null;
-	  $active_filters = !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
+	  $active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
 		$countries = odm_country_manager()->get_country_codes();
 
@@ -58,7 +58,7 @@
 		}
 		if ($active_filters):
 			if (!empty($param_query)) {
-	      array_push($filter_fields,'"title":"'.$param_query.'"}');
+	      $attrs['query'] = $param_query;
 	    }
 			if (!empty($param_taxonomy) && $param_taxonomy !== "all") {
 	      array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
@@ -111,22 +111,17 @@
 
       <form class="advanced-nav-filters">
 
-        <?php
-          $num_columns_text_search = ($filters_specified) ? "four" : "sixteen"
-          ?>
-        <div class="<?php echo $num_columns_text_search; ?> columns panel">
-          <div class="sixteen columns">
+        <div class="sixteen columns panel">
+
+          <?php
+            $num_columns_text_search = ($filters_specified) ? "four" : "twelve"
+            ?>
+          <div class="<?php echo $num_columns_text_search; ?> columns">
             <div class="adv-nav-input">
-              <p class="label"><label for="s"><?php _e('Quick filter', 'wp-odm_tabular_pages'); ?></label></p>
-              <input type="text" id="query" name="query" placeholder="<?php _e('Type your search here', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
+              <p class="label"><label for="s"><?php _e('Textual filter', 'wp-odm_tabular_pages'); ?></label></p>
+              <input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
             </div>
           </div>
-        </div>
-
-        <?php
-          if ($filters_specified):
-         ?>
-        <div class="twelve columns panel">
 
           <?php
             $countries = odm_country_manager()->get_country_codes();
@@ -246,11 +241,11 @@
               endif;
             endforeach;
 
-            $num_columns_button = integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1)));
+            $num_columns_button = $filters_specified ? integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1))) : "four";
             ?>
 
             <div class="<?php echo $num_columns_button ?> columns">
-              <input class="button" type="submit" value="<?php _e('Search Filter', 'wp-odm_tabular_pages'); ?>"/>
+              <input class="button" type="submit" value="<?php _e('Search', 'wp-odm_tabular_pages'); ?>"/>
               <?php
                 if ($active_filters):
                   ?>
@@ -261,9 +256,6 @@
             </div>
 
         </div>
-        <?php
-          endif;
-         ?>
 
       </form>
 
@@ -410,11 +402,6 @@ jQuery(document).ready(function($) {
   setTimeout(function () {
     oTable.fnAdjustColumnSizing();
   }, 10 );
-
-  $("#query").keyup(function () {
-    console.log("filtering page " + this.value);
-    oTable.fnFilterAll(this.value);
-  });
 
   $('select').select2();
   $('.datepicker').datepicker();
