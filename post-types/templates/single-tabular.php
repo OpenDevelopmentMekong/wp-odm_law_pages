@@ -31,6 +31,7 @@
     if ($country_filter_enabled): $num_filters++; endif;
     if ($language_filter_enabled): $num_filters++; endif;
     if ($taxonomy_filter_enabled): $num_filters++; endif;
+    if (isset($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
     $filters_specified = $num_filters > 1;
 
     $max_columns = 12;
@@ -50,7 +51,9 @@
 
     $datasets = array();
 		$filter_fields = array();
-    $attrs = array();
+    $attrs = array(
+      'type' => '(dataset OR library_record OR laws_record)'
+    );
 
     if (isset($dataset_type) && $dataset_type !== 'all'){
       $attrs['type'] = $dataset_type;
@@ -124,6 +127,23 @@
               <input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
             </div>
           </div>
+
+          <?php
+            if (isset($dataset_type) && $dataset_type == 'all'):
+          ?>
+	        <div class="<?php echo $num_columns?> columns">
+	          <div class="adv-nav-input">
+	            <p class="label"><label for="country"><?php _e('Dataset type', 'wp-odm_tabular_pages'); ?></label></p>
+              <select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
+                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>>All</option>
+                <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
+                <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
+                <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
+              </select>
+	          </div>
+	        </div>
+          <?php
+            endif; ?>
 
           <?php
             $countries = odm_country_manager()->get_country_codes();
