@@ -52,7 +52,7 @@
 		$filter_fields = array();
     $attrs = array();
 
-    if (isset($dataset_type) && $dataset_type !== 'All'){
+    if (isset($dataset_type) && $dataset_type !== 'all'){
       $attrs['type'] = $dataset_type;
     }
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
