@@ -133,7 +133,7 @@
           ?>
 	        <div class="<?php echo $num_columns?> columns">
 	          <div class="adv-nav-input">
-	            <p class="label"><label for="country"><?php _e('Dataset type', 'wp-odm_tabular_pages'); ?></label></p>
+	            <p class="label"><label for="country"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
               <select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
                 <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>>All</option>
                 <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
