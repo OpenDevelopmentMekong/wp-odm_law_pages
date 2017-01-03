@@ -50,9 +50,11 @@
 
     $datasets = array();
 		$filter_fields = array();
-    $attrs = array(
-      'type' => $dataset_type
-    );
+    $attrs = array();
+
+    if (isset($dataset_type) && $dataset_type !== 'All'){
+      $attrs['type'] = $dataset_type;
+    }
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 		}
