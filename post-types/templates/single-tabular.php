@@ -43,6 +43,7 @@
 
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 	  $param_query = !empty($_GET['query']) ? $_GET['query'] : null;
+    $param_type = !empty($_GET['type']) ? $_GET['type'] : null;
 	  $param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
 	  $param_language = isset($_GET['language']) ? $_GET['language'] : null;
 	  $active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
@@ -57,6 +58,9 @@
 
     if (isset($dataset_type) && $dataset_type !== 'all'){
       $attrs['type'] = $dataset_type;
+    }
+    if (isset($param_type) && $param_type !== 'all'){
+      $attrs['type'] = $param_type;
     }
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
@@ -135,10 +139,10 @@
 	          <div class="adv-nav-input">
 	            <p class="label"><label for="country"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
               <select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
-                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>>All</option>
-                <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
-                <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
-                <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
+                <option value="all" <?php if ($param_type == "all"): echo "selected"; endif; ?>>All</option>
+                <option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
+                <option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
+                <option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
               </select>
 	          </div>
 	        </div>
@@ -307,9 +311,10 @@
 							<tr>
 							<?php
 									foreach ($column_list_array as $key => $value):
+                    $metadata_key = isset($dataset[$key]) ? $dataset[$key] : $dataset[str_replace("_translated","",$key)];
 										echo "<td>";
-										if (isset($dataset[$key])):
-											$single_value = getMultilingualValueOrFallback($dataset[$key], odm_language_manager()->get_current_language(),$dataset[$key]);
+										if (isset($metadata_key)):
+											$single_value = getMultilingualValueOrFallback($metadata_key, odm_language_manager()->get_current_language(),$metadata_key);
 											if (is_array($single_value) && isset($single_value["en"])):
                         $single_value = $single_value["en"];
 											endif;
@@ -339,6 +344,9 @@
                             endif;
                             ?>
 												</span>
+                      <?php else: ?>
+                        <a href="<?php echo $resource['url'];?>">
+                        <i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
@@ -380,7 +388,6 @@ jQuery(document).ready(function($) {
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
     order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?  $group_data_by_column_index : 0 ?>, 'asc' ]],
     displayLength: 50,
-    "aoColumns": [{ "sWidth": "40%" }, { "sWidth": "20%" }, { "sWidth": "14%" }, { "sWidth": "12%" }, { "sWidth": "17%" }],
 		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
 		"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
