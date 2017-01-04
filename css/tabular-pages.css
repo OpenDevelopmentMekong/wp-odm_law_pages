@@ -136,8 +136,9 @@ table.data-table td{
   border:0;
   border-left: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
-  /*padding: 12px 5px;
-  margin-bottom: 4px;*/
+  /*padding: 12px 5px;*/
+  min-width: 60px;
+  /*margin-bottom: 4px;*/
 }
 table.data-table td:first-child{
   border-left:0;
