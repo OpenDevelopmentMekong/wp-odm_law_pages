@@ -345,8 +345,10 @@
                             ?>
 												</span>
                       <?php else: ?>
-                        <a href="<?php echo $resource['url'];?>">
-                        <i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
+                        <span>
+                          <a href="<?php echo $resource['url'];?>">
+                          <i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
+                        </span>
                       <?php endif; ?>
                     <?php endforeach; ?>
                   <?php endif; ?>
