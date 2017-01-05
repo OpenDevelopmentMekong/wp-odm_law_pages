@@ -108,6 +108,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	          <div id="tabular_options_box">
 	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
 	            <select id="_attributes_dataset_type" name="_attributes_dataset_type">
+                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>>All</option>
 	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
 	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
 	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
