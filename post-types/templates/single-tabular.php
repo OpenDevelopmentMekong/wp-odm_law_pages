@@ -319,8 +319,8 @@
                         $single_value = $single_value["en"];
 											endif;
                     	$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
-                      if (strlen($mapped_value) > 10):
-                        $str = substr($mapped_value, 0, 200) . ' ...';
+                      if (strlen($mapped_value) > 200):
+                        $mapped_value = substr($mapped_value, 0, 200) . ' ...';
                       endif;
                       if (in_array($key,$link_to_detail_columns_array)): ?>
 												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
