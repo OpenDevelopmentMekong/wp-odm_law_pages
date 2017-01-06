@@ -315,10 +315,10 @@
 										echo "<td>";
 										if (isset($metadata_key)):
 											$single_value = getMultilingualValueOrFallback($metadata_key, odm_language_manager()->get_current_language(),$metadata_key);
-											if (is_array($single_value) && isset($single_value["en"])):
-                        $single_value = $single_value["en"];
-											endif;
                     	$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+                      if (is_array($mapped_value) && isset($mapped_value["en"])):
+                        $mapped_value = $mapped_value["en"];
+											endif;
                       if (strlen($mapped_value) > 300):
                         $mapped_value = substr($mapped_value, 0, 300) . ' ...';
                       endif;
