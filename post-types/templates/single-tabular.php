@@ -326,7 +326,7 @@
 												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
                       <?php
                       else:
-                        echo $mapped_value == '' ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+                        echo $mapped_value == '' || empty($mapped_value) ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
 	                    endif;
                     endif;
 										echo "</td>";
