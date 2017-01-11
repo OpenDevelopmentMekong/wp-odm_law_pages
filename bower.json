@@ -1,0 +1,19 @@
+{
+  "name": "wp-odm_tabular_pages",
+  "version": "2.1.7",
+  "homepage": "https://github.com/OpenDevelopmentMekong/wp-odm_tabular_pages",
+  "authors": [
+    "Alex Corbi <a.corbi@gmail.com>"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "~4.0.3"
+  }
+}
