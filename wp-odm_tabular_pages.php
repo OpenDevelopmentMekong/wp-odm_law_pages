@@ -48,7 +48,7 @@ if (!class_exists('Odm_Tabular_Pages_Plugin')) {
         {
             wp_enqueue_style('tabular-style',  plugin_dir_url(__FILE__).'css/tabular-pages.css');
 						wp_enqueue_style('select_css', plugin_dir_url(__FILE__).'bower_components/select2/dist/css/select2.min.css');
-						wp_enqueue_script('select_js', plugin_dir_url(__FILE__).'bower_components/select2/dist/js/select2.full.min.js');
+						wp_enqueue_script('select_js', plugin_dir_url(__FILE__).'bower_components/select2/dist/js/select2.min.js');
         }
 
         public function check_requirements()
