@@ -16,3 +16,4 @@ wp-content/wp-cache-config.php
 **.mo
 
 /vendor/
+/bower_components/
