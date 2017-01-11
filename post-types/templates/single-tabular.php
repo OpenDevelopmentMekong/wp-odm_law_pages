@@ -137,7 +137,7 @@
           ?>
 	        <div class="<?php echo $num_columns?> columns">
 	          <div class="adv-nav-input">
-	            <p class="label"><label for="country"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
+	            <p class="label"><label for="type"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
               <select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
                 <option value="all" <?php if ($param_type == "all"): echo "selected"; endif; ?>>All</option>
                 <option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
@@ -319,11 +319,14 @@
                         $single_value = $single_value["en"];
 											endif;
                     	$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?  $values_mapping_array[$single_value] : $single_value;
+                      if (strlen($mapped_value) > 300):
+                        $mapped_value = substr($mapped_value, 0, 300) . ' ...';
+                      endif;
                       if (in_array($key,$link_to_detail_columns_array)): ?>
 												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
                       <?php
                       else:
-                        echo $mapped_value == '' ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+                        echo $mapped_value == '' || empty($mapped_value) ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
 	                    endif;
                     endif;
 										echo "</td>";
@@ -365,9 +368,6 @@
 <?php endif; ?>
 
 <?php get_footer(); ?>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <script type="text/javascript">
 
