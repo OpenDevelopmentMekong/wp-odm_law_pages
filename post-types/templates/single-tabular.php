@@ -447,7 +447,6 @@ jQuery(document).ready(function($) {
 			if (countryCodes){
 				var countryCodesArray = countryCodes.split(",");
 				var intersection = $(countryCodesArray).filter(country);
-				console.log(country);
 				if (intersection.length===0){
 					console.log("removing", $(this).val());
 					$(this).remove();
