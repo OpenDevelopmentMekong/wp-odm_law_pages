@@ -252,11 +252,14 @@
               <div class="<?php echo $num_columns?> columns">
                 <div class="adv-nav-input">
                   <p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>">
+                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
                     <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
                     <?php
                       foreach($options as $option): ?>
-                      <option value="<?php echo $option['id']; ?>" <?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
+                      <option
+												value="<?php echo $option['id']; ?>"
+												data-country_codes="<?php echo $option['country_codes']; ?>"
+												<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
                     <?php
                       endforeach; ?>
                   </select>
@@ -436,6 +439,22 @@ jQuery(document).ready(function($) {
 
   $('select').select2();
   $('.datepicker').datepicker();
+
+	$('.odm_spatial_range-specific').each(function(){
+		var country = [$(this).data('current_country')];
+		$(this).find('option').each(function() {
+			var countryCodes = $(this).data('country_codes');
+			if (countryCodes){
+				var countryCodesArray = countryCodes.split(",");
+				var intersection = $(countryCodesArray).filter(country);
+				console.log(country);
+				if (intersection.length===0){
+					console.log("removing", $(this).val());
+					$(this).remove();
+				}
+			}
+		});
+	});
 
 });
 
