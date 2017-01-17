@@ -99,7 +99,7 @@
   <section class="container">
 		<header class="row">
 			<div class="sixteen columns">
-        <a href="<?php get_page_link(); ?>"><h1><?php the_title(); ?></h1></a>
+        <h1><?php the_title(); ?></h1>
 			</div>
 		</header>
 	</section>
