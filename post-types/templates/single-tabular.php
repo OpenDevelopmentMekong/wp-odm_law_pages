@@ -265,6 +265,8 @@
                 </div>
               </div>
 
+							<div class="replace-with-filters"></div>
+
           <?php
               endif;
             endforeach;
@@ -446,10 +448,7 @@ jQuery(document).ready(function($) {
     oTable.fnAdjustColumnSizing();
   }, 10 );
 
-  $('select').select2();
-  $('.datepicker').datepicker();
-
-  function create_filter_by_column_index(col_index){
+  function create_filter_by_column_index(col_index,col_name){
 
     var columnIndex = col_index;
     var column_filter_oTable = oTable.api().columns( columnIndex );
@@ -459,26 +458,33 @@ jQuery(document).ready(function($) {
     var div_filter = $('<div class="filter_by filter_by_column_index_'+columnIndex+'"></div>');
     div_filter.appendTo( $('#filters'));
 
-    // TODO: Add field id so its set when form is posted
-    var select = $('<div class="<?php echo $num_columns?> columns"><div class="adv-nav-input"><p class="label"><label>'+ column_header +'</label></p><select><option value=""><?php _e('All', 'wp-odm_tabular_pages'); ?></option></select></div></div>');
+    var select = $('<div class="<?php echo $num_columns?> columns"><div class="adv-nav-input"><p class="label"><label>'+ column_header +'</label></p><select id="' + col_name + '" name="' + col_name + '"><option value=""><?php _e('All', 'wp-odm_tabular_pages'); ?></option></select></div></div>');
 
     var i = 1;
     column_filter_oTable.data().eq( 0 ).unique().sort().each(function ( d, j ) {
         d = d.replace(/[<]br[^>]*[>]/gi,"");
         var value = d.split('<');
-        var first_value = value[1].split('>');
-        var only_value = first_value[1].split('<');
-        val = first_value[1].trim();
-        select.append( '<option value="'+val+'">'+val+'</option>' )
+				if (value.length > 1){
+					var first_value = value[1].split('>');
+	        var only_value = first_value[1].split('<');
+					value = first_value[1].trim();
+				}
+        select.find('select').append( '<option value="'+value+'">'+value+'</option>' )
       }
     );
+		$('.replace-with-filters').append(select);
+
+		$('select').select2();
+	  $('.datepicker').datepicker();
   }
 
   <?php
   foreach ($filtered_by_column_index_array as $column_id):
+    $col_names = array_keys($column_list_array);
+    $col_name = $col_names[$column_id];
   ?>
 
-    create_filter_by_column_index(<?php echo $column_id;?>);
+    create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
 
   <?php
     endforeach;
