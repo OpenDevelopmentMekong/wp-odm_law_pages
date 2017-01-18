@@ -103,7 +103,7 @@
   <section class="container">
 		<header class="row">
 			<div class="sixteen columns">
-        <a href="<?php get_page_link(); ?>"><h1><?php the_title(); ?></h1></a>
+        <h1><?php the_title(); ?></h1>
 			</div>
 		</header>
 	</section>
@@ -254,11 +254,14 @@
               <div class="<?php echo $num_columns?> columns">
                 <div class="adv-nav-input">
                   <p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>">
+                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
                     <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
                     <?php
                       foreach($options as $option): ?>
-                      <option value="<?php echo $option['id']; ?>" <?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
+                      <option
+												value="<?php echo $option['id']; ?>"
+												data-country_codes="<?php echo $option['country_codes']; ?>"
+												<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
                     <?php
                       endforeach; ?>
                   </select>
@@ -378,9 +381,6 @@
 
 <?php get_footer(); ?>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
 <script type="text/javascript">
 
 jQuery(document).ready(function($) {
@@ -471,9 +471,6 @@ jQuery(document).ready(function($) {
       }
     );
 		select.insertBefore("#search-button");
-
-		$('select').select2();
-	  $('.datepicker').datepicker();
   }
 
   <?php
@@ -487,6 +484,25 @@ jQuery(document).ready(function($) {
   <?php
     endforeach;
    ?>
+
+  
+	$('.odm_spatial_range-specific').each(function(){
+		var country = [$(this).data('current_country')];
+		$(this).find('option').each(function() {
+			var countryCodes = $(this).data('country_codes');
+			if (countryCodes){
+				var countryCodesArray = countryCodes.split(",");
+				var intersection = $(countryCodesArray).filter(country);
+				if (intersection.length===0){
+					console.log("removing", $(this).val());
+					$(this).remove();
+				}
+			}
+		});
+	});
+
+  $('select').select2();
+  $('.datepicker').datepicker();
 });
 
 </script>
