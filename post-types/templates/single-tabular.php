@@ -265,8 +265,6 @@
                 </div>
               </div>
 
-							<div class="replace-with-filters"></div>
-
           <?php
               endif;
             endforeach;
@@ -274,7 +272,7 @@
             $num_columns_button = $filters_specified ? integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1))) : "four";
             ?>
 
-            <div class="<?php echo $num_columns_button ?> columns">
+            <div id="search-button" class="<?php echo $num_columns_button ?> columns">
               <input class="button" type="submit" value="<?php _e('Search', 'wp-odm_tabular_pages'); ?>"/>
               <?php
                 if ($active_filters):
@@ -472,7 +470,7 @@ jQuery(document).ready(function($) {
         select.find('select').append( '<option value="'+value+'">'+value+'</option>' )
       }
     );
-		$('.replace-with-filters').append(select);
+		select.insertBefore("#search-button");
 
 		$('select').select2();
 	  $('.datepicker').datepicker();
