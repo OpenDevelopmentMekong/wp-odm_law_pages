@@ -452,7 +452,7 @@ jQuery(document).ready(function($) {
 
     var columnIndex = col_index;
     var column_filter_oTable = oTable.api().columns( columnIndex );
-    var column_headercolumnIndex = columnIndex -1;
+    var column_headercolumnIndex = columnIndex;
     var column_header = $("#datasets_table").find("th:eq( "+column_headercolumnIndex+" )" ).text();
 
     var div_filter = $('<div class="filter_by filter_by_column_index_'+columnIndex+'"></div>');
@@ -481,7 +481,7 @@ jQuery(document).ready(function($) {
   <?php
   foreach ($filtered_by_column_index_array as $column_id):
     $col_names = array_keys($column_list_array);
-    $col_name = $col_names[$column_id + 1];
+    $col_name = $col_names[$column_id];
   ?>
 
     create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
