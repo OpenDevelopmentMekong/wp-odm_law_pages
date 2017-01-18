@@ -481,7 +481,7 @@ jQuery(document).ready(function($) {
   <?php
   foreach ($filtered_by_column_index_array as $column_id):
     $col_names = array_keys($column_list_array);
-    $col_name = $col_names[$column_id];
+    $col_name = $col_names[$column_id + 1];
   ?>
 
     create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
