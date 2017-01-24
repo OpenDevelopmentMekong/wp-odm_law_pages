@@ -181,7 +181,9 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
           $country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
           $language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
-          $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false; ?>
+          $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
+
+          $filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true); ?>
 
           <div id="tabular_filters_box">
 
@@ -198,6 +200,11 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             <h4><?php _e('List of additional filters associated with data tables', 'wp-odm_tabular_pages'); ?></h4>
             <textarea id="_attributes_filters_datatables_list" name="_attributes_filters_datatables_list" style="width:100%;height: 200px;" placeholder="odm_document_type  =>  09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_datatables_list;  ?></textarea>
             <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
+
+            <h4><?php _e('Create Select Filter by Column Index', 'wp-odm_tabular_pages'); ?></h4>
+            <input id="_filtered_by_column_index" type="text" placeholder="2, 5" size="40" name="_filtered_by_column_index" value="<?php echo $filtered_by_column_index; ?>" />
+            <p class="description"><?php _e('Filter selectors will create automatically by adding the column index and separated by comma.', 'wp-odm_tabular_pages'); ?></p>
+
           </div>
 
         <?php
@@ -262,6 +269,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
                 if (isset($_POST['_attributes_filters_datatables_list'])) {
                     update_post_meta($post_id, '_attributes_filters_datatables_list', $_POST['_attributes_filters_datatables_list']);
+                }
+
+                if (isset($_POST['_filtered_by_column_index'])) {
+                    update_post_meta($post_id, '_filtered_by_column_index', $_POST['_filtered_by_column_index']);
                 }
 
                 update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);

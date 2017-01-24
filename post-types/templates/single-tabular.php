@@ -27,11 +27,15 @@
     $language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
     $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
 
+    $filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
+    $filtered_by_column_index_array = explode(',', $filtered_by_column_index);
+
     $num_filters = count($filters_datatables_list_array) + count($filters_list_array) + 1;
     if ($country_filter_enabled): $num_filters++; endif;
     if ($language_filter_enabled): $num_filters++; endif;
     if ($taxonomy_filter_enabled): $num_filters++; endif;
     if (isset($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
+    $num_filters += count($filtered_by_column_index_array);
     $filters_specified = $num_filters > 1;
 
     $max_columns = 12;
@@ -99,7 +103,7 @@
   <section class="container">
 		<header class="row">
 			<div class="sixteen columns">
-        <a href="<?php get_page_link(); ?>"><h1><?php the_title(); ?></h1></a>
+        <h1><?php the_title(); ?></h1>
 			</div>
 		</header>
 	</section>
@@ -117,10 +121,8 @@
 
 	<div class="container">
     <div class="row">
-
       <form class="advanced-nav-filters">
-
-        <div class="sixteen columns panel">
+        <div id="filters" class="sixteen columns panel">
 
           <?php
             $num_columns_text_search = ($filters_specified) ? "four" : "twelve"
@@ -252,11 +254,14 @@
               <div class="<?php echo $num_columns?> columns">
                 <div class="adv-nav-input">
                   <p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>">
+                  <select id="<?php echo $key; ?>" name="<?php echo $key; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
                     <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
                     <?php
                       foreach($options as $option): ?>
-                      <option value="<?php echo $option['id']; ?>" <?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
+                      <option
+												value="<?php echo $option['id']; ?>"
+												data-country_codes="<?php echo $option['country_codes']; ?>"
+												<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
                     <?php
                       endforeach; ?>
                   </select>
@@ -270,7 +275,7 @@
             $num_columns_button = $filters_specified ? integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1))) : "four";
             ?>
 
-            <div class="<?php echo $num_columns_button ?> columns">
+            <div id="search-button" class="<?php echo $num_columns_button ?> columns">
               <input class="button" type="submit" value="<?php _e('Search', 'wp-odm_tabular_pages'); ?>"/>
               <?php
                 if ($active_filters):
@@ -291,7 +296,14 @@
   <section class="container">
     <div class="row">
 		  <div class="sixteen columns">
-        <?php the_content();?>
+        <?php echo the_content();?>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="row">
+		  <div class="sixteen columns">
         <table id="datasets_table" class="data-table">
           <thead>
             <tr>
@@ -434,9 +446,65 @@ jQuery(document).ready(function($) {
     oTable.fnAdjustColumnSizing();
   }, 10 );
 
+  function create_filter_by_column_index(col_index,col_name){
+
+    var columnIndex = col_index;
+    var column_filter_oTable = oTable.api().columns( columnIndex );
+    var column_headercolumnIndex = columnIndex;
+    var column_header = $("#datasets_table").find("th:eq( "+column_headercolumnIndex+" )" ).text();
+
+    var div_filter = $('<div class="filter_by filter_by_column_index_'+columnIndex+'"></div>');
+    div_filter.appendTo( $('#filters'));
+
+    var select = $('<div class="<?php echo $num_columns?> columns"><div class="adv-nav-input"><p class="label"><label>'+ column_header +'</label></p><select id="' + col_name + '" name="' + col_name + '"><option value=""><?php _e('All', 'wp-odm_tabular_pages'); ?></option></select></div></div>');
+
+    var i = 1;
+    column_filter_oTable.data().eq( 0 ).unique().sort().each(function ( d, j ) {
+        d = d.replace(/[<]br[^>]*[>]/gi,"");
+        var value = d.split('<');
+				if (value.length > 1){
+					var first_value = value[1].split('>');
+	        var only_value = first_value[1].split('<');
+					value = first_value[1].trim();
+				}
+        select.find('select').append( '<option value="'+value+'">'+value+'</option>' )
+      }
+    );
+		select.insertBefore("#search-button");
+  }
+
+  <?php
+  foreach ($filtered_by_column_index_array as $column_id):
+    $col_names = array_keys($column_list_array);
+    $col_name = $col_names[$column_id];
+  ?>
+
+	<?php if (!empty($column_id) && !empty($col_name)): ?>
+		create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
+	<?php endif; ?>
+
+  <?php
+    endforeach;
+   ?>
+
+
+	$('.odm_spatial_range-specific').each(function(){
+		var country = [$(this).data('current_country')];
+		$(this).find('option').each(function() {
+			var countryCodes = $(this).data('country_codes');
+			if (countryCodes){
+				var countryCodesArray = countryCodes.split(",");
+				var intersection = $(countryCodesArray).filter(country);
+				if (intersection.length===0){
+					console.log("removing", $(this).val());
+					$(this).remove();
+				}
+			}
+		});
+	});
+
   $('select').select2();
   $('.datepicker').datepicker();
-
 });
 
 </script>
