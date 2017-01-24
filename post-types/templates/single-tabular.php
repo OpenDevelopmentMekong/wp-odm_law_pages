@@ -479,13 +479,15 @@ jQuery(document).ready(function($) {
     $col_name = $col_names[$column_id];
   ?>
 
-    create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
+	<?php if (!empty($column_id) && !empty($col_name)): ?>
+		create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
+	<?php endif; ?>
 
   <?php
     endforeach;
    ?>
 
-  
+
 	$('.odm_spatial_range-specific').each(function(){
 		var country = [$(this).data('current_country')];
 		$(this).find('option').each(function() {
