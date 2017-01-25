@@ -26,20 +26,20 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         public function register_post_type()
         {
             $labels = array(
-            'name' => __('Tabular Pages', 'post type general name', 'wp-odm_tabular_pages'),
-            'singular_name' => __('Tabular Page', 'post type singular name', 'wp-odm_tabular_pages'),
-            'menu_name' => __('Tabular Pages', 'admin menu for tabular pages', 'wp-odm_tabular_pages'),
-            'name_admin_bar' => __('Tabular Pages', 'add new on admin bar', 'wp-odm_tabular_pages'),
+            'name' => __('Database', 'post type general name', 'wp-odm_tabular_pages'),
+            'singular_name' => __('Database', 'post type singular name', 'wp-odm_tabular_pages'),
+            'menu_name' => __('Database', 'admin menu for tabular pages', 'wp-odm_tabular_pages'),
+            'name_admin_bar' => __('Database', 'add new on admin bar', 'wp-odm_tabular_pages'),
             'add_new' => __('Add new', 'tabular page', 'wp-odm_tabular_pages'),
-            'add_new_item' => __('Add new tabular page', 'wp-odm_tabular_pages'),
-            'new_item' => __('New tabular pages', 'wp-odm_tabular_pages'),
-            'edit_item' => __('Edit tabular pages', 'wp-odm_tabular_pages'),
-            'view_item' => __('View tabular pages', 'wp-odm_tabular_pages'),
-            'all_items' => __('All tabular pages', 'wp-odm_tabular_pages'),
-            'search_items' => __('Search tabular pages', 'wp-odm_tabular_pages'),
-            'parent_item_colon' => __('Parent tabular pages:', 'wp-odm_tabular_pages'),
-            'not_found' => __('No tabular page found.', 'wp-odm_tabular_pages'),
-            'not_found_in_trash' => __('No tabular page found in trash.', 'wp-odm_tabular_pages'),
+            'add_new_item' => __('Add new database', 'wp-odm_tabular_pages'),
+            'new_item' => __('New database', 'wp-odm_tabular_pages'),
+            'edit_item' => __('Edit database', 'wp-odm_tabular_pages'),
+            'view_item' => __('View database', 'wp-odm_tabular_pages'),
+            'all_items' => __('All databases', 'wp-odm_tabular_pages'),
+            'search_items' => __('Search databases', 'wp-odm_tabular_pages'),
+            'parent_item_colon' => __('Parent databases:', 'wp-odm_tabular_pages'),
+            'not_found' => __('No database found.', 'wp-odm_tabular_pages'),
+            'not_found_in_trash' => __('No database found in trash.', 'wp-odm_tabular_pages'),
             );
 
             $args = array(
@@ -50,7 +50,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
               'show_in_menu'       => true,
   			      'menu_icon'          => '',
               'query_var'          => true,
-              'rewrite'            => array( 'slug' => 'tabular' ),
+              'rewrite'            => array( 'slug' => 'database' ),
               'capability_type'    => 'page',
               'has_archive'        => true,
               'hierarchical'       => true,
@@ -67,7 +67,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           // Profile settings
           add_meta_box(
            'tabular_options',
-           __('Option for tabular pages', 'wp-odm_tabular_pages'),
+           __('Option for database', 'wp-odm_tabular_pages'),
            array($this, 'tabular_options_box'),
            'tabular',
            'advanced',
@@ -76,7 +76,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           // Profile settings
           add_meta_box(
            'tabular_filters',
-           __('Filters for tabular pages', 'wp-odm_tabular_pages'),
+           __('Filters for database', 'wp-odm_tabular_pages'),
            array($this, 'tabular_filters_box'),
            'tabular',
            'advanced',
