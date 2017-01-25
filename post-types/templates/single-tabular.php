@@ -204,7 +204,7 @@
           ?>
           <div class="<?php echo $num_columns?> columns">
             <div class="adv-nav-input">
-              <p class="label"><label for="taxonomy"><?php _e('Taxonomy', 'wp-odm_tabular_pages'); ?></label></p>
+              <p class="label"><label for="taxonomy"><?php _e('Topic', 'wp-odm_tabular_pages'); ?></label></p>
               <select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'wp-odm_tabular_pages'); ?>">
                 <option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
                 <?php
