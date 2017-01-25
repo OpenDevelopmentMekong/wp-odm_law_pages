@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
-"POT-Creation-Date: 2016-12-29 16:39+0100\n"
-"PO-Revision-Date: 2016-12-29 16:39+0100\n"
+"POT-Creation-Date: 2017-01-25 12:23+0100\n"
+"PO-Revision-Date: 2017-01-25 12:23+0100\n"
 "Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
 "Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/km/)\n"
@@ -717,7 +717,7 @@ msgid "Topics"
 msgstr "ប្រធានបទ"
 
 #: i18n/additional-localization.php:187
-#: post-types/templates/single-tabular.php:159
+#: post-types/templates/single-tabular.php:187
 msgid "Language"
 msgstr "ភាសា"
 
@@ -918,7 +918,7 @@ msgid "Notes"
 msgstr ""
 
 #: i18n/additional-localization.php:240
-#: post-types/templates/single-tabular.php:299
+#: post-types/templates/single-tabular.php:341
 msgid "Not found"
 msgstr "ព័ត៌មានពុំអាចរកបាន"
 
@@ -1007,124 +1007,147 @@ msgstr ""
 msgid "Choose dataset type"
 msgstr ""
 
-#: post-types/tabular-pages.php:117 post-types/tabular-pages.php:136
+#: post-types/tabular-pages.php:118 post-types/tabular-pages.php:137
 msgid "The attributes of the Dataset that would like to display"
 msgstr ""
 
-#: post-types/tabular-pages.php:119 post-types/tabular-pages.php:138
+#: post-types/tabular-pages.php:120 post-types/tabular-pages.php:139
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
 "breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:121 post-types/tabular-pages.php:140
+#: post-types/tabular-pages.php:122 post-types/tabular-pages.php:141
 msgid "Id to Label mapping for values"
 msgstr ""
 
-#: post-types/tabular-pages.php:123 post-types/tabular-pages.php:142
+#: post-types/tabular-pages.php:124 post-types/tabular-pages.php:143
 msgid ""
 "Please specify the ids plus their labels, separated by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:125 post-types/tabular-pages.php:144
+#: post-types/tabular-pages.php:126 post-types/tabular-pages.php:145
 msgid "Column ids linking to detail page"
 msgstr ""
 
-#: post-types/tabular-pages.php:127 post-types/tabular-pages.php:146
+#: post-types/tabular-pages.php:128 post-types/tabular-pages.php:147
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
 "detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
 "block"
 msgstr ""
 
-#: post-types/tabular-pages.php:129 post-types/tabular-pages.php:148
+#: post-types/tabular-pages.php:130 post-types/tabular-pages.php:149
 msgid "Group Data in Column"
 msgstr ""
 
-#: post-types/tabular-pages.php:131 post-types/tabular-pages.php:150
+#: post-types/tabular-pages.php:132 post-types/tabular-pages.php:151
 msgid ""
 "Eg. To group records by a certain column. please specify the index, not the "
 "name."
 msgstr ""
 
-#: post-types/tabular-pages.php:187
+#: post-types/tabular-pages.php:190
 msgid "List of default filters"
 msgstr ""
 
-#: post-types/tabular-pages.php:191
+#: post-types/tabular-pages.php:194
 msgid "Please specify which of the default filters are displayed"
 msgstr ""
 
-#: post-types/tabular-pages.php:193
+#: post-types/tabular-pages.php:196
 msgid "List of additional filters with types"
 msgstr ""
 
-#: post-types/tabular-pages.php:195
+#: post-types/tabular-pages.php:198
 msgid ""
 "Please specify the field names and the corresponding field type, separated "
 "by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:197
+#: post-types/tabular-pages.php:200
 msgid "List of additional filters associated with data tables"
 msgstr ""
 
-#: post-types/tabular-pages.php:199
+#: post-types/tabular-pages.php:202
 msgid ""
 "Please specify the field names and the corresponding resource ids, separated "
 "by => and line breaks"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:102
+#: post-types/tabular-pages.php:204
+msgid "Create Select Filter by Column Index"
+msgstr ""
+
+#: post-types/tabular-pages.php:206
+msgid ""
+"Filter selectors will create automatically by adding the column index and "
+"separated by comma."
+msgstr ""
+
+#: post-types/templates/single-tabular.php:115
 msgid "Error in configuration, please check."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:121
+#: post-types/templates/single-tabular.php:132
 msgid "Text search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:122
+#: post-types/templates/single-tabular.php:133
 msgid "Search for title or other attributes"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:132
+#: post-types/templates/single-tabular.php:142
+msgid "Type"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:143
+msgid "Select type"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:160
 msgid "Country"
 msgstr "ប្រទេស"
 
-#: post-types/templates/single-tabular.php:133
+#: post-types/templates/single-tabular.php:161
 msgid "Select country"
 msgstr "ជ្រើសរើសប្រទេស"
 
-#: post-types/templates/single-tabular.php:136
-#: post-types/templates/single-tabular.php:161
-#: post-types/templates/single-tabular.php:181
-#: post-types/templates/single-tabular.php:230
+#: post-types/templates/single-tabular.php:164
+#: post-types/templates/single-tabular.php:189
+#: post-types/templates/single-tabular.php:209
+#: post-types/templates/single-tabular.php:258
+#: post-types/templates/single-tabular.php:459
 msgid "All"
 msgstr "ទាំងអស់"
 
-#: post-types/templates/single-tabular.php:160
+#: post-types/templates/single-tabular.php:188
 msgid "Select language"
 msgstr "ជ្រើសរើសភាសា"
 
-#: post-types/templates/single-tabular.php:179
-msgid "Taxonomy"
-msgstr "ប្រធានបទ"
+#: post-types/templates/single-tabular.php:207
+msgid "Topic"
+msgstr ""
 
-#: post-types/templates/single-tabular.php:180
+#: post-types/templates/single-tabular.php:208
 msgid "Select term"
 msgstr "ជ្រើសរើសពាក្យ"
 
-#: post-types/templates/single-tabular.php:248
+#: post-types/templates/single-tabular.php:279
 msgid "Search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:252
+#: post-types/templates/single-tabular.php:283
 msgid "Clear"
 msgstr "សំអាតការជ្រើសរើស"
 
-#: post-types/templates/single-tabular.php:278
+#: post-types/templates/single-tabular.php:316
+#: post-types/templates/single-tabular.php:365
 msgid "Download"
 msgstr "ទាញយក"
+
+#~ msgid "Taxonomy"
+#~ msgstr "ប្រធានបទ"
 
 #~ msgid "Quick filter"
 #~ msgstr "ពាក្យស្វែងរក"
