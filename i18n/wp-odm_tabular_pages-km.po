@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
-"POT-Creation-Date: 2017-01-25 12:23+0100\n"
-"PO-Revision-Date: 2017-01-25 12:23+0100\n"
+"POT-Creation-Date: 2017-01-25 12:51+0100\n"
+"PO-Revision-Date: 2017-01-25 12:51+0100\n"
 "Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
 "Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/km/)\n"
@@ -919,8 +919,8 @@ msgstr ""
 
 #: i18n/additional-localization.php:240
 #: post-types/templates/single-tabular.php:341
-msgid "Not found"
-msgstr "ព័ត៌មានពុំអាចរកបាន"
+msgid "Unknown"
+msgstr ""
 
 #: i18n/additional-localization.php:241
 msgid "Khmer"
@@ -942,13 +942,9 @@ msgstr ""
 msgid "Lao"
 msgstr ""
 
-#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:31
-#: post-types/tabular-pages.php:32
-msgid "Tabular Pages"
-msgstr ""
-
-#: post-types/tabular-pages.php:30
-msgid "Tabular Page"
+#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:30
+#: post-types/tabular-pages.php:31 post-types/tabular-pages.php:32
+msgid "Database"
 msgstr ""
 
 #: post-types/tabular-pages.php:33
@@ -956,47 +952,47 @@ msgid "Add new"
 msgstr ""
 
 #: post-types/tabular-pages.php:34
-msgid "Add new tabular page"
+msgid "Add new database"
 msgstr ""
 
 #: post-types/tabular-pages.php:35
-msgid "New tabular pages"
+msgid "New database"
 msgstr ""
 
 #: post-types/tabular-pages.php:36
-msgid "Edit tabular pages"
+msgid "Edit database"
 msgstr ""
 
 #: post-types/tabular-pages.php:37
-msgid "View tabular pages"
+msgid "View database"
 msgstr ""
 
 #: post-types/tabular-pages.php:38
-msgid "All tabular pages"
+msgid "All databases"
 msgstr ""
 
 #: post-types/tabular-pages.php:39
-msgid "Search tabular pages"
+msgid "Search databases"
 msgstr ""
 
 #: post-types/tabular-pages.php:40
-msgid "Parent tabular pages:"
+msgid "Parent databases:"
 msgstr ""
 
 #: post-types/tabular-pages.php:41
-msgid "No tabular page found."
+msgid "No database found."
 msgstr ""
 
 #: post-types/tabular-pages.php:42
-msgid "No tabular page found in trash."
+msgid "No database found in trash."
 msgstr ""
 
 #: post-types/tabular-pages.php:70
-msgid "Option for tabular pages"
+msgid "Option for database"
 msgstr ""
 
 #: post-types/tabular-pages.php:79
-msgid "Filters for tabular pages"
+msgid "Filters for database"
 msgstr ""
 
 #: post-types/tabular-pages.php:101
@@ -1117,7 +1113,7 @@ msgstr "ជ្រើសរើសប្រទេស"
 #: post-types/templates/single-tabular.php:189
 #: post-types/templates/single-tabular.php:209
 #: post-types/templates/single-tabular.php:258
-#: post-types/templates/single-tabular.php:459
+#: post-types/templates/single-tabular.php:457
 msgid "All"
 msgstr "ទាំងអស់"
 
@@ -1145,6 +1141,9 @@ msgstr "សំអាតការជ្រើសរើស"
 #: post-types/templates/single-tabular.php:365
 msgid "Download"
 msgstr "ទាញយក"
+
+#~ msgid "Not found"
+#~ msgstr "ព័ត៌មានពុំអាចរកបាន"
 
 #~ msgid "Taxonomy"
 #~ msgstr "ប្រធានបទ"
