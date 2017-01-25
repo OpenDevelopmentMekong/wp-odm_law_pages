@@ -338,7 +338,7 @@
 												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
                       <?php
                       else:
-                        echo $mapped_value == '' || empty($mapped_value) ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+                        echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
 	                    endif;
                     endif;
 										echo "</td>";
@@ -384,8 +384,6 @@
 <script type="text/javascript">
 
 jQuery(document).ready(function($) {
-
-  console.log("Tabular pages init");
 
   $.fn.dataTableExt.oApi.fnFilterAll = function (oSettings, sInput, iColumn, bRegex, bSmart) {
    var settings = $.fn.dataTableSettings;
