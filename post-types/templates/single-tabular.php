@@ -142,9 +142,9 @@
 	            <p class="label"><label for="type"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
               <select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
                 <option value="all" <?php if ($param_type == "all"): echo "selected"; endif; ?>>All</option>
-                <option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
-                <option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>>Library record</option>
-                <option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
+                <option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages'); ?></option>
+                <option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'wp-odm_tabular_pages'); ?></option>
+                <option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'wp-odm_tabular_pages'); ?></option>
               </select>
 	          </div>
 	        </div>
