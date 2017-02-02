@@ -41,10 +41,15 @@
 .length{
   float:right;
   margin-right: 10px;
+  position: relative;
+  bottom: 10px;
 }
 
 .pagination{
   float:right;
+  margin-right:10px;
+  position: relative;
+  bottom: 10px;
 }
 
 .section-title{
