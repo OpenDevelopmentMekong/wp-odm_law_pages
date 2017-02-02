@@ -307,7 +307,6 @@
 	<section class="container">
 		<div class="row">
 			<div class="sixteen columns">
-				<div id="buttons"></div>
 				<table id="datasets_table" class="data-table">
 					<thead>
 						<tr>
