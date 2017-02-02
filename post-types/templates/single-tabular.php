@@ -102,8 +102,11 @@
 
   <section class="container">
 		<header class="row">
-			<div class="sixteen columns">
+			<div class="thirteen columns">
         <h1><?php the_title(); ?></h1>
+			</div>
+      <div class="three columns">
+        <?php odm_get_template('social-share',array(),true); ?>
 			</div>
 		</header>
 	</section>
