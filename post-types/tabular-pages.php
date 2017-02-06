@@ -108,10 +108,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	          <div id="tabular_options_box">
 	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
 	            <select id="_attributes_dataset_type" name="_attributes_dataset_type">
-                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>>All</option>
-	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>>Dataset</option>
-	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>>Publication/option>
-	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>>Laws record</option>
+                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>><?php _e('All', 'wp-odm_tabular_pages');?></option>
+	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages');?></option>
+	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'wp-odm_tabular_pages');?></option>
+	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'wp-odm_tabular_pages');?></option>
 	            </select>
 
               <div class="language_settings language-en">
