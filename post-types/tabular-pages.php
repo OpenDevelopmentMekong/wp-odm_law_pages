@@ -82,6 +82,16 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
            'advanced',
            'high'
           );
+
+
+          add_meta_box(
+           'tabular_template_layout',
+           __('Template layout', 'wp-odm_tabular_pages'),
+           array($this, 'template_layout_settings_box'),
+           'tabular',
+           'side',
+           'low'
+          );
 				}
 
 				public function tabular_options_box($post = false)
@@ -287,6 +297,18 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
           }
 
+        public function template_layout_settings_box($post = false)
+        {
+            $template = get_post_meta($post->ID, '_attributes_template_layout', true); ?>
+            <div id="template_layout_settings_box">
+             <h4><?php _e('Choose template layout', 'wp-odm_tabular_pages');?></h4>
+             <select id="_attributes_template_layout" name="_attributes_template_layout">
+                <option value="default" <?php if ($template == "default"): echo "selected"; endif; ?>>Default</option>
+                <option value="odc-laws-template" <?php if ($template == "odc-laws-template"): echo "selected"; endif; ?>>ODC Law template</option>
+              </select>
+            </div>
+        <?php
+        }
     }
 }
 
