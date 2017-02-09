@@ -403,7 +403,7 @@ jQuery(document).ready(function($) {
 		buttons: [
 			{
 				extend: 'csv',
-        text: 'CSV',
+        text: 'Export',
 				exportOptions: {
           columns: ':visible',
           rows: { page: 'current' }
