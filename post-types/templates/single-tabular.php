@@ -401,7 +401,22 @@ jQuery(document).ready(function($) {
 		"bAutoWidth": false,
 		dom: 'B<"top"<"info"i><"pagination"p><"length"l>>rt',
 		buttons: [
-				'copy', 'excel', 'pdf', 'csv'
+			{
+				extend: 'csv',
+        text: 'CSV',
+				exportOptions: {
+          columns: ':visible',
+          rows: { page: 'current' }
+        }
+			},
+			{
+				extend: 'print',
+        text: 'Print',
+				exportOptions: {
+          columns: ':visible',
+          rows: { page: 'current' }
+        }
+			}
 		],
 		lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?	$group_data_by_column_index : 0 ?>, 'asc' ]],
