@@ -2,7 +2,6 @@
 
 <?php	if (have_posts()) : ?>
 
-
 	<?php
 		global $post;
 		$valid_config = true;
@@ -20,22 +19,37 @@
 
 		$filters_list = get_post_meta($post->ID, '_attributes_filters_list', true);
 		$filters_list_array = parse_mapping_pairs($filters_list);
-		$filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
-		$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
+
+		$additional_filters_by = get_post_meta($post->ID, '_attributes_additional_filters_by', true);
+		//if($additional_filters_by == "datatable"):
+			$filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
+			$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
+	//	else if($additional_filters_by == "custom"):
+			$filters_custom_list = get_post_meta($post->ID, '_attributes_filters_custom_list', true);
+	//	endif;
 
 		$country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
 		$language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
 		$taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
 
-		$filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
-		$filtered_by_column_index_array = explode(',', $filtered_by_column_index);
+		$date_filter_enabled = get_post_meta($post->ID, '_attributes_date_filter_enabled', true) == "true" ? true : false;
+		$date_filter_by = get_post_meta($post->ID, '_attributes_date_filter_by', true);
+		$date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
+		$date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
 
+		$filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
+		if($filtered_by_column_index):
+			$filtered_by_column_index_array = explode(',', $filtered_by_column_index);
+		endif;
 		$num_filters = count($filters_datatables_list_array) + count($filters_list_array) + 1;
 		if ($country_filter_enabled): $num_filters++; endif;
 		if ($language_filter_enabled): $num_filters++; endif;
 		if ($taxonomy_filter_enabled): $num_filters++; endif;
+		if ($date_filter_enabled && !empty($date_filter_by) && !empty($date_filter_fieldname)): $num_filters++; endif;
 		if (isset($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
-		$num_filters += count($filtered_by_column_index_array);
+		if(isset($filtered_by_column_index_array)):
+			$num_filters += count($filtered_by_column_index_array);
+		endif;
 		$filters_specified = $num_filters > 1;
 
 		$max_columns = 12;
@@ -49,6 +63,7 @@
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 		$param_type = !empty($_GET['type']) ? $_GET['type'] : null;
 		$param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
+		$param_content = isset($_GET['content']) ? $_GET['content'] : null;
 		$param_language = isset($_GET['language']) ? $_GET['language'] : null;
 		$active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
@@ -120,266 +135,16 @@
 	</section>
 	<?php
 	endif;
+
+
+	$template = get_post_meta($post->ID, '_attributes_template_layout', true);
+	if ($template == 'odc-laws-template'):
+		include 'odc-laws-template.php';
+	else:
+		include 'default-laws-template.php';
+	endif;
 	?>
 
-	<div class="container">
-		<div class="row">
-			<form class="advanced-nav-filters">
-				<div id="filters" class="sixteen columns panel">
-
-					<?php
-						$num_columns_text_search = ($filters_specified) ? "four" : "twelve"
-						?>
-					<div class="<?php echo $num_columns_text_search; ?> columns">
-						<div class="adv-nav-input">
-							<p class="label"><label for="s"><?php _e('Text search', 'wp-odm_tabular_pages'); ?></label></p>
-							<input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
-						</div>
-					</div>
-
-					<?php
-						if (isset($dataset_type) && $dataset_type == 'all'):
-					?>
-					<div class="<?php echo $num_columns?> columns">
-						<div class="adv-nav-input">
-							<p class="label"><label for="type"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
-							<select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
-								<option value="all" <?php if ($param_type == "all"): echo "selected"; endif; ?>>All</option>
-								<option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages'); ?></option>
-								<option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'wp-odm_tabular_pages'); ?></option>
-								<option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'wp-odm_tabular_pages'); ?></option>
-							</select>
-						</div>
-					</div>
-					<?php
-						endif; ?>
-
-					<?php
-						$countries = odm_country_manager()->get_country_codes();
-						if ($country_filter_enabled):
-					?>
-					<div class="<?php echo $num_columns?> columns">
-						<div class="adv-nav-input">
-							<p class="label"><label for="country"><?php _e('Country', 'wp-odm_tabular_pages'); ?></label></p>
-							<select id="country" name="country" data-placeholder="<?php _e('Select country', 'wp-odm_tabular_pages'); ?>">
-								<?php
-									if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-								<?php
-									endif; ?>
-								<?php
-									foreach($countries as $key => $value):
-										if ($key != 'mekong'): ?>
-											<option value="<?php echo $key; ?>" <?php if($key == $param_country) echo 'selected'; ?> <?php if (odm_country_manager()->get_current_country() != 'mekong' && $key != odm_country_manager()->get_current_country()) echo 'disabled'; ?>><?php echo odm_country_manager()->get_country_name($key); ?></option>
-									<?php
-										endif; ?>
-										<?php
-									endforeach; ?>
-							</select>
-						</div>
-					</div>
-					<?php
-						endif; ?>
-
-					<?php
-						$languages = odm_language_manager()->get_supported_languages_by_site();
-						if ($language_filter_enabled):
-					?>
-					<div class="<?php echo $num_columns?> columns">
-						<div class="adv-nav-input">
-							<p class="label"><label for="language"><?php _e('Language', 'wp-odm_tabular_pages'); ?></label></p>
-							<select id="language" name="language" data-placeholder="<?php _e('Select language', 'wp-odm_tabular_pages'); ?>">
-								<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-								<?php
-									foreach($languages as $key => $value): ?>
-									<option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
-								<?php
-									endforeach; ?>
-							</select>
-						</div>
-					</div>
-					<?php
-						endif; ?>
-
-					<?php
-						$taxonomy_list = odm_taxonomy_manager()->get_taxonomy_list();
-						if ($taxonomy_filter_enabled):
-					?>
-					<div class="<?php echo $num_columns?> columns">
-						<div class="adv-nav-input">
-							<p class="label"><label for="taxonomy"><?php _e('Topic', 'wp-odm_tabular_pages'); ?></label></p>
-							<select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'wp-odm_tabular_pages'); ?>">
-								<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-								<?php
-									foreach($taxonomy_list as $value):
-										$val = apply_filters('translate_term', $value, odm_language_manager()->get_current_language());
-									?>
-									<option value="<?php echo $value; ?>" <?php if($value == $param_taxonomy) echo 'selected'; ?>><?php echo $val; ?></option>
-								<?php
-									endforeach; ?>
-							</select>
-						</div>
-					</div>
-					<?php
-						endif; ?>
-
-					<?php
-					foreach ($filters_list_array as $key => $type):
-						$mapped_key = in_array($key,array_keys($values_mapping_array)) ?	$values_mapping_array[$key] : $key;
-						$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
-						$selected_param_array = explode(",",$selected_param); ?>
-
-						<div class="<?php echo $num_columns?> columns">
-							<div class="adv-nav-input">
-								<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-								<?php
-									if ($type == "date"): ?>
-										<input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $selected_param; ?>" class="datepicker"></input>
-								<?php
-									else: ?>
-										<input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $selected_param; ?>"></input>
-								<?php
-									endif; ?>
-							</div>
-						</div>
-				<?php
-					endforeach; ?>
-
-					<?php
-						foreach ($filters_datatables_list_array as $key => $resource_id):
-							$mapped_key = in_array($key,array_keys($values_mapping_array)) ?	$values_mapping_array[$key] : $key;
-							$options = wpckan_get_datastore_resource(wpckan_get_ckan_domain(),$resource_id);
-							$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
-							$selected_param_array = explode(",",$selected_param);
-
-							if (!empty($options)): ?>
-
-							<div class="<?php echo $num_columns?> columns">
-								<div class="adv-nav-input">
-									<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-									<select id="<?php echo $key; ?>" name="<?php echo $key; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
-										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-										<?php
-											foreach($options as $option): ?>
-											<option
-												value="<?php echo $option['id']; ?>"
-												data-country_codes="<?php echo $option['country_codes']; ?>"
-												<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
-										<?php
-											endforeach; ?>
-									</select>
-								</div>
-							</div>
-
-					<?php
-							endif;
-						endforeach;
-
-						$num_columns_button = $filters_specified ? integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1))) : "four";
-						?>
-
-						<div id="search-button" class="<?php echo $num_columns_button ?> columns">
-							<input class="button" type="submit" value="<?php _e('Search', 'wp-odm_tabular_pages'); ?>"/>
-							<?php
-								if ($active_filters):
-									?>
-									<a href="?clear"><?php _e('Clear','wp-odm_tabular_pages') ?></a>
-							<?php
-								endif;
-							 ?>
-						</div>
-
-				</div>
-
-			</form>
-
-		</div>
-	</div>
-
-	<section class="container">
-		<div class="row">
-			<div class="sixteen columns">
-				<?php echo the_content();?>
-			</div>
-		</div>
-	</section>
-
-	<section class="container">
-		<div class="row">
-			<div class="sixteen columns">
-				<table id="datasets_table" class="data-table">
-					<thead>
-						<tr>
-							<?php
-								foreach ($column_list_array as $key => $value): ?>
-									<th><?php _e($value, 'wp-odm_tabular_pages'); ?></th>
-							<?php
-								endforeach;
-							 ?>
-							<th><?php _e('Download', 'wp-odm_tabular_pages');?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							if (in_array('results',array_keys($datasets))):
-								foreach ($datasets['results'] as $dataset): ?>
-							<tr>
-							<?php
-									foreach ($column_list_array as $key => $value):
-										$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $dataset[str_replace("_translated","",$key)];
-										echo "<td>";
-										if (isset($metadata_key)):
-											$single_value = getMultilingualValueOrFallback($metadata_key, odm_language_manager()->get_current_language(),$metadata_key);
-											if (is_array($single_value) && isset($single_value["en"])):
-												$single_value = $single_value["en"];
-											endif;
-											$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?	$values_mapping_array[$single_value] : $single_value;
-											if (strlen($mapped_value) > 300):
-												$mapped_value = substr($mapped_value, 0, 300) . ' ...';
-											endif;
-											if (in_array($key,$link_to_detail_columns_array)): ?>
-												<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
-											<?php
-											else:
-												echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
-											endif;
-										endif;
-										echo "</td>";
-									endforeach;
-							 ?>
-								<td class="download_buttons">
-									<?php if (isset($dataset['resources'])) :?>
-										<?php foreach ($dataset['resources'] as $resource) :?>
-											<?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
-												<span>
-													<?php
-														if (is_array($resource['odm_language'])):
-															foreach ($resource['odm_language'] as $language) :?>
-																<a href="<?php echo $resource['url'];?>">
-																<i class="fa fa-download"></i> <?php _e(odm_language_manager()->get_the_language_by_language_code($language),'wp-odm_tabular_pages'); ?></a>
-															<?php
-															endforeach;
-														endif;
-														?>
-												</span>
-											<?php else: ?>
-												<span>
-													<a href="<?php echo $resource['url'];?>">
-													<i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
-												</span>
-											<?php endif; ?>
-										<?php endforeach; ?>
-									<?php endif; ?>
-								</td>
-							</tr>
-						<?php
-							endforeach;
-						endif;?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
 <?php endif; ?>
 
 <?php get_footer(); ?>
@@ -478,17 +243,19 @@ jQuery(document).ready(function($) {
 	}
 
 	<?php
-	foreach ($filtered_by_column_index_array as $column_id):
-		$col_names = array_keys($column_list_array);
-		$col_name = $col_names[$column_id];
-	?>
+	if(isset($filtered_by_column_index_array) && !empty($filtered_by_column_index_array)):
+		foreach ($filtered_by_column_index_array as $column_id):
+			$col_names = array_keys($column_list_array);
+			$col_name = $col_names[$column_id];
+		?>
 
-	<?php if (!empty($column_id) && !empty($col_name)): ?>
-		create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
-	<?php endif; ?>
+		<?php if (!empty($column_id) && !empty($col_name)): ?>
+			create_filter_by_column_index(<?php echo $column_id;?>,'<?php echo $col_name; ?>');
+		<?php endif; ?>
 
-	<?php
+		<?php
 		endforeach;
+	endif;
 	 ?>
 
 

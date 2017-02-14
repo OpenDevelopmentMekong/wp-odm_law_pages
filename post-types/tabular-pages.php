@@ -126,7 +126,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
               <div class="language_settings language-en">
                 <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
-  							<textarea name="_attributes_column_list" style="width:100%;height: 200px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
+  							<textarea name="_attributes_column_list" style="width:100%; height:100px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
   							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
   							<h4><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h4>
@@ -188,28 +188,26 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	      {
           $filters_list = get_post_meta($post->ID, '_attributes_filters_list', true);
           $filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
-
+          $filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
           $country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
           $language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
           $taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
-
-          $filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true); ?>
+          ?>
 
           <div id="tabular_filters_box">
-
             <h4><?php _e('List of default filters', 'wp-odm_tabular_pages'); ?></h4>
+            <p class="description"><?php _e('Please specify which of the default filters are displayed', 'wp-odm_tabular_pages'); ?></p>
             <input type="checkbox" id="_attributes_country_filter_enabled" name="_attributes_country_filter_enabled"  value="true" <?php if ($country_filter_enabled): echo 'checked="yes"'; endif;?>/> Country (odm_spatial_range) <br />
             <input type="checkbox" id="_attributes_language_filter_enabled" name="_attributes_language_filter_enabled"  value="true" <?php if ($language_filter_enabled): echo 'checked="yes"'; endif;?>/> Language (odm_language)<br />
             <input type="checkbox" id="_attributes_taxonomy_filter_enabled" name="_attributes_taxonomy_filter_enabled" value="true" <?php if ($taxonomy_filter_enabled): echo 'checked="yes"'; endif;?>/> Taxonomy (taxonomy)<br/>
-            <p class="description"><?php _e('Please specify which of the default filters are displayed', 'wp-odm_tabular_pages'); ?></p>
+
+            <h4><?php _e('List of additional filters with Resource ID of CKAN', 'wp-odm_tabular_pages'); ?></h4>
+                <textarea id="_attributes_filters_datatables_list" name="_attributes_filters_datatables_list" style="width:100%;height: 100px;" placeholder="odm_document_type => 09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_datatables_list;  ?></textarea>
+                <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?>  <br />eg. odm_document_type  =>  <a href="https://data.opendevelopmentmekong.net/dataset/dat/resource/09f75141-0885-44f7-bcfc-8cd1e3779ff5?type=dataset" target="_blank">09f75141-0885-44f7-bcfc-8cd1e3779ff5</a></p>
 
             <h4><?php _e('List of additional filters with types', 'wp-odm_tabular_pages'); ?></h4>
-            <textarea id="_attributes_filters_list" name="_attributes_filters_list" style="width:100%;height: 200px;" placeholder="odm_promulgation_date  => date"><?php echo $filters_list; ?></textarea>
-            <p class="description"><?php _e('Please specify the field names and the corresponding field type, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
-
-            <h4><?php _e('List of additional filters associated with data tables', 'wp-odm_tabular_pages'); ?></h4>
-            <textarea id="_attributes_filters_datatables_list" name="_attributes_filters_datatables_list" style="width:100%;height: 200px;" placeholder="odm_document_type  =>  09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_datatables_list;  ?></textarea>
-            <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
+            <textarea id="_attributes_filters_list" name="_attributes_filters_list" style="width:100%;height: 100px;" placeholder="odm_promulgation_date  => date"><?php echo $filters_list; ?></textarea>
+            <p class="description"><?php _e('Please specify the field names and the corresponding field type, separated by => and line breaks.', 'wp-odm_tabular_pages'); ?></p>
 
             <h4><?php _e('Create Select Filter by Column Index', 'wp-odm_tabular_pages'); ?></h4>
             <input id="_filtered_by_column_index" type="text" placeholder="2, 5" size="40" name="_filtered_by_column_index" value="<?php echo $filtered_by_column_index; ?>" />
@@ -237,6 +235,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                     return;
                 }
 
+                if (isset($_POST['_attributes_template_layout'])) {
+                    update_post_meta($post_id, '_attributes_template_layout', $_POST['_attributes_template_layout']);
+                }
+
 								if (isset($_POST['_attributes_dataset_type'])) {
                     update_post_meta($post_id, '_attributes_dataset_type', $_POST['_attributes_dataset_type']);
                 }
@@ -252,7 +254,6 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 if (isset($_POST['_attributes_group_data_by_column_index'])) {
                     update_post_meta($post_id, '_attributes_group_data_by_column_index', $_POST['_attributes_group_data_by_column_index']);
                 }
-
                 if (isset($_POST['_attributes_group_data_by_column_index_localization'])) {
                     update_post_meta($post_id, '_attributes_group_data_by_column_index_localization', $_POST['_attributes_group_data_by_column_index_localization']);
                 }
@@ -283,6 +284,19 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
                 if (isset($_POST['_filtered_by_column_index'])) {
                     update_post_meta($post_id, '_filtered_by_column_index', $_POST['_filtered_by_column_index']);
+                }
+
+                if (isset($_POST['_attributes_date_filter_enabled'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_enabled', $_POST['_attributes_date_filter_enabled']);
+                }
+                if (isset($_POST['_attributes_date_filter_by'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_by', $_POST['_attributes_date_filter_by']);
+                }
+                if (isset($_POST['_attributes_date_filter_label'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_label', $_POST['_attributes_date_filter_label']);
+                }
+                if (isset($_POST['_attributes_date_filter_fieldname'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_fieldname', $_POST['_attributes_date_filter_fieldname']);
                 }
 
                 update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);
