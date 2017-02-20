@@ -21,21 +21,18 @@
 		$filters_list_array = parse_mapping_pairs($filters_list);
 
 		$additional_filters_by = get_post_meta($post->ID, '_attributes_additional_filters_by', true);
-		//if($additional_filters_by == "datatable"):
-			$filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
-			$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
-	//	else if($additional_filters_by == "custom"):
-			$filters_custom_list = get_post_meta($post->ID, '_attributes_filters_custom_list', true);
-	//	endif;
+		$filters_datatables_list = get_post_meta($post->ID, '_attributes_filters_datatables_list', true);
+		$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
 
 		$country_filter_enabled = get_post_meta($post->ID, '_attributes_country_filter_enabled', true) == "true" ? true : false;
 		$language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
 		$taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
 
-		$date_filter_enabled = get_post_meta($post->ID, '_attributes_date_filter_enabled', true) == "true" ? true : false;
-		$date_filter_by = get_post_meta($post->ID, '_attributes_date_filter_by', true);
-		$date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
-		$date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
+		$custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
+		$custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
+		$group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
+		$group_filter_label = get_post_meta($post->ID, '_attributes_group_filter_label', true);
+		$filters_group_list = get_post_meta($post->ID, '_attributes_filters_group_list', true);
 
 		$filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
 		if($filtered_by_column_index):
@@ -45,7 +42,8 @@
 		if ($country_filter_enabled): $num_filters++; endif;
 		if ($language_filter_enabled): $num_filters++; endif;
 		if ($taxonomy_filter_enabled): $num_filters++; endif;
-		if ($date_filter_enabled && !empty($date_filter_by) && !empty($date_filter_fieldname)): $num_filters++; endif;
+		if ($custom_filter_fieldname && $custom_filter_list): $num_filters++; endif;
+		if ($group_filter_enabled && $group_filter_label && $filters_group_list): $num_filters++; endif;
 		if (isset($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
 		if(isset($filtered_by_column_index_array)):
 			$num_filters += count($filtered_by_column_index_array);
@@ -53,12 +51,11 @@
 		$filters_specified = $num_filters > 1;
 
 		$max_columns = 12;
-		$num_filters = ($num_filters > 3) ? round($num_filters/2) : $num_filters;
+		$num_filters = ($num_filters > 4) ? round($num_filters/2) : $num_filters;
 		$num_columns = 12;
 		if ($filters_specified):
 			$num_columns = integer_to_text(round($max_columns / $num_filters));
 		endif;
-
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 		$param_type = !empty($_GET['type']) ? $_GET['type'] : null;
@@ -110,9 +107,6 @@
 			}
 		endforeach;
 		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
-
-		$datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-
 	?>
 
 	<section class="container">
