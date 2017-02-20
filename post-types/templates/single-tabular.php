@@ -261,7 +261,6 @@ jQuery(document).ready(function($) {
 				var countryCodesArray = countryCodes.split(",");
 				var intersection = $(countryCodesArray).filter(country);
 				if (intersection.length===0){
-					console.log("removing", $(this).val());
 					$(this).remove();
 				}
 			}
