@@ -396,11 +396,18 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 if (isset($_POST['_attributes_date_filter_fieldname'])) {
                     update_post_meta($post_id, '_attributes_date_filter_fieldname', $_POST['_attributes_date_filter_fieldname']);
                 }
-
-                update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);
-                update_post_meta($post_id, '_attributes_language_filter_enabled', $_POST['_attributes_language_filter_enabled']);
-                update_post_meta($post_id, '_attributes_taxonomy_filter_enabled', $_POST['_attributes_taxonomy_filter_enabled']);
-                update_post_meta($post_id, '_attributes_group_filter_enabled', $_POST['_attributes_group_filter_enabled']);
+                if (isset($_POST['_attributes_country_filter_enabled'])) {
+                  update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);
+                }
+                if (isset($_POST['_attributes_language_filter_enabled'])) {
+                  update_post_meta($post_id, '_attributes_language_filter_enabled', $_POST['_attributes_language_filter_enabled']);
+                }
+                if (isset($_POST['_attributes_taxonomy_filter_enabled'])) {
+                  update_post_meta($post_id, '_attributes_taxonomy_filter_enabled', $_POST['_attributes_taxonomy_filter_enabled']);
+                }
+                if (isset($_POST['_attributes_group_filter_enabled'])) {
+                  update_post_meta($post_id, '_attributes_group_filter_enabled', $_POST['_attributes_group_filter_enabled']);
+                }
 
                 if (!current_user_can('edit_post')) {
                     return;
