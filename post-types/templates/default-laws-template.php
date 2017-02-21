@@ -335,7 +335,7 @@
 														if (is_array($resource['odm_language'])):
 															foreach ($resource['odm_language'] as $language) :?>
 																<a target="_blank" href="<?php echo $resource['url'];?>"><?php
-																echo '<img alt="'.$language.'" src="'.qtranxf_flag_location().$q_config['flag'][$language].'"></img>';  ?> &nbsp;</a>
+															echo '<img alt="'.$language.'" src="'.WP_PLUGIN_URL.'/wp-odm_tabular_pages/img/'.$language.'.png"></img>';  ?> &nbsp;</a>
 															<?php
 															endforeach;
 														endif;

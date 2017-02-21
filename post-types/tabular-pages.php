@@ -263,11 +263,11 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                   <div class="language_settings language-en">
                     <p>
                     <label for="_attributes_group_filter_label">Group Label (English) : </label>
-                    <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label[en]" value="<?php echo $group_filter_label['en']; ?>" />
+                    <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label[en]" value="<?php echo isset($group_filter_label['en'])?$group_filter_label['en']:null; ?>" />
                     </p>
 
                     <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list[en]" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list['en']; ?></textarea></p>
+                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list[en]" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list['en'])? $filters_group_list['en']: null; ?></textarea></p>
                     <p> eg. create group of odm_document_type filter: </br>
                       Laws[constitution, international_treaties, royal_decree]</br>
                       Agreements[contracts, licenses, mou]
