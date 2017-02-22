@@ -62,6 +62,8 @@
 		$param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
 		$param_content = isset($_GET['content']) ? $_GET['content'] : null;
 		$param_language = isset($_GET['language']) ? $_GET['language'] : null;
+		$param_custom_fieldname = isset($_GET[$custom_filter_fieldname]) ? $_GET[$custom_filter_fieldname] : null;
+
 		$active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
 		$countries = odm_country_manager()->get_country_codes();
@@ -81,6 +83,10 @@
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 		}
+		if (!empty($param_custom_fieldname)	&& $param_custom_fieldname !== "all") {
+			$extras_custom_fieldname  = "extras_".$custom_filter_fieldname;
+			array_push($filter_fields, '"'.$extras_custom_fieldname.'":"'.$param_custom_fieldname.'"');
+		}
 		if ($active_filters):
 			if (!empty($param_query)) {
 				$attrs['query'] = $param_query;
@@ -92,14 +98,13 @@
 				array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 			}
 		endif;
-
 		foreach ($filters_list_array as $key => $type):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
 				array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
 			}
 		endforeach;
-
+		
 		foreach ($filters_datatables_list_array as $key => $resource_id):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {

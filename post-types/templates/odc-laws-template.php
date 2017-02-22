@@ -149,7 +149,7 @@
 					if($custom_filter_fieldname):
 						if($custom_filter_list):
 							$custom_filter_array = explode("\r\n", $custom_filter_list);
-							$mapped_key = in_array($custom_filter_fieldname,array_keys($values_mapping_array)) ?	$values_mapping_array[$custom_filter_fieldname] : $custom_filter_fieldname;
+							$mapped_key = in_array($custom_filter_fieldname, array_keys($values_mapping_array)) ?	$values_mapping_array[$custom_filter_fieldname] : $custom_filter_fieldname;
 
 							$selected_param = !empty($_GET[$custom_filter_fieldname]) ? $_GET[$custom_filter_fieldname] : null;
 							$selected_param_array = explode(",",$selected_param);
@@ -360,8 +360,9 @@
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		<?php if($group_filter_enabled && $custom_filter_fieldname && $filters_group_list):?>
-						var group_filter_name = "<?php echo $group_filter_name ?>";
+						var group_filter_name = "<?php echo $group_filter_select_name ?>";
 					  var filter_fieldname = "<?php echo $custom_filter_fieldname ?>";
+					  var selected_document_type = "<?php echo isset($_GET['odm_document_type'])? $_GET['odm_document_type'] : 'all'; ?>";
 
 						$("#"+group_filter_name).change(function() {
 						  if ($(this).data('options') == undefined) {
@@ -399,7 +400,7 @@
 									current_group = $("#"+group_filter_name).val();
 								  var group_options = $("#"+group_filter_name).data('options').filter('[in-group=' + current_group + ']');
 							  	$('#'+filter_fieldname).html(group_options);
-									$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','wp-odm_tabular_pages') ?></option>").val('all');
+										$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','wp-odm_tabular_pages') ?></option>").val(selected_document_type);
 								}
 							}
 						}
