@@ -42,14 +42,12 @@
   float:right;
   margin-right: 10px;
   position: relative;
-  bottom: 10px;
 }
 
 .pagination{
   float:right;
   margin-right:10px;
   position: relative;
-  bottom: 10px;
 }
 
 .section-title{
@@ -75,11 +73,12 @@
   width: 100%;
 }
 .dataTables_length {
-    margin-top: 12px;
+    margin-top: 0;
     float: right !important;
 }
 .dataTables_length select{
   display: inline;
+	margin-bottom: 15px;
 }
 .dataTables_filter{
     margin-top: 12px;
@@ -93,12 +92,16 @@
 .dataTables_filter input[type="search"]{
     padding: 4px;
 }
+	margin-top: 28px;
+}
 .dataTables_info {
   margin-top: 2px;
 }
+.dataTables_wrapper
 .dataTables_paginate{
     margin: 5px;
-    margin-top: 7px;
+    margin-top: 0;
+		padding-top: 0 ;
 }
 .dataTables_scrollHead{
     border-top: 1px solid #aaa !important;
@@ -229,8 +232,16 @@ td.entry_title a{
 
 .advanced-nav-filters select{
   width: 100%;
+	padding: 5px;
 }
-
+.advanced-nav-filters #filters div:nth-child(6) input[type="submit"]{
+	margin-top: 0 !important;
+}
 .advanced-nav-filters .select2{
   width: 100%;
+}
+.filter_setting{
+  border: 1px solid #ddd;
+  padding: 0 10px 0;
+  margin: 5px 0 0 1.9em;
 }
