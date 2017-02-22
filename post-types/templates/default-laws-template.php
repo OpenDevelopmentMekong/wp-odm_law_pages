@@ -100,21 +100,17 @@
 					<?php
 					if($group_filter_enabled && $custom_filter_fieldname):
 						if($group_filter_label && $filters_group_list):
-							$group_filter_name = "group_".strtolower(str_replace(" ", "_", $group_filter_label['en']));
-							$group_filter_list = explode("\r\n", str_replace(' ', '', $filters_group_list['en']));
-							$group_label = $group_filter_label['en'];
-							$selected_param = !empty($_GET[$group_filter_name]) ? $_GET[$group_filter_name] : null;
+							$get_group_filter_label_english = get_post_meta($post->ID, '_attributes_group_filter_label', true);
+							$group_filter_select_name = "group_".strtolower(str_replace(" ", "_", $get_group_filter_label_english));
+							$group_filter_list = explode("\r\n", str_replace(' ', '', $filters_group_list));
+							$group_label = $group_filter_label;
+							$selected_param = !empty($_GET[$group_filter_select_name]) ? $_GET[$group_filter_select_name] : null;
 							$selected_param_array = explode(",",$selected_param);
-
-							if (odm_language_manager()->get_current_language() !== 'en') :
-								$group_label = $group_filter_label['localization'];
-								$group_filter_list = explode("\r\n", str_replace(' ', '', $filters_group_list['localization']));
-							endif;
 							?>
 							<div class="<?php echo $num_columns?> columns">
 								<div class="adv-nav-input">
-									<p class="label"><label for="group_<?php echo $group_filter_name; ?>"><?php _e($group_label, 'wp-odm_tabular_pages'); ?></label></p>
-									<select id="<?php echo $group_filter_name; ?>" name="<?php echo $group_filter_name; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+									<p class="label"><label for="group_<?php echo $group_filter_select_name; ?>"><?php _e($group_label, 'wp-odm_tabular_pages'); ?></label></p>
+									<select id="<?php echo $group_filter_select_name; ?>" name="<?php echo $group_filter_select_name; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
 										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
 										<?php
 										if(isset($group_filter_list) && !empty($group_filter_list)):
@@ -126,7 +122,7 @@
 														$group_value = str_replace("]", "", $group_filter_info[1]);
 														$group_filter_fields[$group_name] = explode(",",  $group_value);
 
-														if (isset($_GET[$group_filter_name])	&& $_GET[$group_filter_name]!= "all"):
+														if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
 															if (!isset($_GET[$custom_filter_fieldname])	|| $_GET[$custom_filter_fieldname]== "all"):
 																$filter_fields_obj = json_decode($attrs['filter_fields']);
 																$key_custom_fieldname = "extras_".$custom_filter_fieldname;
@@ -335,7 +331,7 @@
 														if (is_array($resource['odm_language'])):
 															foreach ($resource['odm_language'] as $language) :?>
 																<a target="_blank" href="<?php echo $resource['url'];?>"><?php
-															echo '<img alt="'.$language.'" src="'.WP_PLUGIN_URL.'/wp-odm_tabular_pages/img/'.$language.'.png"></img>';  ?> &nbsp;</a>
+																echo '<img alt="'.$language.'" src="'.WP_PLUGIN_URL.'/wp-odm_tabular_pages/img/'.$language.'.png"></img>';  ?> &nbsp;</a>
 															<?php
 															endforeach;
 														endif;

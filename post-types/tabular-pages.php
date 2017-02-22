@@ -226,7 +226,9 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           $custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
           $group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
           $group_filter_label = get_post_meta($post->ID, '_attributes_group_filter_label', true);
+          $group_filter_label_localization = get_post_meta($post->ID, '_attributes_group_filter_label_localization', true);
           $filters_group_list = get_post_meta($post->ID, '_attributes_filters_group_list', true);
+          $filters_group_list_localization = get_post_meta($post->ID, '_attributes_filters_group_list_localization', true);
           ?>
 
           <div id="tabular_filters_box">
@@ -263,11 +265,11 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                   <div class="language_settings language-en">
                     <p>
                     <label for="_attributes_group_filter_label">Group Label (English) : </label>
-                    <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label[en]" value="<?php echo isset($group_filter_label['en'])?$group_filter_label['en']:null; ?>" />
+                    <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label" value="<?php echo isset($group_filter_label)?$group_filter_label:null; ?>" />
                     </p>
 
                     <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list[en]" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list['en'])? $filters_group_list['en']: null; ?></textarea></p>
+                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
                     <p> eg. create group of odm_document_type filter: </br>
                       Laws[constitution, international_treaties, royal_decree]</br>
                       Agreements[contracts, licenses, mou]
@@ -276,12 +278,12 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                   <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
                     <div class="language_settings language-localization">
                       <p>
-                      <label for="_attributes_group_filter_label">Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
-                      <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label[localization]" value="<?php echo $group_filter_label['localization']; ?>" />
+                      <label for="_attributes_group_filter_label_localization">Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
+                      <input id="_attributes_group_filter_label_localization" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label_localization" value="<?php echo $group_filter_label_localization; ?>" />
                       </p>
 
                       <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                      <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list[localization]" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list['localization']; ?></textarea></p>
+                      <textarea id="_attributes_filters_group_list_localization" name="_attributes_filters_group_list_localization" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list_localization; ?></textarea></p>
                       <p> eg. create group of odm_document_type filter: </br>
                         ច្បាប់[constitution, international_treaties, royal_decree]</br>
                         កិច្ចព្រមព្រៀ[contracts, licenses, mou]
@@ -380,9 +382,16 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 if (isset($_POST['_attributes_group_filter_label'])) {
                     update_post_meta($post_id, '_attributes_group_filter_label', $_POST['_attributes_group_filter_label']);
                 }
+                if (isset($_POST['_attributes_group_filter_label_localization'])) {
+                    update_post_meta($post_id, '_attributes_group_filter_label_localization', $_POST['_attributes_group_filter_label_localization']);
+                }
                 if (isset($_POST['_attributes_filters_group_list'])) {
                     update_post_meta($post_id, '_attributes_filters_group_list', $_POST['_attributes_filters_group_list']);
                 }
+                if (isset($_POST['_attributes_filters_group_list_localization'])) {
+                    update_post_meta($post_id, '_attributes_filters_group_list_localization', $_POST['_attributes_filters_group_list_localization']);
+                }
+
 
                 if (isset($_POST['_attributes_date_filter_enabled'])) {
                     update_post_meta($post_id, '_attributes_date_filter_enabled', $_POST['_attributes_date_filter_enabled']);

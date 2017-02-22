@@ -31,8 +31,8 @@
 		$custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
 		$custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
 		$group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
-		$group_filter_label = get_post_meta($post->ID, '_attributes_group_filter_label', true);
-		$filters_group_list = get_post_meta($post->ID, '_attributes_filters_group_list', true);
+		$group_filter_label = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_group_filter_label_localization', true) : get_post_meta($post->ID, '_attributes_group_filter_label', true);
+		$filters_group_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_filters_group_list_localization', true) : get_post_meta($post->ID, '_attributes_filters_group_list', true);
 
 		$filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
 		if($filtered_by_column_index):
