@@ -254,7 +254,7 @@
 							if ($active_filters):
 								?>
 								<a href="?clear"><?php _e('Clear','wp-odm_tabular_pages') ?></a>
-						<?php
+								<?php
 							endif;
 						 ?>
 					</div>
@@ -285,10 +285,25 @@
 						<?php
 							foreach ($column_list_array as $key => $value): ?>
 								<th><?php _e($value, 'wp-odm_tabular_pages'); ?></th>
-						<?php
+								<?php
+								if($custom_filter_fieldname && $custom_filter_list && $filters_group_list):
+									if(trim($custom_filter_fieldname) == $key):
+										$additional_columns = 1;
+										if($group_filter_enabled):
+											$group_th = $group_filter_label;
+											$additional_columns++;
+										endif;
+									endif;
+								endif;
 							endforeach;
-						 ?>
-						<th><?php _e('Download', 'wp-odm_tabular_pages');?></th>
+							if(isset($additional_columns)):
+								echo "<th class='hide'>Index</th>";
+								if(isset($group_th)):
+									echo "<th class='hide ".$group_filter_select_name."'>".$group_th."</th>";
+								endif;
+							endif;
+						?>
+					 <th><?php _e('Download', 'wp-odm_tabular_pages');?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -298,55 +313,92 @@
 							foreach ($datasets['results'] as $dataset): ?>
 						<tr>
 						<?php
-								foreach ($column_list_array as $key => $value):
-									$translated_dataset = isset($dataset[str_replace("_translated","",$key)])? $dataset[str_replace("_translated","",$key)] : null;
-									$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $translated_dataset;
-									echo "<td>";
-									if (isset($metadata_key)):
-										$single_value = getMultilingualValueOrFallback($metadata_key, odm_language_manager()->get_current_language(),$metadata_key);
-										if (is_array($single_value) && isset($single_value["en"])):
-											$single_value = $single_value["en"];
-										endif;
-										$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?	$values_mapping_array[$single_value] : $single_value;
-										if (strlen($mapped_value) > 300):
-											$mapped_value = substr($mapped_value, 0, 300) . ' ...';
-										endif;
-										if (in_array($key,$link_to_detail_columns_array)): ?>
-											<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
-										<?php
-										else:
-											echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
-										endif;
+							foreach ($column_list_array as $key => $value):
+								$translated_dataset = isset($dataset[str_replace("_translated","",$key)])? $dataset[str_replace("_translated","",$key)] : null;
+								$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $translated_dataset;
+								echo "<td>";
+								if (isset($metadata_key)):
+									$single_value = getMultilingualValueOrFallback($metadata_key, odm_language_manager()->get_current_language(),$metadata_key);
+									if (is_array($single_value) && isset($single_value["en"])):
+										$single_value = $single_value["en"];
 									endif;
+									$mapped_value = in_array($single_value,array_keys($values_mapping_array)) ?	$values_mapping_array[$single_value] : $single_value;
+
+									if (strlen($mapped_value) > 300):
+										$mapped_value = mb_substr($mapped_value, 0, 300) . ' ...';
+									endif;
+									if (in_array($key,$link_to_detail_columns_array)): ?>
+										<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
+									<?php
+									else:
+										echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+									endif;
+								endif;
+								echo "</td>";
+
+								 	if($custom_filter_fieldname && $custom_filter_list && $filters_group_list):
+									if(trim($custom_filter_fieldname) == $key):
+										$group_index = array_search($single_value, array_values($custom_filter_array));
+										if($group_filter_enabled && isset($group_filter_fields)):
+											foreach($group_filter_fields as $group => $group_value ):
+												$in_group = null;
+												if(in_array($single_value, $group_value)):
+													$in_group = $group;
+													$group_index = array_search($group, array_keys($group_filter_fields));
+													if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
+														$group_index = array_search($single_value, array_values($group_value));
+													endif;
+													break;
+												endif;
+											endforeach;
+									 	endif;
+									 	endif;
+								endif;
+
+							endforeach;
+							if(isset($additional_columns)):
+								echo "<td class='hide'>";
+									echo $group_index;
+								echo "</td>";
+
+								if($group_filter_enabled):
+									echo "<td class='hide'>";
+										echo $in_group;
 									echo "</td>";
-								endforeach;
-						 ?>
-							<td class="download_buttons">
-								<?php if (isset($dataset['resources'])) :?>
-									<?php foreach ($dataset['resources'] as $resource) :?>
-										<?php if (isset($resource['format']) && ($resource['format'] =="PDF" )): ?>
-											<?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
-												<span>
-													<?php
-														if (is_array($resource['odm_language'])):
-															foreach ($resource['odm_language'] as $language) :?>
-																<a target="_blank" href="<?php echo $resource['url'];?>"><?php
-																echo '<img alt="'.$language.'" src="'.WP_PLUGIN_URL.'/wp-odm_tabular_pages/img/'.$language.'.png"></img>';  ?> &nbsp;</a>
-															<?php
-															endforeach;
-														endif;
-														?>
-												</span>
-											<?php else: ?>
-												<span>
-													<a href="<?php echo $resource['url'];?>">
-													<i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
-												</span>
-											<?php endif; ?>
-										<?php endif; ?>
-									<?php endforeach; ?>
-								<?php endif; ?>
-							</td>
+									if (!isset($_GET[$group_filter_select_name])	|| $_GET[$group_filter_select_name]== "all"):
+										$group_data_by_column_index = count($column_list_array) +1;
+									endif;
+								endif;
+
+								$order_data_by_column_index = count($column_list_array);
+							endif;
+							?>
+ 							<td class="download_buttons">
+ 								<?php if (isset($dataset['resources'])) :?>
+ 									<?php foreach ($dataset['resources'] as $resource) :?>
+ 										<?php if (isset($resource['format']) && ($resource['format'] =="PDF" )): ?>
+ 											<?php if (isset($resource['odm_language']) && !empty($resource['odm_language'])): ?>
+ 												<span>
+ 													<?php
+ 														if (is_array($resource['odm_language'])):
+ 															foreach ($resource['odm_language'] as $language) :?>
+ 																<a target="_blank" href="<?php echo $resource['url'];?>"><?php
+ 																echo '<img alt="'.$language.'" src="'.WP_PLUGIN_URL.'/wp-odm_tabular_pages/img/'.$language.'.png"></img>';  ?> &nbsp;</a>
+ 															<?php
+ 															endforeach;
+ 														endif;
+ 														?>
+ 												</span>
+ 											<?php else: ?>
+ 												<span>
+ 													<a href="<?php echo $resource['url'];?>">
+ 													<i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
+ 												</span>
+ 											<?php endif; ?>
+ 										<?php endif; ?>
+ 									<?php endforeach; ?>
+ 								<?php endif; ?>
+ 							</td>
 						</tr>
 					<?php
 							endforeach;
