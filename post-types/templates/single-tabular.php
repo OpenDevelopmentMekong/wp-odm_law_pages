@@ -112,7 +112,6 @@
 			}
 		endforeach;
 		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
-		$attrs['limit'] = 500;
 	?>
 
 	<section class="container">
