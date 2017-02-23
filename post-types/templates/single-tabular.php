@@ -104,7 +104,7 @@
 				array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
 			}
 		endforeach;
-		
+
 		foreach ($filters_datatables_list_array as $key => $resource_id):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
@@ -112,6 +112,7 @@
 			}
 		endforeach;
 		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
+		$attrs['limit'] = 500;
 	?>
 
 	<section class="container">
@@ -182,15 +183,16 @@ jQuery(document).ready(function($) {
         }
 			}
 		],
-		lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-		order: [[ <?php echo isset($group_data_by_column_index) && $group_data_by_column_index != '' ?	$group_data_by_column_index : 0 ?>, 'asc' ]],
-		displayLength: 50,
+		lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+		order: [[ <?php echo isset($order_data_by_column_index) && !empty($order_data_by_column_index) ?	$order_data_by_column_index :( isset($group_data_by_column_index) && !empty($group_data_by_column_index)? $group_data_by_column_index : 0) ?>, 'asc' ]],
+		displayLength: 100,
 		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
 		"oLanguage": {
 				"sLengthMenu": 'បង្ហាញចំនួន <select>'+
 						'<option value="10">10</option>'+
 						'<option value="25">25</option>'+
 						'<option value="50">50</option>'+
+						'<option value="100">100</option>'+
 						'<option value="-1">ទាំងអស់</option>'+
 					'</select> ក្នុងមួយទំព័រ',
 				"sZeroRecords": "ព័ត៌មានពុំអាចរកបាន",
@@ -211,11 +213,10 @@ jQuery(document).ready(function($) {
 				var api = this.api();
 				var rows = api.rows( {page:'current'} ).nodes();
 				var last=null;
-
 				api.column(<?php echo $group_data_by_column_index ?>, {page:'current'} ).data().each( function ( group, i ) {
 						if ( last !== group ) {
 								$(rows).eq( i ).before(
-										'<tr class="group"><td colspan="5">'+group+'</td></tr>'
+										'<tr class="group"><td colspan="<?php echo count($column_list_array)+1; ?>">'+group+'</td></tr>'
 								);
 
 								last = group;
