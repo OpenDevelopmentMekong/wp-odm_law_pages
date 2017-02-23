@@ -16,7 +16,9 @@
 #sidebar .taxonomy_widget_ul li {
   padding: 3px 0 !important;
 }
-
+.hide {
+  display: none;
+}
 .top {
     display: block;
     height: auto;
@@ -144,12 +146,18 @@ table.data-table td{
   border:0;
   border-left: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
-  /*padding: 12px 5px;*/
   min-width: 60px;
-  /*margin-bottom: 4px;*/
+  word-break: normal;
+  hyphens: none;
+}
+table.data-table th{
+  word-break: normal;
+  hyphens: none;
 }
 table.data-table td:first-child{
   border-left:0;
+  max-width: 500px;
+  word-wrap: break-word;
 }
 table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled {
     background-position: bottom center !important;
@@ -232,7 +240,7 @@ td.entry_title a{
 
 .advanced-nav-filters select{
   width: 100%;
-	padding: 5px;
+  height: 30px;
 }
 .advanced-nav-filters #filters div:nth-child(6) input[type="submit"]{
 	margin-top: 0 !important;
