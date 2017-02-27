@@ -161,6 +161,7 @@
 										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
 										<?php
 									    foreach ($custom_filter_array as $option):
+												$option = trim($option);
 												$mapped_option = in_array($option ,array_keys($values_mapping_array)) ?	$values_mapping_array[$option] : $option;
 												if(isset($group_filter_fields) && !empty($group_filter_fields)):
 														foreach($group_filter_fields as $group => $group_value ):
@@ -223,7 +224,7 @@
 											if(isset($group_filter_fields) && !empty($group_filter_fields)):
 													foreach($group_filter_fields as $group => $group_value ):
 														$in_group = null;
-														if(in_array( $option['id'], $group_value)):
+														if(in_array( trim($option['id']), $group_value)):
 															$in_group = $group;
 															break;
 														endif;
@@ -314,6 +315,15 @@
 						<tr>
 						<?php
 							foreach ($column_list_array as $key => $value):
+								$splited_key = explode(",", $key);
+								if(count($splited_key) > 1){
+									foreach ($splited_key as $ind_key):
+										if(isset($dataset[$ind_key]) ):
+											$key = $ind_key;
+											break;
+										endif;
+									endforeach;
+								}
 								$translated_dataset = isset($dataset[str_replace("_translated","",$key)])? $dataset[str_replace("_translated","",$key)] : null;
 								$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $translated_dataset;
 								echo "<td>";
@@ -342,7 +352,7 @@
 										if($group_filter_enabled && isset($group_filter_fields)):
 											foreach($group_filter_fields as $group => $group_value ):
 												$in_group = null;
-												if(in_array($single_value, $group_value)):
+												if(in_array(trim($single_value), $group_value)):
 													$in_group = $group;
 													$group_index = array_search($group, array_keys($group_filter_fields));
 													if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
@@ -415,20 +425,6 @@
 						var group_filter_name = "<?php echo $group_filter_select_name ?>";
 					  var filter_fieldname = "<?php echo $custom_filter_fieldname ?>";
 					  var selected_document_type = "<?php echo isset($_GET['odm_document_type'])? $_GET['odm_document_type'] : 'all'; ?>";
-
-						$("#"+group_filter_name).change(function() {
-						  if ($(this).data('options') == undefined) {
-						    $(this).data('options', $('#'+filter_fieldname+' option').clone());
-						  }
-						  var current_group = $(this).val();
-							if(current_group == 'all'){
-								$('#'+filter_fieldname).html($(this).data('options')).val('all');
-							}else{
-						  	var	options = $(this).data('options').filter('[in-group=' + current_group + ']');
-						  	$('#'+filter_fieldname).html(options);
-								$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','wp-odm_tabular_pages') ?></option>").val('all');
-							}
-						});
 
 						function group_filter(item){
 							var current_group;
