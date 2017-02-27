@@ -182,6 +182,7 @@
 					endif;
 				endif;
 				?>
+
 				<?php
 				foreach ($filters_list_array as $key => $type):
 					$mapped_key = in_array($key,array_keys($values_mapping_array)) ?	$values_mapping_array[$key] : $key;
@@ -245,6 +246,66 @@
 					endforeach;
 				endif;
 
+				if ($date_filter_enabled && !empty($date_filter_by) && !empty($date_filter_fieldname)):
+					$mapped_key = in_array($date_filter_fieldname,array_keys($values_mapping_array)) ?	$values_mapping_array[$date_filter_fieldname] : $date_filter_fieldname;
+					$selected_param_start_date = !empty($_GET[$date_filter_fieldname]['start']) ? $_GET[$date_filter_fieldname]['start'] : null;
+					$selected_param_end_date = !empty($_GET[$date_filter_fieldname]['end']) ? $_GET[$date_filter_fieldname]['end'] : null;
+
+					$datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
+					if (in_array('results', array_keys($datasets))):
+						foreach ($datasets['results'] as $dataset):
+							$get_date[] = $dataset[$date_filter_fieldname];
+						endforeach;
+						$date_arr = array_filter(array_unique($get_date));
+					endif;
+
+					if(isset($date_arr)){
+						usort($date_arr, function($a, $b) {
+						    $dateTimestamp1 = strtotime($a);
+						    $dateTimestamp2 = strtotime($b);
+						    return $dateTimestamp1 < $dateTimestamp2 ? -1: 1;
+						});
+
+					}
+					$start_year =  date('Y',strtotime( $date_arr[0] ));
+					$end_year = date('Y',strtotime( $date_arr[count($date_arr) - 1]));
+
+					?>
+					<div class="<?php echo $num_columns?> columns">
+						<div class="adv-nav-input filter-range">
+							<p class="label"><label for="<?php echo $date_filter_fieldname; ?>"><?php _e($date_filter_label? $date_filter_label:$mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+
+							<?php if($date_filter_by == "year"):?>
+								<select id="<?php echo $date_filter_fieldname; ?>" name="<?php echo $date_filter_fieldname['start']; ?>" class="odm_spatial_range-specific <?php echo $date_filter_fieldname; ?>_start" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+									<option value="" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+									<?php for($year = $start_year; $year <= $end_year; $year++){ ?>
+													<option value="<?php echo $year; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if($year == $selected_param_start_date) echo 'selected'; ?>><?php _e($year,'wp-odm_tabular_pages'); ?></option>
+									<?php } ?>
+								</select>
+							<?php elseif($date_filter_by == "year-range"):?>
+									<select id="<?php echo $date_filter_fieldname; ?>" name="<?php echo $date_filter_fieldname; ?>[start]" class="odm_spatial_range-specific <?php echo $date_filter_fieldname; ?>_start" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+										<option value="" selected><?php _e('From','wp-odm_tabular_pages') ?></option>
+										<?php for($year = $start_year; $year <= $end_year; $year++){ ?>
+														<option value="<?php echo $year; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if($year == $selected_param_start_date) echo 'selected'; ?>><?php _e($year,'wp-odm_tabular_pages'); ?></option>
+										<?php } ?>
+									</select> &nbsp;
+									<select id="<?php echo $date_filter_fieldname; ?>" name="<?php echo $date_filter_fieldname; ?>[end]" class="odm_spatial_range-specific <?php echo $date_filter_fieldname; ?>_end" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+										<option value="" selected><?php _e('To','wp-odm_tabular_pages') ?></option>
+										<?php for($year = $start_year; $year <= $end_year; $year++){ ?>
+														<option value="<?php echo $year; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if($year == $selected_param_end_date) echo 'selected'; ?>><?php _e($year,'wp-odm_tabular_pages'); ?></option>
+										<?php } ?>
+									</select>
+							<?php elseif($date_filter_by == "date-range"): ?>
+									<input type="text" id="<?php echo $date_filter_fieldname; ?>" name="<?php echo $date_filter_fieldname; ?>[start]" value="<?php echo $selected_param_start_date; ?>" placeholder="<?php _e('From','wp-odm_tabular_pages') ?>" class="datepicker <?php echo $date_filter_fieldname; ?>_start"></input>
+									<input type="text" id="<?php echo $date_filter_fieldname; ?>" name="<?php echo $date_filter_fieldname; ?>[end]" value="<?php echo $selected_param_end_date; ?>" placeholder="<?php _e('To','wp-odm_tabular_pages') ?>" class="datepicker <?php echo $date_filter_fieldname; ?>_end"></input>
+							<?php endif; ?>
+						</div>
+					</div>
+					<?php
+				endif;
+				?>
+
+				<?php
 					$num_columns_button = $filters_specified ? integer_to_text($max_columns - (round($max_columns / $num_filters) * ($num_filters -1))) : "four";
 					?>
 
@@ -310,9 +371,10 @@
 					<?php
 						$datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
 						if (in_array('results',array_keys($datasets))):
-							foreach ($datasets['results'] as $dataset): ?>
+							foreach ($datasets['results'] as $dataset):
+							?>
 						<tr>
-						<?php
+							<?php
 							foreach ($column_list_array as $key => $value):
 								$translated_dataset = isset($dataset[str_replace("_translated","",$key)])? $dataset[str_replace("_translated","",$key)] : null;
 								$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $translated_dataset;
@@ -400,7 +462,7 @@
  								<?php endif; ?>
  							</td>
 						</tr>
-					<?php
+							<?php
 							endforeach;
 						endif;?>
 				</tbody>
@@ -408,9 +470,23 @@
 		</div>
 	</div>
 </section>
-
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		<?php if ($date_filter_enabled && !empty($date_filter_by) && !empty($date_filter_fieldname)):?>
+							var date_filter_fieldname = "<?php echo $date_filter_fieldname ?>";
+							$('.'+date_filter_fieldname+'_start').change(function() {
+    							var index = $(this).find('option:selected').index();
+										$('.'+date_filter_fieldname+'_end').find("option:lt("+index+")").attr("disabled","disabled");
+										$('.'+date_filter_fieldname+'_end').find("option:gt("+index+")").removeAttr("disabled");
+										$('.'+date_filter_fieldname+'_end option:first').removeAttr("disabled");
+							});
+							$('.'+date_filter_fieldname+'_end').change(function() {
+    							var index = $(this).find('option:selected').index();
+									$('.'+date_filter_fieldname+'_start').find("option:gt("+index+")").attr("disabled","disabled");
+									$('.'+date_filter_fieldname+'_start').find("option:lt("+index+")").removeAttr("disabled");
+									$('.'+date_filter_fieldname+'_start option:first').removeAttr("disabled");
+							});
+		<?php endif; ?>
 		<?php if($group_filter_enabled && $custom_filter_fieldname && $filters_group_list):?>
 						var group_filter_name = "<?php echo $group_filter_select_name ?>";
 					  var filter_fieldname = "<?php echo $custom_filter_fieldname ?>";

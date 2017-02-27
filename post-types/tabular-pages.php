@@ -221,6 +221,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           $date_filter_by = get_post_meta($post->ID, '_attributes_date_filter_by', true);
           $date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
           $date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
+          $date_filter_label_localization = get_post_meta($post->ID, '_attributes_date_filter_label_localization', true);
 
           $custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
           $custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
@@ -237,6 +238,19 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             <input type="checkbox" id="_attributes_country_filter_enabled" name="_attributes_country_filter_enabled"  value="true" <?php if ($country_filter_enabled): echo 'checked="yes"'; endif;?>/> Country (odm_spatial_range) <br />
             <input type="checkbox" id="_attributes_language_filter_enabled" name="_attributes_language_filter_enabled"  value="true" <?php if ($language_filter_enabled): echo 'checked="yes"'; endif;?>/> Language (odm_language)<br />
             <input type="checkbox" id="_attributes_taxonomy_filter_enabled" name="_attributes_taxonomy_filter_enabled" value="true" <?php if ($taxonomy_filter_enabled): echo 'checked="yes"'; endif;?>/> Taxonomy (taxonomy)<br/>
+            <input type="checkbox" id="_attributes_date_filter_enabled" class="date_filter_setting" name="_attributes_date_filter_enabled" value="true" <?php if ($date_filter_enabled): echo 'checked="yes"'; endif;?>/> <label for="_attributes_date_filter_enabled">Date</label><br/>
+            <div id="date_filter_setting" class="filter_setting hide"><p>
+              <input type="radio" id="_attributes_date_filter_by_year" name="_attributes_date_filter_by" value="year" <?php if ($date_filter_by == "year"): echo 'checked="yes"'; endif;?>/> <label for="_attributes_date_filter_by_year">Year: </label> &nbsp;&nbsp;
+              <input type="radio" id="_attributes_date_filter_by_year_range" name="_attributes_date_filter_by" value="year-range" <?php if ($date_filter_by == "year-range"): echo 'checked="yes"'; endif;?>/> <label for="_attributes_date_filter_by_year_range">Year range: </label> &nbsp;&nbsp;
+              <input type="radio" id="_attributes_date_filter_by_date_range" name="_attributes_date_filter_by" value="date-range" <?php if ($date_filter_by == "date-range"): echo 'checked="yes"'; endif;?>/> <label for="_attributes_date_filter_by_date_range">Date range: </label></p>
+
+              <label for="_attributes_date_filter_fieldname">Field name: </label>
+              <input id="_attributes_date_filter_fieldname" type="text" placeholder="odm_promulgation_date" size="20" name="_attributes_date_filter_fieldname" value="<?php echo $date_filter_fieldname; ?>" /> &nbsp;&nbsp;
+              <label for="_attributes_date_filter_label">Label: </label>
+              <input id="_attributes_date_filter_label" type="text" placeholder="English" size="20" name="_attributes_date_filter_label" value="<?php echo $date_filter_label; ?>" /> &nbsp;&nbsp;
+              <input id="_attributes_date_filter_label_localization" type="text" placeholder="<?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?>" size="20" name="_attributes_date_filter_label_localization" value="<?php echo $date_filter_label_localization; ?>" />
+              <p class="description"><?php _e('Please ensure that the type of provided field names is date', 'wp-odm_tabular_pages'); ?></p>
+            </div>
 
 
             <h4><?php _e('List of additional filters with Resource ID of CKAN', 'wp-odm_tabular_pages'); ?></h4>
@@ -399,12 +413,16 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 if (isset($_POST['_attributes_date_filter_by'])) {
                     update_post_meta($post_id, '_attributes_date_filter_by', $_POST['_attributes_date_filter_by']);
                 }
-                if (isset($_POST['_attributes_date_filter_label'])) {
-                    update_post_meta($post_id, '_attributes_date_filter_label', $_POST['_attributes_date_filter_label']);
-                }
                 if (isset($_POST['_attributes_date_filter_fieldname'])) {
                     update_post_meta($post_id, '_attributes_date_filter_fieldname', $_POST['_attributes_date_filter_fieldname']);
                 }
+                if (isset($_POST['_attributes_date_filter_label'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_label', $_POST['_attributes_date_filter_label']);
+                }
+                if (isset($_POST['_attributes_date_filter_label_localization'])) {
+                    update_post_meta($post_id, '_attributes_date_filter_label_localization', $_POST['_attributes_date_filter_label_localization']);
+                }
+
                 if (isset($_POST['_attributes_country_filter_enabled'])) {
                   update_post_meta($post_id, '_attributes_country_filter_enabled', $_POST['_attributes_country_filter_enabled']);
                 }else{

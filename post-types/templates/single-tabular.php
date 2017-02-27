@@ -28,6 +28,12 @@
 		$language_filter_enabled = get_post_meta($post->ID, '_attributes_language_filter_enabled', true) == "true" ? true : false;
 		$taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
 
+		$date_filter_enabled = get_post_meta($post->ID, '_attributes_date_filter_enabled', true) == "true" ? true : false;
+		$date_filter_by = get_post_meta($post->ID, '_attributes_date_filter_by', true);
+		$date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
+		$date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
+		$date_filter_label_localization = get_post_meta($post->ID, '_attributes_date_filter_label_localization', true);
+
 		$custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
 		$custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
 		$group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
@@ -38,7 +44,7 @@
 		if($filtered_by_column_index):
 			$filtered_by_column_index_array = explode(',', $filtered_by_column_index);
 		endif;
-		$num_filters = count($filters_datatables_list_array) + count($filters_list_array) + 1;
+		$num_filters = count($filters_datatables_list_array) + count($filters_list_array)+1;
 		if ($country_filter_enabled): $num_filters++; endif;
 		if ($language_filter_enabled): $num_filters++; endif;
 		if ($taxonomy_filter_enabled): $num_filters++; endif;
@@ -56,15 +62,17 @@
 		if ($filters_specified):
 			$num_columns = integer_to_text(round($max_columns / $num_filters));
 		endif;
+
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 		$param_type = !empty($_GET['type']) ? $_GET['type'] : null;
 		$param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
+		$param_date_filter = isset($_GET[$date_filter_fieldname]) ? $_GET[$date_filter_fieldname] : null;
 		$param_content = isset($_GET['content']) ? $_GET['content'] : null;
 		$param_language = isset($_GET['language']) ? $_GET['language'] : null;
 		$param_custom_fieldname = isset($_GET[$custom_filter_fieldname]) ? $_GET[$custom_filter_fieldname] : null;
 
-		$active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
+		$active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_date_filter);
 
 		$countries = odm_country_manager()->get_country_codes();
 
@@ -97,7 +105,11 @@
 			if (!empty($param_language)	&& $param_language !== "all") {
 				array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 			}
+			if (!empty($param_date_filter)	&& $param_date_filter !== "all") {
+				//array_push($filter_fields,'"extras_'.$date_filter_fieldname.'":"'.$param_date_filter.'"');
+			}
 		endif;
+
 		foreach ($filters_list_array as $key => $type):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
