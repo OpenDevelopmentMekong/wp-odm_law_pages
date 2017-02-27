@@ -75,6 +75,10 @@
 		);
 
 		if (isset($dataset_type) && $dataset_type !== 'all'){
+			$dataset_type = $dataset_type[0];
+			if(count($dataset_type) > 1):
+				$dataset_type = "(\"" . implode("\" OR \"", $dataset_type). "\")";
+			endif;
 			$attrs['type'] = $dataset_type;
 		}
 		if (isset($param_type) && $param_type !== 'all'){
