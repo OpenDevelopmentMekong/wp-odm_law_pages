@@ -114,20 +114,21 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 <input type="radio" id="localization" class="language localization" name="language_site" value="localization" />
                 <label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
               <?php endif; ?>
-            </div>
+            </div><?php if(!empty($dataset_type) && in_array("all", $dataset_type)): echo "selected".$dataset_type;  endif; ?>
 	          <div id="tabular_options_box">
 	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
-	            <select id="_attributes_dataset_type" name="_attributes_dataset_type">
-                <option value="all" <?php if ($dataset_type == "all"): echo "selected"; endif; ?>><?php _e('All', 'wp-odm_tabular_pages');?></option>
-	              <option value="dataset" <?php if ($dataset_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages');?></option>
-	              <option value="library_record" <?php if ($dataset_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'wp-odm_tabular_pages');?></option>
-	              <option value="laws_record" <?php if ($dataset_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'wp-odm_tabular_pages');?></option>
+	            <select id="_attributes_dataset_type" name="_attributes_dataset_type[]" multiple="multiple">
+                <option value="all" <?php if(!empty($dataset_type) && in_array("all", $dataset_type)): echo "selected"; endif;  ?>><?php _e('All', 'wp-odm_tabular_pages');?></option>
+	              <option value="dataset" <?php if(!empty($dataset_type) && in_array("dataset", $dataset_type)): echo "selected";  endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages');?></option>
+	              <option value="library_record" <?php if(!empty($dataset_type) && in_array("library_record", $dataset_type)): echo "selected=selected"; endif;?>><?php _e('Publication', 'wp-odm_tabular_pages');?></option>
+	              <option value="laws_record" <?php if(!empty($dataset_type) && in_array("laws_record", $dataset_type)): echo "selected=selected"; endif;?>><?php _e('Laws record', 'wp-odm_tabular_pages');?></option>
+	              <option value="agreement" <?php if(!empty($dataset_type) && in_array("agreement", $dataset_type)): echo "selected=selected"; endif; ?>><?php _e('Agreement', 'wp-odm_tabular_pages');?></option>
 	            </select>
 
               <div class="language_settings language-en">
                 <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
   							<textarea name="_attributes_column_list" style="width:100%; height:100px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
-  							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
+  							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks. Multiple attributes can be used for a label, separated by comma. eg. odm_document_type,odm_agreement_document_type => Document type', 'wp-odm_tabular_pages'); ?></p>
 
   							<h4><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h4>
   							<textarea name="_attributes_values_mapping" style="width:100%; height:200px;" placeholder="anukretsub-decree  =>  Anukret Sub-decree"><?php echo $values_mapping;  ?></textarea>
