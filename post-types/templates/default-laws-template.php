@@ -99,10 +99,8 @@
 					endif; ?>
 					<?php
 					if($group_filter_enabled && $custom_filter_fieldname):
-						if($group_filter_label && $filters_group_list):
-							$get_group_filter_label_english = get_post_meta($post->ID, '_attributes_group_filter_label', true);
-							$group_filter_select_name = "group_".strtolower(str_replace(" ", "_", $get_group_filter_label_english));
-							$group_filter_list = explode("\r\n", str_replace(' ', '', $filters_group_list));
+						if($group_filter_label && $group_filter_list):
+							$group_filter_select_name = "group_type";
 							$group_label = $group_filter_label;
 							$selected_param = !empty($_GET[$group_filter_select_name]) ? $_GET[$group_filter_select_name] : null;
 							$selected_param_array = explode(",",$selected_param);
@@ -114,30 +112,30 @@
 										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
 										<?php
 										if(isset($group_filter_list) && !empty($group_filter_list)):
-											foreach ($group_filter_list as $key => $group_filter):
-												if (strpos($group_filter, '[') !== FALSE):
-														$group_filter_info= explode("[", str_replace(" ", "", $group_filter));
-														$group_label = trim($group_filter_info[0]);
-														$group_name = $group_label;
-														$group_value = str_replace("]", "", $group_filter_info[1]);
-														$group_filter_fields[$group_name] = explode(",",  $group_value);
-
-														if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
-															if (!isset($_GET[$custom_filter_fieldname])	|| $_GET[$custom_filter_fieldname]== "all"):
-																$filter_fields_obj = json_decode($attrs['filter_fields']);
-																$key_custom_fieldname = "extras_".$custom_filter_fieldname;
-																$filter_fields_obj->$key_custom_fieldname = "(\"" . implode("\" OR \"", $group_filter_fields[$selected_param]). "\")";
-																$attrs['filter_fields'] = json_encode($filter_fields_obj);
-															endif;
-														endif;
-														?>
-														<option value="<?php echo $group_name; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if(in_array($group_name, $selected_param_array)) echo 'selected'; ?>><?php _e($group_label,'wp-odm_tabular_pages'); ?></option>
+											foreach ($group_filter_list_array as $group_name => $group_filter):?>
+														<option value="<?php echo $group_name; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>"<?php if(in_array($group_name, $selected_param_array)) echo 'selected'; ?>><?php _e($group_filter_fields_label[$group_name],'wp-odm_tabular_pages'); ?></option>
 												<?php
-												endif;
 											endforeach;
+										?>
+										</select>
+										<?php
+										if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
+												if (!isset($_GET[$custom_filter_fieldname_arr[0]])	|| $_GET[$custom_filter_fieldname_arr[0]]== "all"):
+													$filter_fields_obj = json_decode($attrs['filter_fields']);
+													$extras_custom_fieldname = "extras_".$group_filter_fields_fieldname['laws_record'];
+													foreach ($group_filter_fields_fieldname as $group_name => $filter_fields_fieldname):
+														if ($selected_param == $group_name):
+															$extras_custom_fieldname = "extras_".$filter_fields_fieldname;
+															break;
+														endif;
+													endforeach;
+
+													$filter_fields_obj->$extras_custom_fieldname = "(\"" . implode("\" OR \"", $group_filter_fields_attr[$selected_param]). "\")";
+													$attrs['filter_fields'] = json_encode($filter_fields_obj);
+												endif;
+											endif;
 										endif;
 										?>
-									</select>
 								</div>
 							</div>
 							<?php
@@ -146,25 +144,25 @@
 					?>
 
 					<?php
-					if($custom_filter_fieldname):
+					if($custom_filter_fieldname && isset($custom_filter_fieldname_arr)):
 						if($custom_filter_list):
 							$custom_filter_array = explode("\r\n", $custom_filter_list);
-							$mapped_key = in_array($custom_filter_fieldname, array_keys($values_mapping_array)) ?	$values_mapping_array[$custom_filter_fieldname] : $custom_filter_fieldname;
+							$mapped_key = in_array($custom_filter_fieldname_arr[0], array_keys($values_mapping_array)) ?	$values_mapping_array[$custom_filter_fieldname_arr[0]] : $custom_filter_fieldname_arr[0];
 
-							$selected_param = !empty($_GET[$custom_filter_fieldname]) ? $_GET[$custom_filter_fieldname] : null;
+							$selected_param = !empty($_GET[$custom_filter_fieldname_arr[0]]) ? $_GET[$custom_filter_fieldname_arr[0]] : null;
 							$selected_param_array = explode(",",$selected_param);
 							?>
 							<div class="<?php echo $num_columns?> columns">
 								<div class="adv-nav-input">
-									<p class="label"><label for="<?php echo $custom_filter_fieldname; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-									<select id="<?php echo $custom_filter_fieldname; ?>" name="<?php echo $custom_filter_fieldname; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+									<p class="label"><label for="<?php echo $custom_filter_fieldname_arr[0]; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+									<select id="<?php echo $custom_filter_fieldname_arr[0]; ?>" name="<?php echo $custom_filter_fieldname_arr[0]; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
 										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
 										<?php
 									    foreach ($custom_filter_array as $option):
 												$option = trim($option);
 												$mapped_option = in_array($option ,array_keys($values_mapping_array)) ?	$values_mapping_array[$option] : $option;
-												if(isset($group_filter_fields) && !empty($group_filter_fields)):
-														foreach($group_filter_fields as $group => $group_value ):
+												if(isset($group_filter_fields_attr) && !empty($group_filter_fields_attr)):
+														foreach($group_filter_fields_attr as $group => $group_value ):
 															$in_group = null;
 															if(in_array($option, $group_value)):
 																$in_group = $group;
@@ -285,10 +283,11 @@
 					<tr>
 						<?php
 							foreach ($column_list_array as $key => $value): ?>
+								<?php $exploded_key = explode(",", $key);?>
 								<th><?php _e($value, 'wp-odm_tabular_pages'); ?></th>
 								<?php
-								if($custom_filter_fieldname && $custom_filter_list && $filters_group_list):
-									if(trim($custom_filter_fieldname) == $key):
+								if($custom_filter_fieldname && $custom_filter_list && $group_filter_list):
+									if(array_intersect($custom_filter_fieldname_arr, $exploded_key)):
 										$additional_columns = 1;
 										if($group_filter_enabled):
 											$group_th = $group_filter_label;
@@ -315,15 +314,15 @@
 						<tr>
 						<?php
 							foreach ($column_list_array as $key => $value):
-								$splited_key = explode(",", $key);
-								if(count($splited_key) > 1){
-									foreach ($splited_key as $ind_key):
-										if(isset($dataset[$ind_key]) ):
-											$key = $ind_key;
+								$exploded_key = explode(",", $key);
+								if(count($exploded_key) > 1):
+									foreach ($exploded_key as $single_key):
+										if(isset($dataset[$single_key]) ):
+											$key = $single_key;
 											break;
 										endif;
 									endforeach;
-								}
+								endif;
 								$translated_dataset = isset($dataset[str_replace("_translated","",$key)])? $dataset[str_replace("_translated","",$key)] : null;
 								$metadata_key = isset($dataset[$key]) ? $dataset[$key] : $translated_dataset;
 								echo "<td>";
@@ -345,16 +344,15 @@
 									endif;
 								endif;
 								echo "</td>";
-
-								 	if($custom_filter_fieldname && $custom_filter_list && $filters_group_list):
-									if(trim($custom_filter_fieldname) == $key):
+								 	if($custom_filter_fieldname && $custom_filter_list && $group_filter_list):
+									if(array_intersect($custom_filter_fieldname_arr, $exploded_key)):
 										$group_index = array_search($single_value, array_values($custom_filter_array));
-										if($group_filter_enabled && isset($group_filter_fields)):
-											foreach($group_filter_fields as $group => $group_value ):
-												$in_group = null;
+										if($group_filter_enabled && isset($group_filter_fields_attr)):
+											$in_group = null;
+											foreach($group_filter_fields_attr as $group => $group_value ):
 												if(in_array(trim($single_value), $group_value)):
-													$in_group = $group;
-													$group_index = array_search($group, array_keys($group_filter_fields));
+													$in_group = $group_filter_fields_label[$group];
+													$group_index = array_search($group, array_keys($group_filter_fields_attr));
 													if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
 														$group_index = array_search($single_value, array_values($group_value));
 													endif;
@@ -421,9 +419,9 @@
 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		<?php if($group_filter_enabled && $custom_filter_fieldname && $filters_group_list):?>
+		<?php if($group_filter_enabled && $custom_filter_fieldname && $group_filter_list):?>
 						var group_filter_name = "<?php echo $group_filter_select_name ?>";
-					  var filter_fieldname = "<?php echo $custom_filter_fieldname ?>";
+					  var filter_fieldname = "<?php echo $custom_filter_fieldname_arr[0] ?>";
 					  var selected_document_type = "<?php echo isset($_GET['odm_document_type'])? $_GET['odm_document_type'] : 'all'; ?>";
 
 						function group_filter(item){
@@ -433,6 +431,7 @@
 							    $(item).data('options', $('#'+filter_fieldname+' option').clone());
 							  }
 							  current_group = $(item).val();
+										console.log(filter_fieldname);
 								if(current_group == 'all'){
 									$('#'+filter_fieldname).html($(item).data('options')).val('all');
 								}else{
@@ -442,6 +441,7 @@
 								}
 							}else{
 								if( $("#"+group_filter_name).val() !='all' ){
+
 									if ($("#"+group_filter_name).data('options') == undefined) {
 								    $("#"+group_filter_name).data('options', $('#'+filter_fieldname+' option').clone());
 								  }
