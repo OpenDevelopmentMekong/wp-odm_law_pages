@@ -29,10 +29,14 @@
 		$taxonomy_filter_enabled = get_post_meta($post->ID, '_attributes_taxonomy_filter_enabled', true) == "true" ? true : false;
 
 		$custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
+		if (isset($custom_filter_fieldname)){
+			$custom_filter_fieldname_arr = explode(",", trim($custom_filter_fieldname));
+		}
 		$custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
 		$group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
 		$group_filter_label = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_group_filter_label_localization', true) : get_post_meta($post->ID, '_attributes_group_filter_label', true);
-		$filters_group_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_filters_group_list_localization', true) : get_post_meta($post->ID, '_attributes_filters_group_list', true);
+		$group_filter_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_filters_group_list_localization', true) : get_post_meta($post->ID, '_attributes_filters_group_list', true);
+		$group_filter_list_array = parse_mapping_pairs($group_filter_list);
 
 		$filtered_by_column_index = get_post_meta($post->ID, '_filtered_by_column_index', true);
 		if($filtered_by_column_index):
@@ -43,7 +47,7 @@
 		if ($language_filter_enabled): $num_filters++; endif;
 		if ($taxonomy_filter_enabled): $num_filters++; endif;
 		if ($custom_filter_fieldname && $custom_filter_list): $num_filters++; endif;
-		if ($group_filter_enabled && $group_filter_label && $filters_group_list): $num_filters++; endif;
+		if ($group_filter_enabled && $group_filter_label && $group_filter_list): $num_filters++; endif;
 		if (isset($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
 		if(isset($filtered_by_column_index_array)):
 			$num_filters += count($filtered_by_column_index_array);
@@ -58,11 +62,11 @@
 		endif;
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
-		$param_type = !empty($_GET['type']) ? $_GET['type'] : null;
+		$param_type = !empty($_GET['group_type']) ? $_GET['group_type'] : null;
 		$param_taxonomy = isset($_GET['taxonomy']) ? $_GET['taxonomy'] : null;
 		$param_content = isset($_GET['content']) ? $_GET['content'] : null;
 		$param_language = isset($_GET['language']) ? $_GET['language'] : null;
-		$param_custom_fieldname = isset($_GET[$custom_filter_fieldname]) ? $_GET[$custom_filter_fieldname] : null;
+		$param_custom_fieldname = isset($_GET[$custom_filter_fieldname_arr[0]]) ? $_GET[$custom_filter_fieldname_arr[0]] : null;
 
 		$active_filters = !empty($param_query) || !empty($param_taxonomy) || !empty($param_language) || !empty($param_query);
 
@@ -75,22 +79,54 @@
 		);
 
 		if (isset($dataset_type) && $dataset_type !== 'all'){
-			$dataset_type = $dataset_type[0];
+			$dataset_filter_type = $dataset_type[0];
 			if(count($dataset_type) > 1):
-				$dataset_type = "(\"" . implode("\" OR \"", $dataset_type). "\")";
+				$dataset_filter_type = "(\"" . implode("\" OR \"", $dataset_type). "\")";
 			endif;
-			$attrs['type'] = $dataset_type;
+			$attrs['type'] = $dataset_filter_type;
 		}
+		
+		if(isset($group_filter_list) && !empty($group_filter_list)):
+			foreach ($group_filter_list_array as $group_name => $group_filter):
+				if (strpos($group_filter, '[') !== FALSE):
+						$group_filter_info= explode("[", str_replace(" ", "", $group_filter));
+						$group_label = trim($group_filter_info[0]);
+						$group_value = str_replace("]", "", $group_filter_info[1]);
+						$group_filter_fields_label[$group_name] = $group_label;
+						$group_filter_fields_attr[$group_name] = explode(",",  $group_value);
+				endif;
+
+				if(isset($custom_filter_fieldname_arr) && !empty($custom_filter_fieldname_arr)):
+					foreach ($custom_filter_fieldname_arr as $custom_fieldname):
+						if (strpos($custom_fieldname, $group_name) !== false):
+							$group_filter_fields_fieldname[$group_name] = $custom_fieldname;
+							break;
+						endif;
+					endforeach;
+				endif;
+			endforeach;
+		endif;
+		$group_filter_fields_fieldname['laws_record'] = $custom_filter_fieldname_arr[0];
+
 		if (isset($param_type) && $param_type !== 'all'){
 			$attrs['type'] = $param_type;
 		}
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
 			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
 		}
+
 		if (!empty($param_custom_fieldname)	&& $param_custom_fieldname !== "all") {
-			$extras_custom_fieldname  = "extras_".$custom_filter_fieldname;
+			$extras_custom_fieldname = "extras_".$group_filter_fields_fieldname['laws_record'];
+			foreach ($group_filter_fields_attr as $group_name => $group_value):
+				if (in_array($param_custom_fieldname, $group_value)):
+					$extras_custom_fieldname = "extras_".$group_filter_fields_fieldname[$group_name];
+					$attrs['type'] = $group_name;
+					break;
+				endif;
+			endforeach;
 			array_push($filter_fields, '"'.$extras_custom_fieldname.'":"'.$param_custom_fieldname.'"');
 		}
+
 		if ($active_filters):
 			if (!empty($param_query)) {
 				$attrs['query'] = $param_query;
@@ -102,6 +138,7 @@
 				array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
 			}
 		endif;
+
 		foreach ($filters_list_array as $key => $type):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
@@ -115,6 +152,7 @@
 				array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
 			}
 		endforeach;
+
 		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
 	?>
 
@@ -162,7 +200,6 @@ jQuery(document).ready(function($) {
 		 settings[i].oInstance.fnFilter(sInput, iColumn, bRegex, bSmart);
 	 }
 	};
-
 	var oTable = $("#datasets_table").dataTable({
 		scrollX: false,
 		responsive: true,
