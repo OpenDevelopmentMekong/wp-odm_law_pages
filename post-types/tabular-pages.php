@@ -245,8 +245,8 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?>  <br />eg. odm_document_type  =>  <a href="https://data.opendevelopmentmekong.net/dataset/dat/resource/09f75141-0885-44f7-bcfc-8cd1e3779ff5?type=dataset" target="_blank">09f75141-0885-44f7-bcfc-8cd1e3779ff5</a></p>
 
             <h4><?php _e('Custom list of element filters', 'wp-odm_tabular_pages'); ?></h4>
-                <label for="_attributes_custom_filter_fieldname">Please specify the field names: </label>
-                <input id="_attributes_custom_filter_fieldname" type="text" placeholder="odm_document_type" size="20" name="_attributes_custom_filter_fieldname" value="<?php echo $custom_filter_fieldname; ?>" />
+                <label for="_attributes_custom_filter_fieldname">Please specify the field names separated by comma: </label>
+                <input id="_attributes_custom_filter_fieldname" type="text" placeholder="odm_document_type" size="40" name="_attributes_custom_filter_fieldname" value="<?php echo $custom_filter_fieldname; ?>" />
                 <p><textarea id="_attributes_custom_filters_list" name="_attributes_custom_filters_list" style="width:100%;height: 100px;" placeholder="international_treaty"><?php echo $custom_filter_list; ?></textarea></p>
 
                 <p class="description"><?php _e('Please specify the elements (ids/attributes) and the corresponding field name, separated by line breaks. Please blank it, if the filter was created with Resource ID of CKAN.', 'wp-odm_tabular_pages'); ?>  <br />eg. international_treaty</p>
@@ -270,10 +270,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                     </p>
 
                     <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
+                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="dataset_type=>Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
                     <p> eg. create group of odm_document_type filter: </br>
-                      Laws[constitution, international_treaties, royal_decree]</br>
-                      Agreements[contracts, licenses, mou]
+                      laws_record=>Laws[constitution, international_treaties, royal_decree]</br>
+                      agreement=>Agreements[contracts, licenses, mou]
                     </p>
                   </div>
                   <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
@@ -286,8 +286,8 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                       <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
                       <textarea id="_attributes_filters_group_list_localization" name="_attributes_filters_group_list_localization" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list_localization; ?></textarea></p>
                       <p> eg. create group of odm_document_type filter: </br>
-                        ច្បាប់[constitution, international_treaties, royal_decree]</br>
-                        កិច្ចព្រមព្រៀ[contracts, licenses, mou]
+                        laws_record=>ច្បាប់[constitution, international_treaties, royal_decree]</br>
+                        agreement=>កិច្ចព្រមព្រៀ[contracts, licenses, mou]
                       </p>
                     </div>
                   <?php endif;?>
