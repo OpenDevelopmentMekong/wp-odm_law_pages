@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2017-01-25 12:52+0100\n"
-"PO-Revision-Date: 2017-01-25 12:52+0100\n"
+"POT-Creation-Date: 2017-03-01 12:09+0100\n"
+"PO-Revision-Date: 2017-03-01 12:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-"
 "wp-laws-pages/language/my/)\n"
@@ -21,6 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: bower_components\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -82,7 +83,7 @@ msgstr ""
 msgid "Directive"
 msgstr ""
 
-#: i18n/additional-localization.php:17 i18n/additional-localization.php:130
+#: i18n/additional-localization.php:17 i18n/additional-localization.php:177
 msgid "Draft"
 msgstr ""
 
@@ -219,6 +220,7 @@ msgid "Minister of Culture and Fine Arts"
 msgstr ""
 
 #: i18n/additional-localization.php:52 i18n/additional-localization.php:100
+#: i18n/additional-localization.php:139
 msgid "Ministry of Commerce"
 msgstr ""
 
@@ -454,7 +456,7 @@ msgstr ""
 msgid "Office of the Prime Minister"
 msgstr ""
 
-#: i18n/additional-localization.php:115
+#: i18n/additional-localization.php:115 i18n/additional-localization.php:164
 msgid "Parliament"
 msgstr ""
 
@@ -483,462 +485,636 @@ msgid "Phnom Penh Captial Hall"
 msgstr ""
 
 #: i18n/additional-localization.php:125
-msgid "Under negotitation"
+msgid "Ministry of President’s Office"
 msgstr ""
 
 #: i18n/additional-localization.php:126
-msgid "Framework agreement signed"
+msgid "Ministry of Home Affairs"
 msgstr ""
 
 #: i18n/additional-localization.php:127
-msgid "Negotiations launched"
+msgid "Ministry of Defence"
 msgstr ""
 
 #: i18n/additional-localization.php:128
-msgid "Signed but not yet in effect/validated"
+msgid "Ministry of Border Affairs"
 msgstr ""
 
 #: i18n/additional-localization.php:129
-msgid "Signed and in effect"
+msgid "Ministry of Office of the State Counsellor"
+msgstr ""
+
+#: i18n/additional-localization.php:130
+msgid "Ministry of Information"
 msgstr ""
 
 #: i18n/additional-localization.php:131
-msgid "Adopted / validated / in effect"
+msgid "Ministry of Religious Affairs and Culture"
 msgstr ""
 
 #: i18n/additional-localization.php:132
-msgid "Cancelled"
+msgid "Ministry of Agriculture, Livestock and Irrigation"
 msgstr ""
 
 #: i18n/additional-localization.php:133
-msgid "Expired"
+msgid "Ministry of Transport and Communications"
 msgstr ""
 
 #: i18n/additional-localization.php:134
-msgid "Bill approved"
+msgid "Ministry of Natural Resources and Environmental Conservation"
 msgstr ""
 
 #: i18n/additional-localization.php:135
-msgid "Bill discussed in Pyidaungsu Hluttaw"
+msgid "Ministry of Electricity and Energy"
 msgstr ""
 
 #: i18n/additional-localization.php:136
-msgid "Bill send to the President for signature"
+msgid "Ministry of Foreign Affairs"
 msgstr ""
 
 #: i18n/additional-localization.php:137
-msgid "Repealed"
+msgid "Ministry of Labour, Immigration and Population"
 msgstr ""
 
-#: i18n/additional-localization.php:139
-msgid "Advocacy and promotional materials"
+#: i18n/additional-localization.php:138
+msgid "Ministry of Industry"
 msgstr ""
 
 #: i18n/additional-localization.php:140
-msgid "Analysis, discussion papers, and blogs"
+msgid "Ministry of Education"
 msgstr ""
 
 #: i18n/additional-localization.php:141
-msgid "Books and book chapters"
+msgid "Ministry of Health and Sports"
 msgstr ""
 
 #: i18n/additional-localization.php:142
-msgid "Case studies"
+msgid "Ministry of Planning and Finance"
 msgstr ""
 
 #: i18n/additional-localization.php:143
-msgid "Issue and policy briefs"
+msgid "Ministry of Construction"
 msgstr ""
 
 #: i18n/additional-localization.php:144
-msgid "Profiles - People"
+msgid "Ministry of Social Welfare, Relief and Resettlement"
 msgstr ""
 
 #: i18n/additional-localization.php:145
-msgid "Profiles - Organizations and projects"
+msgid "Ministry of Hotels and Tourism"
 msgstr ""
 
 #: i18n/additional-localization.php:146
-msgid "Profiles - Geographical areas and sites"
+msgid "Office of the Auditor General of the Union"
 msgstr ""
 
 #: i18n/additional-localization.php:147
-msgid "Conference/workshop proceedings and presentations"
+msgid "Union Attorney General's Office"
 msgstr ""
 
 #: i18n/additional-localization.php:148
+msgid "Ministry of Ethnic Affairs"
+msgstr ""
+
+#: i18n/additional-localization.php:149
+msgid "Central Bank of Myanmar"
+msgstr ""
+
+#: i18n/additional-localization.php:150
+msgid "Union Election Committee"
+msgstr ""
+
+#: i18n/additional-localization.php:151
+msgid "Constitutional Tribunal of the Union of Myanmar"
+msgstr ""
+
+#: i18n/additional-localization.php:152
+msgid "Union Supreme Court"
+msgstr ""
+
+#: i18n/additional-localization.php:153
+msgid "Anti-corruption commission"
+msgstr ""
+
+#: i18n/additional-localization.php:154
+msgid "Yangon City Development Committee"
+msgstr ""
+
+#: i18n/additional-localization.php:155
+msgid "Naypyidaw Council"
+msgstr ""
+
+#: i18n/additional-localization.php:156
+msgid "Naypyidaw Development Committee"
+msgstr ""
+
+#: i18n/additional-localization.php:157
+msgid "Union Government Office"
+msgstr ""
+
+#: i18n/additional-localization.php:158
+msgid "Union Parliament Office"
+msgstr ""
+
+#: i18n/additional-localization.php:159
+msgid "Union Human Resource Office"
+msgstr ""
+
+#: i18n/additional-localization.php:160
+msgid "The Union of Myanmar"
+msgstr ""
+
+#: i18n/additional-localization.php:161
+msgid "The State Peace and Development Council"
+msgstr ""
+
+#: i18n/additional-localization.php:163
+msgid "Myanmar Socialist Party"
+msgstr ""
+
+#: i18n/additional-localization.php:165
+msgid "Pyidaungsu Hluttaw"
+msgstr ""
+
+#: i18n/additional-localization.php:166
+msgid "Revolutionary Council"
+msgstr ""
+
+#: i18n/additional-localization.php:167
+msgid "Self-Administered Zone"
+msgstr ""
+
+#: i18n/additional-localization.php:168
+msgid "State and Regional Hluttaws"
+msgstr ""
+
+#: i18n/additional-localization.php:169
+msgid "State Law and Order Restoration Council"
+msgstr ""
+
+#: i18n/additional-localization.php:170
+msgid "State Peace and Development Council"
+msgstr ""
+
+#: i18n/additional-localization.php:172
+msgid "Under negotitation"
+msgstr ""
+
+#: i18n/additional-localization.php:173
+msgid "Framework agreement signed"
+msgstr ""
+
+#: i18n/additional-localization.php:174
+msgid "Negotiations launched"
+msgstr ""
+
+#: i18n/additional-localization.php:175
+msgid "Signed but not yet in effect/validated"
+msgstr ""
+
+#: i18n/additional-localization.php:176
+msgid "Signed and in effect"
+msgstr ""
+
+#: i18n/additional-localization.php:178
+msgid "Adopted / validated / in effect"
+msgstr ""
+
+#: i18n/additional-localization.php:179
+msgid "Cancelled"
+msgstr ""
+
+#: i18n/additional-localization.php:180
+msgid "Expired"
+msgstr ""
+
+#: i18n/additional-localization.php:181
+msgid "Bill approved"
+msgstr ""
+
+#: i18n/additional-localization.php:182
+msgid "Bill discussed in Pyidaungsu Hluttaw"
+msgstr ""
+
+#: i18n/additional-localization.php:183
+msgid "Bill send to the President for signature"
+msgstr ""
+
+#: i18n/additional-localization.php:184
+msgid "Repealed"
+msgstr ""
+
+#: i18n/additional-localization.php:186
+msgid "Advocacy and promotional materials"
+msgstr ""
+
+#: i18n/additional-localization.php:187
+msgid "Analysis, discussion papers, and blogs"
+msgstr ""
+
+#: i18n/additional-localization.php:188
+msgid "Books and book chapters"
+msgstr ""
+
+#: i18n/additional-localization.php:189
+msgid "Case studies"
+msgstr ""
+
+#: i18n/additional-localization.php:190
+msgid "Issue and policy briefs"
+msgstr ""
+
+#: i18n/additional-localization.php:191
+msgid "Profiles - People"
+msgstr ""
+
+#: i18n/additional-localization.php:192
+msgid "Profiles - Organizations and projects"
+msgstr ""
+
+#: i18n/additional-localization.php:193
+msgid "Profiles - Geographical areas and sites"
+msgstr ""
+
+#: i18n/additional-localization.php:194
+msgid "Conference/workshop proceedings and presentations"
+msgstr ""
+
+#: i18n/additional-localization.php:195
 msgid ""
 "Reports, journal articles, and research papers (including theses and "
 "dissertations)"
 msgstr ""
 
-#: i18n/additional-localization.php:149
+#: i18n/additional-localization.php:196
 msgid "Company profiles"
 msgstr ""
 
-#: i18n/additional-localization.php:150
+#: i18n/additional-localization.php:197
 msgid "Archived web content"
 msgstr ""
 
-#: i18n/additional-localization.php:152
+#: i18n/additional-localization.php:199
 msgid "Banteay Meanchey"
 msgstr ""
 
-#: i18n/additional-localization.php:153
+#: i18n/additional-localization.php:200
 msgid "Battambang"
 msgstr ""
 
-#: i18n/additional-localization.php:154
+#: i18n/additional-localization.php:201
 msgid "Kampong Cham"
 msgstr ""
 
-#: i18n/additional-localization.php:155
+#: i18n/additional-localization.php:202
 msgid "Kampong Chhnang"
 msgstr ""
 
-#: i18n/additional-localization.php:156
+#: i18n/additional-localization.php:203
 msgid "Kampong Speu"
 msgstr ""
 
-#: i18n/additional-localization.php:157
+#: i18n/additional-localization.php:204
 msgid "Kampong Thom"
 msgstr ""
 
-#: i18n/additional-localization.php:158
+#: i18n/additional-localization.php:205
 msgid "Kampot"
 msgstr ""
 
-#: i18n/additional-localization.php:159
+#: i18n/additional-localization.php:206
 msgid "Kandal"
 msgstr ""
 
-#: i18n/additional-localization.php:160
+#: i18n/additional-localization.php:207
 msgid "Kep"
 msgstr ""
 
-#: i18n/additional-localization.php:161
+#: i18n/additional-localization.php:208
 msgid "Koh Kong"
 msgstr ""
 
-#: i18n/additional-localization.php:162
+#: i18n/additional-localization.php:209
 msgid "Kratie"
 msgstr ""
 
-#: i18n/additional-localization.php:163
+#: i18n/additional-localization.php:210
 msgid "Mondulkiri"
 msgstr ""
 
-#: i18n/additional-localization.php:164
+#: i18n/additional-localization.php:211
 msgid "Oddar Meanchey"
 msgstr ""
 
-#: i18n/additional-localization.php:165
+#: i18n/additional-localization.php:212
 msgid "Pailin"
 msgstr ""
 
-#: i18n/additional-localization.php:166
+#: i18n/additional-localization.php:213
 msgid "Phnom Penh"
 msgstr ""
 
-#: i18n/additional-localization.php:167
+#: i18n/additional-localization.php:214
 msgid "Preah Sihanouk"
 msgstr ""
 
-#: i18n/additional-localization.php:168
+#: i18n/additional-localization.php:215
 msgid "Preah Vihear"
 msgstr ""
 
-#: i18n/additional-localization.php:169
+#: i18n/additional-localization.php:216
 msgid "Prey Veng"
 msgstr ""
 
-#: i18n/additional-localization.php:170
+#: i18n/additional-localization.php:217
 msgid "Pursat"
 msgstr ""
 
-#: i18n/additional-localization.php:171
+#: i18n/additional-localization.php:218
 msgid "Ratanakiri"
 msgstr ""
 
-#: i18n/additional-localization.php:172
+#: i18n/additional-localization.php:219
 msgid "Siem Reap"
 msgstr ""
 
-#: i18n/additional-localization.php:173
+#: i18n/additional-localization.php:220
 msgid "Stung Treng"
 msgstr ""
 
-#: i18n/additional-localization.php:174
+#: i18n/additional-localization.php:221
 msgid "Svay Rieng"
 msgstr ""
 
-#: i18n/additional-localization.php:175
+#: i18n/additional-localization.php:222
 msgid "Takeo"
 msgstr ""
 
-#: i18n/additional-localization.php:176
+#: i18n/additional-localization.php:223
 msgid "Tboung Khmum"
 msgstr ""
 
-#: i18n/additional-localization.php:178
+#: i18n/additional-localization.php:225
 msgid "Title"
 msgstr ""
 
-#: i18n/additional-localization.php:179
+#: i18n/additional-localization.php:226
 msgid "Description"
 msgstr ""
 
-#: i18n/additional-localization.php:180 i18n/additional-localization.php:203
+#: i18n/additional-localization.php:227 i18n/additional-localization.php:250
 msgid "License"
 msgstr ""
 
-#: i18n/additional-localization.php:181
+#: i18n/additional-localization.php:228
 msgid "Copyright"
 msgstr ""
 
-#: i18n/additional-localization.php:182
+#: i18n/additional-localization.php:229
 msgid "Access and use constraints"
 msgstr ""
 
-#: i18n/additional-localization.php:183
+#: i18n/additional-localization.php:230
 msgid "Organization"
 msgstr ""
 
-#: i18n/additional-localization.php:184
+#: i18n/additional-localization.php:231
 msgid "Version"
 msgstr ""
 
-#: i18n/additional-localization.php:185
+#: i18n/additional-localization.php:232
 msgid "Contact"
 msgstr ""
 
-#: i18n/additional-localization.php:186
+#: i18n/additional-localization.php:233
 msgid "Topics"
 msgstr ""
 
-#: i18n/additional-localization.php:187
-#: post-types/templates/single-tabular.php:187
+#: i18n/additional-localization.php:234
+#: post-types/templates/default-laws-template.php:65
+#: post-types/templates/odc-laws-template.php:65
 msgid "Language"
 msgstr ""
 
-#: i18n/additional-localization.php:188
+#: i18n/additional-localization.php:235
 msgid "Date created"
 msgstr ""
 
-#: i18n/additional-localization.php:189
+#: i18n/additional-localization.php:236
 msgid "Date uploaded"
 msgstr ""
 
-#: i18n/additional-localization.php:190
+#: i18n/additional-localization.php:237
 msgid "Date modified"
 msgstr ""
 
-#: i18n/additional-localization.php:191
+#: i18n/additional-localization.php:238
 msgid "Temporal range"
 msgstr ""
 
-#: i18n/additional-localization.php:192
+#: i18n/additional-localization.php:239
 msgid "Geographic area (spatial range)"
 msgstr ""
 
-#: i18n/additional-localization.php:193
+#: i18n/additional-localization.php:240
 msgid "Accuracy"
 msgstr ""
 
-#: i18n/additional-localization.php:194
+#: i18n/additional-localization.php:241
 msgid "Logical consistency"
 msgstr ""
 
-#: i18n/additional-localization.php:195
+#: i18n/additional-localization.php:242
 msgid "Completeness"
 msgstr ""
 
-#: i18n/additional-localization.php:196
+#: i18n/additional-localization.php:243
 msgid "Process(es)"
 msgstr ""
 
-#: i18n/additional-localization.php:197
+#: i18n/additional-localization.php:244
 msgid "Source(s)"
 msgstr ""
 
-#: i18n/additional-localization.php:198
+#: i18n/additional-localization.php:245
 msgid "Metadata reference information"
 msgstr ""
 
-#: i18n/additional-localization.php:199
+#: i18n/additional-localization.php:246
 msgid "Attributes"
 msgstr ""
 
-#: i18n/additional-localization.php:200 i18n/additional-localization.php:215
+#: i18n/additional-localization.php:247 i18n/additional-localization.php:262
 msgid "Document type"
 msgstr ""
 
-#: i18n/additional-localization.php:201
+#: i18n/additional-localization.php:248
 msgid "Short title (alternative/varying form of title)"
 msgstr ""
 
-#: i18n/additional-localization.php:202
+#: i18n/additional-localization.php:249
 msgid "Version / Edition"
 msgstr ""
 
-#: i18n/additional-localization.php:204
+#: i18n/additional-localization.php:251
 msgid "Author (individual)"
 msgstr ""
 
-#: i18n/additional-localization.php:205
+#: i18n/additional-localization.php:252
 msgid "Author (corporate)"
 msgstr ""
 
-#: i18n/additional-localization.php:206
+#: i18n/additional-localization.php:253
 msgid "Co-author (individual)"
 msgstr ""
 
-#: i18n/additional-localization.php:207
+#: i18n/additional-localization.php:254
 msgid "Co-author (corporate)"
 msgstr ""
 
-#: i18n/additional-localization.php:208
+#: i18n/additional-localization.php:255
 msgid "ISBN number"
 msgstr ""
 
-#: i18n/additional-localization.php:209
+#: i18n/additional-localization.php:256
 msgid "ISSN number"
 msgstr ""
 
-#: i18n/additional-localization.php:210
+#: i18n/additional-localization.php:257
 msgid "Publication place"
 msgstr ""
 
-#: i18n/additional-localization.php:211
+#: i18n/additional-localization.php:258
 msgid "Publisher"
 msgstr ""
 
-#: i18n/additional-localization.php:212
+#: i18n/additional-localization.php:259
 msgid "Publication date"
 msgstr ""
 
-#: i18n/additional-localization.php:213
+#: i18n/additional-localization.php:260
 msgid "Pagination"
 msgstr ""
 
-#: i18n/additional-localization.php:214
+#: i18n/additional-localization.php:261
 msgid "General note"
 msgstr ""
 
-#: i18n/additional-localization.php:216
+#: i18n/additional-localization.php:263
 msgid "Document number"
 msgstr ""
 
-#: i18n/additional-localization.php:217
+#: i18n/additional-localization.php:264
 msgid "Document reference #"
 msgstr ""
 
-#: i18n/additional-localization.php:218
+#: i18n/additional-localization.php:265
 msgid "Alternative/short title"
 msgstr ""
 
-#: i18n/additional-localization.php:219
+#: i18n/additional-localization.php:266
 msgid "Primary policy reference point"
 msgstr ""
 
-#: i18n/additional-localization.php:220
+#: i18n/additional-localization.php:267
 msgid "Status"
 msgstr ""
 
-#: i18n/additional-localization.php:221
+#: i18n/additional-localization.php:268
 msgid "Version date (of draft)"
 msgstr ""
 
-#: i18n/additional-localization.php:222
+#: i18n/additional-localization.php:269
 msgid "Adoption date/Promulgation date/Signing date"
 msgstr ""
 
-#: i18n/additional-localization.php:223
+#: i18n/additional-localization.php:270
 msgid "Promulgation date"
 msgstr ""
 
-#: i18n/additional-localization.php:224
+#: i18n/additional-localization.php:271
 msgid "Effective date"
 msgstr ""
 
-#: i18n/additional-localization.php:225
+#: i18n/additional-localization.php:272
 msgid "Application date"
 msgstr ""
 
-#: i18n/additional-localization.php:226
+#: i18n/additional-localization.php:273
 msgid "Previous legal document"
 msgstr ""
 
-#: i18n/additional-localization.php:227
+#: i18n/additional-localization.php:274
 msgid "Change notes"
 msgstr ""
 
-#: i18n/additional-localization.php:228
+#: i18n/additional-localization.php:275
 msgid "Relationship to other legal docs"
 msgstr ""
 
-#: i18n/additional-localization.php:229
+#: i18n/additional-localization.php:276
 msgid "Associated document"
 msgstr ""
 
-#: i18n/additional-localization.php:230
+#: i18n/additional-localization.php:277
 msgid "Publication reference"
 msgstr ""
 
-#: i18n/additional-localization.php:231
+#: i18n/additional-localization.php:278
 msgid "Links to source"
 msgstr ""
 
-#: i18n/additional-localization.php:232
+#: i18n/additional-localization.php:279
 msgid "Drafting agency"
 msgstr ""
 
-#: i18n/additional-localization.php:233
+#: i18n/additional-localization.php:280
 msgid "Technical assistance for drafting"
 msgstr ""
 
-#: i18n/additional-localization.php:234
+#: i18n/additional-localization.php:281
 msgid "Agency providing technical assistance"
 msgstr ""
 
-#: i18n/additional-localization.php:235
+#: i18n/additional-localization.php:282
 msgid "Technical assistance funding agency"
 msgstr ""
 
-#: i18n/additional-localization.php:236
+#: i18n/additional-localization.php:283
 msgid "Issuing agency/parties"
 msgstr ""
 
-#: i18n/additional-localization.php:237
+#: i18n/additional-localization.php:284
 msgid "Implementing agencies"
 msgstr ""
 
-#: i18n/additional-localization.php:238
+#: i18n/additional-localization.php:285
 msgid "Notes"
 msgstr ""
 
-#: i18n/additional-localization.php:240
-#: post-types/templates/single-tabular.php:341
+#: i18n/additional-localization.php:287
+#: post-types/templates/default-laws-template.php:343
+#: post-types/templates/odc-laws-template.php:343
 msgid "Unknown"
 msgstr ""
 
-#: i18n/additional-localization.php:241
+#: i18n/additional-localization.php:288
 msgid "Khmer"
 msgstr ""
 
-#: i18n/additional-localization.php:242
+#: i18n/additional-localization.php:289
 msgid "English"
 msgstr ""
 
-#: i18n/additional-localization.php:243
+#: i18n/additional-localization.php:290
 msgid "Burmese"
 msgstr ""
 
-#: i18n/additional-localization.php:244
+#: i18n/additional-localization.php:291
 msgid "Vietnamese"
 msgstr ""
 
-#: i18n/additional-localization.php:245
+#: i18n/additional-localization.php:292
 msgid "Lao"
 msgstr ""
 
@@ -995,149 +1171,229 @@ msgstr ""
 msgid "Filters for database"
 msgstr ""
 
-#: post-types/tabular-pages.php:101
+#: post-types/tabular-pages.php:89
+msgid "Template layout"
+msgstr ""
+
+#: post-types/tabular-pages.php:111 post-types/tabular-pages.php:259
 msgid "ENGLISH"
 msgstr ""
 
-#: post-types/tabular-pages.php:109
+#: post-types/tabular-pages.php:119
 msgid "Choose dataset type"
 msgstr ""
 
-#: post-types/tabular-pages.php:118 post-types/tabular-pages.php:137
+#: post-types/tabular-pages.php:121
+#: post-types/templates/default-laws-template.php:42
+#: post-types/templates/default-laws-template.php:67
+#: post-types/templates/default-laws-template.php:87
+#: post-types/templates/default-laws-template.php:112
+#: post-types/templates/default-laws-template.php:159
+#: post-types/templates/default-laws-template.php:219
+#: post-types/templates/default-laws-template.php:440
+#: post-types/templates/default-laws-template.php:451
+#: post-types/templates/odc-laws-template.php:42
+#: post-types/templates/odc-laws-template.php:67
+#: post-types/templates/odc-laws-template.php:87
+#: post-types/templates/odc-laws-template.php:112
+#: post-types/templates/odc-laws-template.php:159
+#: post-types/templates/odc-laws-template.php:219
+#: post-types/templates/odc-laws-template.php:440
+#: post-types/templates/odc-laws-template.php:451
+#: post-types/templates/single-tabular.php:283
+msgid "All"
+msgstr ""
+
+#: post-types/tabular-pages.php:122
+#: post-types/templates/default-laws-template.php:23
+#: post-types/templates/odc-laws-template.php:23
+msgid "Dataset"
+msgstr ""
+
+#: post-types/tabular-pages.php:123
+#: post-types/templates/default-laws-template.php:24
+#: post-types/templates/odc-laws-template.php:24
+msgid "Publication"
+msgstr ""
+
+#: post-types/tabular-pages.php:124
+#: post-types/templates/default-laws-template.php:25
+#: post-types/templates/odc-laws-template.php:25
+msgid "Laws record"
+msgstr ""
+
+#: post-types/tabular-pages.php:125
+msgid "Agreement"
+msgstr ""
+
+#: post-types/tabular-pages.php:129 post-types/tabular-pages.php:148
 msgid "The attributes of the Dataset that would like to display"
 msgstr ""
 
-#: post-types/tabular-pages.php:120 post-types/tabular-pages.php:139
+#: post-types/tabular-pages.php:131
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
-"breaks"
+"breaks. Multiple attributes can be used for a label, separated by comma. eg. "
+"odm_document_type,odm_agreement_document_type => Document type"
 msgstr ""
 
-#: post-types/tabular-pages.php:122 post-types/tabular-pages.php:141
+#: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
 msgid "Id to Label mapping for values"
 msgstr ""
 
-#: post-types/tabular-pages.php:124 post-types/tabular-pages.php:143
+#: post-types/tabular-pages.php:135 post-types/tabular-pages.php:154
 msgid ""
 "Please specify the ids plus their labels, separated by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:126 post-types/tabular-pages.php:145
+#: post-types/tabular-pages.php:137 post-types/tabular-pages.php:156
 msgid "Column ids linking to detail page"
 msgstr ""
 
-#: post-types/tabular-pages.php:128 post-types/tabular-pages.php:147
+#: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
 "detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
 "block"
 msgstr ""
 
-#: post-types/tabular-pages.php:130 post-types/tabular-pages.php:149
+#: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
 msgid "Group Data in Column"
 msgstr ""
 
-#: post-types/tabular-pages.php:132 post-types/tabular-pages.php:151
+#: post-types/tabular-pages.php:143 post-types/tabular-pages.php:162
 msgid ""
 "Eg. To group records by a certain column. please specify the index, not the "
 "name."
 msgstr ""
 
-#: post-types/tabular-pages.php:190
+#: post-types/tabular-pages.php:150
+msgid ""
+"Please specify the attributes plus their labels, separated by => and line "
+"breaks"
+msgstr ""
+
+#: post-types/tabular-pages.php:236
 msgid "List of default filters"
 msgstr ""
 
-#: post-types/tabular-pages.php:194
+#: post-types/tabular-pages.php:237
 msgid "Please specify which of the default filters are displayed"
 msgstr ""
 
-#: post-types/tabular-pages.php:196
-msgid "List of additional filters with types"
+#: post-types/tabular-pages.php:243
+msgid "List of additional filters with Resource ID of CKAN"
 msgstr ""
 
-#: post-types/tabular-pages.php:198
-msgid ""
-"Please specify the field names and the corresponding field type, separated "
-"by => and line breaks"
-msgstr ""
-
-#: post-types/tabular-pages.php:200
-msgid "List of additional filters associated with data tables"
-msgstr ""
-
-#: post-types/tabular-pages.php:202
+#: post-types/tabular-pages.php:245
 msgid ""
 "Please specify the field names and the corresponding resource ids, separated "
 "by => and line breaks"
 msgstr ""
 
-#: post-types/tabular-pages.php:204
+#: post-types/tabular-pages.php:247
+msgid "Custom list of element filters"
+msgstr ""
+
+#: post-types/tabular-pages.php:252
+msgid ""
+"Please specify the elements (ids/attributes) and the corresponding field "
+"name, separated by line breaks. Please blank it, if the filter was created "
+"with Resource ID of CKAN."
+msgstr ""
+
+#: post-types/tabular-pages.php:272 post-types/tabular-pages.php:286
+msgid ""
+"Please list the ids (attributes) that are avialbe in the field name "
+"separated by commands and group them separated by line breaks"
+msgstr ""
+
+#: post-types/tabular-pages.php:296
+msgid "List of additional filters with types"
+msgstr ""
+
+#: post-types/tabular-pages.php:298
+msgid ""
+"Please specify the field names and the corresponding field type, separated "
+"by => and line breaks."
+msgstr ""
+
+#: post-types/tabular-pages.php:300
 msgid "Create Select Filter by Column Index"
 msgstr ""
 
-#: post-types/tabular-pages.php:206
+#: post-types/tabular-pages.php:302
 msgid ""
 "Filter selectors will create automatically by adding the column index and "
 "separated by comma."
 msgstr ""
 
-#: post-types/templates/single-tabular.php:115
-msgid "Error in configuration, please check."
+#: post-types/tabular-pages.php:442
+msgid "Choose template layout"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:132
+#: post-types/templates/default-laws-template.php:10
+#: post-types/templates/odc-laws-template.php:10
 msgid "Text search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:133
+#: post-types/templates/default-laws-template.php:11
+#: post-types/templates/odc-laws-template.php:11
 msgid "Search for title or other attributes"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:142
+#: post-types/templates/default-laws-template.php:20
+#: post-types/templates/odc-laws-template.php:20
 msgid "Type"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:143
+#: post-types/templates/default-laws-template.php:21
+#: post-types/templates/odc-laws-template.php:21
 msgid "Select type"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:160
+#: post-types/templates/default-laws-template.php:38
+#: post-types/templates/odc-laws-template.php:38
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:161
+#: post-types/templates/default-laws-template.php:39
+#: post-types/templates/odc-laws-template.php:39
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:164
-#: post-types/templates/single-tabular.php:189
-#: post-types/templates/single-tabular.php:209
-#: post-types/templates/single-tabular.php:258
-#: post-types/templates/single-tabular.php:457
-msgid "All"
-msgstr ""
-
-#: post-types/templates/single-tabular.php:188
+#: post-types/templates/default-laws-template.php:66
+#: post-types/templates/odc-laws-template.php:66
 msgid "Select language"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:207
+#: post-types/templates/default-laws-template.php:85
+#: post-types/templates/odc-laws-template.php:85
 msgid "Topic"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:208
+#: post-types/templates/default-laws-template.php:86
+#: post-types/templates/odc-laws-template.php:86
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:279
+#: post-types/templates/default-laws-template.php:251
+#: post-types/templates/odc-laws-template.php:251
 msgid "Search"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:283
+#: post-types/templates/default-laws-template.php:255
+#: post-types/templates/odc-laws-template.php:255
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:316
-#: post-types/templates/single-tabular.php:365
+#: post-types/templates/default-laws-template.php:306
+#: post-types/templates/default-laws-template.php:403
+#: post-types/templates/odc-laws-template.php:306
+#: post-types/templates/odc-laws-template.php:403
 msgid "Download"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:174
+msgid "Error in configuration, please check."
 msgstr ""
