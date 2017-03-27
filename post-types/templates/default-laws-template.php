@@ -8,7 +8,7 @@
 				<div class="<?php echo $num_columns_text_search; ?> columns">
 					<div class="adv-nav-input">
 						<p class="label"><label for="s"><?php _e('Text search', 'wp-odm_tabular_pages'); ?></label></p>
-						<input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
+						<input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" data-solr-host="<?php echo $GLOBALS['wp_odm_solr_options']->get_option('wp_odm_solr_setting_solr_host'); ?>" data-solr-scheme="<?php echo $GLOBALS['wp_odm_solr_options']->get_option('wp_odm_solr_setting_solr_scheme'); ?>" data-solr-path="<?php echo $GLOBALS['wp_odm_solr_options']->get_option('wp_odm_solr_setting_solr_path'); ?>" data-solr-core-wp="<?php echo $GLOBALS['wp_odm_solr_options']->get_option('wp_odm_solr_setting_solr_core_wp'); ?>" data-solr-core-ckan="<?php echo $GLOBALS['wp_odm_solr_options']->get_option('wp_odm_solr_setting_solr_core_ckan'); ?>"></input>
 					</div>
 				</div>
 
@@ -119,21 +119,6 @@
 										?>
 										</select>
 										<?php
-										if (isset($_GET[$group_filter_select_name])	&& $_GET[$group_filter_select_name]!= "all"):
-												if (!isset($_GET[$custom_filter_fieldname_arr[0]])	|| $_GET[$custom_filter_fieldname_arr[0]]== "all"):
-													$filter_fields_obj = json_decode($attrs['filter_fields']);
-													$extras_custom_fieldname = "extras_".$group_filter_fields_fieldname['laws_record'];
-													foreach ($group_filter_fields_fieldname as $group_name => $filter_fields_fieldname):
-														if ($selected_param == $group_name):
-															$extras_custom_fieldname = "extras_".$filter_fields_fieldname;
-															break;
-														endif;
-													endforeach;
-
-													$filter_fields_obj->$extras_custom_fieldname = "(\"" . implode("\" OR \"", $group_filter_fields_attr[$selected_param]). "\")";
-													$attrs['filter_fields'] = json_encode($filter_fields_obj);
-												endif;
-											endif;
 										endif;
 										?>
 								</div>
@@ -308,16 +293,18 @@
 				</thead>
 				<tbody>
 					<?php
-						$datasets = wpckan_api_package_search(wpckan_get_ckan_domain(),$attrs);
-						if (in_array('results',array_keys($datasets))):
-							foreach ($datasets['results'] as $dataset): ?>
+						$control_attrs = null;
+						$result = WP_Odm_Solr_CKAN_Manager()->query($param_query,$attrs,$control_attrs);
+						$results = $result["resultset"];
+						foreach ($results as $result):
+							$dataset = $result->getFields();?>
 						<tr>
 						<?php
 							foreach ($column_list_array as $key => $value):
 								$exploded_key = explode(",", $key);
 								if(count($exploded_key) > 1):
 									foreach ($exploded_key as $single_key):
-										if(isset($dataset[$single_key]) ):
+										if(isset($document[$single_key]) ):
 											$key = $single_key;
 											break;
 										endif;
@@ -409,8 +396,7 @@
  							</td>
 						</tr>
 					<?php
-							endforeach;
-						endif;?>
+						endforeach;?>
 				</tbody>
 			</table>
 		</div>
@@ -459,5 +445,51 @@
 						});
 
 		<?php endif; ?>
+
+
+		jQuery('#query').autocomplete({
+        source: function( request, response ) {
+          var host = jQuery('#search_field').data("solr-host");
+          var scheme = jQuery('#search_field').data("solr-scheme");
+          var path = jQuery('#search_field').data("solr-path");
+          var core_wp = jQuery('#search_field').data("solr-core-wp");
+          var core_ckan = jQuery('#search_field').data("solr-core-ckan");
+          var url = scheme + "://" + host  + path + core_ckan + "/suggest";
+					console.log("pulling suggestions from: " + url);
+          jQuery.ajax({
+            url: url,
+            data: {'wt':'json', 'q':request.term, 'json.wrf': 'callback'},
+            dataType: "jsonp",
+            jsonpCallback: 'callback',
+            contentType: "application/json",
+            success: function( data ) {
+
+              var options = [];
+              if (data){
+                if(data.spellcheck){
+                  var spellcheck = data.spellcheck;
+                  if (spellcheck.suggestions){
+                    var suggestions = spellcheck.suggestions;
+                    if (suggestions[1]){
+                      var suggestionObject = suggestions[1];
+                      options = suggestionObject.suggestion;
+                    }
+                  }
+                }
+              }
+              response( options );
+            }
+          });
+        },
+        minLength: 2,
+        select: function( event, ui ) {
+          var terms = this.value.split(" ");
+          terms.pop();
+          terms.push( ui.item.value );
+          this.value = terms.join( " " );
+          return false;
+        }
+      });
+    });
 	});
 </script>

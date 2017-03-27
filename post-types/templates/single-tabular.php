@@ -73,9 +73,8 @@
 		$countries = odm_country_manager()->get_country_codes();
 
 		$datasets = array();
-		$filter_fields = array();
 		$attrs = array(
-			'type' => '(dataset OR library_record OR laws_record)'
+			'dataset_type' => '(dataset OR library_record OR laws_record)'
 		);
 
 		if (isset($dataset_type) && $dataset_type !== 'all'){
@@ -83,9 +82,9 @@
 			if(count($dataset_type) > 1):
 				$dataset_filter_type = "(\"" . implode("\" OR \"", $dataset_type). "\")";
 			endif;
-			$attrs['type'] = $dataset_filter_type;
+			$attrs['dataset_type'] = $dataset_filter_type;
 		}
-		
+
 		if(isset($group_filter_list) && !empty($group_filter_list)):
 			foreach ($group_filter_list_array as $group_name => $group_filter):
 				if (strpos($group_filter, '[') !== FALSE):
@@ -112,7 +111,7 @@
 			$attrs['type'] = $param_type;
 		}
 		if (!empty($param_country) && $param_country != 'mekong' && $param_country !== "all") {
-			array_push($filter_fields,'"extras_odm_spatial_range":"'. $countries[$param_country]['iso2'] .'"');
+			$attrs["extras_odm_spatial_range"] = $countries[$param_country]['iso2'];
 		}
 
 		if (!empty($param_custom_fieldname)	&& $param_custom_fieldname !== "all") {
@@ -120,11 +119,11 @@
 			foreach ($group_filter_fields_attr as $group_name => $group_value):
 				if (in_array($param_custom_fieldname, $group_value)):
 					$extras_custom_fieldname = "extras_".$group_filter_fields_fieldname[$group_name];
-					$attrs['type'] = $group_name;
+					$attrs['dataset_type'] = $group_name;
 					break;
 				endif;
 			endforeach;
-			array_push($filter_fields, '"'.$extras_custom_fieldname.'":"'.$param_custom_fieldname.'"');
+			$attrs[$extras_custom_fieldname] = $param_custom_fieldname;
 		}
 
 		if ($active_filters):
@@ -132,28 +131,27 @@
 				$attrs['query'] = $param_query;
 			}
 			if (!empty($param_taxonomy) && $param_taxonomy !== "all") {
-				array_push($filter_fields,'"extras_taxonomy":"'.$param_taxonomy.'"');
+				$attrs["vocab_taxonomy"] = $param_taxonomy;
 			}
 			if (!empty($param_language)	&& $param_language !== "all") {
-				array_push($filter_fields,'"extras_odm_language":"'.$param_language.'"');
+				$attrs["extras_odm_language"] = $param_language;
 			}
 		endif;
 
 		foreach ($filters_list_array as $key => $type):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
-				array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
+				$attrs["extras_" . $key] = $selected_param;
 			}
 		endforeach;
 
 		foreach ($filters_datatables_list_array as $key => $resource_id):
 			$selected_param = !empty($_GET[$key]) ? $_GET[$key] : null;
 			if (isset($selected_param)	&& $selected_param !== "all") {
-				array_push($filter_fields,'"extras_' . $key . '":"'.$selected_param.'"');
+				$attrs["extras_" . $key] = $selected_param;
 			}
 		endforeach;
 
-		$attrs['filter_fields'] = '{' . implode($filter_fields,",") . '}';
 	?>
 
 	<section class="container">
