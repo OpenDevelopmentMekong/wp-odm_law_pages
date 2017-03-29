@@ -4,7 +4,7 @@
  * Plugin Name: ODM Tabular Pages
  * Plugin URI: http://github.com/OpenDevelopmentMekong/wp-odm_tabular_pages
  * Description: Internal ODM Wordpress plugin for exposing a page template for tabular pages
- * Version: 2.1.23
+ * Version: 2.1.24
  * Author: Alex Corbi (mail@lifeformapps.com)
  * Author URI: http://www.lifeformapps.com
  * License: GPLv3.
