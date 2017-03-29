@@ -189,6 +189,7 @@ td.entry_title{
 
 td.entry_title a{
   color: #292D56;
+  font-weight: bold;
 }
 
 .download_buttons span {
