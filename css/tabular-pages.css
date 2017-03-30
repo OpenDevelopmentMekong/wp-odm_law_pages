@@ -196,7 +196,7 @@ td.entry_title a{
   display: inline-block;
 }
 .download_buttons span.icon-arrow-down{
-  position: relative;
+  position: relative
   top:2px;
 }
 .download_buttons div.format_button{

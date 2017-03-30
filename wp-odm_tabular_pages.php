@@ -60,7 +60,8 @@ if (!class_exists('Odm_Tabular_Pages_Plugin')) {
 
 				public function load_text_domain()
 				{
-					load_plugin_textdomain( 'wp-odm_tabular_pages', false,  dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
+          $locale = apply_filters( 'plugin_locale', get_locale(), 'odi' );
+          load_textdomain( 'odi', trailingslashit( WP_LANG_DIR ) . '-' . $locale . '.mo' );
 				}
 
         public static function activate()

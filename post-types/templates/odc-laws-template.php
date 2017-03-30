@@ -7,8 +7,8 @@
 					?>
 				<div class="<?php echo $num_columns_text_search; ?> columns">
 					<div class="adv-nav-input">
-						<p class="label"><label for="s"><?php _e('Text search', 'wp-odm_tabular_pages'); ?></label></p>
-						<input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'wp-odm_tabular_pages'); ?>" value="<?php echo $param_query; ?>" />
+						<p class="label"><label for="s"><?php _e('Text search', 'odi'); ?></label></p>
+						<input type="text" id="query" name="query" placeholder="<?php _e('Search for title or other attributes', 'odi'); ?>" value="<?php echo $param_query; ?>" />
 					</div>
 				</div>
 
@@ -17,12 +17,12 @@
 				?>
 				<div class="<?php echo $num_columns?> columns">
 					<div class="adv-nav-input">
-						<p class="label"><label for="type"><?php _e('Type', 'wp-odm_tabular_pages'); ?></label></p>
-						<select id="type" name="type" data-placeholder="<?php _e('Select type', 'wp-odm_tabular_pages'); ?>">
+						<p class="label"><label for="type"><?php _e('Type', 'odi'); ?></label></p>
+						<select id="type" name="type" data-placeholder="<?php _e('Select type', 'odi'); ?>">
 							<option value="all" <?php if ($param_type == "all"): echo "selected"; endif; ?>>All</option>
-							<option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages'); ?></option>
-							<option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'wp-odm_tabular_pages'); ?></option>
-							<option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'wp-odm_tabular_pages'); ?></option>
+							<option value="dataset" <?php if ($param_type == "dataset"): echo "selected"; endif; ?>><?php _e('Dataset', 'odi'); ?></option>
+							<option value="library_record" <?php if ($param_type == "library_record"): echo "selected"; endif; ?>><?php _e('Publication', 'odi'); ?></option>
+							<option value="laws_record" <?php if ($param_type == "laws_record"): echo "selected"; endif; ?>><?php _e('Laws record', 'odi'); ?></option>
 						</select>
 					</div>
 				</div>
@@ -35,11 +35,11 @@
 				?>
 				<div class="<?php echo $num_columns?> columns">
 					<div class="adv-nav-input">
-						<p class="label"><label for="country"><?php _e('Country', 'wp-odm_tabular_pages'); ?></label></p>
-						<select id="country" name="country" data-placeholder="<?php _e('Select country', 'wp-odm_tabular_pages'); ?>">
+						<p class="label"><label for="country"><?php _e('Country', 'odi'); ?></label></p>
+						<select id="country" name="country" data-placeholder="<?php _e('Select country', 'odi'); ?>">
 							<?php
 								if (odm_country_manager()->get_current_country() == 'mekong'): ?>
-									<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+									<option value="all" selected><?php _e('All','odi') ?></option>
 							<?php
 								endif; ?>
 							<?php
@@ -62,9 +62,9 @@
 				?>
 				<div class="<?php echo $num_columns?> columns">
 					<div class="adv-nav-input">
-						<p class="label"><label for="language"><?php _e('Language', 'wp-odm_tabular_pages'); ?></label></p>
-						<select id="language" name="language" data-placeholder="<?php _e('Select language', 'wp-odm_tabular_pages'); ?>">
-							<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+						<p class="label"><label for="language"><?php _e('Language', 'odi'); ?></label></p>
+						<select id="language" name="language" data-placeholder="<?php _e('Select language', 'odi'); ?>">
+							<option value="all" selected><?php _e('All','odi') ?></option>
 							<?php
 								foreach($languages as $key => $value): ?>
 								<option value="<?php echo $key; ?>" <?php if($key == $param_language) echo 'selected'; ?>><?php echo $value; ?></option>
@@ -82,9 +82,9 @@
 				?>
 				<div class="<?php echo $num_columns?> columns">
 					<div class="adv-nav-input">
-						<p class="label"><label for="taxonomy"><?php _e('Topic', 'wp-odm_tabular_pages'); ?></label></p>
-						<select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'wp-odm_tabular_pages'); ?>">
-							<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+						<p class="label"><label for="taxonomy"><?php _e('Topic', 'odi'); ?></label></p>
+						<select id="taxonomy" name="taxonomy" data-placeholder="<?php _e('Select term', 'odi'); ?>">
+							<option value="all" selected><?php _e('All','odi') ?></option>
 							<?php
 								foreach($taxonomy_list as $value):
 									$val = apply_filters('translate_term', $value, odm_language_manager()->get_current_language());
@@ -107,13 +107,13 @@
 							?>
 							<div class="<?php echo $num_columns?> columns">
 								<div class="adv-nav-input">
-									<p class="label"><label for="group_<?php echo $group_filter_select_name; ?>"><?php _e($group_label, 'wp-odm_tabular_pages'); ?></label></p>
+									<p class="label"><label for="group_<?php echo $group_filter_select_name; ?>"><?php _e($group_label, 'odi'); ?></label></p>
 									<select id="<?php echo $group_filter_select_name; ?>" name="<?php echo $group_filter_select_name; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
-										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+										<option value="all" selected><?php _e('All','odi') ?></option>
 										<?php
 										if(isset($group_filter_list) && !empty($group_filter_list)):
 											foreach ($group_filter_list_array as $group_name => $group_filter):?>
-														<option value="<?php echo $group_name; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>"<?php if(in_array($group_name, $selected_param_array)) echo 'selected'; ?>><?php _e($group_filter_fields_label[$group_name],'wp-odm_tabular_pages'); ?></option>
+														<option value="<?php echo $group_name; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>"<?php if(in_array($group_name, $selected_param_array)) echo 'selected'; ?>><?php _e($group_filter_fields_label[$group_name],'odi'); ?></option>
 												<?php
 											endforeach;
 										?>
@@ -154,9 +154,9 @@
 							?>
 							<div class="<?php echo $num_columns?> columns">
 								<div class="adv-nav-input">
-									<p class="label"><label for="<?php echo $custom_filter_fieldname_arr[0]; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+									<p class="label"><label for="<?php echo $custom_filter_fieldname_arr[0]; ?>"><?php _e($mapped_key, 'odi'); ?></label></p>
 									<select id="<?php echo $custom_filter_fieldname_arr[0]; ?>" name="<?php echo $custom_filter_fieldname_arr[0]; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
-										<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+										<option value="all" selected><?php _e('All','odi') ?></option>
 										<?php
 									    foreach ($custom_filter_array as $option):
 												$option = trim($option);
@@ -171,7 +171,7 @@
 														endforeach;
 												endif;
 												?>
-												<option value="<?php echo $option; ?>" in-group="<?php echo $in_group; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if(in_array($option, $selected_param_array)) echo 'selected'; ?>><?php _e($mapped_option,'wp-odm_tabular_pages'); ?></option>
+												<option value="<?php echo $option; ?>" in-group="<?php echo $in_group; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if(in_array($option, $selected_param_array)) echo 'selected'; ?>><?php _e($mapped_option,'odi'); ?></option>
 												<?php
 											endforeach; ?>
 									</select>
@@ -189,7 +189,7 @@
 
 					<div class="<?php echo $num_columns?> columns">
 						<div class="adv-nav-input">
-							<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+							<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'odi'); ?></label></p>
 							<?php
 								if ($type == "date"): ?>
 									<input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $selected_param; ?>" class="datepicker"></input>
@@ -214,9 +214,9 @@
 						if (!empty($options)): ?>
 						<div class="<?php echo $num_columns?> columns">
 							<div class="adv-nav-input">
-								<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
+								<p class="label"><label for="<?php echo $key; ?>"><?php _e($mapped_key, 'odi'); ?></label></p>
 								<select id="<?php echo $key; ?>" name="<?php echo $key; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
-									<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+									<option value="all" selected><?php _e('All','odi') ?></option>
 									<?php
 										foreach($options as $option):
 											if(isset($group_filter_fields) && !empty($group_filter_fields)):
@@ -232,7 +232,7 @@
 										<option
 											value="<?php echo $option['id']; ?>" in-group="<?php echo $in_group; ?>"
 											data-country_codes="<?php echo $option['country_codes']; ?>"
-											<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'wp-odm_tabular_pages'); ?></option>
+											<?php if(in_array($option['id'],$selected_param_array)) echo 'selected'; ?>><?php _e($option['name'],'odi'); ?></option>
 									<?php
 										endforeach; ?>
 								</select>
@@ -248,11 +248,11 @@
 					?>
 
 					<div id="search-button" class="<?php echo $num_columns_button ?> columns">
-						<input class="button" type="submit" value="<?php _e('Search', 'wp-odm_tabular_pages'); ?>"/>
+						<input class="button" type="submit" value="<?php _e('Search', 'odi'); ?>"/>
 						<?php
 							if ($active_filters):
 								?>
-								<a href="?clear"><?php _e('Clear','wp-odm_tabular_pages') ?></a>
+								<a href="?clear"><?php _e('Clear','odi') ?></a>
 								<?php
 							endif;
 						 ?>
@@ -284,7 +284,7 @@
 						<?php
 							foreach ($column_list_array as $key => $value): ?>
 								<?php $exploded_key = explode(",", $key);?>
-								<th><?php _e($value, 'wp-odm_tabular_pages'); ?></th>
+								<th><?php _e($value, 'odi'); ?></th>
 								<?php
 								if($custom_filter_fieldname && $custom_filter_list && $group_filter_list):
 									if(array_intersect($custom_filter_fieldname_arr, $exploded_key)):
@@ -303,7 +303,7 @@
 								endif;
 							endif;
 						?>
-					 <th><?php _e('Download', 'wp-odm_tabular_pages');?></th>
+					 <th><?php _e('Download', 'odi');?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -337,10 +337,10 @@
 										$mapped_value = mb_substr($mapped_value, 0, 300) . ' ...';
 									endif;
 									if (in_array($key,$link_to_detail_columns_array)): ?>
-										<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
+										<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'odi');?></a>
 									<?php
 									else:
-										echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+										echo $mapped_value == '' || empty($mapped_value) ? __('Unknown', 'odi') : __($mapped_value, 'odi');
 									endif;
 								endif;
 								echo "</td>";
@@ -400,7 +400,7 @@
  											<?php else: ?>
  												<span>
  													<a href="<?php echo $resource['url'];?>">
- 													<i class="fa fa-download"></i> <?php _e('Download','wp-odm_tabular_pages'); ?></a>
+ 													<i class="fa fa-download"></i> <?php _e('Download','odi'); ?></a>
  												</span>
  											<?php endif; ?>
  										<?php endif; ?>
@@ -437,7 +437,7 @@
 								}else{
 							  	var options = $(item).data('options').filter('[in-group=' + current_group + ']');
 							  	$('#'+filter_fieldname).html(options);
-									$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','wp-odm_tabular_pages') ?></option>").val('all');
+									$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','odi') ?></option>").val('all');
 								}
 							}else{
 								if( $("#"+group_filter_name).val() !='all' ){
@@ -448,7 +448,7 @@
 									current_group = $("#"+group_filter_name).val();
 								  var group_options = $("#"+group_filter_name).data('options').filter('[in-group=' + current_group + ']');
 							  	$('#'+filter_fieldname).html(group_options);
-										$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','wp-odm_tabular_pages') ?></option>").val(selected_document_type);
+										$('#'+filter_fieldname).prepend("<option value='all'><?php _e('All','odi') ?></option>").val(selected_document_type);
 								}
 							}
 						}

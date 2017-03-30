@@ -85,7 +85,7 @@
 			endif;
 			$attrs['type'] = $dataset_filter_type;
 		}
-		
+
 		if(isset($group_filter_list) && !empty($group_filter_list)):
 			foreach ($group_filter_list_array as $group_name => $group_filter):
 				if (strpos($group_filter, '[') !== FALSE):
@@ -171,7 +171,7 @@
 	if (!$valid_config): ?>
 	<section class="container">
 		<div class="row">
-			<h3 class="error"><?php _e('Error in configuration, please check.','wp-odm_tabular_pages'); ?></h3>
+			<h3 class="error"><?php _e('Error in configuration, please check.','odi'); ?></h3>
 		</div>
 	</section>
 	<?php
@@ -280,7 +280,7 @@ jQuery(document).ready(function($) {
 		var div_filter = $('<div class="filter_by filter_by_column_index_'+columnIndex+'"></div>');
 		div_filter.appendTo( $('#filters'));
 
-		var select = $('<div class="<?php echo $num_columns?> columns"><div class="adv-nav-input"><p class="label"><label>'+ column_header +'</label></p><select id="' + col_name + '" name="' + col_name + '"><option value=""><?php _e('All', 'wp-odm_tabular_pages'); ?></option></select></div></div>');
+		var select = $('<div class="<?php echo $num_columns?> columns"><div class="adv-nav-input"><p class="label"><label>'+ column_header +'</label></p><select id="' + col_name + '" name="' + col_name + '"><option value=""><?php _e('All', 'odi'); ?></option></select></div></div>');
 
 		var i = 1;
 		column_filter_oTable.data().eq( 0 ).unique().sort().each(function ( d, j ) {
