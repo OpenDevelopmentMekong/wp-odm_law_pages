@@ -1,28 +1,27 @@
-#
+# 
 # Translators:
 # ChandaraKhun <chandara@opendevcam.net>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
 "POT-Creation-Date: 2017-03-23 14:51+0100\n"
-"PO-Revision-Date: 2017-03-23 14:51+0100\n"
-"Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
-"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/"
-"km/)\n"
-"Language: km\n"
+"PO-Revision-Date: 2017-04-18 07:33+0000\n"
+"Last-Translator: ChandaraKhun <chandara@opendevcam.net>\n"
+"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: km\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: i18n\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: bower_components\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -267,7 +266,7 @@ msgstr "ក្រសួងការពារជាតិ"
 
 #: i18n/additional-localization.php:64
 msgid "Minister of National Assembly-Senate Relations and Inspection"
-msgstr ""
+msgstr "រដ្ឋមន្រ្តីក្រសួងទំនាក់ទំនងជាមួយរដ្ឋសភា ព្រឹទ្ធសភា និងអធិការកិច្ច"
 
 #: i18n/additional-localization.php:65
 msgid "Minister of Planning"
@@ -299,7 +298,7 @@ msgstr "រដ្ឋលេខាធិការ"
 
 #: i18n/additional-localization.php:72
 msgid "Municipal-Provincial Governor/Council"
-msgstr ""
+msgstr "អភិបាល/ក្រុមប្រឹក្សារាជធានី-ខេត្ត"
 
 #: i18n/additional-localization.php:73
 msgid "City Governor/Council"
@@ -315,9 +314,9 @@ msgstr "មេឃំុ/ក្រុមប្រឹក្សាឃុំ"
 
 #: i18n/additional-localization.php:76
 msgid ""
-"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the Economic Land "
-"Concessions"
-msgstr ""
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the"
+" Economic Land Concessions"
+msgstr "​គណៈ​កម្មការ​អន្តរក្រសួង​ដើម្បី​ត្រូវ​ពិនិត្យ​ វាស់វែង និង​វាយ​តម្លៃ​សម្បទាន​ដី​សេដ្ឋកិច្ច"
 
 #: i18n/additional-localization.php:77
 msgid "Royal Government of Cambodia"
@@ -337,7 +336,7 @@ msgstr "រដ្ឋបាលព្រៃឈើ"
 
 #: i18n/additional-localization.php:81
 msgid "Council for Development of Cambodia"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សាអភិវឌ្ឍន៍កម្ពុជា"
 
 #: i18n/additional-localization.php:82 i18n/additional-localization.php:121
 msgid "Electricity Authority of Cambodia"
@@ -405,23 +404,23 @@ msgstr "ក្រសួងឧស្សាហកម្ម រ៉ែ និងថ�
 
 #: i18n/additional-localization.php:102
 msgid "Ministry of Posts and Telecommunications"
-msgstr ""
+msgstr "ក្រសួងប្រៃសណីយ៍ និងទូរគមនាគមន៍"
 
 #: i18n/additional-localization.php:103
 msgid "Ministry of Public Works and Transport"
-msgstr ""
+msgstr "ក្រសួងសាធារណការ និងដឹកជញ្ជូន"
 
 #: i18n/additional-localization.php:104
 msgid "Ministry of National Assembly-Senate Relations and Inspection"
-msgstr ""
+msgstr "ក្រសួងទំនាក់ទំនងជាមួយរដ្ឋសភា ព្រឹទ្ធសភា និងអធិការកិច្ច​"
 
 #: i18n/additional-localization.php:105
 msgid "Ministry of Cult and Religion "
-msgstr ""
+msgstr "ក្រសួងធម្មការ និងសាសនា "
 
 #: i18n/additional-localization.php:106
 msgid "Ministry of Social Affairs, Veterans and Youth Rehabilitation"
-msgstr ""
+msgstr "ក្រសួងសង្គមកិច្ច អតីតយុទ្ធជន និងយុវនីតិសម្បទា"
 
 #: i18n/additional-localization.php:107
 msgid "Ministry of Tourism"
@@ -453,7 +452,7 @@ msgstr "សភា"
 
 #: i18n/additional-localization.php:114
 msgid "Provincial-Capital Council"
-msgstr ""
+msgstr "ក្រុមប្រឹក្សារាជធានី-ខេត្ត"
 
 #: i18n/additional-localization.php:115
 msgid "Provincial Department of Ministry"
@@ -477,7 +476,7 @@ msgstr "សាលារាជធានីភ្នំពេញ"
 
 #: i18n/additional-localization.php:120
 msgid "Royal Government of the Kingdom of Cambodia"
-msgstr ""
+msgstr "រាជរដ្ឋាភិបាលនៃព្រះរាជាណាចក្រកម្ពុជា"
 
 #: i18n/additional-localization.php:123
 msgid "Ministry of President’s Office"
@@ -501,7 +500,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:128
 msgid "Ministry of Information"
-msgstr ""
+msgstr "ក្រសួងព័ត៌មាន"
 
 #: i18n/additional-localization.php:129
 msgid "Ministry of Religious Affairs and Culture"
@@ -736,7 +735,9 @@ msgid "Conference/workshop proceedings and presentations"
 msgstr "អត្ថបទ និងបទបង្ហាញសន្និសីទ និងសិក្ខាសាលា"
 
 #: i18n/additional-localization.php:193
-msgid "Reports, journal articles, and research papers (including theses and dissertations)"
+msgid ""
+"Reports, journal articles, and research papers (including theses and "
+"dissertations)"
 msgstr "របាយការណ៍ អត្ថបទទិនានុប្បវត្តិ និងអត្ថបទស្រាវជ្រាវ (រាប់បញ្ចូលទាំង និក្ខេបបទ និងបរមាធិប្បាយ)"
 
 #: i18n/additional-localization.php:194
@@ -883,7 +884,8 @@ msgstr "ទំនាក់ទំនង"
 msgid "Topics"
 msgstr "ប្រធានបទ"
 
-#: i18n/additional-localization.php:232 post-types/templates/default-laws-template.php:65
+#: i18n/additional-localization.php:232
+#: post-types/templates/default-laws-template.php:65
 #: post-types/templates/odc-laws-template.php:65
 msgid "Language"
 msgstr "ភាសា"
@@ -1084,10 +1086,11 @@ msgstr "ទីភ្នាក់ងារអនុវត្ត"
 msgid "Notes"
 msgstr "កំណត់សម្គាល់"
 
-#: i18n/additional-localization.php:285 post-types/templates/default-laws-template.php:343
+#: i18n/additional-localization.php:285
+#: post-types/templates/default-laws-template.php:343
 #: post-types/templates/odc-laws-template.php:343
 msgid "Unknown"
-msgstr ""
+msgstr "មិនស្គាល់"
 
 #: i18n/additional-localization.php:286
 msgid "Khmer"
@@ -1109,10 +1112,10 @@ msgstr "ភាសាវៀតណាម"
 msgid "Lao"
 msgstr "ភាសាឡាវ"
 
-#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:30 post-types/tabular-pages.php:31
-#: post-types/tabular-pages.php:32
+#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:30
+#: post-types/tabular-pages.php:31 post-types/tabular-pages.php:32
 msgid "Database"
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យ"
 
 #: post-types/tabular-pages.php:33
 msgid "Add new"
@@ -1120,51 +1123,51 @@ msgstr "បន្ថែមថ្មី"
 
 #: post-types/tabular-pages.php:34
 msgid "Add new database"
-msgstr ""
+msgstr "បន្ថែមមូលដ្ឋាន​ទិន្នន័យថ្មី"
 
 #: post-types/tabular-pages.php:35
 msgid "New database"
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យថ្មី"
 
 #: post-types/tabular-pages.php:36
 msgid "Edit database"
-msgstr ""
+msgstr "កែសម្រួលមូលដ្ឋាន​ទិន្នន័យ"
 
 #: post-types/tabular-pages.php:37
 msgid "View database"
-msgstr ""
+msgstr "ពិនិត្យមើលមូលដ្ឋាន​ទិន្នន័យ"
 
 #: post-types/tabular-pages.php:38
 msgid "All databases"
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យទាំងអស់"
 
 #: post-types/tabular-pages.php:39
 msgid "Search databases"
-msgstr ""
+msgstr "ស្វែងរកមូលដ្ឋាន​ទិន្នន័យ"
 
 #: post-types/tabular-pages.php:40
 msgid "Parent databases:"
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យមេ"
 
 #: post-types/tabular-pages.php:41
 msgid "No database found."
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យពុំអាចរកបាន"
 
 #: post-types/tabular-pages.php:42
 msgid "No database found in trash."
-msgstr ""
+msgstr "មូលដ្ឋាន​ទិន្នន័យពំុអាចរកបាននៅធុងសំរាម"
 
 #: post-types/tabular-pages.php:70
 msgid "Option for database"
-msgstr ""
+msgstr "ជម្រើសសម្រាប់មូលដ្ឋាន​ទិន្នន័យ"
 
 #: post-types/tabular-pages.php:79
 msgid "Filters for database"
-msgstr ""
+msgstr "ជ្រើសយកមូលដ្ឋាន​ទិន្នន័យពាក់ព័ន្ធ"
 
 #: post-types/tabular-pages.php:89
 msgid "Template layout"
-msgstr ""
+msgstr "គំនូសគំរូ"
 
 #: post-types/tabular-pages.php:111 post-types/tabular-pages.php:259
 msgid "ENGLISH"
@@ -1174,39 +1177,48 @@ msgstr "ភាសាអង់គ្លេស"
 msgid "Choose dataset type"
 msgstr "ជ្រើសរើសប្រភេទសំណុំទិន្នន័យ"
 
-#: post-types/tabular-pages.php:121 post-types/templates/default-laws-template.php:42
+#: post-types/tabular-pages.php:121
+#: post-types/templates/default-laws-template.php:42
 #: post-types/templates/default-laws-template.php:67
 #: post-types/templates/default-laws-template.php:87
 #: post-types/templates/default-laws-template.php:112
 #: post-types/templates/default-laws-template.php:159
 #: post-types/templates/default-laws-template.php:219
 #: post-types/templates/default-laws-template.php:440
-#: post-types/templates/default-laws-template.php:451 post-types/templates/odc-laws-template.php:42
-#: post-types/templates/odc-laws-template.php:67 post-types/templates/odc-laws-template.php:87
-#: post-types/templates/odc-laws-template.php:112 post-types/templates/odc-laws-template.php:159
-#: post-types/templates/odc-laws-template.php:219 post-types/templates/odc-laws-template.php:440
-#: post-types/templates/odc-laws-template.php:451 post-types/templates/single-tabular.php:283
+#: post-types/templates/default-laws-template.php:451
+#: post-types/templates/odc-laws-template.php:42
+#: post-types/templates/odc-laws-template.php:67
+#: post-types/templates/odc-laws-template.php:87
+#: post-types/templates/odc-laws-template.php:112
+#: post-types/templates/odc-laws-template.php:159
+#: post-types/templates/odc-laws-template.php:219
+#: post-types/templates/odc-laws-template.php:440
+#: post-types/templates/odc-laws-template.php:451
+#: post-types/templates/single-tabular.php:283
 msgid "All"
 msgstr "ទាំងអស់"
 
-#: post-types/tabular-pages.php:122 post-types/templates/default-laws-template.php:23
+#: post-types/tabular-pages.php:122
+#: post-types/templates/default-laws-template.php:23
 #: post-types/templates/odc-laws-template.php:23
 msgid "Dataset"
-msgstr ""
+msgstr "សំណុំទិន្នន័យ"
 
-#: post-types/tabular-pages.php:123 post-types/templates/default-laws-template.php:24
+#: post-types/tabular-pages.php:123
+#: post-types/templates/default-laws-template.php:24
 #: post-types/templates/odc-laws-template.php:24
 msgid "Publication"
-msgstr ""
+msgstr "ឯកសារបោះពុម្ព"
 
-#: post-types/tabular-pages.php:124 post-types/templates/default-laws-template.php:25
+#: post-types/tabular-pages.php:124
+#: post-types/templates/default-laws-template.php:25
 #: post-types/templates/odc-laws-template.php:25
 msgid "Laws record"
-msgstr ""
+msgstr "ឯកសារច្បាប់"
 
 #: post-types/tabular-pages.php:125
 msgid "Agreement"
-msgstr ""
+msgstr "កិច្ចព្រមព្រៀង"
 
 #: post-types/tabular-pages.php:129 post-types/tabular-pages.php:148
 msgid "The attributes of the Dataset that would like to display"
@@ -1214,9 +1226,9 @@ msgstr "លក្ខណៈសម្បត្តិនៃសំណុំទិន
 
 #: post-types/tabular-pages.php:131
 msgid ""
-"Please specify the attributes plus their labels, separated by => and line breaks. Multiple "
-"attributes can be used for a label, separated by comma. eg. odm_document_type,"
-"odm_agreement_document_type => Document type"
+"Please specify the attributes plus their labels, separated by => and line "
+"breaks. Multiple attributes can be used for a label, separated by comma. eg."
+" odm_document_type,odm_agreement_document_type => Document type"
 msgstr ""
 
 #: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
@@ -1224,7 +1236,8 @@ msgid "Id to Label mapping for values"
 msgstr ""
 
 #: post-types/tabular-pages.php:135 post-types/tabular-pages.php:154
-msgid "Please specify the ids plus their labels, separated by => and line breaks"
+msgid ""
+"Please specify the ids plus their labels, separated by => and line breaks"
 msgstr ""
 
 #: post-types/tabular-pages.php:137 post-types/tabular-pages.php:156
@@ -1233,8 +1246,9 @@ msgstr ""
 
 #: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
-"Please add the ids of the columns that will feature a link to the entry's detail page. Format: "
-"Comma-separated values. <br/>eg. name,company,developer,block"
+"Please add the ids of the columns that will feature a link to the entry's "
+"detail page. Format: Comma-separated values. <br/>eg. "
+"name,company,developer,block"
 msgstr ""
 
 #: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
@@ -1242,11 +1256,15 @@ msgid "Group Data in Column"
 msgstr ""
 
 #: post-types/tabular-pages.php:143 post-types/tabular-pages.php:162
-msgid "Eg. To group records by a certain column. please specify the index, not the name."
+msgid ""
+"Eg. To group records by a certain column. please specify the index, not the "
+"name."
 msgstr ""
 
 #: post-types/tabular-pages.php:150
-msgid "Please specify the attributes plus their labels, separated by => and line breaks"
+msgid ""
+"Please specify the attributes plus their labels, separated by => and line "
+"breaks"
 msgstr "សូមកំណត់លក្ខណៈសម្បត្តិ ព្រមទាំងស្លាកនៃលក្ខណៈសម្បត្តិ ខណ្ឌចែកពីគ្នាដោយ => និង បន្ទាត់ខណ្ឌចែក"
 
 #: post-types/tabular-pages.php:236
@@ -1263,7 +1281,8 @@ msgstr ""
 
 #: post-types/tabular-pages.php:245
 msgid ""
-"Please specify the field names and the corresponding resource ids, separated by => and line breaks"
+"Please specify the field names and the corresponding resource ids, separated"
+" by => and line breaks"
 msgstr ""
 
 #: post-types/tabular-pages.php:247
@@ -1272,14 +1291,15 @@ msgstr ""
 
 #: post-types/tabular-pages.php:252
 msgid ""
-"Please specify the elements (ids/attributes) and the corresponding field name, separated by line "
-"breaks. Please blank it, if the filter was created with Resource ID of CKAN."
+"Please specify the elements (ids/attributes) and the corresponding field "
+"name, separated by line breaks. Please blank it, if the filter was created "
+"with Resource ID of CKAN."
 msgstr ""
 
 #: post-types/tabular-pages.php:272 post-types/tabular-pages.php:286
 msgid ""
-"Please list the ids (attributes) that are avialbe in the field name separated by commands and "
-"group them separated by line breaks"
+"Please list the ids (attributes) that are avialbe in the field name "
+"separated by commands and group them separated by line breaks"
 msgstr ""
 
 #: post-types/tabular-pages.php:296
@@ -1288,7 +1308,8 @@ msgstr "បញ្ជីពាក្យស្វែងរកបន្ថែម �
 
 #: post-types/tabular-pages.php:298
 msgid ""
-"Please specify the field names and the corresponding field type, separated by => and line breaks."
+"Please specify the field names and the corresponding field type, separated "
+"by => and line breaks."
 msgstr ""
 
 #: post-types/tabular-pages.php:300
@@ -1297,59 +1318,72 @@ msgstr ""
 
 #: post-types/tabular-pages.php:302
 msgid ""
-"Filter selectors will create automatically by adding the column index and separated by comma."
+"Filter selectors will create automatically by adding the column index and "
+"separated by comma."
 msgstr ""
 
 #: post-types/tabular-pages.php:442
 msgid "Choose template layout"
-msgstr ""
+msgstr "ជ្រើសរើសគំនូសគំរូ"
 
-#: post-types/templates/default-laws-template.php:10 post-types/templates/odc-laws-template.php:10
+#: post-types/templates/default-laws-template.php:10
+#: post-types/templates/odc-laws-template.php:10
 msgid "Text search"
-msgstr ""
+msgstr "ស្វែងរកអត្ថបទ"
 
-#: post-types/templates/default-laws-template.php:11 post-types/templates/odc-laws-template.php:11
+#: post-types/templates/default-laws-template.php:11
+#: post-types/templates/odc-laws-template.php:11
 msgid "Search for title or other attributes"
-msgstr ""
+msgstr "ស្វែងរកចំណងជើង ឬលក្ខណៈសម្បត្តិផ្សេងទៀត"
 
-#: post-types/templates/default-laws-template.php:20 post-types/templates/odc-laws-template.php:20
+#: post-types/templates/default-laws-template.php:20
+#: post-types/templates/odc-laws-template.php:20
 msgid "Type"
-msgstr ""
+msgstr "ប្រភេទ"
 
-#: post-types/templates/default-laws-template.php:21 post-types/templates/odc-laws-template.php:21
+#: post-types/templates/default-laws-template.php:21
+#: post-types/templates/odc-laws-template.php:21
 msgid "Select type"
-msgstr ""
+msgstr "ជ្រើសយកប្រភេទ"
 
-#: post-types/templates/default-laws-template.php:38 post-types/templates/odc-laws-template.php:38
+#: post-types/templates/default-laws-template.php:38
+#: post-types/templates/odc-laws-template.php:38
 msgid "Country"
 msgstr "ប្រទេស"
 
-#: post-types/templates/default-laws-template.php:39 post-types/templates/odc-laws-template.php:39
+#: post-types/templates/default-laws-template.php:39
+#: post-types/templates/odc-laws-template.php:39
 msgid "Select country"
 msgstr "ជ្រើសរើសប្រទេស"
 
-#: post-types/templates/default-laws-template.php:66 post-types/templates/odc-laws-template.php:66
+#: post-types/templates/default-laws-template.php:66
+#: post-types/templates/odc-laws-template.php:66
 msgid "Select language"
 msgstr "ជ្រើសរើសភាសា"
 
-#: post-types/templates/default-laws-template.php:85 post-types/templates/odc-laws-template.php:85
+#: post-types/templates/default-laws-template.php:85
+#: post-types/templates/odc-laws-template.php:85
 msgid "Topic"
-msgstr ""
+msgstr "ប្រធានបទ"
 
-#: post-types/templates/default-laws-template.php:86 post-types/templates/odc-laws-template.php:86
+#: post-types/templates/default-laws-template.php:86
+#: post-types/templates/odc-laws-template.php:86
 msgid "Select term"
 msgstr "ជ្រើសរើសពាក្យ"
 
-#: post-types/templates/default-laws-template.php:251 post-types/templates/odc-laws-template.php:251
+#: post-types/templates/default-laws-template.php:251
+#: post-types/templates/odc-laws-template.php:251
 msgid "Search"
-msgstr ""
+msgstr "ស្វែងរក"
 
-#: post-types/templates/default-laws-template.php:255 post-types/templates/odc-laws-template.php:255
+#: post-types/templates/default-laws-template.php:255
+#: post-types/templates/odc-laws-template.php:255
 msgid "Clear"
 msgstr "សំអាតការជ្រើសរើស"
 
 #: post-types/templates/default-laws-template.php:306
-#: post-types/templates/default-laws-template.php:403 post-types/templates/odc-laws-template.php:306
+#: post-types/templates/default-laws-template.php:403
+#: post-types/templates/odc-laws-template.php:306
 #: post-types/templates/odc-laws-template.php:403
 msgid "Download"
 msgstr "ទាញយក"
@@ -1357,41 +1391,3 @@ msgstr "ទាញយក"
 #: post-types/templates/single-tabular.php:174
 msgid "Error in configuration, please check."
 msgstr ""
-
-#~ msgid "Minister of Parliamentary Affairs"
-#~ msgstr "ក្រសួងកិច្ចការសភា"
-
-#~ msgid "Minister of Posts and Telecommunication"
-#~ msgstr "ក្រសួងប្រៃសណីយ៍ និងទូរគមនាគមន៍"
-
-#~ msgid "Minister of Public Works and Transport"
-#~ msgstr "ក្រសួងសាធារណការ និងដឹកជញ្ជូន"
-
-#~ msgid "Provincial Governor/Council"
-#~ msgstr "អភិបាល/ក្រុមប្រឹក្សាខេត្ត"
-
-#~ msgid ""
-#~ "Inter-Ministerial Committee for Assessment Measurement and Evaluation of the Economic Land "
-#~ "Concessions (ELCs)"
-#~ msgstr "គណៈកម្មាធិការអន្តរក្រសួងដើម្បីត្រួតពិនិត្យ វាស់វែង និងវាយតម្លៃសម្បទានដីសេដ្ឋកិច្ច"
-
-#~ msgid "Council for Development"
-#~ msgstr "ក្រុមប្រឹក្សាអភិវឌ្ឍន៍"
-
-#~ msgid "Ministry of Post & Telecommunication"
-#~ msgstr "ក្រសួងប្រៃសណីយ៍ និងទូរគមនាគមន៍"
-
-#~ msgid "Ministry of Public Works & Transport"
-#~ msgstr "ក្រសួងសាធារណការ និងដឹកជញ្ជូន"
-
-#~ msgid "Ministry of Parliamentary Affairs & Inspection"
-#~ msgstr "ក្រសួងទំនាក់ទំនងជាមួយរដ្ឋសភា ព្រឹទ្ធសភា និងអធិការកិច្ច"
-
-#~ msgid "Ministry of Religions & Cults "
-#~ msgstr "ក្រសួងធម្មការ និងសាសនា"
-
-#~ msgid "Ministry of Social Affairs, Labour, Vocational Training & Youth Rehabilitation"
-#~ msgstr " ក្រសួង​សង្គមកិច្ច អតីត​យុទ្ធជន និង​យុវនីតិ​សម្បទា"
-
-#~ msgid "Provincial Council"
-#~ msgstr "ក្រុមប្រឹក្សាខេត្ត"
