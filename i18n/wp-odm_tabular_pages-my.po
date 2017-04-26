@@ -1,28 +1,28 @@
-#
+# 
 # Translators:
 # Theint Naing Yoon <yoon@phandeeyar.org>, 2017
+# thetaung2 <thetaung@phandeeyar.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
 "POT-Creation-Date: 2017-03-23 14:51+0100\n"
-"PO-Revision-Date: 2017-03-23 14:51+0100\n"
-"Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
-"Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-"
-"wp-laws-pages/language/my/)\n"
-"Language: my\n"
+"PO-Revision-Date: 2017-04-26 06:01+0000\n"
+"Last-Translator: thetaung2 <thetaung@phandeeyar.org>\n"
+"Language-Team: Burmese (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: my\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: i18n\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: bower_components\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -46,7 +46,7 @@ msgstr "နှစ်နိုင်ငံအကြား စာချုပ်�
 
 #: i18n/additional-localization.php:7
 msgid "By-Laws"
-msgstr "ဥပဒေများ"
+msgstr "နည်းဥပဒေများ"
 
 #: i18n/additional-localization.php:8
 msgid "Circular"
@@ -74,7 +74,7 @@ msgstr "ဓလေ့ထုံးတမ်းဥပဒေ"
 
 #: i18n/additional-localization.php:14
 msgid "Decision"
-msgstr "ဆုံးချက်ချက်"
+msgstr "ဆုံးဖြတ်ချက်"
 
 #: i18n/additional-localization.php:15
 msgid "Decree"
@@ -150,7 +150,7 @@ msgstr "ဖြေရှင်းချက်"
 
 #: i18n/additional-localization.php:33
 msgid "Royal decree"
-msgstr "တောဝင် အမိန့်"
+msgstr "တော်ဝင် အမိန့်"
 
 #: i18n/additional-localization.php:34
 msgid "Rule"
@@ -198,15 +198,15 @@ msgstr "မြေယာစီမံခန့်ခွဲမှု၊ မြိ�
 
 #: i18n/additional-localization.php:46
 msgid "Minister of Economy and Finance"
-msgstr "စီးပွါးရေးနှင့် ငွေကြေး ဝန်ကြီးဌာန"
+msgstr "စီးပွားရေးနှင့် ငွေကြေး ဝန်ကြီး"
 
 #: i18n/additional-localization.php:47 i18n/additional-localization.php:54
 msgid "Minister of Environment"
-msgstr "သဘာဝပါတ်ဝန်းကျင် ဝန်ကြီးဌာန"
+msgstr "သဘာဝပတ်ဝန်းကျင် ဝန်ကြီး"
 
 #: i18n/additional-localization.php:48
 msgid "Minister of Agriculture Forestry and Fisheries"
-msgstr "စိုက်ပျိုးရေး၊ သစ်တောနှင့် မွေးမြူရေးဝန်ကြီးဌာန"
+msgstr "စိုက်ပျိုးရေး၊ သစ်တောနှင့် မွေးမြူရေးဝန်ကြီး"
 
 #: i18n/additional-localization.php:49
 msgid "Minister of Civil Service"
@@ -223,7 +223,7 @@ msgstr "ယဥ်ကျေးမှုနှင့် အနုပညာဝန�
 #: i18n/additional-localization.php:52 i18n/additional-localization.php:98
 #: i18n/additional-localization.php:137
 msgid "Ministry of Commerce"
-msgstr ""
+msgstr "စီးပွားရေးဝန်ကြီး"
 
 #: i18n/additional-localization.php:53
 msgid "Minister of Education Youth and Sport"
@@ -235,7 +235,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:56
 msgid "Minister of Health"
-msgstr ""
+msgstr "ကျန်းမာရေးဝန်ကြီး"
 
 #: i18n/additional-localization.php:57
 msgid "Minister of Industry and Handicrafts"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:63
 msgid "Minister of National Defense"
-msgstr ""
+msgstr "ကာကွယ်ရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:64
 msgid "Minister of National Assembly-Senate Relations and Inspection"
@@ -271,7 +271,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:65
 msgid "Minister of Planning"
-msgstr ""
+msgstr "အမျိုးသားစီမံကိန်းဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:66
 msgid "Minister of Social Affairs Veterans and Youth Rehabilitation"
@@ -315,8 +315,8 @@ msgstr ""
 
 #: i18n/additional-localization.php:76
 msgid ""
-"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the "
-"Economic Land Concessions"
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the"
+" Economic Land Concessions"
 msgstr ""
 
 #: i18n/additional-localization.php:77
@@ -397,7 +397,7 @@ msgstr ""
 
 #: i18n/additional-localization.php:99
 msgid "Ministry of Agriculture Forestry and Fisheries"
-msgstr ""
+msgstr "စိုက်ပျိုးရေး၊ သစ်တောနှင့် မွေးမြူရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:100
 msgid "Ministry of Industries, Mines and Energy"
@@ -481,167 +481,167 @@ msgstr ""
 
 #: i18n/additional-localization.php:123
 msgid "Ministry of President’s Office"
-msgstr ""
+msgstr "သမ္မတရုံးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:124
 msgid "Ministry of Home Affairs"
-msgstr ""
+msgstr "ပြည်ထဲရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:125
 msgid "Ministry of Defence"
-msgstr ""
+msgstr "ကာကွယ်ရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:126
 msgid "Ministry of Border Affairs"
-msgstr ""
+msgstr "နယ်စပ်ရေးရာဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:127
 msgid "Ministry of Office of the State Counsellor"
-msgstr ""
+msgstr "နိုင်ငံတော်အတိုင်ပင်ခံရုံးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:128
 msgid "Ministry of Information"
-msgstr ""
+msgstr "ပြန်ကြားရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:129
 msgid "Ministry of Religious Affairs and Culture"
-msgstr ""
+msgstr "ဘာသာရေးနှင့်ယဥ်ကျေးမှုဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:130
 msgid "Ministry of Agriculture, Livestock and Irrigation"
-msgstr ""
+msgstr "လယ်ယာစိုက်ပျိုးရေးနှင့် ဆည်မြောင်းဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:131
 msgid "Ministry of Transport and Communications"
-msgstr ""
+msgstr "သယ်ယူပို့ဆောင်ရေးနှင့် ဆက်သွယ်ရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:132
 msgid "Ministry of Natural Resources and Environmental Conservation"
-msgstr ""
+msgstr "သယံဇာတနှင့် သဘာဝပတ်ဝန်းကျင်ထိန်းသိမ်းရေး ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:133
 msgid "Ministry of Electricity and Energy"
-msgstr ""
+msgstr "လျှပ်စစ်နှင့် စွမ်းအင် ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:134
 msgid "Ministry of Foreign Affairs"
-msgstr ""
+msgstr "နိုင်ငံခြားရေးရာ ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:135
 msgid "Ministry of Labour, Immigration and Population"
-msgstr ""
+msgstr "အလုပ်သမား၊ လူဝင်မှုကြီးကြပ်ရေးနှင့် ပြည်သူ့အင်အား ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:136
 msgid "Ministry of Industry"
-msgstr ""
+msgstr "စက်မှု ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:138
 msgid "Ministry of Education"
-msgstr ""
+msgstr "ပညာရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:139
 msgid "Ministry of Health and Sports"
-msgstr ""
+msgstr "ကျန်းမာရေးနှင့် အားကစားဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:140
 msgid "Ministry of Planning and Finance"
-msgstr ""
+msgstr "ဘဏ္ဠာရေးနှင့် စီမံကိန်းဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:141
 msgid "Ministry of Construction"
-msgstr ""
+msgstr "ဆောက်လုပ်ရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:142
 msgid "Ministry of Social Welfare, Relief and Resettlement"
-msgstr ""
+msgstr "လူမှုဝန်ထမ်း ကယ်ဆယ်ရေးနှင့် ပြန်လည်နေရာချထားရေးဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:143
 msgid "Ministry of Hotels and Tourism"
-msgstr ""
+msgstr "ဟိုတယ်နှင့် ခရီးသွားလုပ်ငန်းဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:144
 msgid "Office of the Auditor General of the Union"
-msgstr ""
+msgstr "ပြည်ထောင်စု စာရင်းစစ်ချုပ်ရုံး"
 
 #: i18n/additional-localization.php:145
 msgid "Union Attorney General's Office"
-msgstr ""
+msgstr "ပြည်ထောင်စု ရှေ့နေချုပ်ရုံး"
 
 #: i18n/additional-localization.php:146
 msgid "Ministry of Ethnic Affairs"
-msgstr ""
+msgstr "တိုင်းရင်းသားရေးရာ ဝန်ကြီးဌာန"
 
 #: i18n/additional-localization.php:147
 msgid "Central Bank of Myanmar"
-msgstr ""
+msgstr "ပြည်ထောင်စုမြန်မာနိုင်ငံတော်ဗဟိုဘဏ်"
 
 #: i18n/additional-localization.php:148
 msgid "Union Election Committee"
-msgstr ""
+msgstr "ပြည်ထောင်စု ရွေးကောက်ပွဲကော်မရှင်"
 
 #: i18n/additional-localization.php:149
 msgid "Constitutional Tribunal of the Union of Myanmar"
-msgstr ""
+msgstr "နိုင်ငံတော်ဖွဲ့စည်းပုံအခြေခံဥပဒေဆိုင်ရာခုံရုံး"
 
 #: i18n/additional-localization.php:150
 msgid "Union Supreme Court"
-msgstr ""
+msgstr "ပြည်ထောင်စုတရားလွှတ်တော်ချုပ်"
 
 #: i18n/additional-localization.php:151
 msgid "Anti-corruption commission"
-msgstr ""
+msgstr "အကျင့်ပျက်ခြစားမှု တိုက်ဖျက်ရေးကော်မရှင်"
 
 #: i18n/additional-localization.php:152
 msgid "Yangon City Development Committee"
-msgstr ""
+msgstr "ရန်ကုန်မြို့တော်စည်ပင်သာယာရေးကော်မတီ"
 
 #: i18n/additional-localization.php:153
 msgid "Naypyidaw Council"
-msgstr ""
+msgstr "နေပြည်တော်ကောင်စီ"
 
 #: i18n/additional-localization.php:154
 msgid "Naypyidaw Development Committee"
-msgstr ""
+msgstr "နေပြည်တော် စည်ပင်သာရေးကော်မတီ"
 
 #: i18n/additional-localization.php:155
 msgid "Union Government Office"
-msgstr ""
+msgstr "ပြည်ထောင်စုအစိုးရ အဖွဲ့ရုံး"
 
 #: i18n/additional-localization.php:156
 msgid "Union Parliament Office"
-msgstr ""
+msgstr "ပြည်ထောင်စုလွှတ်တော်ရုံး"
 
 #: i18n/additional-localization.php:157
 msgid "Union Human Resource Office"
-msgstr ""
+msgstr "ပြည်ထောင်စု လူသားအရင်းအမြစ်ရုံး"
 
 #: i18n/additional-localization.php:158
 msgid "The Union of Myanmar"
-msgstr ""
+msgstr "ပြည်ထောင်စု သမ္မတ မြန်မာနိုင်ငံတော်"
 
 #: i18n/additional-localization.php:159
 msgid "The State Peace and Development Council"
-msgstr ""
+msgstr "နိုင်ငံတော်အေးချမ်းသာယာရေးနှင့် ဖွံ့ဖြိုးရေးကောင်စီ"
 
 #: i18n/additional-localization.php:161
 msgid "Myanmar Socialist Party"
-msgstr ""
+msgstr "မြန်မာ့ဆိုရှယ်လစ်လမ်းစဥ်ပါတီ"
 
 #: i18n/additional-localization.php:163
 msgid "Pyidaungsu Hluttaw"
-msgstr ""
+msgstr "ပြည်ထောင်စုလွှတ်တော်"
 
 #: i18n/additional-localization.php:164
 msgid "Revolutionary Council"
-msgstr ""
+msgstr "တော်လှန်ရေးကောင်စီ"
 
 #: i18n/additional-localization.php:165
 msgid "Self-Administered Zone"
-msgstr ""
+msgstr "ကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရဒေသ"
 
 #: i18n/additional-localization.php:166
 msgid "State and Regional Hluttaws"
-msgstr ""
+msgstr "တိုင်းနှင့်ပြည်နယ်လွှတ်တော်များ"
 
 #: i18n/additional-localization.php:167
 msgid "State Law and Order Restoration Council"
@@ -649,87 +649,87 @@ msgstr ""
 
 #: i18n/additional-localization.php:168
 msgid "State Peace and Development Council"
-msgstr ""
+msgstr "နိုင်ငံတော်အေးချမ်းသာယာရေးနှင့် ဖွံ့ဖြိုးရေးကောင်စီ"
 
 #: i18n/additional-localization.php:170
 msgid "Under negotitation"
-msgstr ""
+msgstr "ညှိနှိုင်းဆွေးနွေးနေဆဲ"
 
 #: i18n/additional-localization.php:171
 msgid "Framework agreement signed"
-msgstr ""
+msgstr "မူဘောင်သဘောတူညီချက်ကို လက်မှတ်ထိုးပြီး"
 
 #: i18n/additional-localization.php:172
 msgid "Negotiations launched"
-msgstr ""
+msgstr "ညှိနှိုင်းဆွေးနွေးမှုများထုတ်ပြန်ပြီး"
 
 #: i18n/additional-localization.php:173
 msgid "Signed but not yet in effect/validated"
-msgstr ""
+msgstr "လက်မှတ်ထိုးပြီးသော်လည်း အသက်ဝင်/ထိရောက်ခြင်းမရှိသေး"
 
 #: i18n/additional-localization.php:174
 msgid "Signed and in effect"
-msgstr ""
+msgstr "လက်မှတ်ထိုးပြီး အသက်ဝင်နေပြီ"
 
 #: i18n/additional-localization.php:176
 msgid "Adopted / validated / in effect"
-msgstr ""
+msgstr "မွေးစားထားသည်/ ကိုက်ညီသည်/ အသက်ဝင်သည်"
 
 #: i18n/additional-localization.php:177
 msgid "Cancelled"
-msgstr ""
+msgstr "ပယ်ဖျက်သည်"
 
 #: i18n/additional-localization.php:178
 msgid "Expired"
-msgstr ""
+msgstr "ရက်လွန်သွားပြီ"
 
 #: i18n/additional-localization.php:179
 msgid "Bill approved"
-msgstr ""
+msgstr "မူကြမ်းအတည်ပြုပြီး"
 
 #: i18n/additional-localization.php:180
 msgid "Bill discussed in Pyidaungsu Hluttaw"
-msgstr ""
+msgstr "ပြည်ထောင်စုလွှတ်တော်တွင်ဆွေးနွေးထားသော ဥပဒေမူကြမ်း"
 
 #: i18n/additional-localization.php:181
 msgid "Bill send to the President for signature"
-msgstr ""
+msgstr "သမ္မတ လက်မှတ်ထိုးရန်အတွက် ပေးပို့ထားပြီးသော ဥပဒေမူကြမ်း"
 
 #: i18n/additional-localization.php:182
 msgid "Repealed"
-msgstr ""
+msgstr "ပယ်ဖျက်ပြီး"
 
 #: i18n/additional-localization.php:184
 msgid "Advocacy and promotional materials"
-msgstr ""
+msgstr "အသိပေးအရေးဆိုတင်ပြခြင်းနှင့် အများသိရှိအောင်ပြုလုပ်ခြင်းဆိုင်ရာ နည်းလမ်းများ"
 
 #: i18n/additional-localization.php:185
 msgid "Analysis, discussion papers, and blogs"
-msgstr ""
+msgstr "ခွဲခြမ်းစိတ်ဖြာခြင်း၊ ဆွေးနွေးမှုဆိုင်ရာ စာတမ်းများနှင့် ဘလော့များ"
 
 #: i18n/additional-localization.php:186
 msgid "Books and book chapters"
-msgstr ""
+msgstr "စာအုပ်များနှင့် စာအုပ်၏ အခန်းများ"
 
 #: i18n/additional-localization.php:187
 msgid "Case studies"
-msgstr ""
+msgstr "ဖြစ်ရပ်လေ့လာခြင်းများ"
 
 #: i18n/additional-localization.php:188
 msgid "Issue and policy briefs"
-msgstr ""
+msgstr "အကြောင်းအရာနှင့် မူဝါဒအကျဥ်း"
 
 #: i18n/additional-localization.php:189
 msgid "Profiles - People"
-msgstr ""
+msgstr "Profiles - လူများ"
 
 #: i18n/additional-localization.php:190
 msgid "Profiles - Organizations and projects"
-msgstr ""
+msgstr "Profiles - အဖွဲ့အစည်းများနှင့် စီမံကိန်းများ"
 
 #: i18n/additional-localization.php:191
 msgid "Profiles - Geographical areas and sites"
-msgstr ""
+msgstr "Profiles - ပထဝီဧရိယာနှင့် တည်နေရာများ"
 
 #: i18n/additional-localization.php:192
 msgid "Conference/workshop proceedings and presentations"
@@ -851,89 +851,89 @@ msgstr ""
 
 #: i18n/additional-localization.php:223
 msgid "Title"
-msgstr ""
+msgstr "ခေါင်းစဥ်"
 
 #: i18n/additional-localization.php:224
 msgid "Description"
-msgstr ""
+msgstr "ဖော်ပြချက်"
 
 #: i18n/additional-localization.php:225 i18n/additional-localization.php:248
 msgid "License"
-msgstr ""
+msgstr "လိုင်စင်"
 
 #: i18n/additional-localization.php:226
 msgid "Copyright"
-msgstr ""
+msgstr "မူပိုင်ခွင့်"
 
 #: i18n/additional-localization.php:227
 msgid "Access and use constraints"
-msgstr ""
+msgstr "ရယူမှုနှင့် အသုံးပြုမှုဆိုင်ရာတားမြစ်ချက်များ"
 
 #: i18n/additional-localization.php:228
 msgid "Organization"
-msgstr ""
+msgstr "အဖွဲ့အစည်း"
 
 #: i18n/additional-localization.php:229
 msgid "Version"
-msgstr ""
+msgstr "မူကွဲ"
 
 #: i18n/additional-localization.php:230
 msgid "Contact"
-msgstr ""
+msgstr "ဆက်သွယ်ရန်"
 
 #: i18n/additional-localization.php:231
 msgid "Topics"
-msgstr ""
+msgstr "ခေါင်းစဥ်များ"
 
 #: i18n/additional-localization.php:232
 #: post-types/templates/default-laws-template.php:65
 #: post-types/templates/odc-laws-template.php:65
 msgid "Language"
-msgstr ""
+msgstr "ဘာသာစကား"
 
 #: i18n/additional-localization.php:233
 msgid "Date created"
-msgstr ""
+msgstr "ဖန်တီးခဲ့သည့်ရက်စွဲ"
 
 #: i18n/additional-localization.php:234
 msgid "Date uploaded"
-msgstr ""
+msgstr "တင်ခဲ့သည့်ရက်စွဲ"
 
 #: i18n/additional-localization.php:235
 msgid "Date modified"
-msgstr ""
+msgstr "ပြန်လည်ပြင်ဆင်သည့်ရက်စွဲ"
 
 #: i18n/additional-localization.php:236
 msgid "Temporal range"
-msgstr ""
+msgstr "ကာလအပိုင်းအခြား"
 
 #: i18n/additional-localization.php:237
 msgid "Geographic area (spatial range)"
-msgstr ""
+msgstr "ပထဝီဝင်ဧရိယာ (spatial range)"
 
 #: i18n/additional-localization.php:238
 msgid "Accuracy"
-msgstr ""
+msgstr "တိကျမှု"
 
 #: i18n/additional-localization.php:239
 msgid "Logical consistency"
-msgstr ""
+msgstr "ယုတ္တိနည်းကျ တစ်သတ်မှတ်တည်းဖြစ်မှု"
 
 #: i18n/additional-localization.php:240
 msgid "Completeness"
-msgstr ""
+msgstr "ပြီးမြောက်မှု"
 
 #: i18n/additional-localization.php:241
 msgid "Process(es)"
-msgstr ""
+msgstr "ဖြစ်စဥ် (များ)"
 
 #: i18n/additional-localization.php:242
 msgid "Source(s)"
-msgstr ""
+msgstr "ရင်းမြစ် (များ)"
 
 #: i18n/additional-localization.php:243
 msgid "Metadata reference information"
-msgstr ""
+msgstr "Metadata ရည်ညွှန်း သတင်းအချက်အလက်များ"
 
 #: i18n/additional-localization.php:244
 msgid "Attributes"
@@ -1228,8 +1228,8 @@ msgstr ""
 #: post-types/tabular-pages.php:131
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
-"breaks. Multiple attributes can be used for a label, separated by comma. eg. "
-"odm_document_type,odm_agreement_document_type => Document type"
+"breaks. Multiple attributes can be used for a label, separated by comma. eg."
+" odm_document_type,odm_agreement_document_type => Document type"
 msgstr ""
 
 #: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
@@ -1248,8 +1248,8 @@ msgstr ""
 #: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
-"detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
-"block"
+"detail page. Format: Comma-separated values. <br/>eg. "
+"name,company,developer,block"
 msgstr ""
 
 #: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
@@ -1282,8 +1282,8 @@ msgstr ""
 
 #: post-types/tabular-pages.php:245
 msgid ""
-"Please specify the field names and the corresponding resource ids, separated "
-"by => and line breaks"
+"Please specify the field names and the corresponding resource ids, separated"
+" by => and line breaks"
 msgstr ""
 
 #: post-types/tabular-pages.php:247
