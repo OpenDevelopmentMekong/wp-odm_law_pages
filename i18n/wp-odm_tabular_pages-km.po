@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
 "POT-Creation-Date: 2017-03-23 14:51+0100\n"
-"PO-Revision-Date: 2017-04-18 07:33+0000\n"
+"PO-Revision-Date: 2017-05-29 02:35+0000\n"
 "Last-Translator: ChandaraKhun <chandara@opendevcam.net>\n"
 "Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/km/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "សន្ធិសញ្ញាទ្វេភាគី"
 
 #: i18n/additional-localization.php:7
 msgid "By-Laws"
-msgstr "តាមច្បាប់"
+msgstr ""
 
 #: i18n/additional-localization.php:8
 msgid "Circular"
@@ -352,7 +352,7 @@ msgstr "អាជ្ញាធរជាតិដោះស្រាយទំនា
 
 #: i18n/additional-localization.php:85 i18n/additional-localization.php:95
 msgid "Council of Ministers"
-msgstr "ទីស្តីការគណៈរដ្ឋមន្រ្តី"
+msgstr "គណៈរដ្ឋមន្រ្តី"
 
 #: i18n/additional-localization.php:86
 msgid "Company Director"
@@ -1229,37 +1229,37 @@ msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
 "breaks. Multiple attributes can be used for a label, separated by comma. eg."
 " odm_document_type,odm_agreement_document_type => Document type"
-msgstr ""
+msgstr "សូមបញ្ជាក់គុណលក្ខណៈនិងស្លាករបស់ពួកគេ ខណ្ឌចែកដោយ => និង ការកាត់ផ្តាច់ដោយបន្ទាត់។ ពហុគុណលក្ខណៈ អាចនឹងត្រូវបានប្រើប្រាស់សម្រាប់ស្លាក ខណ្ឌចែកដោយសញ្ញាក្បៀស ។ ឧទាហរណ៍ odm_ឯកសារ_ប្រភេទ,odm_កិច្ចព្រមព្រៀង_ឯកសារ_ប្រភេទ => ប្រភេទឯកសារ"
 
 #: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
 msgid "Id to Label mapping for values"
-msgstr ""
+msgstr "Id ទៅនឹងការផ្គូរផ្គងស្លាកសម្រាប់តម្លៃ"
 
 #: post-types/tabular-pages.php:135 post-types/tabular-pages.php:154
 msgid ""
 "Please specify the ids plus their labels, separated by => and line breaks"
-msgstr ""
+msgstr "សូមបញ្ជាក់ ids និង ស្លាករបស់ ids ខណ្ឌចែកដោយ => និង កាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:137 post-types/tabular-pages.php:156
 msgid "Column ids linking to detail page"
-msgstr ""
+msgstr "Ids របស់បន្ទាត់បញ្ឈរ ដែលភ្ជាប់ទៅកាន់ទំព័រពិស្តារ"
 
 #: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
 "detail page. Format: Comma-separated values. <br/>eg. "
 "name,company,developer,block"
-msgstr ""
+msgstr "Please add the ids of the columns that will feature a link to the entry's detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block\n\nសូមបន្ថែម ids របស់បន្ទាត់បញ្ឈរ ដែលនឹងកំណត់តំណទៅកាន់ច្រកចូលរបស់ទំព័រពិស្តារ។ ទម្រង់៖ តម្លៃខណ្ឌចែកដោយសញ្ញាក្បៀស។ <br/>ឧទាហរណ៍ ឈ្មោះ,ក្រុមហ៊ុន,អ្នកអភិវឌ្ឍ,ប្លុក"
 
 #: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
 msgid "Group Data in Column"
-msgstr ""
+msgstr "ដាក់ទិន្នន័យជាក្រុមបន្ទាត់បញ្ឈរ"
 
 #: post-types/tabular-pages.php:143 post-types/tabular-pages.php:162
 msgid ""
 "Eg. To group records by a certain column. please specify the index, not the "
 "name."
-msgstr ""
+msgstr "ឧទាហរណ៍ ដាក់កំណត់ត្រាតាមក្រុមដោយបន្ទាត់បញ្ឈរជាក់លាក់មួយ។ សូមបញ្ជាក់សន្ទស្សន៍ មិនមែនឈ្មោះ។"
 
 #: post-types/tabular-pages.php:150
 msgid ""
@@ -1269,38 +1269,38 @@ msgstr "សូមកំណត់លក្ខណៈសម្បត្តិ ព�
 
 #: post-types/tabular-pages.php:236
 msgid "List of default filters"
-msgstr ""
+msgstr "បញ្ជីប្រអប់ជ្រើសរើសកំណត់យកតាមលំនាំដើម"
 
 #: post-types/tabular-pages.php:237
 msgid "Please specify which of the default filters are displayed"
-msgstr ""
+msgstr "សូមបញ្ជាក់ប្រអប់ជ្រើសរើសលំនាំដើមណាដែលត្រូវបង្ហាញ"
 
 #: post-types/tabular-pages.php:243
 msgid "List of additional filters with Resource ID of CKAN"
-msgstr ""
+msgstr "បញ្ជីប្រអប់ជ្រើសរើសបន្ថែម ជាមួយ ID ធនធាន របស់ CKAN។"
 
 #: post-types/tabular-pages.php:245
 msgid ""
 "Please specify the field names and the corresponding resource ids, separated"
 " by => and line breaks"
-msgstr ""
+msgstr "សូមបញ្ជាក់ឈ្មោះវិស័យ និង ids របស់ធនធានពាក់ព័ន្ធ ខណ្ឌចែកដោយ => និងការកាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:247
 msgid "Custom list of element filters"
-msgstr ""
+msgstr "បញ្ជីនៃប្រអប់ជ្រើសរើស"
 
 #: post-types/tabular-pages.php:252
 msgid ""
 "Please specify the elements (ids/attributes) and the corresponding field "
 "name, separated by line breaks. Please blank it, if the filter was created "
 "with Resource ID of CKAN."
-msgstr ""
+msgstr "សូមបញ្ជាក់ធាតុ (ids/លក្ខណៈសម្បត្តិ) និង ឈ្មោះវិស័យពាក់ព័ន្ធ ខណ្ឌចែកដោយការកាត់ផ្តាច់ដោយបន្ទាត់។ សូមធ្វើឲ្យវានៅទទេ ប្រសិនបើប្រអប់ជ្រើសរើសត្រូវបានបង្កើតជាមួយ ID របស់ CKAN។"
 
 #: post-types/tabular-pages.php:272 post-types/tabular-pages.php:286
 msgid ""
 "Please list the ids (attributes) that are avialbe in the field name "
 "separated by commands and group them separated by line breaks"
-msgstr ""
+msgstr "សូមរាយ (លក្ខណៈសម្បត្តិ) ids ដែលមាននៅក្នុងឈ្មោះវិស័យ ខណ្ឌចែកដោយពាក្យបញ្ជា ហើយរៀបវាជាក្រុម ដោយការកាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:296
 msgid "List of additional filters with types"
@@ -1310,17 +1310,17 @@ msgstr "បញ្ជីពាក្យស្វែងរកបន្ថែម �
 msgid ""
 "Please specify the field names and the corresponding field type, separated "
 "by => and line breaks."
-msgstr ""
+msgstr "សូមបញ្ជាក់ឈ្មោះវិស័យ និង ប្រភេទវិស័យពាក់ព័ន្ធ ខណ្ឌចែកដោយ => និង បន្ទាត់ខណ្ឌចែក"
 
 #: post-types/tabular-pages.php:300
 msgid "Create Select Filter by Column Index"
-msgstr ""
+msgstr "បង្កើតប្រអប់ ជ្រើសរើសតាមវិស័យ ដោយ សន្ទស្សន៍បន្ទាត់បញ្ឈរ"
 
 #: post-types/tabular-pages.php:302
 msgid ""
 "Filter selectors will create automatically by adding the column index and "
 "separated by comma."
-msgstr ""
+msgstr "ឧបករណ៍ជ្រើសវិស័យ នឹងត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិ ដោយបន្ថែមសន្ទស្សន៍បន្ទាត់បញ្ឈរ និង ខណ្ឌចែកដោយសញ្ញាក្បៀស។"
 
 #: post-types/tabular-pages.php:442
 msgid "Choose template layout"
@@ -1390,4 +1390,4 @@ msgstr "ទាញយក"
 
 #: post-types/templates/single-tabular.php:174
 msgid "Error in configuration, please check."
-msgstr ""
+msgstr "កំហុសក្នុងការបង្ហាញរូប​សណ្ឋាន សូមពិនិត្យមើល។"
