@@ -204,11 +204,11 @@ jQuery(document).ready(function($) {
 		scrollX: false,
 		responsive: true,
 		"bAutoWidth": false,
-		dom: 'B<"top"<"info"i><"pagination"p><"length"l>>rt',
+		dom: 'B<"top"<"length"l>>rt<"info"i><"pagination"p>',
 		buttons: [
 			{
 				extend: 'csv',
-        text: 'Export',
+        text: '<i class="fa fa-share"></i>',
 				exportOptions: {
           columns: ':visible',
           rows: { page: 'current' }
@@ -216,7 +216,7 @@ jQuery(document).ready(function($) {
 			},
 			{
 				extend: 'print',
-        text: 'Print',
+        text: '<i class="fa fa-print"></i>',
 				exportOptions: {
           columns: ':visible',
           rows: { page: 'current' }
