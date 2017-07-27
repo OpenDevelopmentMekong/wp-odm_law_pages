@@ -22,7 +22,8 @@
 .top {
     display: block;
     height: auto;
-    margin-bottom: 10px;
+    margin: 10px 0px;
+    overflow: hidden;
 }
 .top a{
   color: #292D56;
@@ -243,6 +244,11 @@ td.entry_title a{
   width: 100%;
   height: 30px;
 }
+
+.mobile-dialog .select2 {
+  width: 100% !important;
+}
+
 .advanced-nav-filters #filters div:nth-child(6) input[type="submit"]{
 	margin-top: 0 !important;
 }
@@ -253,4 +259,35 @@ td.entry_title a{
   border: 1px solid #ddd;
   padding: 0 10px 0;
   margin: 5px 0 0 1.9em;
+}
+
+.text_search_with_submit {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 5px;
+  margin-right: 10px;
+  display: inline-flex;
+  flex-grow: 1;
+}
+
+.text_search_with_submit input[type=text] {
+  width:auto;
+  display: inline-flex;
+  border: none;
+  margin: 0px;
+  flex-grow: 1;
+}
+
+.text_search_with_submit input[type=text]:focus {
+  outline-style:none;
+  box-shadow:none;
+  border-color:transparent;
+}
+
+.text_search_with_submit button {
+  height:auto;
+  background: transparent;
+  border: none;
+  color: #505050;
+  font-size: 15px;
 }
