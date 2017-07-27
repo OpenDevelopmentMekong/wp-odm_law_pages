@@ -261,6 +261,8 @@ td.entry_title a{
   border-radius: 2px;
   padding: 5px;
   margin-right: 10px;
+  display: inline-flex;
+  flex-grow: 1;
 }
 
 .text_search_with_submit input[type=text] {
@@ -268,10 +270,13 @@ td.entry_title a{
   display: inline-flex;
   border: none;
   margin: 0px;
+  flex-grow: 1;
 }
 
 .text_search_with_submit input[type=text]:focus {
-  outline: none;
+  outline-style:none;
+  box-shadow:none;
+  border-color:transparent;
 }
 
 .text_search_with_submit button {
