@@ -244,6 +244,11 @@ td.entry_title a{
   width: 100%;
   height: 30px;
 }
+
+.mobile-dialog .select2 {
+  width: 100% !important;
+}
+
 .advanced-nav-filters #filters div:nth-child(6) input[type="submit"]{
 	margin-top: 0 !important;
 }
