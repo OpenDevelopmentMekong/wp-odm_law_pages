@@ -54,12 +54,15 @@
 		endif;
 		$filters_specified = $num_filters > 1;
 
+		//Caculate Column Number Class
 		$max_columns = 12;
 		$num_filters = ($num_filters > 4) ? round($num_filters/2) : $num_filters;
-		$num_columns = 12;
-		if ($filters_specified):
-			$num_columns = integer_to_text(round($max_columns / $num_filters));
+		$num_columns_int = 12;
+		if ($filters_specified && odm_screen_manager()->is_desktop()):
+			$num_columns_int = round($max_columns / $num_filters);
 		endif;
+		$num_columns = integer_to_text($num_columns_int);
+
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 		$param_type = !empty($_GET['group_type']) ? $_GET['group_type'] : null;
