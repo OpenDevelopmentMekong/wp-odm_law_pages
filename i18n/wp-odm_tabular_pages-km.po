@@ -1,27 +1,28 @@
-# 
+#
 # Translators:
 # ChandaraKhun <chandara@opendevcam.net>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: ODM WP Tabular pages\n"
-"POT-Creation-Date: 2017-03-23 14:51+0100\n"
-"PO-Revision-Date: 2017-05-29 02:35+0000\n"
+"POT-Creation-Date: 2017-07-27 23:55+0200\n"
+"PO-Revision-Date: 2017-07-27 23:55+0200\n"
 "Last-Translator: ChandaraKhun <chandara@opendevcam.net>\n"
-"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/km/)\n"
+"Language-Team: Khmer (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/"
+"km/)\n"
+"Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: i18n\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: bower_components\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -314,8 +315,8 @@ msgstr "មេឃំុ/ក្រុមប្រឹក្សាឃុំ"
 
 #: i18n/additional-localization.php:76
 msgid ""
-"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the"
-" Economic Land Concessions"
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the Economic Land "
+"Concessions"
 msgstr "​គណៈ​កម្មការ​អន្តរក្រសួង​ដើម្បី​ត្រូវ​ពិនិត្យ​ វាស់វែង និង​វាយ​តម្លៃ​សម្បទាន​ដី​សេដ្ឋកិច្ច"
 
 #: i18n/additional-localization.php:77
@@ -735,9 +736,7 @@ msgid "Conference/workshop proceedings and presentations"
 msgstr "អត្ថបទ និងបទបង្ហាញសន្និសីទ និងសិក្ខាសាលា"
 
 #: i18n/additional-localization.php:193
-msgid ""
-"Reports, journal articles, and research papers (including theses and "
-"dissertations)"
+msgid "Reports, journal articles, and research papers (including theses and dissertations)"
 msgstr "របាយការណ៍ អត្ថបទទិនានុប្បវត្តិ និងអត្ថបទស្រាវជ្រាវ (រាប់បញ្ចូលទាំង និក្ខេបបទ និងបរមាធិប្បាយ)"
 
 #: i18n/additional-localization.php:194
@@ -884,9 +883,7 @@ msgstr "ទំនាក់ទំនង"
 msgid "Topics"
 msgstr "ប្រធានបទ"
 
-#: i18n/additional-localization.php:232
-#: post-types/templates/default-laws-template.php:65
-#: post-types/templates/odc-laws-template.php:65
+#: i18n/additional-localization.php:232 post-types/templates/partials/adv-filters.php:54
 msgid "Language"
 msgstr "ភាសា"
 
@@ -1086,9 +1083,8 @@ msgstr "ទីភ្នាក់ងារអនុវត្ត"
 msgid "Notes"
 msgstr "កំណត់សម្គាល់"
 
-#: i18n/additional-localization.php:285
-#: post-types/templates/default-laws-template.php:343
-#: post-types/templates/odc-laws-template.php:343
+#: i18n/additional-localization.php:285 post-types/templates/default-laws-template.php:150
+#: post-types/templates/odc-laws-template.php:148
 msgid "Unknown"
 msgstr "មិនស្គាល់"
 
@@ -1112,8 +1108,8 @@ msgstr "ភាសាវៀតណាម"
 msgid "Lao"
 msgstr "ភាសាឡាវ"
 
-#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:30
-#: post-types/tabular-pages.php:31 post-types/tabular-pages.php:32
+#: post-types/tabular-pages.php:29 post-types/tabular-pages.php:30 post-types/tabular-pages.php:31
+#: post-types/tabular-pages.php:32
 msgid "Database"
 msgstr "មូលដ្ឋាន​ទិន្នន័យ"
 
@@ -1177,42 +1173,25 @@ msgstr "ភាសាអង់គ្លេស"
 msgid "Choose dataset type"
 msgstr "ជ្រើសរើសប្រភេទសំណុំទិន្នន័យ"
 
-#: post-types/tabular-pages.php:121
-#: post-types/templates/default-laws-template.php:42
-#: post-types/templates/default-laws-template.php:67
-#: post-types/templates/default-laws-template.php:87
-#: post-types/templates/default-laws-template.php:112
-#: post-types/templates/default-laws-template.php:159
-#: post-types/templates/default-laws-template.php:219
-#: post-types/templates/default-laws-template.php:440
-#: post-types/templates/default-laws-template.php:451
-#: post-types/templates/odc-laws-template.php:42
-#: post-types/templates/odc-laws-template.php:67
-#: post-types/templates/odc-laws-template.php:87
-#: post-types/templates/odc-laws-template.php:112
-#: post-types/templates/odc-laws-template.php:159
-#: post-types/templates/odc-laws-template.php:219
-#: post-types/templates/odc-laws-template.php:440
-#: post-types/templates/odc-laws-template.php:451
-#: post-types/templates/single-tabular.php:283
+#: post-types/tabular-pages.php:121 post-types/templates/default-laws-template.php:247
+#: post-types/templates/default-laws-template.php:258 post-types/templates/odc-laws-template.php:245
+#: post-types/templates/odc-laws-template.php:256 post-types/templates/partials/adv-filters.php:30
+#: post-types/templates/partials/adv-filters.php:56 post-types/templates/partials/adv-filters.php:77
+#: post-types/templates/partials/adv-filters.php:104
+#: post-types/templates/partials/adv-filters.php:152
+#: post-types/templates/partials/adv-filters.php:215 post-types/templates/single-tabular.php:286
 msgid "All"
 msgstr "ទាំងអស់"
 
-#: post-types/tabular-pages.php:122
-#: post-types/templates/default-laws-template.php:23
-#: post-types/templates/odc-laws-template.php:23
+#: post-types/tabular-pages.php:122 post-types/templates/partials/adv-filters.php:10
 msgid "Dataset"
 msgstr "សំណុំទិន្នន័យ"
 
-#: post-types/tabular-pages.php:123
-#: post-types/templates/default-laws-template.php:24
-#: post-types/templates/odc-laws-template.php:24
+#: post-types/tabular-pages.php:123 post-types/templates/partials/adv-filters.php:11
 msgid "Publication"
 msgstr "ឯកសារបោះពុម្ព"
 
-#: post-types/tabular-pages.php:124
-#: post-types/templates/default-laws-template.php:25
-#: post-types/templates/odc-laws-template.php:25
+#: post-types/tabular-pages.php:124 post-types/templates/partials/adv-filters.php:12
 msgid "Laws record"
 msgstr "ឯកសារច្បាប់"
 
@@ -1226,18 +1205,20 @@ msgstr "លក្ខណៈសម្បត្តិនៃសំណុំទិន
 
 #: post-types/tabular-pages.php:131
 msgid ""
-"Please specify the attributes plus their labels, separated by => and line "
-"breaks. Multiple attributes can be used for a label, separated by comma. eg."
-" odm_document_type,odm_agreement_document_type => Document type"
-msgstr "សូមបញ្ជាក់គុណលក្ខណៈនិងស្លាករបស់ពួកគេ ខណ្ឌចែកដោយ => និង ការកាត់ផ្តាច់ដោយបន្ទាត់។ ពហុគុណលក្ខណៈ អាចនឹងត្រូវបានប្រើប្រាស់សម្រាប់ស្លាក ខណ្ឌចែកដោយសញ្ញាក្បៀស ។ ឧទាហរណ៍ odm_ឯកសារ_ប្រភេទ,odm_កិច្ចព្រមព្រៀង_ឯកសារ_ប្រភេទ => ប្រភេទឯកសារ"
+"Please specify the attributes plus their labels, separated by => and line breaks. Multiple "
+"attributes can be used for a label, separated by comma. eg. odm_document_type,"
+"odm_agreement_document_type => Document type"
+msgstr ""
+"សូមបញ្ជាក់គុណលក្ខណៈនិងស្លាករបស់ពួកគេ ខណ្ឌចែកដោយ => និង ការកាត់ផ្តាច់ដោយបន្ទាត់។ ពហុគុណលក្ខណៈ "
+"អាចនឹងត្រូវបានប្រើប្រាស់សម្រាប់ស្លាក ខណ្ឌចែកដោយសញ្ញាក្បៀស ។ ឧទាហរណ៍ odm_ឯកសារ_ប្រភេទ,odm_កិច្ចព្រមព្រៀង_ឯកសារ_ប្រភេទ "
+"=> ប្រភេទឯកសារ"
 
 #: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
 msgid "Id to Label mapping for values"
 msgstr "Id ទៅនឹងការផ្គូរផ្គងស្លាកសម្រាប់តម្លៃ"
 
 #: post-types/tabular-pages.php:135 post-types/tabular-pages.php:154
-msgid ""
-"Please specify the ids plus their labels, separated by => and line breaks"
+msgid "Please specify the ids plus their labels, separated by => and line breaks"
 msgstr "សូមបញ្ជាក់ ids និង ស្លាករបស់ ids ខណ្ឌចែកដោយ => និង កាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:137 post-types/tabular-pages.php:156
@@ -1246,25 +1227,25 @@ msgstr "Ids របស់បន្ទាត់បញ្ឈរ ដែលភ្ជ�
 
 #: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
-"Please add the ids of the columns that will feature a link to the entry's "
-"detail page. Format: Comma-separated values. <br/>eg. "
-"name,company,developer,block"
-msgstr "Please add the ids of the columns that will feature a link to the entry's detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block\n\nសូមបន្ថែម ids របស់បន្ទាត់បញ្ឈរ ដែលនឹងកំណត់តំណទៅកាន់ច្រកចូលរបស់ទំព័រពិស្តារ។ ទម្រង់៖ តម្លៃខណ្ឌចែកដោយសញ្ញាក្បៀស។ <br/>ឧទាហរណ៍ ឈ្មោះ,ក្រុមហ៊ុន,អ្នកអភិវឌ្ឍ,ប្លុក"
+"Please add the ids of the columns that will feature a link to the entry's detail page. Format: "
+"Comma-separated values. <br/>eg. name,company,developer,block"
+msgstr ""
+"Please add the ids of the columns that will feature a link to the entry's detail page. Format: "
+"Comma-separated values. <br/>eg. name,company,developer,block\n"
+"\n"
+"សូមបន្ថែម ids របស់បន្ទាត់បញ្ឈរ ដែលនឹងកំណត់តំណទៅកាន់ច្រកចូលរបស់ទំព័រពិស្តារ។ ទម្រង់៖ តម្លៃខណ្ឌចែកដោយសញ្ញាក្បៀស។ <br/"
+">ឧទាហរណ៍ ឈ្មោះ,ក្រុមហ៊ុន,អ្នកអភិវឌ្ឍ,ប្លុក"
 
 #: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
 msgid "Group Data in Column"
 msgstr "ដាក់ទិន្នន័យជាក្រុមបន្ទាត់បញ្ឈរ"
 
 #: post-types/tabular-pages.php:143 post-types/tabular-pages.php:162
-msgid ""
-"Eg. To group records by a certain column. please specify the index, not the "
-"name."
+msgid "Eg. To group records by a certain column. please specify the index, not the name."
 msgstr "ឧទាហរណ៍ ដាក់កំណត់ត្រាតាមក្រុមដោយបន្ទាត់បញ្ឈរជាក់លាក់មួយ។ សូមបញ្ជាក់សន្ទស្សន៍ មិនមែនឈ្មោះ។"
 
 #: post-types/tabular-pages.php:150
-msgid ""
-"Please specify the attributes plus their labels, separated by => and line "
-"breaks"
+msgid "Please specify the attributes plus their labels, separated by => and line breaks"
 msgstr "សូមកំណត់លក្ខណៈសម្បត្តិ ព្រមទាំងស្លាកនៃលក្ខណៈសម្បត្តិ ខណ្ឌចែកពីគ្នាដោយ => និង បន្ទាត់ខណ្ឌចែក"
 
 #: post-types/tabular-pages.php:236
@@ -1281,8 +1262,7 @@ msgstr "បញ្ជីប្រអប់ជ្រើសរើសបន្ថែ
 
 #: post-types/tabular-pages.php:245
 msgid ""
-"Please specify the field names and the corresponding resource ids, separated"
-" by => and line breaks"
+"Please specify the field names and the corresponding resource ids, separated by => and line breaks"
 msgstr "សូមបញ្ជាក់ឈ្មោះវិស័យ និង ids របស់ធនធានពាក់ព័ន្ធ ខណ្ឌចែកដោយ => និងការកាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:247
@@ -1291,16 +1271,18 @@ msgstr "បញ្ជីនៃប្រអប់ជ្រើសរើស"
 
 #: post-types/tabular-pages.php:252
 msgid ""
-"Please specify the elements (ids/attributes) and the corresponding field "
-"name, separated by line breaks. Please blank it, if the filter was created "
-"with Resource ID of CKAN."
-msgstr "សូមបញ្ជាក់ធាតុ (ids/លក្ខណៈសម្បត្តិ) និង ឈ្មោះវិស័យពាក់ព័ន្ធ ខណ្ឌចែកដោយការកាត់ផ្តាច់ដោយបន្ទាត់។ សូមធ្វើឲ្យវានៅទទេ ប្រសិនបើប្រអប់ជ្រើសរើសត្រូវបានបង្កើតជាមួយ ID របស់ CKAN។"
+"Please specify the elements (ids/attributes) and the corresponding field name, separated by line "
+"breaks. Please blank it, if the filter was created with Resource ID of CKAN."
+msgstr ""
+"សូមបញ្ជាក់ធាតុ (ids/លក្ខណៈសម្បត្តិ) និង ឈ្មោះវិស័យពាក់ព័ន្ធ ខណ្ឌចែកដោយការកាត់ផ្តាច់ដោយបន្ទាត់។ សូមធ្វើឲ្យវានៅទទេ "
+"ប្រសិនបើប្រអប់ជ្រើសរើសត្រូវបានបង្កើតជាមួយ ID របស់ CKAN។"
 
 #: post-types/tabular-pages.php:272 post-types/tabular-pages.php:286
 msgid ""
-"Please list the ids (attributes) that are avialbe in the field name "
-"separated by commands and group them separated by line breaks"
-msgstr "សូមរាយ (លក្ខណៈសម្បត្តិ) ids ដែលមាននៅក្នុងឈ្មោះវិស័យ ខណ្ឌចែកដោយពាក្យបញ្ជា ហើយរៀបវាជាក្រុម ដោយការកាត់ផ្តាច់ដោយបន្ទាត់"
+"Please list the ids (attributes) that are avialbe in the field name separated by commands and "
+"group them separated by line breaks"
+msgstr ""
+"សូមរាយ (លក្ខណៈសម្បត្តិ) ids ដែលមាននៅក្នុងឈ្មោះវិស័យ ខណ្ឌចែកដោយពាក្យបញ្ជា ហើយរៀបវាជាក្រុម ដោយការកាត់ផ្តាច់ដោយបន្ទាត់"
 
 #: post-types/tabular-pages.php:296
 msgid "List of additional filters with types"
@@ -1308,8 +1290,7 @@ msgstr "បញ្ជីពាក្យស្វែងរកបន្ថែម �
 
 #: post-types/tabular-pages.php:298
 msgid ""
-"Please specify the field names and the corresponding field type, separated "
-"by => and line breaks."
+"Please specify the field names and the corresponding field type, separated by => and line breaks."
 msgstr "សូមបញ្ជាក់ឈ្មោះវិស័យ និង ប្រភេទវិស័យពាក់ព័ន្ធ ខណ្ឌចែកដោយ => និង បន្ទាត់ខណ្ឌចែក"
 
 #: post-types/tabular-pages.php:300
@@ -1318,76 +1299,69 @@ msgstr "បង្កើតប្រអប់ ជ្រើសរើសតាម�
 
 #: post-types/tabular-pages.php:302
 msgid ""
-"Filter selectors will create automatically by adding the column index and "
-"separated by comma."
+"Filter selectors will create automatically by adding the column index and separated by comma."
 msgstr "ឧបករណ៍ជ្រើសវិស័យ នឹងត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិ ដោយបន្ថែមសន្ទស្សន៍បន្ទាត់បញ្ឈរ និង ខណ្ឌចែកដោយសញ្ញាក្បៀស។"
 
 #: post-types/tabular-pages.php:442
 msgid "Choose template layout"
 msgstr "ជ្រើសរើសគំនូសគំរូ"
 
-#: post-types/templates/default-laws-template.php:10
-#: post-types/templates/odc-laws-template.php:10
+#: post-types/templates/default-laws-template.php:20 post-types/templates/odc-laws-template.php:19
 msgid "Text search"
 msgstr "ស្វែងរកអត្ថបទ"
 
-#: post-types/templates/default-laws-template.php:11
-#: post-types/templates/odc-laws-template.php:11
+#: post-types/templates/default-laws-template.php:21
+#: post-types/templates/default-laws-template.php:40 post-types/templates/odc-laws-template.php:20
+#: post-types/templates/odc-laws-template.php:39
 msgid "Search for title or other attributes"
 msgstr "ស្វែងរកចំណងជើង ឬលក្ខណៈសម្បត្តិផ្សេងទៀត"
 
-#: post-types/templates/default-laws-template.php:20
-#: post-types/templates/odc-laws-template.php:20
-msgid "Type"
-msgstr "ប្រភេទ"
+#: post-types/templates/default-laws-template.php:52 post-types/templates/odc-laws-template.php:51
+msgid "Filters"
+msgstr ""
 
-#: post-types/templates/default-laws-template.php:21
-#: post-types/templates/odc-laws-template.php:21
-msgid "Select type"
-msgstr "ជ្រើសយកប្រភេទ"
-
-#: post-types/templates/default-laws-template.php:38
-#: post-types/templates/odc-laws-template.php:38
-msgid "Country"
-msgstr "ប្រទេស"
-
-#: post-types/templates/default-laws-template.php:39
-#: post-types/templates/odc-laws-template.php:39
-msgid "Select country"
-msgstr "ជ្រើសរើសប្រទេស"
-
-#: post-types/templates/default-laws-template.php:66
-#: post-types/templates/odc-laws-template.php:66
-msgid "Select language"
-msgstr "ជ្រើសរើសភាសា"
-
-#: post-types/templates/default-laws-template.php:85
-#: post-types/templates/odc-laws-template.php:85
-msgid "Topic"
-msgstr "ប្រធានបទ"
-
-#: post-types/templates/default-laws-template.php:86
-#: post-types/templates/odc-laws-template.php:86
-msgid "Select term"
-msgstr "ជ្រើសរើសពាក្យ"
-
-#: post-types/templates/default-laws-template.php:251
-#: post-types/templates/odc-laws-template.php:251
-msgid "Search"
-msgstr "ស្វែងរក"
-
-#: post-types/templates/default-laws-template.php:255
-#: post-types/templates/odc-laws-template.php:255
-msgid "Clear"
-msgstr "សំអាតការជ្រើសរើស"
-
-#: post-types/templates/default-laws-template.php:306
-#: post-types/templates/default-laws-template.php:403
-#: post-types/templates/odc-laws-template.php:306
-#: post-types/templates/odc-laws-template.php:403
+#: post-types/templates/default-laws-template.php:113
+#: post-types/templates/default-laws-template.php:210 post-types/templates/odc-laws-template.php:111
+#: post-types/templates/odc-laws-template.php:208
 msgid "Download"
 msgstr "ទាញយក"
 
-#: post-types/templates/single-tabular.php:174
+#: post-types/templates/partials/adv-filters.php:7
+msgid "Type"
+msgstr "ប្រភេទ"
+
+#: post-types/templates/partials/adv-filters.php:8
+msgid "Select type"
+msgstr "ជ្រើសយកប្រភេទ"
+
+#: post-types/templates/partials/adv-filters.php:26
+msgid "Country"
+msgstr "ប្រទេស"
+
+#: post-types/templates/partials/adv-filters.php:27
+msgid "Select country"
+msgstr "ជ្រើសរើសប្រទេស"
+
+#: post-types/templates/partials/adv-filters.php:55
+msgid "Select language"
+msgstr "ជ្រើសរើសភាសា"
+
+#: post-types/templates/partials/adv-filters.php:75
+msgid "Topic"
+msgstr "ប្រធានបទ"
+
+#: post-types/templates/partials/adv-filters.php:76
+msgid "Select term"
+msgstr "ជ្រើសរើសពាក្យ"
+
+#: post-types/templates/partials/adv-filters.php:250
+msgid "Search"
+msgstr "ស្វែងរក"
+
+#: post-types/templates/partials/adv-filters.php:254
+msgid "Clear"
+msgstr "សំអាតការជ្រើសរើស"
+
+#: post-types/templates/single-tabular.php:177
 msgid "Error in configuration, please check."
 msgstr "កំហុសក្នុងការបង្ហាញរូប​សណ្ឋាន សូមពិនិត្យមើល។"

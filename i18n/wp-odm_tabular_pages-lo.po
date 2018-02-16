@@ -1,27 +1,26 @@
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: wp-odm_tabular_pages\n"
-"POT-Creation-Date: 2017-07-27 23:55+0200\n"
-"PO-Revision-Date: 2017-07-27 23:55+0200\n"
-"Last-Translator: \n"
-"Language-Team: Vietnamese (http://www.transifex.com/open-development-mekong/"
-"odm-wp-laws-pages/language/vi/)\n"
-"Language: vi\n"
+"Project-Id-Version: ODM WP Tabular pages\n"
+"POT-Creation-Date: 2017-03-23 14:51+0100\n"
+"PO-Revision-Date: 2017-03-23 13:52+0000\n"
+"Last-Translator: Alex Corbi <a.corbi@gmail.com>\n"
+"Language-Team: Lao (http://www.transifex.com/open-development-mekong/odm-wp-laws-pages/language/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: i18n\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: components\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 "X-Poedit-SearchPathExcluded-2: bower_components\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: i18n/additional-localization.php:2
 msgid "Action Plan"
@@ -314,8 +313,8 @@ msgstr ""
 
 #: i18n/additional-localization.php:76
 msgid ""
-"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the "
-"Economic Land Concessions"
+"Inter-Ministerial Committee for Assessment Measurement and Evaluation of the"
+" Economic Land Concessions"
 msgstr ""
 
 #: i18n/additional-localization.php:77
@@ -885,7 +884,8 @@ msgid "Topics"
 msgstr ""
 
 #: i18n/additional-localization.php:232
-#: post-types/templates/partials/adv-filters.php:54
+#: post-types/templates/default-laws-template.php:65
+#: post-types/templates/odc-laws-template.php:65
 msgid "Language"
 msgstr ""
 
@@ -1086,8 +1086,8 @@ msgid "Notes"
 msgstr ""
 
 #: i18n/additional-localization.php:285
-#: post-types/templates/default-laws-template.php:150
-#: post-types/templates/odc-laws-template.php:148
+#: post-types/templates/default-laws-template.php:343
+#: post-types/templates/odc-laws-template.php:343
 msgid "Unknown"
 msgstr ""
 
@@ -1177,32 +1177,41 @@ msgid "Choose dataset type"
 msgstr ""
 
 #: post-types/tabular-pages.php:121
-#: post-types/templates/default-laws-template.php:247
-#: post-types/templates/default-laws-template.php:258
-#: post-types/templates/odc-laws-template.php:245
-#: post-types/templates/odc-laws-template.php:256
-#: post-types/templates/partials/adv-filters.php:30
-#: post-types/templates/partials/adv-filters.php:56
-#: post-types/templates/partials/adv-filters.php:77
-#: post-types/templates/partials/adv-filters.php:104
-#: post-types/templates/partials/adv-filters.php:152
-#: post-types/templates/partials/adv-filters.php:215
-#: post-types/templates/single-tabular.php:286
+#: post-types/templates/default-laws-template.php:42
+#: post-types/templates/default-laws-template.php:67
+#: post-types/templates/default-laws-template.php:87
+#: post-types/templates/default-laws-template.php:112
+#: post-types/templates/default-laws-template.php:159
+#: post-types/templates/default-laws-template.php:219
+#: post-types/templates/default-laws-template.php:440
+#: post-types/templates/default-laws-template.php:451
+#: post-types/templates/odc-laws-template.php:42
+#: post-types/templates/odc-laws-template.php:67
+#: post-types/templates/odc-laws-template.php:87
+#: post-types/templates/odc-laws-template.php:112
+#: post-types/templates/odc-laws-template.php:159
+#: post-types/templates/odc-laws-template.php:219
+#: post-types/templates/odc-laws-template.php:440
+#: post-types/templates/odc-laws-template.php:451
+#: post-types/templates/single-tabular.php:283
 msgid "All"
 msgstr ""
 
 #: post-types/tabular-pages.php:122
-#: post-types/templates/partials/adv-filters.php:10
+#: post-types/templates/default-laws-template.php:23
+#: post-types/templates/odc-laws-template.php:23
 msgid "Dataset"
 msgstr ""
 
 #: post-types/tabular-pages.php:123
-#: post-types/templates/partials/adv-filters.php:11
+#: post-types/templates/default-laws-template.php:24
+#: post-types/templates/odc-laws-template.php:24
 msgid "Publication"
 msgstr ""
 
 #: post-types/tabular-pages.php:124
-#: post-types/templates/partials/adv-filters.php:12
+#: post-types/templates/default-laws-template.php:25
+#: post-types/templates/odc-laws-template.php:25
 msgid "Laws record"
 msgstr ""
 
@@ -1217,8 +1226,8 @@ msgstr ""
 #: post-types/tabular-pages.php:131
 msgid ""
 "Please specify the attributes plus their labels, separated by => and line "
-"breaks. Multiple attributes can be used for a label, separated by comma. eg. "
-"odm_document_type,odm_agreement_document_type => Document type"
+"breaks. Multiple attributes can be used for a label, separated by comma. eg."
+" odm_document_type,odm_agreement_document_type => Document type"
 msgstr ""
 
 #: post-types/tabular-pages.php:133 post-types/tabular-pages.php:152
@@ -1237,8 +1246,8 @@ msgstr ""
 #: post-types/tabular-pages.php:139 post-types/tabular-pages.php:158
 msgid ""
 "Please add the ids of the columns that will feature a link to the entry's "
-"detail page. Format: Comma-separated values. <br/>eg. name,company,developer,"
-"block"
+"detail page. Format: Comma-separated values. <br/>eg. "
+"name,company,developer,block"
 msgstr ""
 
 #: post-types/tabular-pages.php:141 post-types/tabular-pages.php:160
@@ -1271,8 +1280,8 @@ msgstr ""
 
 #: post-types/tabular-pages.php:245
 msgid ""
-"Please specify the field names and the corresponding resource ids, separated "
-"by => and line breaks"
+"Please specify the field names and the corresponding resource ids, separated"
+" by => and line breaks"
 msgstr ""
 
 #: post-types/tabular-pages.php:247
@@ -1316,66 +1325,68 @@ msgstr ""
 msgid "Choose template layout"
 msgstr ""
 
-#: post-types/templates/default-laws-template.php:20
-#: post-types/templates/odc-laws-template.php:19
+#: post-types/templates/default-laws-template.php:10
+#: post-types/templates/odc-laws-template.php:10
 msgid "Text search"
 msgstr ""
 
-#: post-types/templates/default-laws-template.php:21
-#: post-types/templates/default-laws-template.php:40
-#: post-types/templates/odc-laws-template.php:20
-#: post-types/templates/odc-laws-template.php:39
+#: post-types/templates/default-laws-template.php:11
+#: post-types/templates/odc-laws-template.php:11
 msgid "Search for title or other attributes"
 msgstr ""
 
-#: post-types/templates/default-laws-template.php:52
-#: post-types/templates/odc-laws-template.php:51
-msgid "Filters"
-msgstr ""
-
-#: post-types/templates/default-laws-template.php:113
-#: post-types/templates/default-laws-template.php:210
-#: post-types/templates/odc-laws-template.php:111
-#: post-types/templates/odc-laws-template.php:208
-msgid "Download"
-msgstr ""
-
-#: post-types/templates/partials/adv-filters.php:7
+#: post-types/templates/default-laws-template.php:20
+#: post-types/templates/odc-laws-template.php:20
 msgid "Type"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:8
+#: post-types/templates/default-laws-template.php:21
+#: post-types/templates/odc-laws-template.php:21
 msgid "Select type"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:26
+#: post-types/templates/default-laws-template.php:38
+#: post-types/templates/odc-laws-template.php:38
 msgid "Country"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:27
+#: post-types/templates/default-laws-template.php:39
+#: post-types/templates/odc-laws-template.php:39
 msgid "Select country"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:55
+#: post-types/templates/default-laws-template.php:66
+#: post-types/templates/odc-laws-template.php:66
 msgid "Select language"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:75
+#: post-types/templates/default-laws-template.php:85
+#: post-types/templates/odc-laws-template.php:85
 msgid "Topic"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:76
+#: post-types/templates/default-laws-template.php:86
+#: post-types/templates/odc-laws-template.php:86
 msgid "Select term"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:250
+#: post-types/templates/default-laws-template.php:251
+#: post-types/templates/odc-laws-template.php:251
 msgid "Search"
 msgstr ""
 
-#: post-types/templates/partials/adv-filters.php:254
+#: post-types/templates/default-laws-template.php:255
+#: post-types/templates/odc-laws-template.php:255
 msgid "Clear"
 msgstr ""
 
-#: post-types/templates/single-tabular.php:177
+#: post-types/templates/default-laws-template.php:306
+#: post-types/templates/default-laws-template.php:403
+#: post-types/templates/odc-laws-template.php:306
+#: post-types/templates/odc-laws-template.php:403
+msgid "Download"
+msgstr ""
+
+#: post-types/templates/single-tabular.php:174
 msgid "Error in configuration, please check."
 msgstr ""
