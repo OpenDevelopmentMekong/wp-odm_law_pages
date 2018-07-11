@@ -105,18 +105,19 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             $values_mapping_localization = get_post_meta($post->ID,'_attributes_values_mapping_localization', true);
             $group_data_by_column_index = get_post_meta($post->ID,'_attributes_group_data_by_column_index', true);
             $group_data_by_column_index_localization = get_post_meta($post->ID,'_attributes_group_data_by_column_index_localization', true);
+            $additional_filters_list = get_post_meta($post->ID, '_additional_filters_list', true);
 						?>
             <div id="multiple-site">
-              <input type="radio" id="en" class="language en" name="language_site" value="en" checked />
+              <input type="radio" id="en" class="language-en" name="language_option_1" value="language-en" checked />
               <label for="en"><?php _e('ENGLISH', 'wp-odm_tabular_pages');
                   ?></label> &nbsp;
               <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
-                <input type="radio" id="localization" class="language localization" name="language_site" value="localization" />
-                <label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
+              <input type="radio" id="localization" class="language-localization" name="language_option_1" value="language-localization" />
+              <label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
               <?php endif; ?>
             </div><?php if(!empty($dataset_type) && in_array("all", $dataset_type)): echo "selected".$dataset_type;  endif; ?>
 	          <div id="tabular_options_box">
-	            <h4><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h4>
+	            <h3><?php _e('Choose dataset type', 'wp-odm_tabular_pages');?></h3>
 	            <select id="_attributes_dataset_type" name="_attributes_dataset_type[]" multiple="multiple">
                 <option value="all" <?php if(!empty($dataset_type) && in_array("all", $dataset_type)): echo "selected"; endif;  ?>><?php _e('All', 'wp-odm_tabular_pages');?></option>
 	              <option value="dataset" <?php if(!empty($dataset_type) && in_array("dataset", $dataset_type)): echo "selected";  endif; ?>><?php _e('Dataset', 'wp-odm_tabular_pages');?></option>
@@ -126,38 +127,38 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 	            </select>
 
               <div class="language_settings language-en">
-                <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
+                <h3><?php _e('The attributes of the Dataset that would like to display in table', 'wp-odm_tabular_pages'); ?></h3>
   							<textarea name="_attributes_column_list" style="width:100%; height:100px;" placeholder="title_translated  =>  Title"><?php echo $column_list;  ?></textarea>
   							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks. Multiple attributes can be used for a label, separated by comma. eg. odm_document_type,odm_agreement_document_type => Document type', 'wp-odm_tabular_pages'); ?></p>
 
-  							<h4><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h4>
+  							<h3><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h3>
   							<textarea name="_attributes_values_mapping" style="width:100%; height:200px;" placeholder="anukretsub-decree  =>  Anukret Sub-decree"><?php echo $values_mapping;  ?></textarea>
   							<p class="description"><?php _e('Please specify the ids plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
-  						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
+  						  <h3><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h3>
   						  <input class="full-width" type="text" id="_attributes_link_to_detail_column" name="_attributes_link_to_detail_column" placeholder="name,title" value="<?php echo $link_to_detail_column; ?>" />
   			        <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
 
-                <h4><?php _e('Group Data in Column', 'wp-odm_tabular_pages');?></h4>
+                <h3><?php _e('Group Data in Column', 'wp-odm_tabular_pages');?></h3>
   						  <input class="full-width" type="text" id="_attributes_group_data_by_column_index" name="_attributes_group_data_by_column_index" placeholder="1" value="<?php echo $group_data_by_column_index; ?>" />
   			        <p class="description"><?php _e('Eg. To group records by a certain column. please specify the index, not the name.', 'wp-odm_tabular_pages'); ?></p>
               </div>
 
               <?php if (odm_language_manager()->get_the_language_by_site() != "English") { ?>
                 <div class="language_settings language-localization">
-                  <h4><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h4>
+                  <h3><?php _e('The attributes of the Dataset that would like to display', 'wp-odm_tabular_pages'); ?></h3>
     							<textarea name="_attributes_column_list_localization" style="width:100%; height:100px;" placeholder="title_translated  =>  Title"><?php echo $column_list_localization;  ?></textarea>
     							<p class="description"><?php _e('Please specify the attributes plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
-    							<h4><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h4>
+    							<h3><?php _e('Id to Label mapping for values', 'wp-odm_tabular_pages'); ?></h3>
     							<textarea id="_attributes_values_mapping_localization" name="_attributes_values_mapping_localization" style="width:100%; height:200px;" placeholder="anukretsub-decree  =>  Anukret Sub-decree"><?php echo $values_mapping_localization;  ?></textarea>
     							<p class="description"><?php _e('Please specify the ids plus their labels, separated by => and line breaks', 'wp-odm_tabular_pages'); ?></p>
 
-    						  <h4><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h4>
+    						  <h3><?php _e('Column ids linking to detail page', 'wp-odm_tabular_pages');?></h3>
     						  <input class="full-width" type="text" id="_attributes_link_to_detail_column_localization" name="_attributes_link_to_detail_column_localization" placeholder="name,title" value="<?php echo $link_to_detail_column_localization; ?>" />
     			        <p class="description"><?php _e('Please add the ids of the columns that will feature a link to the entry\'s detail page. Format: Comma-separated values. <br/>eg. name,company,developer,block', 'wp-odm_tabular_pages'); ?></p>
 
-                  <h4><?php _e('Group Data in Column', 'wp-odm_tabular_pages');?></h4>
+                  <h3><?php _e('Group Data in Column', 'wp-odm_tabular_pages');?></h3>
     						  <input class="full-width" type="text" id="_attributes_group_data_by_column_index_localization" name="_attributes_group_data_by_column_index_localization" placeholder="1" value="<?php echo $group_data_by_column_index_localization; ?>" />
     			        <p class="description"><?php _e('Eg. To group records by a certain column. please specify the index, not the name.', 'wp-odm_tabular_pages'); ?></p>
                 </div>
@@ -167,17 +168,28 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
             <script type="text/javascript">
         		 jQuery(document).ready(function($) {
         			var $container = $('#multiple-site');
-        			var $languageSelection = $('input[type="radio"]');
-        			var $forms = $('.language_settings');
-        			var showForms = function() {
-        				  $forms.hide();
-        					var selected = $('input[type=radio].language:checked').val();
-        					$('.language-' + selected).show();
+        			var $languageSelection = $('input[type=radio]');
+        			var $language_settings = $('.language_settings');
+        			var $additoinal_filter_settings = $('.additional_filter_setting');
+        			var showForms = function(input_id = null) {
+                if(input_id =="language-en" || input_id =="language-localization"){
+        				   $language_settings.hide();
+                }else{
+                   $additoinal_filter_settings.hide();
+                }
+                  if(input_id){
+        					   var selected = $('input[type=radio].'+input_id+':checked').val();
+        					   $('.' + selected).show();
+                  }else{
+
+                    $('.language-en').show();
+                    $('.<?php echo $additional_filters_list; ?>').show();
+                  }
         			}
         			$languageSelection.on('change', function() {
                 var input_id = $(this).val();
                 $('input[type=radio].'+input_id).prop('checked', this.checked);
-        			 	showForms();
+        			 	showForms(input_id);
         			});
 
         			showForms();
@@ -191,17 +203,11 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                     if($('#_attributes_date_filter_enabled').is(':checked')){
                       $('#date_filter_setting').show();
                     }
-                    if($('#_attributes_group_filter_enabled').is(':checked')){
-                      $('#group_filter_setting').show();
-                    }
                 }
         			}
 
               showElement();
               $('#_attributes_date_filter_enabled').on('change', function(){
-                showElement(this);
-              });
-              $('#_attributes_group_filter_enabled').on('change', function(){
                 showElement(this);
               });
 
@@ -222,82 +228,110 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           $date_filter_by = get_post_meta($post->ID, '_attributes_date_filter_by', true);
           $date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
           $date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
-
-          $custom_filter_fieldname = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
-          $custom_filter_list = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
-          $group_filter_enabled = get_post_meta($post->ID, '_attributes_group_filter_enabled', true) == "true" ? true : false;
+          $additional_filters_list = get_post_meta($post->ID, '_additional_filters_list', true);
+          $filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
+          $value_filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
           $group_filter_label = get_post_meta($post->ID, '_attributes_group_filter_label', true);
           $group_filter_label_localization = get_post_meta($post->ID, '_attributes_group_filter_label_localization', true);
+          $value_filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
+          $sub_group_filter_label = get_post_meta($post->ID, '_attributes_sub_group_filter_label', true);
+          $sub_group_filter_label_localization = get_post_meta($post->ID, '_attributes_sub_group_filter_label_localization', true);
+          $sub_group_filter_label = get_post_meta($post->ID, '_attributes_sub_group_filter_label', true);
+          $sub_group_filter_label_localization = get_post_meta($post->ID, '_attributes_sub_group_filter_label_localization', true);
           $filters_group_list = get_post_meta($post->ID, '_attributes_filters_group_list', true);
           $filters_group_list_localization = get_post_meta($post->ID, '_attributes_filters_group_list_localization', true);
           ?>
 
           <div id="tabular_filters_box">
-            <h4><?php _e('List of default filters', 'wp-odm_tabular_pages'); ?></h4>
+            <h3><?php _e('List of default filters', 'wp-odm_tabular_pages'); ?></h3>
             <p class="description"><?php _e('Please specify which of the default filters are displayed', 'wp-odm_tabular_pages'); ?></p>
             <input type="checkbox" id="_attributes_country_filter_enabled" name="_attributes_country_filter_enabled"  value="true" <?php if ($country_filter_enabled): echo 'checked="yes"'; endif;?>/> Country (odm_spatial_range) <br />
             <input type="checkbox" id="_attributes_language_filter_enabled" name="_attributes_language_filter_enabled"  value="true" <?php if ($language_filter_enabled): echo 'checked="yes"'; endif;?>/> Language (odm_language)<br />
             <input type="checkbox" id="_attributes_taxonomy_filter_enabled" name="_attributes_taxonomy_filter_enabled" value="true" <?php if ($taxonomy_filter_enabled): echo 'checked="yes"'; endif;?>/> Taxonomy (taxonomy)<br/>
 
 
-            <h4><?php _e('List of additional filters with Resource ID of CKAN', 'wp-odm_tabular_pages'); ?></h4>
-                <textarea id="_attributes_filters_datatables_list" name="_attributes_filters_datatables_list" style="width:100%;height: 100px;" placeholder="odm_document_type => 09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_datatables_list;  ?></textarea>
-                <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?>  <br />eg. odm_document_type  =>  <a href="https://data.opendevelopmentmekong.net/dataset/dat/resource/09f75141-0885-44f7-bcfc-8cd1e3779ff5?type=dataset" target="_blank">09f75141-0885-44f7-bcfc-8cd1e3779ff5</a></p>
+            <h3><?php _e('List of additional filters', 'wp-odm_tabular_pages'); ?></h3>
+              <p>
+                <input type="radio" checked="checked" id="additional-filters-list-from-resource-id" class="filters-list-from-resource-id" name="_additional_filters_list" value="filters-list-from-resource-id" <?php if($additional_filters_list =="filters-list-from-resource-id") echo "checked"; ?> />
+                <label for="additional-filters-list-from-resource-id"><?php _e('From Resource ID of CKAN', 'wp-odm_tabular_pages');?></label> &nbsp;
 
-            <h4><?php _e('Custom list of element filters', 'wp-odm_tabular_pages'); ?></h4>
-                <label for="_attributes_custom_filter_fieldname">Please specify the field names separated by comma: </label>
-                <input id="_attributes_custom_filter_fieldname" type="text" placeholder="odm_document_type" size="40" name="_attributes_custom_filter_fieldname" value="<?php echo $custom_filter_fieldname; ?>" />
-                <p><textarea id="_attributes_custom_filters_list" name="_attributes_custom_filters_list" style="width:100%;height: 100px;" placeholder="international_treaty"><?php echo $custom_filter_list; ?></textarea></p>
+                <input type="radio" id="additional-filters-list-from-selected-fieldnames" class="filters-list-from-selected-fieldnames" name="_additional_filters_list" value="filters-list-from-selected-fieldnames" <?php if($additional_filters_list =="filters-list-from-selected-fieldnames") echo "checked"; ?> />
+                <label for="additional-filters-list-from-selected-fieldnames"><?php _e('From Selected Fieldname', 'wp-odm_tabular_pages');?></label> &nbsp;
 
-                <p class="description"><?php _e('Please specify the elements (ids/attributes) and the corresponding field name, separated by line breaks. Please blank it, if the filter was created with Resource ID of CKAN.', 'wp-odm_tabular_pages'); ?>  <br />eg. international_treaty</p>
-
-                <input type="checkbox" id="_attributes_group_filter_enabled" class="group_filter_setting" name="_attributes_group_filter_enabled" value="true" <?php if ($group_filter_enabled): echo 'checked="yes"'; endif;?>/> <label for="_attributes_group_filter_enabled">Create a group filter of them</label><br/>
-                <div id="group_filter_setting" class="filter_setting hide">
-                  <div id="multiple-site">
-                    <p>
-                      <input type="radio" id="en-filter-group" class="language en" name="language_site-filter-group" value="en" checked />
-                      <label for="en-filter-group"><?php _e('ENGLISH', 'wp-odm_tabular_pages');?></label> &nbsp;
-                      <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
-                        <input type="radio" id="localization-filter-group" class="language localization" name="language_site-filter-group" value="localization" />
-                        <label for="localization-filter-group"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
-                      <?php endif; ?>
-                    </p>
-                  </div>
-                  <div class="language_settings language-en">
-                    <p>
-                    <label for="_attributes_group_filter_label">Group Label (English) : </label>
-                    <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label" value="<?php echo isset($group_filter_label)?$group_filter_label:null; ?>" />
-                    </p>
-
-                    <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                    <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="dataset_type=>Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
-                    <p> eg. create group of odm_document_type filter: </br>
-                      laws_record=>Laws[constitution, international_treaties, royal_decree]</br>
-                      agreement=>Agreements[contracts, licenses, mou]
-                    </p>
-                  </div>
-                  <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
-                    <div class="language_settings language-localization">
-                      <p>
-                      <label for="_attributes_group_filter_label_localization">Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
-                      <input id="_attributes_group_filter_label_localization" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label_localization" value="<?php echo $group_filter_label_localization; ?>" />
-                      </p>
-
-                      <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
-                      <textarea id="_attributes_filters_group_list_localization" name="_attributes_filters_group_list_localization" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list_localization; ?></textarea></p>
-                      <p> eg. create group of odm_document_type filter: </br>
-                        laws_record=>ច្បាប់[constitution, international_treaties, royal_decree]</br>
-                        agreement=>កិច្ចព្រមព្រៀ[contracts, licenses, mou]
-                      </p>
-                    </div>
-                  <?php endif;?>
+                <input type="radio" id="additional-filters-list-from-selected-fieldnames-as-group" class="filters-list-from-selected-fieldnames-as-group" name="_additional_filters_list" value="filters-list-from-selected-fieldnames-as-group" <?php if($additional_filters_list =="filters-list-from-selected-fieldnames-as-group") echo "checked"; ?> />
+                <label for="additional-filters-list-from-selected-fieldnames-as-group"><?php _e('From Selected Fieldname as Group', 'wp-odm_tabular_pages');?></label> &nbsp;
+              </p>
+              <div style="border:1px solid #ccc; padding: 10px">
+                <div class="filters-list-from-resource-id additional_filter_setting">
+                  <textarea id="_attributes_filters_datatables_list" name="_attributes_filters_datatables_list" style="width:100%;height: 100px;" placeholder="odm_document_type => 09f75141-0885-44f7-bcfc-8cd1e3779ff5"><?php echo $filters_datatables_list;  ?></textarea>
+                  <p class="description"><?php _e('Please specify the field names and the corresponding resource ids, separated by => and line breaks', 'wp-odm_tabular_pages'); ?>  <br />eg. odm_document_type  =>  <a href="https://data.opendevelopmentmekong.net/dataset/dat/resource/09f75141-0885-44f7-bcfc-8cd1e3779ff5?type=dataset" target="_blank">09f75141-0885-44f7-bcfc-8cd1e3779ff5</a></p>
                 </div>
 
-            <h4><?php _e('List of additional filters with types', 'wp-odm_tabular_pages'); ?></h4>
+                <div class="filters-list-from-selected-fieldnames additional_filter_setting">
+                  <b><?php _e('Custom list of element filters', 'wp-odm_tabular_pages'); ?></b>
+                  <p>
+                  <label for="_attributes_custom_filter_fieldname">Please specify the content type and metafield names separated by comma. </br>
+                    eg.<i> laws_record[odm_document_type], agreement[odm_agreement_document_type]</i></label></br>
+                  <input id="_attributes_custom_filter_fieldname" type="text" placeholder="odm_document_type" size="80" name="_attributes_custom_filter_fieldname" value="<?php echo $filters_from_selected_fieldnames; ?>" />
+                  </p>
+                  <p><textarea id="_attributes_custom_filters_list" name="_attributes_custom_filters_list" style="width:100%; height: 100px;" placeholder="international_treaty"><?php echo $value_filters_from_selected_fieldnames; ?></textarea></p>
+
+                  <p class="description"><?php _e('Please specify the elements (ids/attributes) and the corresponding field name, separated by line breaks. Please blank it, if the filter was created with Resource ID of CKAN.', 'wp-odm_tabular_pages'); ?>  <br />eg. international_treaty</p>
+                </div>
+                <div class="filters-list-from-selected-fieldnames-as-group additional_filter_setting">
+                  <div id="group_filter_setting" class="filter_setting">
+                    <div id="multiple-site">
+                      <p>
+                        <input type="radio" id="en-filter-group" class="language-en" name="language_option_2" value="language-en" checked />
+                        <label for="en-filter-group"><?php _e('ENGLISH', 'wp-odm_tabular_pages');?></label> &nbsp;
+                        <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
+                        <input type="radio" id="localization-filter-group" class="languag-localization" name="language_option_2" value="language-localization" />
+                        <label for="localization-filter-group"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
+                        <?php endif; ?>
+                      </p>
+                    </div>
+                    <div class="language_settings language-en">
+                      <p>
+                      <label for="_attributes_group_filter_label">Group Label (English) : </label>
+                      <input id="_attributes_group_filter_label" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label" value="<?php echo isset($group_filter_label)?$group_filter_label:null; ?>" /> &nbsp;&nbsp;&nbsp;
+                      <label for="_attributes_sub_group_filter_label">Sub Group Label (English) : </label>
+                      <input id="_attributes_sub_group_filter_label" type="text" placeholder="Document type" size="20" name="_attributes_sub_group_filter_label" value="<?php echo isset($sub_group_filter_label)?$sub_group_filter_label:null; ?>" />
+                      </p>
+
+                      <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them metafield name and content type. Each group is separated by line breaks.  See below as sameple.', 'wp-odm_tabular_pages'); ?></p>
+                      <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="dataset_type=>Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
+                      <p> eg. create group of content_type and odm_document_type filter: </br>
+                        laws_record=>Laws{odm_document_type[constitution,international_treaty,code,law,royal_decree,sub-decree,proclamation,circular,decision,rule]}</br>
+                        agreement=>Agreements{odm_agreement_document_type[contract,land_concession_contract,exploration_permit_licence, m_o_u]}</br>
+                        other=>Others{odm_document_type[joint_statement, declaration, contract_amendment, action_plan,strategic_plan,policy]}
+                      </p>
+                    </div>
+                    <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
+                      <div class="language_settings language-localization">
+                        <p>
+                        <label for="_attributes_group_filter_label_localization">Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
+                        <input id="_attributes_group_filter_label_localization" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label_localization" value="<?php echo $sub_group_filter_label_localization; ?>" /> &nbsp;&nbsp;&nbsp;
+                        <label for="_attributes_sub_group_filter_label_localization">Sub Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
+                        <input id="_attributes_sub_group_filter_label_localization" type="text" placeholder="Document type" size="20" name="_attributes_sub_group_filter_label_localization" value="<?php echo $sub_group_filter_label_localization; ?>" />
+                        </p>
+
+                        <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
+                        <textarea id="_attributes_filters_group_list_localization" name="_attributes_filters_group_list_localization" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list_localization; ?></textarea></p>
+                        <p> eg. create group of odm_document_type filter: </br>
+                          laws_record=>ច្បាប់[constitution, international_treaties, royal_decree]</br>
+                          agreement=>កិច្ចព្រមព្រៀង[contracts, licenses, mou]
+                        </p>
+                      </div>
+                    <?php endif;?>
+                  </div>
+                </div>
+              </div>
+
+            <h3><?php _e('List of additional filters with types', 'wp-odm_tabular_pages'); ?></h3>
             <textarea id="_attributes_filters_list" name="_attributes_filters_list" style="width:100%;height: 100px;" placeholder="odm_promulgation_date  => date"><?php echo $filters_list; ?></textarea>
             <p class="description"><?php _e('Please specify the field names and the corresponding field type, separated by => and line breaks.', 'wp-odm_tabular_pages'); ?></p>
 
-            <h4><?php _e('Create Select Filter by Column Index', 'wp-odm_tabular_pages'); ?></h4>
+            <h3><?php _e('Create Select Filter by Column Index', 'wp-odm_tabular_pages'); ?></h3>
             <input id="_filtered_by_column_index" type="text" placeholder="2, 5" size="40" name="_filtered_by_column_index" value="<?php echo $filtered_by_column_index; ?>" />
             <p class="description"><?php _e('Filter selectors will create automatically by adding the column index and separated by comma.', 'wp-odm_tabular_pages'); ?></p>
           </div>
@@ -373,6 +407,10 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                     update_post_meta($post_id, '_filtered_by_column_index', $_POST['_filtered_by_column_index']);
                 }
 
+                if (isset($_POST['_additional_filters_list'])) {
+                    update_post_meta($post_id, '_additional_filters_list', $_POST['_additional_filters_list']);
+                }
+
                 if (isset($_POST['_attributes_custom_filter_fieldname'])) {
                     update_post_meta($post_id, '_attributes_custom_filter_fieldname', $_POST['_attributes_custom_filter_fieldname']);
                 }
@@ -385,6 +423,12 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 }
                 if (isset($_POST['_attributes_group_filter_label_localization'])) {
                     update_post_meta($post_id, '_attributes_group_filter_label_localization', $_POST['_attributes_group_filter_label_localization']);
+                }
+                if (isset($_POST['_attributes_sub_group_filter_label'])) {
+                    update_post_meta($post_id, '_attributes_sub_group_filter_label', $_POST['_attributes_sub_group_filter_label']);
+                }
+                if (isset($_POST['_attributes_sub_group_filter_label_localization'])) {
+                    update_post_meta($post_id, '_attributes_sub_group_filter_label_localization', $_POST['_attributes_sub_group_filter_label_localization']);
                 }
                 if (isset($_POST['_attributes_filters_group_list'])) {
                     update_post_meta($post_id, '_attributes_filters_group_list', $_POST['_attributes_filters_group_list']);
@@ -421,11 +465,6 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 }else{
                     delete_post_meta($post_id, '_attributes_taxonomy_filter_enabled');
                 }
-                if (isset($_POST['_attributes_group_filter_enabled'])) {
-                  update_post_meta($post_id, '_attributes_group_filter_enabled', $_POST['_attributes_group_filter_enabled']);
-                }else{
-                    delete_post_meta($post_id, '_attributes_group_filter_enabled');
-                }
 
                 if (!current_user_can('edit_post')) {
                     return;
@@ -439,7 +478,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
         {
             $template = get_post_meta($post->ID, '_attributes_template_layout', true); ?>
             <div id="template_layout_settings_box">
-             <h4><?php _e('Choose template layout', 'wp-odm_tabular_pages');?></h4>
+             <h3><?php _e('Choose template layout', 'wp-odm_tabular_pages');?></h3>
              <select id="_attributes_template_layout" name="_attributes_template_layout">
                 <option value="default" <?php if ($template == "default"): echo "selected"; endif; ?>>Default</option>
                 <option value="odc-laws-template" <?php if ($template == "odc-laws-template"): echo "selected"; endif; ?>>ODC Law template</option>
