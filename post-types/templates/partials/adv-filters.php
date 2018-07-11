@@ -180,41 +180,31 @@ elseif($additional_filters_option =="filters-list-from-selected-fieldnames-as-gr
 		endif;
 		*/
 	endif; //isset($group_filter_array)
-elseif(isset($filters_from_selected_fieldnames_arr)):
-	if($value_filters_from_selected_fieldnames):
-			$custom_filter_array = explode("\r\n", $value_filters_from_selected_fieldnames);
-			$mapped_key = in_array($filters_from_selected_fieldnames_arr[0], array_keys($values_mapping_array)) ?	$values_mapping_array[$filters_from_selected_fieldnames_arr[0]] : $filters_from_selected_fieldnames_arr[0];
+elseif(isset($filters_from_selected_fieldnames)):
 
-			$selected_param = !empty($_GET[$filters_from_selected_fieldnames_arr[0]]) ? $_GET[$filters_from_selected_fieldnames_arr[0]] : null;
-			$selected_param_array = explode(",",$selected_param);
-			?>
-			<div class="<?php echo $num_columns?> columns">
-				<div class="adv-nav-input">
-					<p class="label"><label for="<?php echo $filters_from_selected_fieldnames_arr[0]; ?>"><?php _e($mapped_key, 'wp-odm_tabular_pages'); ?></label></p>
-					<select id="<?php echo $filters_from_selected_fieldnames_arr[0]; ?>" name="<?php echo $filters_from_selected_fieldnames_arr[0]; ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
-						<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
-						<?php
-					    foreach ($custom_filter_array as $option):
-								$option = trim($option);
-								$mapped_option = in_array($option ,array_keys($values_mapping_array)) ?	$values_mapping_array[$option] : $option;
-								if(isset($group_filter_fields_attr) && !empty($group_filter_fields_attr)):
-										foreach($group_filter_fields_attr as $group => $group_value ):
-											$in_group = null;
-											if(in_array($option, $group_value)):
-												$in_group = $group;
-												break;
-											endif;
-										endforeach;
-								endif;
-								?>
-								<option value="<?php echo $option; ?>" in-group="<?php echo $in_group; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if(in_array($option, $selected_param_array)) echo 'selected'; ?>><?php _e($mapped_option,'wp-odm_tabular_pages'); ?></option>
-								<?php
-							endforeach; ?>
-					</select>
-				</div>
-			</div>
-			<?php
-	endif;
+	//Create Sub Group (Docuemnt type) Select box
+	$selected_param_array = $param_document_types;
+	$sub_group_filter_label = 'Document type';
+	?>
+	<div class="<?php echo $num_columns?> columns">
+		<div class="adv-nav-input">
+			<p class="label"><label for="<?php echo $sub_group_filter_label; ?>"><?php _e($sub_group_filter_label, 'wp-odm_tabular_pages'); ?></label></p>
+			<select id="<?php echo $sub_group_filter_select_name ?>" name="<?php echo $sub_group_filter_select_name ?>" class="odm_spatial_range-specific" data-current_country="<?php echo odm_country_manager()->get_current_country_code() ?>">
+				<option value="all" selected><?php _e('All','wp-odm_tabular_pages') ?></option>
+				<?php
+					foreach($group_filter_array as $content_type => $filter_value):
+						foreach ($filter_value['value'] as $key => $option):
+							$mapped_option = in_array($option ,array_keys($values_mapping_array)) ?	$values_mapping_array[$option] : $option;
+							?>
+							<option value="<?php echo $option; ?>" in-group="<?php echo $content_type; ?>" data-country_codes="<?php echo odm_country_manager()->get_current_country_code() ?>" <?php if($option == $selected_param_array) echo 'selected'; ?>><?php _e($mapped_option,'wp-odm_tabular_pages'); ?></option>
+							<?php
+						endforeach;
+					endforeach;
+				?>
+			</select>
+		</div>
+	</div>
+	<?php
 endif;
 
 ?>

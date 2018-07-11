@@ -105,7 +105,7 @@
 					if (in_array('results',array_keys($datasets))):
 						foreach ($datasets['results'] as $dataset):
 							$content_type_of_dataset = $dataset['type'];
-							//if the dataset's document_type are needed to display or not
+							//if the dataset's document_type are needed to display or not. eg. $dataset['odm_document_type'] = constitution
 							if(!in_array($dataset[$group_filter_array[$content_type_of_dataset]['metafield']], $group_filter_array[$content_type_of_dataset]['value'])):
 								continue;
 							endif;

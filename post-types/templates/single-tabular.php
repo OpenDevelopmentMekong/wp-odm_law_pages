@@ -38,10 +38,13 @@
 			$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
 		}elseif($additional_filters_option =="filters-list-from-selected-fieldnames"){
 			$filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
-			if (isset($filters_from_selected_fieldnames)){
-				$filters_from_selected_fieldnames_arr = explode(",", trim($filters_from_selected_fieldnames));
-			}
+			if($filters_from_selected_fieldnames):
+				 $filters_from_selected_fieldnames_array = explode(",", trim($filters_from_selected_fieldnames));
+			endif;
 			$value_filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
+			if($value_filters_from_selected_fieldnames):
+				$value_filters_from_selected_fieldnames_array = explode("\n", $value_filters_from_selected_fieldnames);
+			endif;
 		}elseif($additional_filters_option =="filters-list-from-selected-fieldnames-as-group"){
 			$group_filter_label = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_group_filter_label_localization', true) : 	get_post_meta($post->ID, '_attributes_group_filter_label', true);
 
@@ -63,7 +66,7 @@
 		if ($taxonomy_filter_enabled): $num_filters++; endif;
 
 		if (isset($filters_datatables_list)): $num_filters = count($filters_datatables_list_array) + count($filters_list_by_type_array) + 1; endif;
-		if (isset($filters_from_selected_fieldnames)): $num_filters = count($value_filters_from_selected_fieldnames) + count($filters_list_by_type_array) + 1; endif;
+		if (isset($filters_from_selected_fieldnames)): $num_filters = count($filters_from_selected_fieldnames_array) + count($filters_list_by_type_array) + 1; endif;
 		if (isset($group_filter_list)): $num_filters = count($group_filter_list_array) + count($filters_list_by_type_array) + 1; endif;
 		if (($dataset_type) && $dataset_type == 'all'): $num_filters++; endif;
 		if(isset($filtered_by_column_index_array)):	$num_filters += count($filtered_by_column_index_array);	endif;
@@ -79,7 +82,7 @@
 		$num_columns = integer_to_text($num_columns_int);
 
 		$group_filter_select_name = "group_type";
-		$sub_group_filter_select_name = strtolower(str_replace(" ", "_", $sub_group_filter_label));
+		$sub_group_filter_select_name = isset($sub_group_filter_label)? strtolower(str_replace(" ", "_", $sub_group_filter_label)): null;
 		$param_country = odm_country_manager()->get_current_country() == 'mekong' && isset($_GET['country']) ? $_GET['country'] : odm_country_manager()->get_current_country();
 		$param_query = !empty($_GET['query']) ? $_GET['query'] : null;
 		$param_content_type = !empty($_GET[$group_filter_select_name]) ? $_GET[$group_filter_select_name] : null;
@@ -106,19 +109,21 @@
 		}
 
 		if($additional_filters_option == "filters-list-from-selected-fieldnames"):
-			if(isset($filters_from_selected_fieldnames_arr) && !empty($filters_from_selected_fieldnames_arr)):
-				foreach ($filters_from_selected_fieldnames_arr as $custom_fieldname):
-					if (strpos($custom_fieldname, $content_type_name) !== false):
-						$group_filter_fields_fieldname[$content_type_name] = $custom_fieldname;
-						break;
-					endif;
+			if (isset($filters_from_selected_fieldnames)):
+				$group_filter_array = [];
+				$filter_explode_1 = $filters_from_selected_fieldnames_array; //laws_record[odm_document_type] , agreement[odm_agreement_document_type]
+				foreach ($filter_explode_1 as $filter_explode):
+					$filter_explode_2 = explode("[", trim($filter_explode));
+					$content_type_name = $filter_explode_2[0];
+					$filter_explode_3 = str_replace("]", "", str_replace(" ", "", $filter_explode_2[1]));
+					$group_filter_array[$content_type_name]['metafield'] = $filter_explode_3;
+					$group_filter_array[$content_type_name]['value'] = array_map('trim', $value_filters_from_selected_fieldnames_array);
 				endforeach;
 				$param_custom_fieldname = isset($_GET['document_type']) ? $_GET['document_type'] : null;
 			endif;
 		elseif($additional_filters_option == "filters-list-from-selected-fieldnames-as-group"):
 				if(isset($group_filter_list) && !empty($group_filter_list)):
 					$group_filter_array = [];
-					$group_filter_fields_value = "";
 					foreach ($group_filter_list_array as $content_type_name => $group_filter):
 						if (strpos($group_filter, '{') !== FALSE):
 								$group_filter_explode_1 = explode("{", trim($group_filter));
@@ -126,14 +131,10 @@
 								$group_filter_explode_3 = str_replace("]}", "", str_replace(" ", "", $group_filter_explode_2[1]));
 								$group_filter_array[$content_type_name]['label'] = $group_filter_explode_1[0];
 								$group_filter_array[$content_type_name]['metafield'] = $group_filter_explode_2[0];
-								$group_filter_array[$content_type_name]['value'] = explode(",",  $group_filter_explode_3);
+								$group_filter_array[$content_type_name]['value'] = array_map('trim', explode(",",  $group_filter_explode_3));
 								$group_filter_fields_fieldname[$content_type_name] = explode(",",  $group_filter_explode_3);
-								//$group_filter_fields_value .= $group_filter_explode_3;
 						endif;
 					endforeach;
-					//list all attribute in document_type of laws_record and agreement into one array
-					//$all_filter_metafield_attritube = explode(",",  $group_filter_fields_value);
-
 					//Content_Type is selted: eg. group_type = laws_record
 					if (isset($param_content_type) && $param_content_type !== 'all'):
 						$attrs['type'] = $param_content_type;
@@ -234,12 +235,12 @@ if($additional_filters_option =="filters-list-from-selected-fieldnames-as-group"
 	if(!isset($_GET[$group_filter_select_name])):
 		$group_data_by_column_index = count($column_field_to_display) +2;
 		$order_data_by_column_index = $group_data_by_column_index;
-	else:
-		//Group by document_type
-		$group_data_by_column_index = $group_data_by_column_index;
-		//order by index column to sort law by hierarchy
-		$order_data_by_column_index = count($column_field_to_display);
 	endif;
+elseif($group_data_by_column_index):
+	//Group by document_type
+	$group_data_by_column_index = $group_data_by_column_index;
+	//order by index column to sort law by hierarchy
+	$order_data_by_column_index = count($column_field_to_display);
 endif;
  ?>
 <script type="text/javascript">
