@@ -5,10 +5,9 @@
 	<?php
 		global $post;
 		$valid_config = true;
-
+		$values_mapping = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_values_mapping_localization', true) : get_post_meta($post->ID, '_attributes_values_mapping', true);
 		$dataset_type = get_post_meta($post->ID, '_attributes_dataset_type', true)?get_post_meta($post->ID, '_attributes_dataset_type', true) : "all" ;
 		$column_list = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_column_list_localization', true) : get_post_meta($post->ID, '_attributes_column_list', true);
-		$values_mapping = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_values_mapping_localization', true) : get_post_meta($post->ID, '_attributes_values_mapping', true);
 		$column_list_array = parse_mapping_pairs($column_list);
 		if(!empty($column_list_array)):
 			$column_fieldname = '';
@@ -57,7 +56,6 @@
 		if($filtered_by_column_index):
 			$filtered_by_column_index_array = explode(',', $filtered_by_column_index);
 		endif;
-		print_r($filtered_by_column_index);
 
 		$num_filters=0;
 		if ($country_filter_enabled): $num_filters++; endif;
@@ -140,15 +138,14 @@
 					if (isset($param_content_type) && $param_content_type !== 'all'):
 						$attrs['type'] = $param_content_type;
 
-						//Docuemnt_Type = all
+						// Docuemnt_Type = all
 						if (isset($param_document_types)	&& $param_document_types == "all") {
 								$extras_custom_fieldvalue = "(\"" . implode("\" OR \"", $group_filter_array[$param_content_type]['value']). "\")";
 								array_push($filter_fields,'"extras_' . $group_filter_array[$param_content_type]['metafield'] . '":'.json_encode($extras_custom_fieldvalue));
 						}else{
 								array_push($filter_fields,'"extras_' . $group_filter_array[$param_content_type]['metafield'] . '":"'.$param_document_types.'"');
 						}
-					else:
-						//Content Type =all  and  Docuemnt_Type = all
+					else://Content Type =all  and  Docuemnt_Type != all
 						if (isset($param_document_types)	&& $param_document_types != "all") {
 								foreach($group_filter_array as $content_type => $filter_value):
 									if(in_array($param_document_types, $filter_value['value'])) {
@@ -232,13 +229,24 @@
 
 <?php get_footer(); ?>
 
+<?php
+if($additional_filters_option =="filters-list-from-selected-fieldnames-as-group"):
+	if(!isset($_GET[$group_filter_select_name])):
+		$group_data_by_column_index = count($column_field_to_display) +2;
+		$order_data_by_column_index = $group_data_by_column_index;
+	else:
+		//Group by document_type
+		$group_data_by_column_index = $group_data_by_column_index;
+		//order by index column to sort law by hierarchy
+		$order_data_by_column_index = count($column_field_to_display);
+	endif;
+endif;
+ ?>
 <script type="text/javascript">
-
 jQuery(document).ready(function($) {
 
 	$.fn.dataTableExt.oApi.fnFilterAll = function (oSettings, sInput, iColumn, bRegex, bSmart) {
 	 var settings = $.fn.dataTableSettings;
-		 console.log(settings);	console.log(group);
 	 for (var i = 0; i < settings.length; i++) {
 		 settings[i].oInstance.fnFilter(sInput, iColumn, bRegex, bSmart);
 	 }
@@ -267,7 +275,7 @@ jQuery(document).ready(function($) {
 			}
 		],
 		lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-		order: [[ <?php echo isset($order_data_by_column_index) && !empty($order_data_by_column_index) ?	$order_data_by_column_index :( isset($group_data_by_column_index) && !empty($group_data_by_column_index)? $group_data_by_column_index : 0) ?>, 'asc' ]],
+		order: [[ <?php echo isset($order_data_by_column_index)?	$order_data_by_column_index : (isset($group_data_by_column_index) && !empty($group_data_by_column_index)? ($group_data_by_column_index-1) : 0) ?>, 'asc' ]],
 		displayLength: 100,
 		<?php if (odm_language_manager()->get_current_language() == 'km'): ?>
 		"oLanguage": {
@@ -296,7 +304,7 @@ jQuery(document).ready(function($) {
 				var api = this.api();
 				var rows = api.rows( {page:'current'} ).nodes();
 				var last=null;
-				api.column(<?php echo $group_data_by_column_index ?>, {page:'current'} ).data().each( function ( group, g ) {
+				api.column(<?php echo ($group_data_by_column_index-1) ?>, {page:'current'} ).data().each( function ( group, g ) {
 					console.log(g);	console.log(group);
 						if ( last !== group ) {
 								$(rows).eq( g ).before(

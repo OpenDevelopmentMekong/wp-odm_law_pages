@@ -105,6 +105,7 @@
 					if (in_array('results',array_keys($datasets))):
 						foreach ($datasets['results'] as $dataset):
 							$content_type_of_dataset = $dataset['type'];
+							//if the dataset's document_type are needed to display or not
 							if(!in_array($dataset[$group_filter_array[$content_type_of_dataset]['metafield']], $group_filter_array[$content_type_of_dataset]['value'])):
 								continue;
 							endif;
@@ -113,23 +114,30 @@
 								<?php
 								if($column_field_to_display):
 									foreach ($column_field_to_display as $column_name => $item): ///foreach ($get_all_filter_fields as $field_name):
+										$undefiled_field_name = 0;
 										foreach ($item as $key => $field_name):
 											$column_value = null;
 											if(isset($dataset[$field_name][odm_language_manager()->get_current_language()])):
 												$column_value = $dataset[$field_name][odm_language_manager()->get_current_language()];
 											elseif(isset($dataset[$field_name])):
 												$column_value = $dataset[$field_name];
+											else:
+												$undefiled_field_name +=1;
 											endif;
 
 											if(isset($column_value)):
 												$mapped_value = in_array($column_value, array_keys($values_mapping_array)) ?	$values_mapping_array[$column_value] : $column_value;
-												echo "<td>";
+												echo "<td class='".$field_name."'>";
 													if (in_array($field_name, $link_to_detail_columns_array)){ ?>
 														<a target="_blank" href="<?php echo wpckan_get_link_to_dataset($dataset['id']);?>"><?php echo __($mapped_value, 'wp-odm_tabular_pages');?></a>
 													<?php
 													}else{
-														echo $mapped_value == '' || empty($mapped_value) ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
+														echo empty($mapped_value) ? __('Not found', 'wp-odm_tabular_pages') : __($mapped_value, 'wp-odm_tabular_pages');
 													}
+												echo "</td>";
+											elseif($undefiled_field_name == count($item)):
+												echo "<td>";
+													echo  __('Not found', 'wp-odm_tabular_pages');
 												echo "</td>";
 											endif;
 										endforeach;
