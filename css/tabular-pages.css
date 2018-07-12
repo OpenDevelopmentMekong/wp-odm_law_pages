@@ -258,7 +258,7 @@ td.entry_title a{
 .filter_setting{
   border: 1px solid #ddd;
   padding: 0 10px 0;
-  margin: 5px 0 0 1.9em;
+  margin: 5px 0 0 0;
 }
 
 .text_search_with_submit {
