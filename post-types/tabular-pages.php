@@ -229,13 +229,12 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
           $date_filter_label = get_post_meta($post->ID, '_attributes_date_filter_label', true);
           $date_filter_fieldname = get_post_meta($post->ID, '_attributes_date_filter_fieldname', true);
           $additional_filters_list = get_post_meta($post->ID, '_additional_filters_list', true);
+          $filters_from_selected_fieldnames_label = get_post_meta($post->ID, '_attributes_custom_filter_fieldname_label', true);          $filters_from_selected_fieldnames_label_localization = get_post_meta($post->ID, '_attributes_custom_filter_fieldname_label_localization', true);
           $filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
           $value_filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
           $group_filter_label = get_post_meta($post->ID, '_attributes_group_filter_label', true);
           $group_filter_label_localization = get_post_meta($post->ID, '_attributes_group_filter_label_localization', true);
           $value_filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filters_list', true);
-          $sub_group_filter_label = get_post_meta($post->ID, '_attributes_sub_group_filter_label', true);
-          $sub_group_filter_label_localization = get_post_meta($post->ID, '_attributes_sub_group_filter_label_localization', true);
           $sub_group_filter_label = get_post_meta($post->ID, '_attributes_sub_group_filter_label', true);
           $sub_group_filter_label_localization = get_post_meta($post->ID, '_attributes_sub_group_filter_label_localization', true);
           $filters_group_list = get_post_meta($post->ID, '_attributes_filters_group_list', true);
@@ -268,16 +267,43 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 </div>
 
                 <div class="filters-list-from-selected-fieldnames additional_filter_setting">
-                  <b><?php _e('Custom list of element filters', 'wp-odm_tabular_pages'); ?></b>
-                  <p>
-                  <label for="_attributes_custom_filter_fieldname">Please specify the content type and metafield names separated by comma. </br>
-                    eg.<i> laws_record[odm_document_type], agreement[odm_agreement_document_type]</i></label></br>
-                  <input id="_attributes_custom_filter_fieldname" type="text" placeholder="odm_document_type" size="80" name="_attributes_custom_filter_fieldname" value="<?php echo $filters_from_selected_fieldnames; ?>" />
+                <b><?php _e('Custom list of element filters', 'wp-odm_tabular_pages'); ?></b>
+                  <div id="group_filter_setting" class="filter_setting">
+                    <div id="multiple-site">
+                      <p>
+                        <input type="radio" id="en-filter-group" class="language-en" name="language_option_3" value="language-en" checked />
+                        <label for="en-filter-group"><?php _e('ENGLISH', 'wp-odm_tabular_pages');?></label> &nbsp;
+                        <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
+                        <input type="radio" id="localization-filter-group" class="languag-localization" name="language_option_3" value="language-localization" />
+                        <label for="localization-filter-group"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_tabular_pages');?></label>
+                        <?php endif; ?>
+                      </p>
+                    </div>
+                    <div class="language_settings language-en">
+                      <p>
+                      <label for="_attributes_custom_filter_fieldname_label">Label (English) : </label>
+                       <input id="_attributes_custom_filter_fieldname_label" type="text" placeholder="Document type" size="15" name="_attributes_custom_filter_fieldname_label" value="<?php echo $filters_from_selected_fieldnames_label; ?>" />
+                     </p>
+                    </div>
+                    <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
+                      <div class="language_settings language-localization">
+                        <p>
+                          <label for="_attributes_custom_filter_fieldname_label_localization">Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
+                          <input id="_attributes_custom_filter_fieldname_label_localization" type="text" placeholder="Document type" size="15" name="_attributes_custom_filter_fieldname_label_localization" value="<?php echo $filters_from_selected_fieldnames_label_localization; ?>" />
+                        </p>
+                      </div>
+                    <?php endif;?>
+                  </div>
+                  Defined metafield, please specify the content type and metafield names, and separated by comma.</br>
+                  <input id="_attributes_custom_filter_fieldname" type="text" placeholder="laws_record[odm_document_type]" size="80" name="_attributes_custom_filter_fieldname" value="<?php echo $filters_from_selected_fieldnames; ?>" />
+                  <p class="description">eg.<span style="width:135px"> &nbsp;</span><i> laws_record[odm_document_type], agreement[odm_agreement_document_type]</i></label></br>
                   </p>
+                  List the attributes or items that belong to metafield above to create the select item list for filtering.
                   <p><textarea id="_attributes_custom_filters_list" name="_attributes_custom_filters_list" style="width:100%; height: 100px;" placeholder="international_treaty"><?php echo $value_filters_from_selected_fieldnames; ?></textarea></p>
 
                   <p class="description"><?php _e('Please specify the elements (ids/attributes) and the corresponding field name, separated by line breaks. Please blank it, if the filter was created with Resource ID of CKAN.', 'wp-odm_tabular_pages'); ?>  <br />eg. international_treaty</p>
                 </div>
+
                 <div class="filters-list-from-selected-fieldnames-as-group additional_filter_setting">
                   <div id="group_filter_setting" class="filter_setting">
                     <div id="multiple-site">
@@ -300,7 +326,7 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
 
                       <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them metafield name and content type. Each group is separated by line breaks.  See below as sameple.', 'wp-odm_tabular_pages'); ?></p>
                       <textarea id="_attributes_filters_group_list" name="_attributes_filters_group_list" style="width:100%;height: 100px;" placeholder="dataset_type=>Laws[constitution, international_treaties, royal_decree]"><?php echo isset($filters_group_list)? $filters_group_list: null; ?></textarea></p>
-                      <p> eg. create group of content_type and odm_document_type filter: </br>
+                      <p> eg. Create group of content_type and odm_document_type filter: </br>
                         laws_record=>Laws{odm_document_type[constitution,international_treaty,code,law,royal_decree,sub-decree,proclamation,circular,decision,rule]}</br>
                         agreement=>Agreements{odm_agreement_document_type[contract,land_concession_contract,exploration_permit_licence, m_o_u]}</br>
                         other=>Others{odm_document_type[joint_statement, declaration, contract_amendment, action_plan,strategic_plan,policy]}
@@ -310,16 +336,18 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                       <div class="language_settings language-localization">
                         <p>
                         <label for="_attributes_group_filter_label_localization">Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
-                        <input id="_attributes_group_filter_label_localization" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label_localization" value="<?php echo $sub_group_filter_label_localization; ?>" /> &nbsp;&nbsp;&nbsp;
+                        <input id="_attributes_group_filter_label_localization" type="text" placeholder="Content type" size="20" name="_attributes_group_filter_label_localization" value="<?php echo $group_filter_label_localization; ?>" /> &nbsp;&nbsp;&nbsp;
                         <label for="_attributes_sub_group_filter_label_localization">Sub Group Label ( <?php echo odm_language_manager()->get_the_language_by_site();?>) : </label>
                         <input id="_attributes_sub_group_filter_label_localization" type="text" placeholder="Document type" size="20" name="_attributes_sub_group_filter_label_localization" value="<?php echo $sub_group_filter_label_localization; ?>" />
                         </p>
 
                         <p class="description"><?php _e('Please list the ids (attributes) that are avialbe in the field name separated by commands and group them separated by line breaks', 'wp-odm_tabular_pages'); ?></p>
                         <textarea id="_attributes_filters_group_list_localization" name="_attributes_filters_group_list_localization" style="width:100%;height: 100px;" placeholder="Laws[constitution, international_treaties, royal_decree]"><?php echo $filters_group_list_localization; ?></textarea></p>
-                        <p> eg. create group of odm_document_type filter: </br>
-                          laws_record=>ច្បាប់[constitution, international_treaties, royal_decree]</br>
-                          agreement=>កិច្ចព្រមព្រៀង[contracts, licenses, mou]
+                        <p> eg. Create group of odm_document_type filter: </br>
+                          laws_record=>ច្បាប់{odm_document_type[constitution,international_treaty,code,law,royal_decree,sub-decree,proclamation,circular,decision,rule]}
+                          </br/>
+                          agreement=>កិច្ចព្រមព្រៀង{odm_agreement_document_type[contract,land_concession_contract,exploration_permit_licence, m_o_u]}</br/>
+                          other=>ផ្សេងៗ{odm_document_type[joint_statement, declaration, contract_amendment, action_plan,strategic_plan,policy]}</br/>
                         </p>
                       </div>
                     <?php endif;?>
@@ -416,6 +444,12 @@ if (!class_exists('Odm_Tabular_Pages_Post_Type')) {
                 }
                 if (isset($_POST['_attributes_custom_filters_list'])) {
                     update_post_meta($post_id, '_attributes_custom_filters_list', $_POST['_attributes_custom_filters_list']);
+                }
+                if (isset($_POST['_attributes_custom_filter_fieldname_label'])) {
+                    update_post_meta($post_id, '_attributes_custom_filter_fieldname_label', $_POST['_attributes_custom_filter_fieldname_label']);
+                }
+                if (isset($_POST['_attributes_custom_filter_fieldname_label_localization'])) {
+                    update_post_meta($post_id, '_attributes_custom_filter_fieldname_label_localization', $_POST['_attributes_custom_filter_fieldname_label_localization']);
                 }
 
                 if (isset($_POST['_attributes_group_filter_label'])) {

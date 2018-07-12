@@ -38,6 +38,7 @@
 			$filters_datatables_list_array = parse_mapping_pairs($filters_datatables_list);
 		}elseif($additional_filters_option =="filters-list-from-selected-fieldnames"){
 			$filters_from_selected_fieldnames = get_post_meta($post->ID, '_attributes_custom_filter_fieldname', true);
+			$sub_group_filter_label = (odm_language_manager()->get_current_language() != "en") ? get_post_meta($post->ID, '_attributes_custom_filter_fieldname_label_localization', true) : get_post_meta($post->ID, '_attributes_custom_filter_fieldname_label', true);
 			if($filters_from_selected_fieldnames):
 				 $filters_from_selected_fieldnames_array = explode(",", trim($filters_from_selected_fieldnames));
 			endif;
