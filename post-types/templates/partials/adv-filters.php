@@ -184,7 +184,7 @@ elseif(isset($filters_from_selected_fieldnames)):
 
 	//Create Sub Group (Docuemnt type) Select box
 	$selected_param_array = $param_document_types;
-	$sub_group_filter_label = 'Document type';
+	$sub_group_filter_label = (isset($sub_group_filter_label) && $sub_group_filter_label)? $sub_group_filter_label : __('Document type', 'wp-odm_tabular_pages');
 	?>
 	<div class="<?php echo $num_columns?> columns">
 		<div class="adv-nav-input">
